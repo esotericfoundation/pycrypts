@@ -1,6 +1,10 @@
+import enum
+
 import pygame
 from pygame import Vector2
 from classes.entity import Entity
+
+MovementKeys = enum.Enum("MovementKeys", ["ARROW", "WASD"])
 
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
