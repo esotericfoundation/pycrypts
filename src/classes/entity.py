@@ -5,6 +5,8 @@ from src.enums.movement_keys import movement_keys
 
 class Entity:
 
+    entities = []
+
     def __init__(self, screen, position, character, size, movement_type):
         self.screen = screen
 
@@ -16,6 +18,8 @@ class Entity:
         self.size = size
 
         self.movement_type = movement_type
+
+        Entity.entities.append(self)
 
     def render(self):
         self.screen.blit(self.image, self.position)
