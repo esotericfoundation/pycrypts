@@ -24,16 +24,16 @@ while running:
     distance_travelled = pygame.Vector2()
 
     if keys[pygame.K_w]:
-        distance_travelled.y -= 300 * dt
+        distance_travelled.y -= 1
     if keys[pygame.K_s]:
-        distance_travelled.y += 300 * dt
+        distance_travelled.y += 1
     if keys[pygame.K_a]:
-        distance_travelled.x -= 300 * dt
+        distance_travelled.x -= 1
     if keys[pygame.K_d]:
-        distance_travelled.x += 300 * dt
+        distance_travelled.x += 1
 
     if distance_travelled.magnitude_squared() != 0:
-        distance_travelled = distance_travelled.normalize() * 5
+        distance_travelled = distance_travelled.normalize() * 5 * dt
 
         player_pos.x += distance_travelled.x
         player_pos.y += distance_travelled.y
