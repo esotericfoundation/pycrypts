@@ -1,5 +1,3 @@
-from multiprocessing.forkserver import connect_to_new_process
-
 import pygame
 
 from src.enums.movement_keys import movement_keys
