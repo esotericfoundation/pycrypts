@@ -2,7 +2,6 @@ import pygame
 
 from src.enums.movement_keys import movement_keys
 
-
 class Entity:
 
     entities = []
