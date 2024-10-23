@@ -2,7 +2,7 @@ import pygame
 
 from src.enums.movement_keys import movement_keys
 
-class Entity:
+class Player:
 
     entities = []
 
@@ -18,7 +18,7 @@ class Entity:
 
         self.movement_type = movement_type
 
-        Entity.entities.append(self)
+        Player.entities.append(self)
 
     def render(self):
         self.screen.blit(self.image, self.position)
@@ -46,7 +46,7 @@ class Entity:
 
             self.position += distance_travelled
 
-            for entity in Entity.entities:
+            for entity in Player.entities:
                 if entity == self:
                     continue
 
