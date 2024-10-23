@@ -8,16 +8,16 @@ dt = 0
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
+imp = pygame.image.load("./assets/character.png").convert()
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill("purple")
-
-    pygame.draw.circle(screen, "red", player_pos, 40)
-
     keys = pygame.key.get_pressed()
+
+    screen.fill((0, 0, 0))
 
     distance_travelled = pygame.Vector2()
 
@@ -35,6 +35,8 @@ while running:
 
         player_pos.x += distance_travelled.x
         player_pos.y += distance_travelled.y
+
+    screen.blit(imp, (player_pos.x, player_pos.y))
 
     pygame.display.flip()
 
