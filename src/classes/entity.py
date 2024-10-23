@@ -5,15 +5,6 @@ from src.enums.movement_keys import movement_keys
 
 class Entity:
 
-    screen = None
-
-    position = None
-
-    image = None
-    size = None
-
-    movement_type = None
-
     def __init__(self, screen, position, character, size, movement_type):
         self.screen = screen
 
