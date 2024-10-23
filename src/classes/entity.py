@@ -54,3 +54,6 @@ class Entity:
 
     def is_inside_hitbox(self, location):
         return self.position.distance_to(location) < (self.size / 2)
+
+    def is_colliding(self, entity):
+        return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
