@@ -10,6 +10,8 @@ player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 imp = pygame.image.load("./assets/character.png").convert()
 
+imp = pygame.transform.scale(imp, (64, 64))
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
