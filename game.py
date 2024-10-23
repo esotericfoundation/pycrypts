@@ -9,8 +9,8 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
-player = Entity(screen, Vector2(screen.get_width() / 2, screen.get_height() / 2), "pro", 64, movement_keys["ARROW"])
-rizzler = Entity(screen, Vector2(screen.get_width() / 2, screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"])
+player = Entity(screen, Vector2(screen.get_width() / 2 + 100, screen.get_height() / 2), "pro", 64, movement_keys["ARROW"])
+rizzler = Entity(screen, Vector2(screen.get_width() / 2 - 100, screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"])
 
 while running:
     for event in pygame.event.get():

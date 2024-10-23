@@ -1,3 +1,5 @@
+from multiprocessing.forkserver import connect_to_new_process
+
 import pygame
 
 from src.enums.movement_keys import movement_keys
@@ -46,6 +48,14 @@ class Entity:
             distance_travelled = distance_travelled.normalize() * 0.15
 
             self.position += distance_travelled
+
+            for entity in Entity.entities:
+                if entity == self:
+                    continue
+
+                if self.is_colliding(entity):
+                    self.position -= distance_travelled
+                    break
 
     def is_inside_hitbox(self, location):
         return self.position.distance_to(location) < (self.size / 2)
