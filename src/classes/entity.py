@@ -10,6 +10,7 @@ class Entity:
     position = None
 
     image = None
+    size = None
 
     movement_type = None
 
@@ -20,6 +21,8 @@ class Entity:
 
         image = pygame.image.load("./assets/characters/" + character + ".png").convert_alpha()
         self.image = pygame.transform.scale(image, (size, size))
+
+        self.size = size
 
         self.movement_type = movement_type
 
@@ -48,3 +51,6 @@ class Entity:
             distance_travelled = distance_travelled.normalize() * 0.15
 
             self.position += distance_travelled
+
+    def is_inside_hitbox(self, location):
+        return self.position.distance_to(location) < (self.size / 2)
