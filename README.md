@@ -1,2 +1,3 @@
-# dungeon-crawler-game
-A simple game using Python for our CS class.
+# Dungeon Crawler Game
+
+> A simple game using Python for our CS class.
