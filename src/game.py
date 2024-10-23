@@ -33,7 +33,7 @@ while running:
         distance_travelled.x += 1
 
     if distance_travelled.magnitude_squared() != 0:
-        distance_travelled = distance_travelled.normalize() * 5 * dt
+        distance_travelled = distance_travelled.normalize() * 225 * dt
 
         player_pos.x += distance_travelled.x
         player_pos.y += distance_travelled.y
