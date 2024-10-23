@@ -14,7 +14,7 @@ class Entity:
         self.position = position
 
         image = pygame.image.load("./assets/characters/" + character + ".png").convert()
-        self.image = pygame.transform.scale(image, size)
+        self.image = pygame.transform.scale(image, (size, size))
 
     def render(self):
         self.screen.blit(self.image, self.position)
