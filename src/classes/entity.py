@@ -3,9 +3,6 @@ import pygame
 class Entity:
 
     screen = None
-    ring = None
-    pen = None
-    king = None
 
     position = None
 
