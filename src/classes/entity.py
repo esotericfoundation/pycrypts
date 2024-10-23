@@ -3,6 +3,7 @@ import pygame
 class Entity:
 
     screen = None
+    clock = pygame.time.Clock()
 
     position = None
 
@@ -38,6 +39,6 @@ class Entity:
             distance_travelled.x += 1
 
         if distance_travelled.magnitude_squared() != 0:
-            distance_travelled = distance_travelled.normalize() * 225 * dt
+            distance_travelled = distance_travelled.normalize() * 225 * (self.clock.tick(60) / 1000)
 
             self.position += distance_travelled
