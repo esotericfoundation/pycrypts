@@ -6,7 +6,7 @@ from src.enums.movement_keys import movement_keys
 class Player(Entity):
 
     def __init__(self, screen, position, character, size, movement_type):
-        super().__init__(screen, position, character, size)
+        super().__init__(screen, position, "characters/" + character, size)
 
         self.movement_type = movement_type
 
