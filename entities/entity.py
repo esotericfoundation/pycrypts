@@ -14,7 +14,7 @@ class Entity:
 
         self.position = position
 
-        image = pygame.image.load("./assets/entities/" + character + ".png").convert_alpha()
+        image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
         self.image = pygame.transform.scale(image, (size, size))
 
         self.size = size
