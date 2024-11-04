@@ -11,7 +11,7 @@ class Fireball(Entity):
     def move(self):
         distance = Vector2(self.target) - self.position
         if distance.magnitude() < 0.5:
-            super().remove()
+            self.remove()
         movement = distance.normalize() * 0.5
         self.move_without_collision(movement)
         pass

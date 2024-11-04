@@ -13,4 +13,4 @@ class LivingEntity(Entity):
         self.health -= damage
 
         if self.health <= 0:
-            super().remove()
+            self.remove()
