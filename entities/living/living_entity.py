@@ -18,3 +18,9 @@ class LivingEntity(Entity):
 
         if self.health <= 0:
             self.remove()
+
+    def attack(self):
+        pass
+
+    def attack_entity(self, entity):
+        pass
