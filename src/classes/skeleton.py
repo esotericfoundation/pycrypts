@@ -1,4 +1,5 @@
 from src.classes.monster import Monster
+from src.classes.fireball import Fireball
 
 class Skeleton(Monster):
 
@@ -6,4 +7,4 @@ class Skeleton(Monster):
         super().__init__(screen, position, "skeleton", size)
 
     def attack_entity(self, entity):
-        print("Skeleton attacked entity")
+        Fireball(entity, self.screen, self.position, 32)
