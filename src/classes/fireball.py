@@ -1,3 +1,5 @@
+from pygame import Vector2
+
 from src.classes.entity import Entity
 
 class Fireball(Entity):
@@ -6,7 +8,7 @@ class Fireball(Entity):
         self.target = target
 
     def move(self):
-        direction = self.target.position - self.position
+        direction = Vector2(self.target) - self.position
         movement = direction.normalize() * 0.5
         self.move_without_collision(movement)
         pass
