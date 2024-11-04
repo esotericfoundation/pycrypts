@@ -8,7 +8,7 @@ class Player(Entity):
     players = []
 
     def __init__(self, screen, position, character, size, movement_type):
-        super().__init__(screen, position, "characters/" + character, size)
+        super().__init__(screen, position, "players/" + character, size)
 
         self.movement_type = movement_type
 
