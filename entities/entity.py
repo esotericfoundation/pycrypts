@@ -19,7 +19,6 @@ class Entity:
 
         self.size = size
 
-        print("Adding entity " + __name__)
         Entity.entities.append(self)
 
     def render(self):
@@ -53,6 +52,5 @@ class Entity:
         return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
 
     def remove(self):
-        print("Removing entity " + __name__)
         if self in Entity.entities:
             Entity.entities.remove(self)
