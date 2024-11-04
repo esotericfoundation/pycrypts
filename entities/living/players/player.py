@@ -7,6 +7,8 @@ from enums.movement_keys import movement_keys
 
 class Player(LivingEntity):
 
+    attack_cooldown = 1000
+
     players = []
 
     def __init__(self, screen, position, character, size, movement_type):
@@ -16,8 +18,14 @@ class Player(LivingEntity):
 
         Player.players.append(self)
 
+        self.time_since_last_attack = Player.attack_cooldown + 1
+
+
     def tick(self):
         super().tick()
+
+        self.time_since_last_attack += 1
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
             self.attack()
@@ -43,6 +51,9 @@ class Player(LivingEntity):
         Player.players.remove(self)
 
     def attack(self):
+        if self.time_since_last_attack < Player.attack_cooldown:
+            return
+
         attackable_entities = []
 
         for entity in Entity.entities:
@@ -70,6 +81,7 @@ class Player(LivingEntity):
 
     def attack_entity(self, entity):
         entity.damage(10)
+        self.time_since_last_attack = 0
 
     def damage(self, damage):
         super().damage(damage)
