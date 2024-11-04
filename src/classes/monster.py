@@ -4,7 +4,7 @@ from src.classes.player import Player
 
 class Monster(Entity):
 
-    attack_interval = 5
+    attack_interval = 500
 
     def __init__(self, screen, position, monster, size):
         super().__init__(screen, position, "monsters/" + monster, size)
