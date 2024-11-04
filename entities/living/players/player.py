@@ -8,7 +8,7 @@ class Player(LivingEntity):
     players = []
 
     def __init__(self, screen, position, character, size, movement_type):
-        super().__init__(screen, position, "players/" + character, size)
+        super().__init__(screen, position, "players/" + character, size, 100)
 
         self.movement_type = movement_type
 

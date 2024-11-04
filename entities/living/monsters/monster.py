@@ -6,8 +6,8 @@ class Monster(LivingEntity):
 
     attack_interval = 500
 
-    def __init__(self, screen, position, monster, size):
-        super().__init__(screen, position, "monsters/" + monster, size)
+    def __init__(self, screen, position, monster, size, health):
+        super().__init__(screen, position, "monsters/" + monster, size, health)
         self.attack_timer = 0
 
     def tick(self):
