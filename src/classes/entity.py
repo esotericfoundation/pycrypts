@@ -1,5 +1,10 @@
 import pygame
 
+def tick_all_entities():
+    for entity in Entity.entities:
+        entity.tick()
+    pass
+
 class Entity:
 
     entities = []

@@ -1,6 +1,7 @@
 import pygame
 from pygame import Vector2
 
+from src.classes.entity import tick_all_entities
 from src.classes.skeleton import Skeleton
 from src.classes.player import Player
 from src.enums.movement_keys import movement_keys
@@ -22,9 +23,7 @@ while running:
 
     screen.fill((0, 0, 0))
 
-    rizzler.tick()
-    player.tick()
-    monster.tick()
+    tick_all_entities()
 
     pygame.display.flip()
 
