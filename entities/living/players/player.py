@@ -70,3 +70,10 @@ class Player(LivingEntity):
 
     def attack_entity(self, entity):
         entity.damage(10)
+
+    def damage(self, damage):
+        super().damage(damage)
+
+        sound = pygame.mixer.Sound('assets/sounds/damage.mp3')
+        sound.set_volume(0.125)
+        pygame.mixer.Sound.play(sound)

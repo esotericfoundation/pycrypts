@@ -1,4 +1,3 @@
-import pygame
 from entities.entity import Entity
 
 class LivingEntity(Entity):
@@ -11,10 +10,6 @@ class LivingEntity(Entity):
 
     def damage(self, damage):
         self.health -= damage
-
-        sound = pygame.mixer.Sound('assets/sounds/damage.mp3')
-        sound.set_volume(0.125)
-        pygame.mixer.Sound.play(sound)
 
         if self.health <= 0:
             self.remove()
