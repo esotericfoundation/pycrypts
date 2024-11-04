@@ -14,7 +14,7 @@ class Monster(Entity):
         super().tick()
         self.attack_timer += 1
 
-        if (self.attack_timer == attack_interval):
+        if (self.attack_timer == self.attack_interval):
             self.attack_timer = 0
             self.attack()
 
