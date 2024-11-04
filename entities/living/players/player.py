@@ -11,8 +11,8 @@ class Player(LivingEntity):
 
     players = []
 
-    def __init__(self, screen, position, character, size, movement_type, attack_key):
-        super().__init__(screen, position, "players/" + character, size, 100)
+    def __init__(self, position, character, size, movement_type, attack_key):
+        super().__init__(position, "players/" + character, size, 100)
 
         self.movement_type = movement_type
         self.attack_key = attack_key

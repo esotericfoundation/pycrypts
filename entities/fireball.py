@@ -6,8 +6,8 @@ from entities.living.living_entity import LivingEntity
 
 class Fireball(Entity):
 
-    def __init__(self, target, screen, position, size):
-        super().__init__(screen, position, "fireball", size)
+    def __init__(self, target, position, size):
+        super().__init__(position, "fireball", size)
         self.target = Vector2(target)
 
     def move(self):

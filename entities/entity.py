@@ -1,6 +1,8 @@
 import pygame
 from pygame import Vector2
 
+from game import Game
+
 
 def tick_all_entities():
     for entity in Entity.entities:
@@ -11,9 +13,7 @@ def tick_all_entities():
 class Entity:
     entities = []
 
-    def __init__(self, screen, position, character, size):
-        self.screen = screen
-
+    def __init__(self, position, character, size):
         self.position = Vector2(position)
 
         image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
@@ -24,7 +24,7 @@ class Entity:
         Entity.entities.append(self)
 
     def render(self):
-        self.screen.blit(self.image, self.position)
+        Game.screen.blit(self.image, self.position)
 
     def tick(self):
         self.move()

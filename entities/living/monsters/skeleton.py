@@ -6,11 +6,11 @@ from entities.living.monsters.monster import Monster
 
 class Skeleton(Monster):
 
-    def __init__(self, screen, position, size):
-        super().__init__(screen, position, "skeleton", size, 250)
+    def __init__(self, position, size):
+        super().__init__(position, "skeleton", size, 250)
 
     def attack_entity(self, entity):
-        Fireball((entity.position.x, entity.position.y), self.screen, (self.position.x, self.position.y), 32)
+        Fireball((entity.position.x, entity.position.y), (self.position.x, self.position.y), 32)
 
     def is_colliding(self, entity):
         if isinstance(entity, Fireball):
