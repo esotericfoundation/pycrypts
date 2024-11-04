@@ -12,9 +12,9 @@ class Fireball(Entity):
         distance = Vector2(self.target) - self.position
         if distance.magnitude() < 0.5:
             self.remove()
+            return
         movement = distance.normalize() * 0.5
         self.move_without_collision(movement)
-        pass
 
     def is_colliding(self, entity):
         from entities.living.monsters.skeleton import Skeleton
