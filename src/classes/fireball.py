@@ -13,7 +13,7 @@ class Fireball(Entity):
 
     def is_colliding(self, entity):
         from src.classes.skeleton import Skeleton
-        if isinstance(entity, Skeleton):
+        if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 
         return super().is_colliding(entity)
