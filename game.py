@@ -1,5 +1,4 @@
 import pygame
-from pygame import Vector2
 
 from entities.entity import tick_all_entities
 from entities.living.monsters.skeleton import Skeleton
@@ -11,10 +10,10 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
-player = Player(screen, Vector2(screen.get_width() / 2 + 100, screen.get_height() / 2), "pro", 64, movement_keys["ARROW"])
-rizzler = Player(screen, Vector2(screen.get_width() / 2 - 100, screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"])
+player = Player(screen, (screen.get_width() / 2 + 100, screen.get_height() / 2), "pro", 64, movement_keys["ARROW"])
+rizzler = Player(screen, (screen.get_width() / 2 - 100, screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"])
 
-monster = Skeleton(screen, Vector2(screen.get_width() / 2, screen.get_height() / 2 - 100), 64)
+monster = Skeleton(screen, (screen.get_width() / 2, screen.get_height() / 2 - 100), 64)
 
 while running:
     for event in pygame.event.get():

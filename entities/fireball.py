@@ -7,10 +7,10 @@ class Fireball(Entity):
 
     def __init__(self, target, screen, position, size):
         super().__init__(screen, position, "fireball", size)
-        self.target = target
+        self.target = Vector2(target)
 
     def move(self):
-        distance = Vector2(self.target) - self.position
+        distance = self.target - self.position
         if distance.magnitude_squared() < 0.05:
             self.remove()
             return

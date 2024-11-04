@@ -73,7 +73,7 @@ class Player(LivingEntity):
                 closest_entity = entity
                 continue
 
-            if Vector2(closest_entity.position).distance_squared_to(self.position) < Vector2(entity.position).distance_squared_to(self.position):
+            if Vector2(closest_entity.position).distance_squared_to(self.position) < entity.position.distance_squared_to(self.position):
                 closest_entity = entity
 
         self.attack_entity(closest_entity)
