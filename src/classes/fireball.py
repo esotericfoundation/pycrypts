@@ -8,8 +8,10 @@ class Fireball(Entity):
         self.target = target
 
     def move(self):
-        direction = Vector2(self.target) - self.position
-        movement = direction.normalize() * 0.5
+        distance = Vector2(self.target) - self.position
+        if distance.magnitude() < 0.5:
+            super().remove()
+        movement = distance.normalize() * 0.5
         self.move_without_collision(movement)
         pass
 

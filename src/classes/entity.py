@@ -50,3 +50,6 @@ class Entity:
 
     def is_colliding(self, entity):
         return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
+
+    def remove(self):
+        Entity.entities.remove(self)
