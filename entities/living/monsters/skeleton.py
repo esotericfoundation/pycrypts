@@ -1,7 +1,6 @@
 from entities.fireball import Fireball
 from entities.living.monsters.monster import Monster
 
-
 class Skeleton(Monster):
 
     def __init__(self, screen, position, size):

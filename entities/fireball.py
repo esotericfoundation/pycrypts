@@ -3,7 +3,6 @@ from pygame import Vector2
 from entities.entity import Entity
 from entities.living.living_entity import LivingEntity
 
-
 class Fireball(Entity):
 
     def __init__(self, target, screen, position, size):
