@@ -20,7 +20,6 @@ class Player(LivingEntity):
 
         self.time_since_last_attack = Player.attack_cooldown + 1
 
-
     def tick(self):
         super().tick()
 
