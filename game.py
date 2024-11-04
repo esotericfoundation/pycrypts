@@ -1,10 +1,10 @@
 import pygame
 from pygame import Vector2
 
-from src.classes.entity import tick_all_entities
-from src.classes.skeleton import Skeleton
-from src.classes.player import Player
-from src.enums.movement_keys import movement_keys
+from entities.entity import tick_all_entities
+from entities.skeleton import Skeleton
+from entities.player import Player
+from enums.movement_keys import movement_keys
 
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))

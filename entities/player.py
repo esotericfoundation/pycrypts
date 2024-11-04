@@ -1,7 +1,7 @@
 import pygame
 
-from src.classes.entity import Entity
-from src.enums.movement_keys import movement_keys
+from entities.entity import Entity
+from enums.movement_keys import movement_keys
 
 class Player(Entity):
 

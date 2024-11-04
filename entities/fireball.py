@@ -1,6 +1,6 @@
 from pygame import Vector2
 
-from src.classes.entity import Entity
+from entities.entity import Entity
 
 class Fireball(Entity):
     def __init__(self, target, screen, position, size):
@@ -16,7 +16,7 @@ class Fireball(Entity):
         pass
 
     def is_colliding(self, entity):
-        from src.classes.skeleton import Skeleton
+        from entities.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 

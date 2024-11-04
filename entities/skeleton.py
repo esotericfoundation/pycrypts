@@ -1,5 +1,5 @@
-from src.classes.monster import Monster
-from src.classes.fireball import Fireball
+from entities.monster import Monster
+from entities.fireball import Fireball
 
 class Skeleton(Monster):
 
