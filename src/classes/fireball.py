@@ -10,3 +10,10 @@ class Fireball(Entity):
         movement = direction.normalize() * 0.5
         self.move_without_collision(movement)
         pass
+
+    def is_colliding(self, entity):
+        from src.classes.skeleton import Skeleton
+        if isinstance(entity, Skeleton):
+            return False
+
+        return super().is_colliding(entity)
