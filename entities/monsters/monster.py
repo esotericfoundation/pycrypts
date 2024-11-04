@@ -1,6 +1,6 @@
 import random
 from entities.entity import Entity
-from entities.player import Player
+from entities.players.player import Player
 
 class Monster(Entity):
 

@@ -1,4 +1,4 @@
-from entities.monster import Monster
+from entities.monsters.monster import Monster
 from entities.fireball import Fireball
 
 class Skeleton(Monster):

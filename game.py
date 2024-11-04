@@ -2,8 +2,8 @@ import pygame
 from pygame import Vector2
 
 from entities.entity import tick_all_entities
-from entities.skeleton import Skeleton
-from entities.player import Player
+from entities.monsters.skeleton import Skeleton
+from entities.players.player import Player
 from enums.movement_keys import movement_keys
 
 pygame.init()
