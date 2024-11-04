@@ -7,8 +7,8 @@ def tick_all_entities():
         entity.tick()
     pass
 
-class Entity:
 
+class Entity:
     entities = []
 
     def __init__(self, screen, position, character, size):

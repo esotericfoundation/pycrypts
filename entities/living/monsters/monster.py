@@ -1,9 +1,10 @@
 import random
+
 from entities.living.living_entity import LivingEntity
 from entities.living.players.player import Player
 
-class Monster(LivingEntity):
 
+class Monster(LivingEntity):
     attack_interval = 500
 
     def __init__(self, screen, position, monster, size, health):

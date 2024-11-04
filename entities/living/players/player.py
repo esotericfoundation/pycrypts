@@ -5,8 +5,8 @@ from entities.entity import Entity
 from entities.living.living_entity import LivingEntity
 from enums.movement_keys import movement_keys
 
-class Player(LivingEntity):
 
+class Player(LivingEntity):
     attack_cooldown = 1000
 
     players = []
@@ -74,7 +74,8 @@ class Player(LivingEntity):
                 closest_entity = entity
                 continue
 
-            if Vector2(closest_entity.position).distance_squared_to(self.position) < entity.position.distance_squared_to(self.position):
+            if Vector2(closest_entity.position).distance_squared_to(
+                    self.position) < entity.position.distance_squared_to(self.position):
                 closest_entity = entity
 
         self.attack_entity(closest_entity)
