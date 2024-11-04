@@ -11,10 +11,11 @@ class Player(LivingEntity):
 
     players = []
 
-    def __init__(self, screen, position, character, size, movement_type):
+    def __init__(self, screen, position, character, size, movement_type, attack_key):
         super().__init__(screen, position, "players/" + character, size, 100)
 
         self.movement_type = movement_type
+        self.attack_key = attack_key
 
         Player.players.append(self)
 
@@ -26,7 +27,7 @@ class Player(LivingEntity):
         self.time_since_last_attack += 1
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE]:
+        if keys[self.attack_key]:
             self.attack()
 
     def move(self):

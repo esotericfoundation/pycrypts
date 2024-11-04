@@ -10,8 +10,8 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
-player = Player(screen, (screen.get_width() / 2 + 100, screen.get_height() / 2), "pro", 64, movement_keys["ARROW"])
-rizzler = Player(screen, (screen.get_width() / 2 - 100, screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"])
+player = Player(screen, (screen.get_width() / 2 + 100, screen.get_height() / 2), "pro", 64, movement_keys["ARROW"], pygame.K_RSHIFT)
+rizzler = Player(screen, (screen.get_width() / 2 - 100, screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT)
 
 monster = Skeleton(screen, (screen.get_width() / 2, screen.get_height() / 2 - 100), 64)
 
