@@ -1,9 +1,9 @@
 import pygame
 
-from entities.entity import Entity
+from entities.living.living_entity import LivingEntity
 from enums.movement_keys import movement_keys
 
-class Player(Entity):
+class Player(LivingEntity):
 
     players = []
 

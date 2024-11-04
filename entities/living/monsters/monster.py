@@ -1,8 +1,8 @@
 import random
-from entities.entity import Entity
-from entities.players.player import Player
+from entities.living.living_entity import LivingEntity
+from entities.living.players.player import Player
 
-class Monster(Entity):
+class Monster(LivingEntity):
 
     attack_interval = 500
 

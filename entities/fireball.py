@@ -16,7 +16,7 @@ class Fireball(Entity):
         pass
 
     def is_colliding(self, entity):
-        from entities.monsters.skeleton import Skeleton
+        from entities.living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 
