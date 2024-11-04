@@ -7,7 +7,7 @@ from entities.living.players.player import Player
 class Monster(LivingEntity):
     attack_interval = 500
 
-    def __init__(self, position, monster, size, health):
+    def __init__(self, position: tuple[int, int], monster: str, size: int, health: int):
         super().__init__(position, "monsters/" + monster, size, health)
         self.attack_timer = 0
 
@@ -29,5 +29,5 @@ class Monster(LivingEntity):
         self.attack_entity(player)
         pass
 
-    def attack_entity(self, entity):
+    def attack_entity(self, entity: LivingEntity):
         pass

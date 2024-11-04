@@ -9,9 +9,9 @@ from enums.movement_keys import movement_keys
 class Player(LivingEntity):
     attack_cooldown = 1000
 
-    players = []
+    players: list["Player"] = []
 
-    def __init__(self, position, character, size, movement_type, attack_key):
+    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int):
         super().__init__(position, "players/" + character, size, 100)
 
         self.movement_type = movement_type
@@ -80,11 +80,11 @@ class Player(LivingEntity):
 
         self.attack_entity(closest_entity)
 
-    def attack_entity(self, entity):
+    def attack_entity(self, entity: LivingEntity):
         entity.damage(10)
         self.time_since_last_attack = 0
 
-    def damage(self, damage):
+    def damage(self, damage: int):
         super().damage(damage)
 
         sound = pygame.mixer.Sound('assets/sounds/damage.mp3')

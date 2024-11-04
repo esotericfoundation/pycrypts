@@ -5,9 +5,9 @@ from game import Game
 
 
 class Entity:
-    entities = []
+    entities: list["Entity"] = []
 
-    def __init__(self, position, character, size):
+    def __init__(self, position: tuple[int, int], character: str, size: int):
         self.position = Vector2(position)
 
         image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
@@ -27,7 +27,7 @@ class Entity:
     def move(self):
         pass
 
-    def move_without_collision(self, distance_travelled):
+    def move_without_collision(self, distance_travelled: Vector2):
         if distance_travelled.magnitude_squared() != 0:
             distance_travelled = distance_travelled.normalize() * 0.15
 
@@ -41,10 +41,10 @@ class Entity:
                     self.position -= distance_travelled
                     break
 
-    def is_inside_hitbox(self, location):
+    def is_inside_hitbox(self, location: tuple[int, int]):
         return self.position.distance_to(location) < (self.size / 2)
 
-    def is_colliding(self, entity):
+    def is_colliding(self, entity) -> bool:
         return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
 
     def remove(self):

@@ -6,7 +6,7 @@ from entities.living.living_entity import LivingEntity
 
 class Fireball(Entity):
 
-    def __init__(self, target, position, size):
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int):
         super().__init__(position, "fireball", size)
         self.target = Vector2(target)
 
@@ -18,7 +18,7 @@ class Fireball(Entity):
         movement = distance.normalize() * 0.5
         self.move_without_collision(movement)
 
-    def is_colliding(self, entity):
+    def is_colliding(self, entity: Entity) -> bool:
         from entities.living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
