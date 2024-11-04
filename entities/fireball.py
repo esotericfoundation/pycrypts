@@ -1,6 +1,8 @@
 from pygame import Vector2
 
 from entities.entity import Entity
+from entities.living.living_entity import LivingEntity
+
 
 class Fireball(Entity):
 
@@ -19,6 +21,11 @@ class Fireball(Entity):
     def is_colliding(self, entity):
         from entities.living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
+            return False
+
+        if isinstance(entity, LivingEntity):
+            entity.damage(10)
+            self.remove()
             return False
 
         return super().is_colliding(entity)
