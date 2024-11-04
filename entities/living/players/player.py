@@ -67,3 +67,6 @@ class Player(LivingEntity):
                 closest_entity = entity
 
         self.attack_entity(closest_entity)
+
+    def attack_entity(self, entity):
+        entity.damage(10)
