@@ -3,6 +3,7 @@ from pygame import Vector2
 from entities.entity import Entity
 
 class Fireball(Entity):
+
     def __init__(self, target, screen, position, size):
         super().__init__(screen, position, "fireball", size)
         self.target = target
