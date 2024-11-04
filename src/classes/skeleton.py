@@ -7,4 +7,4 @@ class Skeleton(Monster):
         super().__init__(screen, position, "skeleton", size)
 
     def attack_entity(self, entity):
-        Fireball(entity, self.screen, self.position, 32)
+        Fireball(entity, self.screen, (self.position.x, self.position.y), 32)
