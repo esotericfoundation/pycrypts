@@ -13,6 +13,7 @@ class LivingEntity(Entity):
         self.health -= damage
 
         sound = pygame.mixer.Sound('assets/sounds/damage.mp3')
+        sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)
 
         if self.health <= 0:
