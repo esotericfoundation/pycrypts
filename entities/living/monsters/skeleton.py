@@ -1,3 +1,5 @@
+import pygame
+
 from entities.fireball import Fireball
 from entities.living.monsters.monster import Monster
 
@@ -14,3 +16,10 @@ class Skeleton(Monster):
             return False
 
         return super().is_colliding(entity)
+
+    def damage(self, damage):
+        super().damage(damage)
+
+        sound = pygame.mixer.Sound('assets/sounds/skeleton_damage.mp3')
+        sound.set_volume(0.125)
+        pygame.mixer.Sound.play(sound)
