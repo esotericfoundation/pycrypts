@@ -54,4 +54,5 @@ class Entity:
 
     def remove(self):
         print("Removing entity " + __name__)
-        Entity.entities.remove(self)
+        if self in Entity.entities:
+            Entity.entities.remove(self)
