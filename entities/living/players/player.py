@@ -29,3 +29,7 @@ class Player(LivingEntity):
             distance_travelled.x += 1
 
         self.move_without_collision(distance_travelled)
+
+    def remove(self):
+        super().remove()
+        Player.players.remove(self)
