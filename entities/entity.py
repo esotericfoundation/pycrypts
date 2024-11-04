@@ -4,12 +4,6 @@ from pygame import Vector2
 from game import Game
 
 
-def tick_all_entities():
-    for entity in Entity.entities:
-        entity.tick()
-    pass
-
-
 class Entity:
     entities = []
 
