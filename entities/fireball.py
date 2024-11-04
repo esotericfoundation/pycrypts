@@ -23,9 +23,14 @@ class Fireball(Entity):
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 
-        if isinstance(entity, LivingEntity):
-            entity.damage(10)
-            self.remove()
-            return False
+        is_colliding = super().is_colliding(entity)
 
-        return super().is_colliding(entity)
+        if is_colliding:
+            if isinstance(entity, LivingEntity):
+                entity.damage(10)
+                self.remove()
+                return False
+
+            return True
+
+        return False
