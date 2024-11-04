@@ -19,7 +19,12 @@ class Monster(LivingEntity):
             self.attack()
 
     def attack(self):
-        player = Player.players[random.randint(0, len(Player.players) - 1)]
+        player_count = len(Player.players)
+
+        if player_count == 0:
+            return
+
+        player = Player.players[random.randint(0, player_count - 1)]
         self.attack_entity(player)
         pass
 
