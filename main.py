@@ -22,8 +22,8 @@ def tick():
 
     return True
 
-player = Player((Game.screen.get_width() / 2 + 100, Game.screen.get_height() / 2), "pro", 64, movement_keys["ARROW"], pygame.K_RSHIFT)
-rizzler = Player((Game.screen.get_width() / 2 - 100, Game.screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT)
+player = Player(Game.center + (100, 0), "pro", 64, movement_keys["ARROW"], pygame.K_RSHIFT)
+rizzler = Player(Game.center - (100, 0), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT)
 
 player_health_bar = HealthBar(player, 100, Game.screen.get_height() - 140, 300, 40)
 rizzler_health_bar = HealthBar(rizzler, Game.screen.get_width() - 100 - 300, Game.screen.get_height() - 140, 300, 40)
