@@ -1,8 +1,7 @@
 import pygame
-
-from entities.entity import Entity
-from entities.living.monsters.skeleton import Skeleton
-from entities.living.players.player import Player
+from tickable.entities.living.monsters.skeleton import Skeleton
+from tickable.tickable import Tickable
+from tickable.entities.living.players.player import Player
 from enums.movement_keys import movement_keys
 from game import Game
 
@@ -15,8 +14,8 @@ def tick():
 
     Game.screen.fill((0, 0, 0))
 
-    for entity in Entity.entities:
-        entity.tick()
+    for tickable in Tickable.tickables:
+        tickable.tick()
 
     pygame.display.flip()
 

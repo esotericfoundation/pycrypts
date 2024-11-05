@@ -1,9 +1,9 @@
 import pygame
 
-from entities.entity import Entity
-from entities.fireball import Fireball
-from entities.living.living_entity import LivingEntity
-from entities.living.monsters.monster import Monster
+from tickable.entities.entity import Entity
+from tickable.entities.fireball import Fireball
+from tickable.entities.living.living_entity import LivingEntity
+from tickable.entities.living.monsters.monster import Monster
 
 
 class Skeleton(Monster):

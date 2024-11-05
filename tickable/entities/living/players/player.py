@@ -1,9 +1,9 @@
 import pygame
 from pygame import Vector2
 
-from entities.entity import Entity
-from entities.living.living_entity import LivingEntity
 from enums.movement_keys import movement_keys
+from tickable.entities.entity import Entity
+from tickable.entities.living.living_entity import LivingEntity
 
 
 class Player(LivingEntity):
@@ -45,6 +45,7 @@ class Player(LivingEntity):
             distance_travelled.x += 1
 
         self.move_without_collision(distance_travelled)
+        print(self.position)
 
     def remove(self):
         super().remove()

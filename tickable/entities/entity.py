@@ -2,12 +2,14 @@ import pygame
 from pygame import Vector2
 
 from game import Game
+from tickable.tickable import Tickable
 
 
-class Entity:
+class Entity(Tickable):
     entities: list["Entity"] = []
 
     def __init__(self, position: tuple[int, int], character: str, size: int):
+        super().__init__()
         self.position = Vector2(position)
 
         image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
