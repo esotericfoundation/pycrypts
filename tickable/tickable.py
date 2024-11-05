@@ -7,3 +7,6 @@ class Tickable:
 
     def tick(self):
         pass
+
+    def remove(self):
+        Tickable.tickables.remove(self)
