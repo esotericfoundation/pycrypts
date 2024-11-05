@@ -26,6 +26,7 @@ player = Player((Game.screen.get_width() / 2 + 100, Game.screen.get_height() / 2
 rizzler = Player((Game.screen.get_width() / 2 - 100, Game.screen.get_height() / 2), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT)
 
 player_health_bar = HealthBar(player, 100, 600, 300, 40)
+rizzler_health_bar = HealthBar(rizzler, 700, 600, 300, 40)
 
 monster = Skeleton((Game.screen.get_width() / 2, Game.screen.get_height() / 2 - 100), 64)
 
