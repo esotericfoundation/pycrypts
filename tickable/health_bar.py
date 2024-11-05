@@ -23,4 +23,4 @@ class HealthBar(Tickable):
 
     def render(self):
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left_x - 5, self.top_left_y - 5, self.width + 10, self.height + 10))
-        pygame.draw.rect(Game.screen, (200, 20, 20), (self.top_left_x, self.top_left_y, self.width * (self.entity.health / self.entity.max_health), self.height))
+        pygame.draw.rect(Game.screen, (200, 50, 50), (self.top_left_x, self.top_left_y, self.width * (self.entity.health / self.entity.max_health), self.height))
