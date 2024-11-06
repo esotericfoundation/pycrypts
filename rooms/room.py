@@ -1,5 +1,8 @@
+from rooms.wall import Wall
+
+
 class Room:
-    def __init__(self, walls):
+    def __init__(self, walls: list[Wall]):
         self.walls = walls
         pass
 
