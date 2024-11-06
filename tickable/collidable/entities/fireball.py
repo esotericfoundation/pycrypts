@@ -1,7 +1,7 @@
 from pygame import Vector2
 
-from tickable.entities.entity import Entity
-from tickable.entities.living.living_entity import LivingEntity
+from tickable.collidable.entities.entity import Entity
+from tickable.collidable.entities.living.living_entity import LivingEntity
 
 
 class Fireball(Entity):
@@ -19,7 +19,7 @@ class Fireball(Entity):
         self.move_without_collision(movement)
 
     def is_colliding(self, entity: Entity) -> bool:
-        from tickable.entities.living.monsters.skeleton import Skeleton
+        from tickable.collidable.entities.living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 

@@ -2,10 +2,10 @@ import pygame
 from pygame import Vector2
 
 from game import Game
-from tickable.tickable import Tickable
+from tickable.collidable.collidable import Collidable
 
 
-class Entity(Tickable):
+class Entity(Collidable):
     entities: list["Entity"] = []
 
     def __init__(self, position: tuple[int, int], character: str, size: int):
@@ -43,7 +43,7 @@ class Entity(Tickable):
                     self.position -= distance_travelled
                     break
 
-    def is_inside_hitbox(self, location: tuple[int, int]):
+    def is_inside_hitbox(self, location: tuple[int, int]) -> bool:
         return self.position.distance_to(location) < (self.size / 2)
 
     def is_colliding(self, entity) -> bool:

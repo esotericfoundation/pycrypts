@@ -1,4 +1,4 @@
-from tickable.entities.entity import Entity
+from tickable.collidable.entities.entity import Entity
 
 
 class LivingEntity(Entity):

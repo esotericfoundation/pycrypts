@@ -1,9 +1,9 @@
 import pygame
 
 from rooms.tutorial import Tutorial
-from tickable.entities.living.monsters.skeleton import Skeleton
+from tickable.collidable.entities.living.monsters.skeleton import Skeleton
 from tickable.tickable import Tickable
-from tickable.entities.living.players.player import Player
+from tickable.collidable.entities.living.players.player import Player
 from enums.movement_keys import movement_keys
 from game import Game
 from tickable.health_bar import HealthBar

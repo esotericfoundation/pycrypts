@@ -1,7 +1,7 @@
 import random
 
-from tickable.entities.living.living_entity import LivingEntity
-from tickable.entities.living.players.player import Player
+from tickable.collidable.entities.living.living_entity import LivingEntity
+from tickable.collidable.entities.living.players.player import Player
 
 
 class Monster(LivingEntity):

@@ -1,9 +1,8 @@
 import pygame
-from pygame import Vector2
 
 from game import Game
 
-from tickable.entities.living.living_entity import LivingEntity
+from tickable.collidable.entities.living.living_entity import LivingEntity
 from tickable.text import Text
 from tickable.tickable import Tickable
 

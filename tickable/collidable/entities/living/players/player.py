@@ -2,8 +2,8 @@ import pygame
 from pygame import Vector2
 
 from enums.movement_keys import movement_keys
-from tickable.entities.entity import Entity
-from tickable.entities.living.living_entity import LivingEntity
+from tickable.collidable.entities.entity import Entity
+from tickable.collidable.entities.living.living_entity import LivingEntity
 
 
 class Player(LivingEntity):
