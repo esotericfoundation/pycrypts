@@ -59,7 +59,7 @@ class Wall(Collidable):
         point = Vector2(point)
 
         is_on_wall_1 = point.y == self.top_left.y and self.top_left.x <= point.x <= self.bottom_right.x
-        is_on_wall_2 = point.x == self.bottom_right.x + self.get_width() and self.top_left.y <= point.y <= self.bottom_right.y
+        is_on_wall_2 = point.x == self.bottom_right.x and self.top_left.y <= point.y <= self.bottom_right.y
         is_on_wall_3 = point.y == self.bottom_right.y and self.top_left.x <= point.x <= self.bottom_right.x
         is_on_wall_4 = point.x == self.top_left.x and self.top_left.y <= point.y <= self.bottom_right.y
 
