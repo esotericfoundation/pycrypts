@@ -5,4 +5,4 @@ from tickable.collidable.walls.wall import Wall
 
 class Tutorial(Room):
     def __init__(self):
-        super().__init__([Wall(Game.top_left, Game.bottom_left + (50, 0))])
+        super().__init__([Wall(Game.center - (50, 50), Game.center + (50, 50))])

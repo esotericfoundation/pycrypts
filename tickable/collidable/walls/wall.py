@@ -3,10 +3,16 @@ from pygame import Vector2
 
 from game import Game
 from tickable.collidable.collidable import Collidable
+from tickable.collidable.entities.entity import Entity
+from tickable.collidable.entities.fireball import Fireball
 from tickable.tickable import Tickable
+from util.get_line_circle_intersection import get_line_circle_intersection
 
 
 class Wall(Collidable):
+
+    points: list[tuple[tuple[int, int], tuple[int, int]]] = []
+
     def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int]):
         super().__init__()
         self.unload() # Not all walls should be ticked every frame.
@@ -35,6 +41,9 @@ class Wall(Collidable):
         width = self.bottom_right.x - self.top_left.x
         height = self.bottom_right.y - self.top_left.y
 
+        for point in Wall.points:
+            pygame.draw.line(Game.screen, (255, 255, 255), point[0], point[1], 3)
+
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
         pass
 
@@ -43,9 +52,37 @@ class Wall(Collidable):
         a_2, b_2, c_2 = 1, 0, self.bottom_right.x
         a_3, b_3, c_3 = 0, 1, self.bottom_right.y
         a_4, b_4, c_4 = 1, 0, self.top_left.x
+
         return (a_1, b_1, c_1), (a_2, b_2, c_2), (a_3, b_3, c_3), (a_4, b_4, c_4)
 
+    def is_on_wall_border(self, point: tuple[int, int]) -> bool:
+        point = Vector2(point)
+
+        is_on_wall_1 = point.y == self.top_left.y and self.top_left.x <= point.x <= self.bottom_right.x
+        is_on_wall_2 = point.x == self.bottom_right.x + self.get_width() and self.top_left.y <= point.y <= self.bottom_right.y
+        is_on_wall_3 = point.y == self.bottom_right.y and self.top_left.x <= point.x <= self.bottom_right.x
+        is_on_wall_4 = point.x == self.top_left.x and self.top_left.y <= point.y <= self.bottom_right.y
+
+        return is_on_wall_1 or is_on_wall_2 or is_on_wall_3 or is_on_wall_4
+
     def is_colliding(self, other: Collidable) -> bool:
-        # (x - h)^2 + (y - k)^2 = r^2
-        # ax + by = c
-        pass
+        if not isinstance(other, Entity):
+            return False
+
+        for a, b, c in self.get_borders():
+            solution = get_line_circle_intersection(a, b, c, other.position.x, other.position.y, other.size / 2)
+            if solution is None:
+                continue
+
+            if not self.is_on_wall_border(solution[0]) and not self.is_on_wall_border(solution[1]):
+                continue
+
+            if isinstance(other, Fireball):
+                other.remove()
+                return False
+
+            Wall.points.append(solution)
+
+            return True
+
+        return False
