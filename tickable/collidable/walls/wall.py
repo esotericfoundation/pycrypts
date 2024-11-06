@@ -38,6 +38,13 @@ class Wall(Collidable):
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
         pass
 
+    def get_borders(self):
+        a_1, b_1, c_1 = 0, 1, self.top_left.y
+        a_2, b_2, c_2 = 1, 0, self.bottom_right.x
+        a_3, b_3, c_3 = 0, 1, self.bottom_right.y
+        a_4, b_4, c_4 = 1, 0, self.top_left.x
+        return (a_1, b_1, c_1), (a_2, b_2, c_2), (a_3, b_3, c_3), (a_4, b_4, c_4)
+
     def is_colliding(self, other: Collidable) -> bool:
         # (x - h)^2 + (y - k)^2 = r^2
         # ax + by = c
