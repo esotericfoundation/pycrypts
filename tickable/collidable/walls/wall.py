@@ -16,6 +16,12 @@ class Wall(Collidable):
     def get_center(self):
         return (self.top_left + self.bottom_right) / 2.0
 
+    def get_width(self):
+        return self.top_left.x - self.bottom_right.x
+
+    def get_height(self):
+        return self.bottom_right.y - self.top_left.y
+
     def tick(self):
         self.render()
 
