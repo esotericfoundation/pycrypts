@@ -13,6 +13,9 @@ class Wall(Collidable):
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)
 
+    def get_center(self):
+        return (self.top_left + self.bottom_right) / 2.0
+
     def tick(self):
         self.render()
 
