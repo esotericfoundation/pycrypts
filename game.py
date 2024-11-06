@@ -13,4 +13,9 @@ class Game:
     height = screen.get_height()
     width = screen.get_width()
 
+    bottom_left = Vector2(0, height)
+    bottom_right = Vector2(width, height)
+    top_left = Vector2(0, 0)
+    top_right = Vector2(width, 0)
+
     center = Vector2(width / 2, height / 2)
