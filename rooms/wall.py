@@ -25,5 +25,7 @@ class Wall(Tickable):
         width = self.top_right.x - self.bottom_left.x
         height = self.top_right.y - self.bottom_left.y
 
+        print("Rendering wall")
+
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_right.x - width, self.bottom_left.y + height, width, height))
         pass
