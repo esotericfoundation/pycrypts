@@ -3,7 +3,6 @@ from pygame import Vector2
 
 from game import Game
 from tickable.collidable.collidable import Collidable
-from tickable.collidable.entities.entity import Entity
 from tickable.tickable import Tickable
 
 
@@ -30,7 +29,7 @@ class Wall(Collidable):
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
         pass
 
-    def is_colliding(self, other: Entity) -> bool:
+    def is_colliding(self, other: Collidable) -> bool:
         # (x - h)^2 + (y - k)^2 = r^2
         # ax + by = c
         pass
