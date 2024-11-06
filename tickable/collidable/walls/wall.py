@@ -2,10 +2,11 @@ import pygame
 from pygame import Vector2
 
 from game import Game
+from tickable.collidable.collidable import Collidable
 from tickable.tickable import Tickable
 
 
-class Wall(Tickable):
+class Wall(Collidable):
     def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int]):
         super().__init__()
         self.unload() # Not all walls should be ticked every frame.
@@ -26,4 +27,9 @@ class Wall(Tickable):
         height = self.bottom_right.y - self.top_left.y
 
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
+        pass
+
+    def is_colliding(self, other: Collidable) -> bool:
+        # (x - h)^2 + (y - k)^2 = r^2
+        # ax + by = c
         pass

@@ -1,4 +1,4 @@
-from rooms.wall import Wall
+from tickable.collidable.walls.wall import Wall
 
 
 class Room:
