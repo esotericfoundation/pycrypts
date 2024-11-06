@@ -26,10 +26,3 @@ def get_line_circle_intersection(a, b, c, h, k, r):
             return None
 
         return (x_1, y), (x_2, y)
-
-    y = (1j * b * b * (h * h + k * k - r * r) + 2 * b * c * h - 1j * c * c)/(2 * b * (b * (h + 1j * k) - 1j * c))
-    if y is complex:
-        return None
-
-    x = (c - b * y) / a
-    return (x, y), (x, y)
