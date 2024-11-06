@@ -1,4 +1,6 @@
 import pygame
+
+from rooms.tutorial import Tutorial
 from tickable.entities.living.monsters.skeleton import Skeleton
 from tickable.tickable import Tickable
 from tickable.entities.living.players.player import Player
@@ -29,6 +31,9 @@ player_health_bar = HealthBar(player, 100, Game.screen.get_height() - 140, 300, 
 rizzler_health_bar = HealthBar(rizzler, Game.screen.get_width() - 100 - 300, Game.screen.get_height() - 140, 300, 40)
 
 monster = Skeleton(Game.center - (0, 100), 64)
+
+tutorial = Tutorial()
+tutorial.load()
 
 while tick():
     pass
