@@ -9,8 +9,8 @@ def get_line_circle_intersection(a, b, c, h, k, r):
         x = c/a
 
         try:
-            y_1 = k + math.sqrt(-a * a * (a * a * (h * h - r * r) - 2 * a * c * h + c * c)) / a * a
-            y_2 = k - math.sqrt(-a * a * (a * a * (h * h - r * r) - 2 * a * c * h + c * c)) / a * a
+            y_1 = k + math.sqrt(-h * h + 2 * h * x + r * r - x * x)
+            y_2 = k - math.sqrt(-h * h + 2 * h * x + r * r - x * x)
         except ValueError:
             return None
 
@@ -20,8 +20,8 @@ def get_line_circle_intersection(a, b, c, h, k, r):
         y = c/b
 
         try:
-            x_1 = h + math.sqrt(-b * b * (b * b * (k * k - r * r) - 2 * b * c * k + c * c)) / b * b
-            x_2 = h - math.sqrt(-b * b * (b * b * (k * k - r * r) - 2 * b * c * k + c * c)) / b * b
+            x_1 = h + math.sqrt(-k * k + 2 * k * y + r * r - y * y)
+            x_2 = h - math.sqrt(-k * k + 2 * k * y + r * r - y * y)
         except ValueError:
             return None
 

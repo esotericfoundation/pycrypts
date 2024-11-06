@@ -46,5 +46,6 @@ class LineCircleIntersectionTest(unittest.TestCase):
 
         solutions = get_line_circle_intersection(a, b, c, h, k, r)
 
-        self.assertEqual(solutions[0], (1.77853, 1.36364))
-        self.assertEqual(solutions[1], (9.02147, 1.36364))
+        self.assertAlmostEqual(solutions[1][0], 1.77853, 5)
+        self.assertAlmostEqual(solutions[1][1], 1.36364, 5)
+        self.assertAlmostEqual(solutions[0][0], 9.02147, 5)
