@@ -2,10 +2,10 @@ import math
 
 
 def get_line_circle_intersection(a, b, c, h, k, r):
-    if a == 0:
-        if b == 0:
-            return None
+    if a == 0 and b == 0:
+        return None
 
+    if a == 0:
         y = c/b
 
         try:
