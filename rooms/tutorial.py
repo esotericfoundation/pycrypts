@@ -19,7 +19,7 @@ class Tutorial(Room):
         spawn_1 = (Game.top_right + (-200, 240))
         spawn_2 = (Game.bottom_right + (-200, -320))
 
-        super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2], spawn_1, spawn_2)
+        super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2], [], spawn_1, spawn_2)
 
     def spawn_monsters(self):
         skeleton_1 = Skeleton(Game.bottom_left + (160, -200), 64)
