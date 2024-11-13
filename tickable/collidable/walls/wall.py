@@ -47,19 +47,20 @@ class Wall(Collidable):
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
         pass
 
-    def is_colliding(self, other: Collidable) -> bool:
-        if isinstance(other, Entity):
-            if other.no_clip:
-                return False
+def is_colliding(self, other: Collidable) -> bool:
+    if isinstance(other, Entity):
+        if other.no_clip:
+            return False
 
-            other_top_left = other.get_top_left()
-            other_bottom_right = other.get_bottom_right()
+        # Get the top-left and bottom-right points for AABB collision
+        other_top_left = other.get_top_left()
+        other_bottom_right = other.get_bottom_right()
 
-            # Adjust for the radius of the entity to simulate a circle collision with the rectangle
-            radius = other.get_radius()
-            if (self.top_left.x < other_bottom_right.x - radius and
-                    self.bottom_right.x > other_top_left.x + radius and
-                    self.top_left.y < other_bottom_right.y - radius and
-                    self.bottom_right.y > other_top_left.y + radius):
-                return True
-        return False
+        # AABB collision check
+        if (self.top_left.x < other_bottom_right.x and
+                self.bottom_right.x > other_top_left.x and
+                self.top_left.y < other_bottom_right.y and
+                self.bottom_right.y > other_top_left.y):
+            return True
+    return False
+
