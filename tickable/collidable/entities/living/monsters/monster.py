@@ -3,6 +3,8 @@ import random
 from tickable.collidable.entities.living.living_entity import LivingEntity
 from tickable.collidable.entities.living.players.player import Player
 from game import Game
+from util.filter import filter_list
+
 
 class Monster(LivingEntity):
     attack_interval = 0.5
@@ -20,12 +22,16 @@ class Monster(LivingEntity):
             self.attack()
 
     def attack(self):
-        player_count = len(Player.players)
+        if len(Player.players) == 0:
+            return
+
+        player_list = filter_list(Player.players, self.sees_other)
+        player_count = len(player_list)
 
         if player_count == 0:
             return
 
-        player = Player.players[random.randint(0, player_count - 1)]
+        player = player_list[random.randint(0, player_count - 1)]
         self.attack_entity(player)
         pass
 
