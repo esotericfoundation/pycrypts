@@ -68,6 +68,9 @@ class Wall(Collidable):
     def is_colliding(self, other: Collidable) -> bool:
         # If the other collidable is an Entity, use axis-aligned bounding box (AABB) collision detection
         if isinstance(other, Entity):
+            if other.no_clip:
+                return False
+
             other_top_left = Vector2(other.get_top_left())
             other_bottom_right = Vector2(other.get_bottom_right())
 

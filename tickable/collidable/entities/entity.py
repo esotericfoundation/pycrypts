@@ -17,6 +17,8 @@ class Entity(Collidable):
 
         self.size = size
 
+        self.no_clip = False
+
         Entity.entities.append(self)
 
     def render(self):
@@ -47,6 +49,9 @@ class Entity(Collidable):
         return self.position.distance_to(location) < (self.size / 2)
 
     def is_colliding(self, entity: Collidable) -> bool:
+        if self.no_clip:
+            return False
+
         if isinstance(entity, Entity):
             return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
         return False # Collisions with things other than entities will be managed by those classes themselves.

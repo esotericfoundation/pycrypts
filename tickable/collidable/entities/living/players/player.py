@@ -30,6 +30,9 @@ class Player(LivingEntity):
         if keys[self.attack_key]:
             self.attack()
 
+        if keys[pygame.K_LALT]:
+            self.no_clip = not self.no_clip
+
     def move(self):
         keys = pygame.key.get_pressed()
 
