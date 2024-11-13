@@ -23,7 +23,7 @@ class Wall(Collidable):
         return (self.top_left + self.bottom_right) / 2.0
 
     def get_width(self):
-        return self.top_left.x - self.bottom_right.x
+        return self.bottom_right.x - self.top_left.x
 
     def get_height(self):
         return self.bottom_right.y - self.top_left.y
