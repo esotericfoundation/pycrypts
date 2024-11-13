@@ -66,23 +66,37 @@ class Wall(Collidable):
         return is_on_wall_1 or is_on_wall_2 or is_on_wall_3 or is_on_wall_4
 
     def is_colliding(self, other: Collidable) -> bool:
-        if not isinstance(other, Entity):
-            return False
+        # If the other collidable is an Entity, use axis-aligned bounding box (AABB) collision detection
+        if isinstance(other, Entity):
+            other_top_left = Vector2(other.get_top_left())
+            other_bottom_right = Vector2(other.get_bottom_right())
 
-        for a, b, c in self.get_borders():
-            solution = get_line_circle_intersection(a, b, c, other.position.x, other.position.y, other.size / 2)
-            if solution is None:
-                continue
+            # Check for overlap using AABB (Axis-Aligned Bounding Box) detection
+            if (self.top_left.x < other_bottom_right.x and
+                    self.bottom_right.x > other_top_left.x and
+                    self.top_left.y < other_bottom_right.y and
+                    self.bottom_right.y > other_top_left.y):
+                return True
 
-            if not self.is_on_wall_border(solution[0]) and not self.is_on_wall_border(solution[1]):
-                continue
+        # If the other collidable is a Fireball, treat it as a circle and use line-circle intersection checks
+        elif isinstance(other, Fireball):
+            # Get the center of the fireball and its radius
+            fireball_center = other.get_center()
+            fireball_radius = other.get_radius()
 
-            if isinstance(other, Fireball):
-                other.remove()
-                return False
+            # Check each border of the wall as a line segment for intersection with the fireball's circle
+            borders = [
+                (self.top_left, Vector2(self.bottom_right.x, self.top_left.y)),  # Top border
+                (Vector2(self.bottom_right.x, self.top_left.y), self.bottom_right),  # Right border
+                (self.bottom_right, Vector2(self.top_left.x, self.bottom_right.y)),  # Bottom border
+                (Vector2(self.top_left.x, self.bottom_right.y), self.top_left)  # Left border
+            ]
 
-            Wall.points.append(solution)
+            for start, end in borders:
+                # Use the `get_line_circle_intersection` utility to check for any intersection points
+                intersections = get_line_circle_intersection(start, end, fireball_center, fireball_radius)
+                if intersections:  # If there are intersection points, the fireball is colliding with the wall
+                    return True
 
-            return True
-
+        # No collision detected
         return False
