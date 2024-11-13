@@ -79,3 +79,6 @@ class Entity(Collidable):
 
     def get_bottom_left(self):
         return self.position + (-self.get_radius(), self.get_radius())
+
+    def get_points(self):
+        return [self.get_top_left(), self.get_bottom_right(), self.get_top_right(), self.get_bottom_left()]
