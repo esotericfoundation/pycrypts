@@ -50,15 +50,15 @@ class Wall(Collidable):
         pass
 
     def is_colliding(self, other: Collidable) -> bool:
-        if isinstance(other, Entity):
-            if other.no_clip:
-                return False
+        if isinstance(other, Entity) and not other.no_clip:
+            other_top_left = other.get_top_left()
+            other_bottom_right = other.get_bottom_right()
 
-            points = other.get_points()
-
-            for point in points:
-                if self.contains_point(point):
-                    return True
+            # AABB collision check for consistency
+            return (self.top_left.x < other_bottom_right.x and
+                    self.bottom_right.x > other_top_left.x and
+                    self.top_left.y < other_bottom_right.y and
+                    self.bottom_right.y > other_top_left.y)
         return False
 
     def contains_point(self, point: tuple[int, int] | Vector2) -> bool:
