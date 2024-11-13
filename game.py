@@ -5,7 +5,7 @@ pygame.init()
 
 
 class Game:
-    screen = pygame.display.set_mode((1280, 720), pygame.FULLSCREEN)
+    screen = pygame.display.set_mode((1280, 720))
     pygame.display.set_caption("Dungeon Crawler")
 
     icon = pygame.image.load('assets/big-skeleton-face.png')
