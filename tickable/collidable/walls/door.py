@@ -29,6 +29,9 @@ class Door(Wall):
 
         all_players_ready = True
 
+        if len(Player.players) == 0:
+            return
+
         for player in Player.players:
             if not self.is_colliding(player):
                 all_players_ready = False
