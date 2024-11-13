@@ -41,6 +41,8 @@ class Wall(Collidable):
         width = self.bottom_right.x - self.top_left.x
         height = self.bottom_right.y - self.top_left.y
 
+        print(f"Top-left: {self.top_left}, Bottom-right: {self.bottom_right}, Width: {width}, Height: {height}")
+
         # for point in Wall.points:
             # pygame.draw.line(Game.screen, (255, 255, 255), point[0], point[1], 3)
 
