@@ -1,3 +1,5 @@
+import time
+
 import pygame
 from pygame import Vector2
 
@@ -5,6 +7,9 @@ pygame.init()
 
 
 class Game:
+    past = time.time()
+    dt = 0
+
     screen = pygame.display.set_mode((1280, 720))
     pygame.display.set_caption("Dungeon Crawler")
 

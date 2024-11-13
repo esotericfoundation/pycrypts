@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 
 from rooms.tutorial import Tutorial
 from tickable.tickable import Tickable
@@ -9,8 +9,11 @@ from tickable.health_bar import HealthBar
 
 running = True
 
-
 def tick():
+    present = time.time()
+    Game.dt = present - Game.past
+    Game.past = present
+
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_ESCAPE]:

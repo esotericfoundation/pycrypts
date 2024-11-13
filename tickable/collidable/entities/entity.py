@@ -33,7 +33,7 @@ class Entity(Collidable):
 
     def move_without_collision(self, distance_travelled: Vector2):
         if distance_travelled.magnitude_squared() != 0:
-            distance_travelled = distance_travelled.normalize() * 0.15
+            distance_travelled = distance_travelled.normalize() * 250 * Game.dt
 
             self.position += distance_travelled
 
