@@ -66,7 +66,6 @@ class Wall(Collidable):
         return is_on_wall_1 or is_on_wall_2 or is_on_wall_3 or is_on_wall_4
 
     def is_colliding(self, other: Collidable) -> bool:
-        # If the other collidable is an Entity, use axis-aligned bounding box (AABB) collision detection
         if isinstance(other, Entity):
             if other.no_clip:
                 return False
@@ -74,12 +73,9 @@ class Wall(Collidable):
             other_top_left = Vector2(other.get_top_left())
             other_bottom_right = Vector2(other.get_bottom_right())
 
-            # Check for overlap using AABB (Axis-Aligned Bounding Box) detection
             if (self.top_left.x < other_bottom_right.x and
                     self.bottom_right.x > other_top_left.x and
                     self.top_left.y < other_bottom_right.y and
                     self.bottom_right.y > other_top_left.y):
                 return True
-
-        # No collision detected
         return False
