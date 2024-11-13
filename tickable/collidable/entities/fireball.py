@@ -19,6 +19,9 @@ class Fireball(Entity):
         self.move_without_collision(movement)
 
     def is_colliding(self, entity: Entity) -> bool:
+        if entity.no_clip:
+            return False
+
         from tickable.collidable.entities.living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
