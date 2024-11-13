@@ -52,12 +52,14 @@ class Wall(Collidable):
             if other.no_clip:
                 return False
 
-            other_top_left = Vector2(other.get_top_left())
-            other_bottom_right = Vector2(other.get_bottom_right())
+            other_top_left = other.get_top_left()
+            other_bottom_right = other.get_bottom_right()
 
-            if (self.top_left.x < other_bottom_right.x and
-                    self.bottom_right.x > other_top_left.x and
-                    self.top_left.y < other_bottom_right.y and
-                    self.bottom_right.y > other_top_left.y):
+            # Adjust for the radius of the entity to simulate a circle collision with the rectangle
+            radius = other.get_radius()
+            if (self.top_left.x < other_bottom_right.x - radius and
+                    self.bottom_right.x > other_top_left.x + radius and
+                    self.top_left.y < other_bottom_right.y - radius and
+                    self.bottom_right.y > other_top_left.y + radius):
                 return True
         return False
