@@ -78,13 +78,12 @@ class Wall(Collidable):
                     self.bottom_right.y > other_top_left.y):
                 return True
 
-        # If the other collidable is a Fireball, treat it as a circle and use line-circle intersection checks
+        # If the other collidable is a Fireball, treat it as a circle and use manual line-circle intersection checks
         elif isinstance(other, Fireball):
-            # Get the center of the fireball and its radius
             fireball_center = other.get_center()
             fireball_radius = other.get_radius()
 
-            # Check each border of the wall as a line segment for intersection with the fireball's circle
+            # Define the four borders of the wall as line segments
             borders = [
                 (self.top_left, Vector2(self.bottom_right.x, self.top_left.y)),  # Top border
                 (Vector2(self.bottom_right.x, self.top_left.y), self.bottom_right),  # Right border
@@ -93,9 +92,20 @@ class Wall(Collidable):
             ]
 
             for start, end in borders:
-                # Use the `get_line_circle_intersection` utility to check for any intersection points
-                intersections = get_line_circle_intersection(start, end, fireball_center, fireball_radius)
-                if intersections:  # If there are intersection points, the fireball is colliding with the wall
+                # Calculate the closest point on the line segment to the circle center
+                line_vec = end - start
+                point_vec = fireball_center - start
+                line_len_sq = line_vec.length_squared()  # Square of the line length
+
+                # Project point_vec onto line_vec, but clamp between 0 and line_len_sq
+                t = max(0, min(1, point_vec.dot(line_vec) / line_len_sq))
+                closest_point = start + t * line_vec  # Closest point on the line segment
+
+                # Calculate distance from closest point to the circle center
+                distance_sq = (fireball_center - closest_point).length_squared()
+
+                # If the distance is less than or equal to the radius squared, there's a collision
+                if distance_sq <= fireball_radius ** 2:
                     return True
 
         # No collision detected
