@@ -35,7 +35,7 @@ rizzler = Player(Game.center - (100, 0), "rizzler", 64, movement_keys["WASD"], p
 player_health_bar = HealthBar(player, 100, Game.screen.get_height() - 140, 300, 40)
 rizzler_health_bar = HealthBar(rizzler, Game.screen.get_width() - 100 - 300, Game.screen.get_height() - 140, 300, 40)
 
-monster = Skeleton(Game.center - (0, 100), 64)
+# monster = Skeleton(Game.center - (0, 100), 64)
 
 tutorial = Tutorial()
 tutorial.load()
