@@ -46,7 +46,7 @@ class Wall(Collidable):
         # for point in Wall.points:
             # pygame.draw.line(Game.screen, (255, 255, 255), point[0], point[1], 3)
 
-        pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
+        pygame.draw.rect(Game.screen, (115, 115, 115), ((Game.center - (50, 50)).x, (Game.center - (50, 50)).y, 100, 100))
         pass
 
     def is_colliding(self, other: Collidable) -> bool:
