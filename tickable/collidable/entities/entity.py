@@ -56,3 +56,15 @@ class Entity(Collidable):
 
         if self in Entity.entities:
             Entity.entities.remove(self)
+
+    def get_radius(self):
+        return self.size / 2.0
+
+    def get_center(self):
+        return self.position
+
+    def get_top_left(self):
+        return self.position - (self.get_radius(), self.get_radius())
+
+    def get_bottom_right(self):
+        return self.position + (self.get_radius(), self.get_radius())
