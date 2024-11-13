@@ -37,11 +37,11 @@ class Entity(Collidable):
 
             self.position += distance_travelled
 
-            for entity in Collidable.collidables:
-                if entity == self:
+            for collidable in Collidable.collidables:
+                if collidable == self:
                     continue
 
-                if self.is_colliding(entity) or entity.is_colliding(self):
+                if self.is_colliding(collidable) or collidable.is_colliding(self):
                     self.position -= distance_travelled
                     break
 
@@ -54,7 +54,11 @@ class Entity(Collidable):
 
         if isinstance(entity, Entity):
             return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
-        return False # Collisions with things other than entities will be managed by those classes themselves.
+
+        from tickable.collidable.walls.wall import Wall
+        if isinstance(entity, Wall):
+            return entity.is_colliding(self)
+        return False
 
     def remove(self):
         super().remove()

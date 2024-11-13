@@ -29,11 +29,10 @@ class Fireball(Entity):
         is_colliding = super().is_colliding(entity)
 
         if is_colliding:
+            self.remove()
             if isinstance(entity, LivingEntity):
                 entity.damage(10)
-                self.remove()
                 return False
-
             return True
 
         return False
