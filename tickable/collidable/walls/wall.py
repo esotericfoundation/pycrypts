@@ -3,6 +3,7 @@ from pygame import Vector2
 
 from game import Game
 from tickable.collidable.collidable import Collidable
+from tickable.collidable.entities import entity
 from tickable.collidable.entities.entity import Entity
 from tickable.collidable.entities.fireball import Fireball
 from tickable.tickable import Tickable
@@ -57,7 +58,7 @@ class Wall(Collidable):
             points = other.get_points()
 
             for point in points:
-                if self.contains_point(point):
+                if self.contains_point(point + (other.get_radius(), other.get_radius())):
                     return True
         return False
 
