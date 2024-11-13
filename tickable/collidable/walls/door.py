@@ -2,14 +2,13 @@ import pygame
 from pygame import Rect
 
 from game import Game
-from rooms.room import Room
 from tickable.collidable.collidable import Collidable
 from tickable.collidable.entities.living.players.player import Player
 from tickable.collidable.walls.wall import Wall
 
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: Room):
+    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room"):
         super().__init__(top_left, bottom_right)
 
         self.players_in_door = []
