@@ -47,24 +47,6 @@ class Wall(Collidable):
         pygame.draw.rect(Game.screen, (115, 115, 115), (self.top_left.x, self.top_left.y, width, height))
         pass
 
-    def get_borders(self):
-        a_1, b_1, c_1 = 0, 1, self.top_left.y
-        a_2, b_2, c_2 = 1, 0, self.bottom_right.x
-        a_3, b_3, c_3 = 0, 1, self.bottom_right.y
-        a_4, b_4, c_4 = 1, 0, self.top_left.x
-
-        return (a_1, b_1, c_1), (a_2, b_2, c_2), (a_3, b_3, c_3), (a_4, b_4, c_4)
-
-    def is_on_wall_border(self, point: tuple[int, int]) -> bool:
-        point = Vector2(point)
-
-        is_on_wall_1 = point.y == self.top_left.y and self.top_left.x <= point.x <= self.bottom_right.x
-        is_on_wall_2 = point.x == self.bottom_right.x and self.top_left.y <= point.y <= self.bottom_right.y
-        is_on_wall_3 = point.y == self.bottom_right.y and self.top_left.x <= point.x <= self.bottom_right.x
-        is_on_wall_4 = point.x == self.top_left.x and self.top_left.y <= point.y <= self.bottom_right.y
-
-        return is_on_wall_1 or is_on_wall_2 or is_on_wall_3 or is_on_wall_4
-
     def is_colliding(self, other: Collidable) -> bool:
         if isinstance(other, Entity):
             if other.no_clip:
