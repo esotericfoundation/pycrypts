@@ -21,6 +21,7 @@ class Door(Wall):
         pass
 
     def on_players_enter(self):
+        print("Entering next room")
         Game.current_room.unload()
         self.destination.load()
 
