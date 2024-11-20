@@ -21,8 +21,9 @@ class Door(Wall):
         pass
 
     def on_players_enter(self):
+        self.game.current_room.unload()
+
         if self.destination is not None:
-            self.game.current_room.unload()
             self.destination.load()
 
     def tick(self):

@@ -12,7 +12,8 @@ class Skeleton(Monster):
         super().__init__(position, "skeleton", size, 250, game)
 
     def attack_entity(self, entity: LivingEntity):
-        Fireball((entity.position.x, entity.position.y), (self.position.x, self.position.y), 32, self.game)
+        fb = Fireball((entity.position.x, entity.position.y), (self.position.x, self.position.y), 32, self.game)
+        fb.set_scale(1.0)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Fireball):

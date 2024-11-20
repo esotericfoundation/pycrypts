@@ -15,7 +15,7 @@ class Wall(Collidable):
     ] = []
 
     def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "Game"):
-        super().__init__(game)
+        super().__init__()
         self.unload()  # Not all walls should be ticked every frame.
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)

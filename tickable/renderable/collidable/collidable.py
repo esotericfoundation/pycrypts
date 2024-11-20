@@ -3,13 +3,13 @@ from tickable.tickable import Tickable
 
 
 def get_collidables():
-    return list(filter(lambda tickable: isinstance(tickable, Collidable), Tickable.tickables))
+    return filter(lambda tickable: isinstance(tickable, Collidable), Tickable.tickables)
 
 
 class Collidable(Renderable):
 
-    def __init__(self, game: "Game"):
-        super().__init__(game)
+    def __init__(self):
+        super().__init__()
 
     def is_inside_hitbox(self, location: tuple[int, int]) -> bool:
         pass

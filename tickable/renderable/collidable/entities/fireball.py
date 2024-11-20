@@ -13,7 +13,6 @@ class Fireball(Entity):
     def move(self):
         distance = self.target - self.position
         if distance.magnitude_squared() < 0.05:
-            print("Close to target!")
             self.unload()
             return
         movement = distance.normalize() * 0.5
@@ -30,7 +29,6 @@ class Fireball(Entity):
         is_colliding = super().is_colliding(entity)
 
         if is_colliding:
-            print("Colliding!")
             self.unload()
             if isinstance(entity, LivingEntity):
                 entity.damage(10)
