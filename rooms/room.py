@@ -7,12 +7,13 @@ from game import Game
 
 
 class Room:
-    def __init__(self, walls: list[Wall], doors: list[Door], spawn_1: tuple[int, int], spawn_2: [int, int]):
+    def __init__(self, walls: list[Wall], doors: list[Door], spawn_1: tuple[int, int], spawn_2: [int, int], entity_scale=1.0):
         self.walls = walls
         self.doors = doors
         self.monsters = []
         self.spawn_1 = spawn_1
         self.spawn_2 = spawn_2
+        self.entity_scale = entity_scale
         pass
 
     def load(self):
