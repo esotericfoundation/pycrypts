@@ -12,6 +12,7 @@ class Room:
         self.spawn_2 = spawn_2
         self.entity_scale = entity_scale
         self.game = game
+        self.other_entities = []
         pass
 
     def load(self):
@@ -49,6 +50,9 @@ class Room:
 
         for monster in self.monsters:
             monster.unload()
+
+        for other_entity in self.other_entities:
+            other_entity.unload()
 
     def spawn_monsters(self):
         pass

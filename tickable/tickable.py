@@ -12,4 +12,5 @@ class Tickable:
         Tickable.tickables.append(self)
 
     def unload(self):
-        Tickable.tickables.remove(self)
+        if self in Tickable.tickables:
+            Tickable.tickables.remove(self)
