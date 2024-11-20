@@ -31,4 +31,5 @@ class Tutorial(Room):
         skeleton_1 = Skeleton(Game.bottom_left + (160, -200), 64)
         skeleton_2 = Skeleton(Game.bottom_left + (300, -200), 64)
 
-        self.monsters.append(skeleton_1, skeleton_2)
+        self.monsters.append(skeleton_1)
+        self.monsters.append(skeleton_2)
