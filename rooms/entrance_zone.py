@@ -7,12 +7,12 @@ from tickable.collidable.walls.wall import Wall
 class EntranceZone(Room):
 
     def __init__(self):
-        border_left = Wall(Game.top_left, Game.bottom_left + (80, 0))
-        border_right_1 = Wall(Game.top_right + (-80, 0), Game.top_right + (0, 240))
-        border_right_2 = Wall(Game.top_right + (-80, 480), Game.bottom_right)
-        border_top_1 = Wall(Game.top_left, Game.top_left + (160, 80))
-        border_top_2 = Wall(Game.top_left + (400, 0), Game.top_right + (0, 80))
-        border_bottom = Wall(Game.bottom_left + (0, -80), Game.bottom_right)
+        border_left = Wall(Game.top_left, Game.bottom_left + (40, 0))
+        border_right_1 = Wall(Game.top_right + (-40, 0), Game.top_right + (0, 240))
+        border_right_2 = Wall(Game.top_right + (-40, 480), Game.bottom_right)
+        border_top_1 = Wall(Game.top_left, Game.top_left + (160, 40))
+        border_top_2 = Wall(Game.top_left + (400, 0), Game.top_right + (0, 40))
+        border_bottom = Wall(Game.bottom_left + (0, -40), Game.bottom_right)
 
         spawn_1 = (Game.top_right + (-200, 240))
         spawn_2 = (Game.bottom_right + (-200, -320))
