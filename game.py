@@ -7,6 +7,9 @@ pygame.init()
 
 
 class Game:
+    debug = True
+    clicked_positions: [(int, int), (int, int)] = [None, None]
+
     past = time.time()
     dt = 0
 

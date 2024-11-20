@@ -2,6 +2,7 @@ import pygame, time
 
 from rooms.entrance_zone import EntranceZone
 from rooms.tutorial import Tutorial
+from tickable.collidable.walls.wall import Wall
 from tickable.tickable import Tickable
 from tickable.collidable.entities.living.players.player import Player
 from enums.movement_keys import movement_keys
@@ -24,12 +25,37 @@ def tick():
         if event.type == pygame.QUIT:
             return False
 
+        if Game.debug and event.type == pygame.MOUSEBUTTONUP:
+            print("DEBUG MOUSE CLICK!")
+            pos = pygame.mouse.get_pos()
+            print(f'POSITION SELECTED: ({pos[0]}, {pos[1]})')
+
+            debug_pos_1 = Game.clicked_positions[0]
+            debug_pos_2 = Game.clicked_positions[1]
+
+            if debug_pos_1 is None:
+                Game.clicked_positions[0] = pos
+                continue
+
+            if debug_pos_2 is None:
+                Game.clicked_positions[1] = pos
+                debug_pos_2 = pos
+
+            print(debug_pos_1)
+            print(debug_pos_2)
+
+            wall = Wall(debug_pos_1, debug_pos_2)
+            print(wall.to_string())
+
+            Game.clicked_positions = [None, None]
+
     Game.screen.fill((0, 0, 0))
 
     for tickable in Tickable.tickables:
         tickable.tick()
 
     pygame.display.flip()
+
 
     return True
 
