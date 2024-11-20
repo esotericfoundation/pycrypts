@@ -36,6 +36,7 @@ class Wall(Collidable):
 
     def load(self):
         Tickable.tickables.append(self)
+        Collidable.collidables.append(self)
 
     def unload(self):
         Tickable.tickables.remove(self)
