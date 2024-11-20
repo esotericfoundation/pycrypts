@@ -17,7 +17,7 @@ class EntranceZone(Room):
         spawn_1 = (Game.top_right + (-200, 240))
         spawn_2 = (Game.bottom_right + (-200, -320))
 
-        wall_1 = Wall([875, 500], [1250, 550])
+        wall_1 = Wall([400, 500], [1250, 550])
         wall_2 = Wall([1000, 200], [1050, 500])
 
         entrance_door = Door(border_right_1.bottom_right - (border_right_1.get_width(), 0), border_right_2.top_left + (border_right_2.get_width(), 0), None)
