@@ -29,6 +29,7 @@ def tick():
             print("DEBUG MOUSE CLICK!")
             pos = pygame.mouse.get_pos()
             print(f'POSITION SELECTED: ({pos[0]}, {pos[1]})')
+            print(f'skeleton = Skeleton(({pos[0]}, {pos[1]}), 32)')
 
             debug_pos_1 = Game.clicked_positions[0]
             debug_pos_2 = Game.clicked_positions[1]
