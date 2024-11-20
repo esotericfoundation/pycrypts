@@ -33,7 +33,7 @@ class Door(Wall):
             return
 
         for player in Player.players:
-            if not self.is_colliding(player):
+            if not self.is_in_door(player):
                 all_players_ready = False
 
         if all_players_ready:
@@ -41,3 +41,6 @@ class Door(Wall):
 
     def is_colliding(self, other: Collidable) -> bool:
         return False
+
+    def is_in_door(self, other: Collidable) -> bool:
+        return super().is_colliding(other)
