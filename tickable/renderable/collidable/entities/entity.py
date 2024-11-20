@@ -1,16 +1,19 @@
 import pygame
 from pygame import Vector2
 
-from game import Game
-from tickable.collidable.collidable import Collidable
+from tickable.renderable.collidable.collidable import Collidable, get_collidables
+
+
+def get_entities():
+    return filter(lambda collidable: isinstance(collidable, Entity), get_collidables())
 
 
 class Entity(Collidable):
-    entities: list["Entity"] = []
-
-    def __init__(self, position: tuple[int, int], character: str, size: int):
+    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "Game"):
         super().__init__()
         self.position = Vector2(position)
+
+        self.game = game
 
         self.image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
 
@@ -19,15 +22,10 @@ class Entity(Collidable):
 
         self.no_clip = False
 
-        Entity.entities.append(self)
-
     def render(self):
-        self.image = pygame.transform.scale(self.image, (self.size, self.size))
-        Game.screen.blit(self.image, self.position)
+        self.game.screen.blit(self.image, self.position)
 
     def tick(self):
-        self.size = self.absolute_size * Game.current_room.entity_scale
-
         self.move()
         self.render()
 
@@ -36,20 +34,17 @@ class Entity(Collidable):
 
     def move_without_collision(self, distance_travelled: Vector2):
         if distance_travelled.magnitude_squared() != 0:
-            distance_travelled = distance_travelled.normalize() * 250 * Game.dt
+            distance_travelled = distance_travelled.normalize() * 250 * self.game.dt
 
             self.position += distance_travelled
 
-            for collidable in Collidable.collidables:
+            for collidable in get_collidables():
                 if collidable == self:
                     continue
 
                 if self.is_colliding(collidable) or collidable.is_colliding(self):
                     self.position -= distance_travelled
                     break
-
-    def is_inside_hitbox(self, location: tuple[int, int]) -> bool:
-        return self.position.distance_to(location) < (self.size / 2)
 
     def is_colliding(self, entity: Collidable) -> bool:
         if self.no_clip:
@@ -58,16 +53,14 @@ class Entity(Collidable):
         if isinstance(entity, Entity):
             return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
 
-        from tickable.collidable.walls.wall import Wall
+        from tickable.renderable.collidable.walls.wall import Wall
         if isinstance(entity, Wall):
             return entity.is_colliding(self)
         return False
 
-    def remove(self):
-        super().remove()
-
-        if self in Entity.entities:
-            Entity.entities.remove(self)
+    def set_scale(self, scale: float):
+        self.size = self.absolute_size * scale
+        self.image = pygame.transform.scale(self.image, (self.size, self.size))
 
     def get_radius(self):
         return self.size / 2.0

@@ -1,13 +1,15 @@
+from tickable.renderable.renderable import Renderable
 from tickable.tickable import Tickable
 
 
-class Collidable(Tickable):
+def get_collidables():
+    return filter(lambda tickable: isinstance(tickable, Collidable), Tickable.tickables)
 
-    collidables: list["Collidable"] = []
+
+class Collidable(Renderable):
 
     def __init__(self):
         super().__init__()
-        Collidable.collidables.append(self)
 
     def is_inside_hitbox(self, location: tuple[int, int]) -> bool:
         pass
@@ -15,7 +17,3 @@ class Collidable(Tickable):
     def is_colliding(self, collidable: "Collidable") -> bool:
         pass
 
-    def remove(self):
-        super().remove()
-
-        Collidable.collidables.remove(self)

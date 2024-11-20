@@ -1,12 +1,11 @@
 import pygame
 from pygame import Vector2
 
-from game import Game
-from tickable.tickable import Tickable
+from tickable.renderable.renderable import Renderable
 
 
-class Text(Tickable):
-    def __init__(self, text, location, color, size = 20):
+class Text(Renderable):
+    def __init__(self, text, location, color, game: "Game", size = 20):
         super().__init__()
 
         self.text = text
@@ -16,11 +15,13 @@ class Text(Tickable):
 
         self.font = pygame.font.SysFont('Arial', size)
 
+        self.game = game
+
     def tick(self):
         self.render()
         pass
 
     def render(self):
         img = self.font.render(self.text, True, self.color)
-        Game.screen.blit(img, self.location)
+        self.game.screen.blit(img, self.location)
         pass

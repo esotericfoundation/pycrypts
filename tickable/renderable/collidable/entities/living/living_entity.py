@@ -1,10 +1,10 @@
-from tickable.collidable.entities.entity import Entity
+from tickable.renderable.collidable.entities.entity import Entity
 
 
 class LivingEntity(Entity):
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, health: int):
-        super().__init__(position, "living/" + character, size)
+    def __init__(self, position: tuple[int, int], character: str, size: int, health: int, game: "Game"):
+        super().__init__(position, "living/" + character, size, game)
 
         self.health = health
         self.max_health = health
@@ -13,7 +13,7 @@ class LivingEntity(Entity):
         self.health -= damage
 
         if self.health <= 0:
-            self.remove()
+            self.unload()
 
     def attack(self):
         pass

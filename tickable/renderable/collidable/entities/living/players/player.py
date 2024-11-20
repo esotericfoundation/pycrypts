@@ -2,22 +2,21 @@ import pygame
 from pygame import Vector2
 
 from enums.movement_keys import movement_keys
-from tickable.collidable.entities.entity import Entity
-from tickable.collidable.entities.living.living_entity import LivingEntity
+from tickable.renderable.collidable.entities.entity import get_entities
+from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
+
+def get_players():
+    return filter(lambda entity: isinstance(entity, Player), get_entities())
 
 class Player(LivingEntity):
     attack_cooldown = 1000
 
-    players: list["Player"] = []
-
-    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int):
-        super().__init__(position, "players/" + character, size, 100)
+    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
+        super().__init__(position, "players/" + character, size, 100, game)
 
         self.movement_type = movement_type
         self.attack_key = attack_key
-
-        Player.players.append(self)
 
         self.time_since_last_attack = Player.attack_cooldown + 1
 
@@ -49,17 +48,13 @@ class Player(LivingEntity):
 
         self.move_without_collision(distance_travelled)
 
-    def remove(self):
-        super().remove()
-        Player.players.remove(self)
-
     def attack(self):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
         attackable_entities = []
 
-        for entity in Entity.entities:
+        for entity in get_entities():
             if not isinstance(entity, LivingEntity):
                 continue
 

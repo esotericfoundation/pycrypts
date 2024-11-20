@@ -8,5 +8,5 @@ class Tickable:
     def tick(self):
         pass
 
-    def remove(self):
+    def unload(self):
         Tickable.tickables.remove(self)
