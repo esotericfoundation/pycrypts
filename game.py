@@ -99,7 +99,7 @@ class Game:
         print(debug_pos_1)
         print(debug_pos_2)
 
-        wall = Wall(debug_pos_1, debug_pos_2)
+        wall = Wall(debug_pos_1, debug_pos_2, self)
         print(wall.to_string())
 
         self.clicked_positions = [None, None]
