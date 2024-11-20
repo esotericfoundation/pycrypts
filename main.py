@@ -1,5 +1,6 @@
 import pygame, time
 
+from rooms.entrance_zone import EntranceZone
 from rooms.tutorial import Tutorial
 from tickable.tickable import Tickable
 from tickable.collidable.entities.living.players.player import Player
