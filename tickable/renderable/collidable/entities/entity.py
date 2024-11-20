@@ -22,6 +22,9 @@ class Entity(Collidable):
 
         self.no_clip = False
 
+        if game.current_room is not None:
+            self.set_scale(game.current_room.entity_scale)
+
     def render(self):
         self.game.screen.blit(self.image, self.position)
 

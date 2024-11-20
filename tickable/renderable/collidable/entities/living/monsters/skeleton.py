@@ -13,7 +13,6 @@ class Skeleton(Monster):
 
     def attack_entity(self, entity: LivingEntity):
         fb = Fireball((entity.position.x, entity.position.y), (self.position.x, self.position.y), 32, self.game)
-        fb.set_scale(1.0)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Fireball):
