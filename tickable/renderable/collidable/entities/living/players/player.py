@@ -11,6 +11,7 @@ def get_players():
 
 class Player(LivingEntity):
     attack_cooldown = 1000
+    attack_range = 14400
 
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
         super().__init__(position, "players/" + character, size, 100, game)
@@ -78,8 +79,18 @@ class Player(LivingEntity):
 
         self.attack_entity(closest_entity)
 
+    def sword_attack(self, entity: LivingEntity):
+        pass
+
+    def bow_attack(self, entity: LivingEntity):
+        pass
+
     def attack_entity(self, entity: LivingEntity):
-        entity.damage(10)
+        if entity.position.distance_squared_to(self.position) < 14400:
+            self.sword_attack(entity)
+        else:
+            self.bow_attack(entity)
+
         self.time_since_last_attack = 0
 
     def damage(self, damage: int):
