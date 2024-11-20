@@ -39,6 +39,7 @@ class Wall(Collidable):
 
     def unload(self):
         Tickable.tickables.remove(self)
+        Collidable.collidables.remove(self)
 
     def render(self):
         width = self.bottom_right.x - self.top_left.x
