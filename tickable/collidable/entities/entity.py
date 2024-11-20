@@ -12,9 +12,9 @@ class Entity(Collidable):
         super().__init__()
         self.position = Vector2(position)
 
-        image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
-        self.image = pygame.transform.scale(image, (size, size))
+        self.image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
 
+        self.absolute_size = size
         self.size = size
 
         self.no_clip = False
@@ -22,9 +22,12 @@ class Entity(Collidable):
         Entity.entities.append(self)
 
     def render(self):
+        self.image = pygame.transform.scale(self.image, (self.size, self.size))
         Game.screen.blit(self.image, self.position)
 
     def tick(self):
+        self.size = self.absolute_size * Game.current_room.entity_scale
+
         self.move()
         self.render()
 
