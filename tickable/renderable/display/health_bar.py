@@ -4,12 +4,13 @@ from pygame import Vector2
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.display.text import Text
 from tickable.renderable.renderable import Renderable
+from tickable.tickable import Tickable
 
 
 class HealthBar(Renderable):
 
     def __init__(self, entity: LivingEntity, top_left: (int, int) or Vector2, width: int, height: int, game: "Game"):
-        super().__init__()
+        super().__init__(game)
         self.entity = entity
 
         self.top_left = top_left
@@ -32,3 +33,6 @@ class HealthBar(Renderable):
         pygame.draw.rect(self.game.screen, (200, 50, 50), (self.top_left.x, self.top_left.y, self.width * (self.entity.health / self.entity.max_health), self.height))
 
         self.text.render()
+
+    def unload(self):
+        Tickable.tickables.remove(self)

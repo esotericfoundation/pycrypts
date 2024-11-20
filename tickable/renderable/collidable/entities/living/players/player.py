@@ -7,7 +7,7 @@ from tickable.renderable.collidable.entities.living.living_entity import LivingE
 
 
 def get_players():
-    return filter(lambda entity: isinstance(entity, Player), get_entities())
+    return list(filter(lambda entity: isinstance(entity, Player), get_entities()))
 
 class Player(LivingEntity):
     attack_cooldown = 1000

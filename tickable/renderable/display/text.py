@@ -6,7 +6,7 @@ from tickable.renderable.renderable import Renderable
 
 class Text(Renderable):
     def __init__(self, text, location, color, game: "Game", size = 20):
-        super().__init__()
+        super().__init__(game)
 
         self.text = text
         self.color = color

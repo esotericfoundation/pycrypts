@@ -43,14 +43,17 @@ class Game:
         self.current_room = None
 
     def init(self):
+        tutorial = Tutorial(self)
+        tutorial.load()
+
         rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT, self)
         player = Player((0, 0), "pro", 64, movement_keys["ARROW"], pygame.K_RSHIFT, self)
 
+        tutorial.add_tickable(rizzler)
+        tutorial.add_tickable(player)
+
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
-
-        tutorial = Tutorial(self)
-        tutorial.load()
 
     def tick(self):
         present = time.time()

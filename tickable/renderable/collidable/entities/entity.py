@@ -5,20 +5,18 @@ from tickable.renderable.collidable.collidable import Collidable, get_collidable
 
 
 def get_entities():
-    return filter(lambda collidable: isinstance(collidable, Entity), get_collidables())
+    return list(filter(lambda collidable: isinstance(collidable, Entity), get_collidables()))
 
 
 class Entity(Collidable):
     def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "Game"):
-        super().__init__()
-        self.position = Vector2(position)
-
-        self.game = game
+        self.absolute_size = size
+        self.size = size
 
         self.image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
 
-        self.absolute_size = size
-        self.size = size
+        super().__init__(game)
+        self.position = Vector2(position)
 
         self.no_clip = False
 
@@ -58,6 +56,12 @@ class Entity(Collidable):
             return entity.is_colliding(self)
         return False
 
+    def load(self):
+        super().load()
+        current_room = self.game.current_room
+        if current_room is not None:
+            self.set_scale(self.game.current_room.entity_scale)
+
     def set_scale(self, scale: float):
         self.size = self.absolute_size * scale
         self.image = pygame.transform.scale(self.image, (self.size, self.size))
@@ -89,7 +93,7 @@ class Entity(Collidable):
 
         current_position = self.position + direction
         while current_position.x < other.position.x:
-            for wall in self.game.current_room.walls:
+            for wall in self.game.current_room.get_walls():
                 if wall.contains_point(current_position):
                     return False
 

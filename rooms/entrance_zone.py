@@ -24,7 +24,7 @@ class EntranceZone(Room):
         entrance_door = Door(border_right_1.bottom_right - (border_right_1.get_width(), 0), border_right_2.top_left + (border_right_2.get_width(), 0), None, game)
         exit_door = Door(border_top_1.top_left + (border_top_1.get_width(), 0), border_top_2.bottom_right - (border_top_2.get_width(), 0), None, game)
 
-        super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2, wall_3, wall_4], [entrance_door, exit_door], spawn_1, spawn_2, game, 0.5)
+        super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2, wall_3, wall_4, entrance_door, exit_door], spawn_1, spawn_2, game, 0.5)
         pass
 
     def spawn_monsters(self):
@@ -38,5 +38,5 @@ class EntranceZone(Room):
         skeleton_8 = Skeleton((261, 175), 64, self.game)
         skeleton_9 = Skeleton((147, 167), 64, self.game)
 
-        self.monsters.extend((skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9))
+        self.tickables.extend((skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9))
 
