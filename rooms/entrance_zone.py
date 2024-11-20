@@ -20,9 +20,10 @@ class EntranceZone(Room):
         wall_1 = Wall([400, 500], [1250, 550])
         wall_2 = Wall([1000, 200], [1050, 500])
         wall_3 = Wall([775, 25], [825, 325])
+        wall_4 = Wall([550, 200], [600, 500])
 
         entrance_door = Door(border_right_1.bottom_right - (border_right_1.get_width(), 0), border_right_2.top_left + (border_right_2.get_width(), 0), None)
         exit_door = Door(border_top_1.top_left + (border_top_1.get_width(), 0), border_top_2.bottom_right - (border_top_2.get_width(), 0), None)
 
-        super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2, wall_3], [entrance_door, exit_door], spawn_1, spawn_2, 0.5)
+        super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2, wall_3, wall_4], [entrance_door, exit_door], spawn_1, spawn_2, 0.5)
         pass
