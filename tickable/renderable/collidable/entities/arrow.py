@@ -16,7 +16,7 @@ class Arrow(Fireball):
         if isinstance(entity, Player):
             return False
 
-        is_colliding = Collidable.is_colliding(self, entity)
+        is_colliding = Entity.is_colliding(self, entity)
 
         if is_colliding:
             self.unload()
