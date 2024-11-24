@@ -75,9 +75,11 @@ class Player(LivingEntity):
         self.attack_entity(closest_entity)
 
     def sword_attack(self, entity: LivingEntity):
+        print("I will strike you down with my sword!")
         pass
 
     def bow_attack(self, entity: LivingEntity):
+        print("Watch out! Bow fire incoming!")
         pass
 
     def attack_entity(self, entity: LivingEntity):
