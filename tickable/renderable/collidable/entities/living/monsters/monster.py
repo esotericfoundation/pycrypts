@@ -4,7 +4,7 @@ from tickable.renderable.collidable.entities.living.living_entity import LivingE
 from tickable.renderable.collidable.entities.living.players.player import get_players
 
 class Monster(LivingEntity):
-    attack_interval = 0.5
+    attack_interval = 1.0
 
     def __init__(self, position: tuple[int, int], monster: str, size: int, health: int, game: "Game"):
         super().__init__(position, "monsters/" + monster, size, health, game)

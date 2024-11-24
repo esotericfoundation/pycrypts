@@ -9,7 +9,7 @@ from tickable.renderable.collidable.entities.living.monsters.monster import Mons
 class Skeleton(Monster):
 
     def __init__(self, position: tuple[int, int], size: int, game: "Game"):
-        super().__init__(position, "skeleton", size, 250, game)
+        super().__init__(position, "skeleton", size, 50, game)
 
     def attack_entity(self, entity: LivingEntity):
         Fireball(entity.get_center(), (self.position.x, self.position.y), 32, self.game)
