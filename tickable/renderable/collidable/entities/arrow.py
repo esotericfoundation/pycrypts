@@ -20,6 +20,9 @@ class Arrow(Fireball):
 
         if is_colliding:
             self.unload()
+            if isinstance(entity, Fireball):
+                entity.unload()
+
             if isinstance(entity, LivingEntity):
                 entity.damage(10)
                 return False
