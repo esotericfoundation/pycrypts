@@ -83,7 +83,7 @@ class Player(LivingEntity):
         pass
 
     def attack_entity(self, entity: LivingEntity):
-        if entity.position.distance_squared_to(self.position) < 14400:
+        if entity.position.distance_squared_to(self.position) < 62500:
             self.sword_attack(entity)
         else:
             self.bow_attack(entity)
