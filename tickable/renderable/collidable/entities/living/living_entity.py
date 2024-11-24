@@ -1,4 +1,8 @@
-from tickable.renderable.collidable.entities.entity import Entity
+from tickable.renderable.collidable.entities.entity import Entity, get_entities
+
+
+def get_living_entities():
+    return list(filter(lambda entity: isinstance(entity, LivingEntity), get_entities()))
 
 
 class LivingEntity(Entity):

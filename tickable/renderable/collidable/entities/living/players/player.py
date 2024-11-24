@@ -2,12 +2,11 @@ import pygame
 from pygame import Vector2
 
 from enums.movement_keys import movement_keys
-from tickable.renderable.collidable.entities.entity import get_entities
-from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from tickable.renderable.collidable.entities.living.living_entity import LivingEntity, get_living_entities
 
 
 def get_players():
-    return list(filter(lambda entity: isinstance(entity, Player), get_entities()))
+    return list(filter(lambda entity: isinstance(entity, Player), get_living_entities()))
 
 class Player(LivingEntity):
     attack_cooldown = 1000
@@ -55,10 +54,7 @@ class Player(LivingEntity):
 
         attackable_entities = []
 
-        for entity in get_entities():
-            if not isinstance(entity, LivingEntity):
-                continue
-
+        for entity in get_living_entities():
             if isinstance(entity, Player):
                 continue
 
