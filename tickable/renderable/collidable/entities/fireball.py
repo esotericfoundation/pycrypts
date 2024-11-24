@@ -6,8 +6,8 @@ from tickable.renderable.collidable.entities.living.living_entity import LivingE
 
 class Fireball(Entity):
 
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game"):
-        super().__init__(position, "fireball", size, game)
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game", character = "fireball"):
+        super().__init__(position, character, size, game)
         self.target = Vector2(target)
 
     def move(self):

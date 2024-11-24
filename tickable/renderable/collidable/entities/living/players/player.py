@@ -2,6 +2,8 @@ import pygame
 from pygame import Vector2
 
 from enums.movement_keys import movement_keys
+from tickable.renderable.collidable.collidable import Collidable
+from tickable.renderable.collidable.entities.arrow import Arrow
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity, get_living_entities
 
 
@@ -80,6 +82,7 @@ class Player(LivingEntity):
 
     def bow_attack(self, entity: LivingEntity):
         print("Watch out! Bow fire incoming!")
+        Arrow(entity.position, self.position, 32, self.game)
         pass
 
     def attack_entity(self, entity: LivingEntity):
@@ -96,3 +99,7 @@ class Player(LivingEntity):
         sound = pygame.mixer.Sound('assets/sounds/damage.mp3')
         sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)
+
+    def is_colliding(self, entity: Collidable) -> bool:
+        if isinstance(entity, Arrow):
+            return False
