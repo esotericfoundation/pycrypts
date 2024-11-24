@@ -20,9 +20,11 @@ class EntranceZone(Room):
         wall_3 = Wall([850, 25], [900, 325], game)
         wall_4 = Wall([650, 200], [700, 500], game)
 
+        wall_5 = Wall([200, 40], [250, 550], game)
+
         entrance_door = Door(border_right_1.bottom_right - (border_right_1.get_width(), 0), border_right_2.top_left + (border_right_2.get_width(), 0), None, game)
 
-        super().__init__([border_left, border_right_1, border_right_2, border_top, border_bottom, wall_1, wall_2, wall_3, wall_4], [entrance_door], spawn_1, spawn_2, game, 0.5)
+        super().__init__([border_left, border_right_1, border_right_2, border_top, border_bottom, wall_1, wall_2, wall_3, wall_4, wall_5], [entrance_door], spawn_1, spawn_2, game, 0.5)
         pass
 
     def spawn_monsters(self):
