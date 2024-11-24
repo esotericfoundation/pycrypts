@@ -4,7 +4,7 @@ from tickable.renderable.collidable.entities.living.monsters.skeleton import Ske
 from tickable.renderable.collidable.walls.wall import Wall
 from tickable.renderable.collidable.walls.door import Door
 
-class Tutorial(Room):
+class SurfaceZone(Room):
     def __init__(self, game: "Game"):
         entrance_zone = EntranceZone(game)
 
