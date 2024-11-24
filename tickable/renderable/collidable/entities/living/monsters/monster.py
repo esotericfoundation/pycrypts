@@ -20,7 +20,7 @@ class Monster(LivingEntity):
             self.attack()
 
     def attack(self):
-        players = list(filter(lambda p: self.sees_other(player), get_players()))
+        players = list(filter(lambda p: self.sees_other(p), get_players()))
         player_count = len(players)
 
         if player_count == 0:
