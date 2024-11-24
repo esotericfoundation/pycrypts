@@ -82,7 +82,7 @@ class Player(LivingEntity):
 
     def bow_attack(self, entity: LivingEntity):
         print("Watch out! Bow fire incoming!")
-        Arrow(entity.position, self.position, 32, self.game)
+        Arrow(entity.get_center(), self.position, 32, self.game)
         pass
 
     def attack_entity(self, entity: LivingEntity):
