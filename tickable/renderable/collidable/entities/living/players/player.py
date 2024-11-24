@@ -103,3 +103,5 @@ class Player(LivingEntity):
     def is_colliding(self, entity: Collidable) -> bool:
         if isinstance(entity, Arrow):
             return False
+
+        return super().is_colliding(self)
