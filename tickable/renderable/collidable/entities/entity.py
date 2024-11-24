@@ -5,7 +5,7 @@ from tickable.renderable.collidable.collidable import Collidable, get_collidable
 
 
 def get_entities():
-    return filter(lambda collidable: isinstance(collidable, Entity), get_collidables())
+    return list(filter(lambda collidable: isinstance(collidable, Entity), get_collidables()))
 
 
 class Entity(Collidable):

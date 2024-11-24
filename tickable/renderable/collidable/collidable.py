@@ -3,7 +3,7 @@ from tickable.tickable import Tickable
 
 
 def get_collidables():
-    return filter(lambda tickable: isinstance(tickable, Collidable), Tickable.tickables)
+    return list(filter(lambda tickable: isinstance(tickable, Collidable), Tickable.tickables))
 
 
 class Collidable(Renderable):
