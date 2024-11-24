@@ -28,15 +28,15 @@ class EntranceZone(Room):
         pass
 
     def spawn_monsters(self):
-        skeleton_1 = Skeleton((404, 410), 64, self.game)
-        skeleton_2 = Skeleton((314, 402), 64, self.game)
-        skeleton_3 = Skeleton((173, 405), 64, self.game)
-        skeleton_4 = Skeleton((423, 271), 64, self.game)
-        skeleton_5 = Skeleton((308, 266), 64, self.game)
-        skeleton_6 = Skeleton((171, 269), 64, self.game)
-        skeleton_7 = Skeleton((409, 178), 64, self.game)
-        skeleton_8 = Skeleton((261, 175), 64, self.game)
-        skeleton_9 = Skeleton((147, 167), 64, self.game)
+        skeleton_1 = Skeleton((400, 400), 64, self.game)
+        skeleton_2 = Skeleton((300, 400), 64, self.game)
+        skeleton_3 = Skeleton((200, 400), 64, self.game)
+        skeleton_4 = Skeleton((400, 300), 64, self.game)
+        skeleton_5 = Skeleton((300, 300), 64, self.game)
+        skeleton_6 = Skeleton((200, 300), 64, self.game)
+        skeleton_7 = Skeleton((400, 200), 64, self.game)
+        skeleton_8 = Skeleton((300, 200), 64, self.game)
+        skeleton_9 = Skeleton((200, 200), 64, self.game)
 
         self.monsters.extend((skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9))
 
