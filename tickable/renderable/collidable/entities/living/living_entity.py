@@ -24,3 +24,6 @@ class LivingEntity(Entity):
 
     def attack_entity(self, entity: "LivingEntity"):
         pass
+
+    def is_alive(self):
+        return self.health > 0
