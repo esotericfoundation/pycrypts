@@ -2,6 +2,7 @@ import pygame
 from pygame import Vector2
 
 from tickable.renderable.collidable.collidable import Collidable, get_collidables
+from tickable.renderable.collidable.entities.living.players.player import Player
 
 
 def get_entities():
@@ -99,3 +100,10 @@ class Entity(Collidable):
             current_position += direction
 
         return True
+
+    def get_seen_entities(self) -> list["Entity"]:
+        all_entities = get_entities()
+        return list(filter(lambda entity: self.sees_other(entity), all_entities))
+
+    def get_seen_players(self) -> list["Player"]:
+        return list(filter(lambda entity: isinstance(entity, Player), self.get_seen_entities()))
