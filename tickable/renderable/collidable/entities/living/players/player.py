@@ -82,7 +82,7 @@ class Player(LivingEntity):
 
     def sword_attack(self, entity: LivingEntity):
         print("I will strike you down with my sword!")
-        Sword(entity, self.get_radius(), self.game)
+        Sword(entity, self.get_center(), self.game)
         pass
 
     def bow_attack(self, entity: LivingEntity):
