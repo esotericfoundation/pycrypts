@@ -1,5 +1,6 @@
 import pygame
 from pygame import Vector2
+from pygame.transform import scale
 
 from enums.movement_keys import movement_keys
 from tickable.renderable.collidable.collidable import Collidable
@@ -82,7 +83,7 @@ class Player(LivingEntity):
         pass
 
     def attack_entity(self, entity: LivingEntity):
-        if entity.position.distance_squared_to(self.position) < 62500:
+        if entity.position.distance_squared_to(self.position) < 62500 * self.game.current_room.entity_scale * self.game.current_room.entity_scale:
             self.sword_attack(entity)
         else:
             self.bow_attack(entity)
