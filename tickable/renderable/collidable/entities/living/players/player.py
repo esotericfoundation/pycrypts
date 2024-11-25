@@ -5,6 +5,7 @@ from enums.movement_keys import movement_keys
 from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.arrow import Arrow
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity, get_living_entities
+from tickable.renderable.collidable.entities.sword import Sword
 
 
 def get_players():
@@ -78,6 +79,7 @@ class Player(LivingEntity):
 
     def sword_attack(self, entity: LivingEntity):
         print("I will strike you down with my sword!")
+        Sword(entity, self.position, self.game)
         pass
 
     def bow_attack(self, entity: LivingEntity):
