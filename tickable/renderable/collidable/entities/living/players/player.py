@@ -61,6 +61,9 @@ class Player(LivingEntity):
             if isinstance(entity, Player):
                 continue
 
+            if not self.sees_other(entity):
+                continue
+
             attackable_entities.append(entity)
 
         if len(attackable_entities) == 0:
