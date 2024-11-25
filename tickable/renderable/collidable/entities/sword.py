@@ -6,6 +6,9 @@ class Sword(Entity):
 
     def __init__(self, target, position, game):
         super().__init__(position, "sword", 64, game)
+
+        self.position = self.get_center()
+
         self.target = target
         self.time_left = 0.5
 
