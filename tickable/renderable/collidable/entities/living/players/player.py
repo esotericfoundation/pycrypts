@@ -106,4 +106,7 @@ class Player(LivingEntity):
         if isinstance(entity, Arrow):
             return False
 
+        if isinstance(entity, Sword):
+            return False
+
         return super().is_colliding(entity)
