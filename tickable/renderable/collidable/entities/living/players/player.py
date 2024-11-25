@@ -55,16 +55,7 @@ class Player(LivingEntity):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
-        attackable_entities = []
-
-        for entity in get_living_entities():
-            if isinstance(entity, Player):
-                continue
-
-            if not self.sees_other(entity):
-                continue
-
-            attackable_entities.append(entity)
+        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e), get_living_entities()))
 
         if len(attackable_entities) == 0:
             return
