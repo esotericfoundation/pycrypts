@@ -1,6 +1,5 @@
 import pygame
 from pygame import Vector2
-from pygame.transform import scale
 
 from enums.movement_keys import movement_keys
 from tickable.renderable.collidable.collidable import Collidable
@@ -13,7 +12,7 @@ def get_players():
     return list(filter(lambda entity: isinstance(entity, Player), get_living_entities()))
 
 class Player(LivingEntity):
-    attack_cooldown = 300
+    attack_cooldown = 0.5
     attack_range = 14400
 
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
@@ -27,7 +26,7 @@ class Player(LivingEntity):
     def tick(self):
         super().tick()
 
-        self.time_since_last_attack += 1
+        self.time_since_last_attack += self.game.dt
 
         keys = pygame.key.get_pressed()
         if keys[self.attack_key]:
