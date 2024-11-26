@@ -6,17 +6,17 @@ from tickable.renderable.collidable.entities.living.living_entity import LivingE
 
 class Fireball(Entity):
 
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game", character = "fireball"):
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game", speed = 1, character = "fireball"):
         super().__init__(position, character, size, game)
         self.target = Vector2(target)
+        self.speed = speed
 
     def move(self):
         distance = self.target - self.position
         if distance.magnitude_squared() < 0.05:
             self.unload()
             return
-        movement = distance.normalize() * 0.5
-        self.move_without_collision(movement)
+        self.move_without_collision(distance, self.speed)
         self.game.current_room.other_entities.append(self)
 
     def is_colliding(self, entity: Entity) -> bool:

@@ -5,8 +5,8 @@ from tickable.renderable.collidable.entities.living.living_entity import LivingE
 
 
 class Arrow(Fireball):
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game"):
-        super().__init__(target, position, size, game, "arrow")
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game):
+        super().__init__(target, position, size, game, 2, "arrow")
 
     def is_colliding(self, entity: Collidable) -> bool:
         if isinstance(entity, Entity) and entity.no_clip:
@@ -22,9 +22,11 @@ class Arrow(Fireball):
         is_colliding = Entity.is_colliding(self, entity)
 
         if is_colliding:
-            self.unload()
             if isinstance(entity, Fireball):
                 entity.unload()
+                return False
+
+            self.unload()
 
             if isinstance(entity, LivingEntity):
                 entity.damage(10)
