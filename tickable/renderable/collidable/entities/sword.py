@@ -1,21 +1,25 @@
 import math
 
 import pygame
+from pygame import Vector2
 
 from tickable.renderable.collidable.collidable import Collidable
+from tickable.renderable.collidable.entities.arrow import Arrow
 from tickable.renderable.collidable.entities.entity import Entity
+from tickable.renderable.collidable.entities.fireball import Fireball
+from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
 
 class Sword(Entity):
 
-    def __init__(self, target, position, game):
+    def __init__(self, target, user, position, game):
         super().__init__(position, "sword", 64, game)
 
+        self.baseImage = self.image
         self.target = target
+        self.user = user
         self.time_left = 0.5
-
-        target_angle = 360 - math.degrees((self.target.get_center() - self.position).as_polar()[1])
-        self.image = pygame.transform.rotate(self.image, target_angle)
+        self.used = False
 
     def tick(self):
         super().tick()
@@ -24,7 +28,47 @@ class Sword(Entity):
         if self.time_left <= 0:
             self.unload()
 
+        offset = Vector2(self.target.position - self.user.position)
+
+        y = offset.y
+        offset.y = 0
+
+        offset = offset.normalize() * (self.user.size / 2)
+        offset.y = math.copysign(1, y) * (self.user.size / 4)
+
+        if offset.x < 0:
+            self.image = pygame.transform.flip(self.baseImage, True, False)
+        else:
+            self.image = self.baseImage
+
+        self.position = self.user.position + offset
+
+        if self.is_hitting(self.target) and not self.used:
+            if isinstance(self.target, Fireball):
+                self.target.unload()
+                return
+
+            if isinstance(self.target, Arrow):
+                self.target.unload()
+                return
+
+            if isinstance(self.target, LivingEntity):
+                self.target.damage(10)
+                self.used = True
+
     def is_colliding(self, entity: Collidable) -> bool:
+        if super().is_colliding(entity):
+            from tickable.renderable.collidable.entities.living.players.player import Player
+            if isinstance(entity, Player):
+                return False
+
+            if isinstance(entity, Arrow):
+                entity.unload()
+
+            if isinstance(entity, Fireball):
+                entity.unload()
+
+            return True
         return False
 
     def is_hitting(self, entity: Collidable) -> bool:
