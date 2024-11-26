@@ -55,6 +55,7 @@ class Sword(Entity):
             if isinstance(self.target, LivingEntity):
                 self.target.damage(10)
                 self.used = True
+                self.time_left = 0.2
 
     def is_colliding(self, entity: Collidable) -> bool:
         if super().is_colliding(entity):
