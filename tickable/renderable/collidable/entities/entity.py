@@ -75,6 +75,9 @@ class Entity(Collidable):
     def get_center(self):
         return self.position
 
+    def get_actual_center(self):
+        return self.position + (self.size / 2, self.size / 2)
+
     def get_top_left(self):
         return self.position - (self.get_radius(), self.get_radius())
 
@@ -91,11 +94,11 @@ class Entity(Collidable):
         return [self.get_top_left(), self.get_bottom_right(), self.get_top_right(), self.get_bottom_left()]
 
     def sees_other(self, other: "Entity") -> bool:
-        distance = other.get_center() - self.get_center()
+        distance = other.get_actual_center() - self.get_actual_center()
         direction = distance.normalize() * 1
 
-        current_position = self.get_center() + direction
-        while current_position.x < other.get_center().x:
+        current_position = self.get_actual_center() + direction
+        while current_position.x < other.get_actual_center().x:
             for wall in self.game.current_room.walls:
                 if wall.contains_point(current_position):
                     return False
