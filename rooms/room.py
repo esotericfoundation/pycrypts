@@ -1,10 +1,12 @@
+from pygame import Vector2
+
 from tickable.renderable.collidable.entities.living.players.player import get_players
 from tickable.renderable.collidable.walls.door import Door
 from tickable.renderable.collidable.walls.wall import Wall
 
 
 class Room:
-    def __init__(self, spawn_1: tuple[int, int], spawn_2: [int, int], game: "Game", entity_scale = 1.0):
+    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "Game", entity_scale = 1.0):
         self.walls = []
         self.doors = []
         self.monsters = []
@@ -13,13 +15,14 @@ class Room:
         self.entity_scale = entity_scale
         self.game = game
         self.other_entities = []
-        pass
+        self.created = False
 
     def create(self):
-        pass
+        self.created = True
 
     def load(self):
         self.create()
+        self.game.current_room = self
 
         for wall in self.walls:
             wall.load()
@@ -27,24 +30,13 @@ class Room:
         for door in self.doors:
             door.load()
 
-        players = get_players()
-
-        i = 0
-
-        for player in players:
-            i += 1
-            if i == 1:
-                player.position = self.spawn_1
-            else:
-                player.position = self.spawn_2
-            player.set_scale(self.entity_scale)
-
-        self.spawn_monsters()
-
         for monster in self.monsters:
-            monster.set_scale(self.entity_scale)
+            if monster.health <= 0:
+                self.monsters.remove(monster)
+                break
 
-        self.game.current_room = self
+            monster.load()
+            monster.set_scale(self.entity_scale)
 
     def unload(self):
         for wall in self.walls:
@@ -58,6 +50,8 @@ class Room:
 
         for other_entity in self.other_entities:
             other_entity.unload()
+
+        # self.other_entities.clear()
 
     def spawn_monsters(self):
         pass
