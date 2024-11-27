@@ -14,6 +14,7 @@ def get_players():
 class Player(LivingEntity):
     attack_cooldown = 0.75
     attack_range = 175
+    regeneration_rate = 0.5
 
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
         super().__init__(position, "players/" + character, size, 100, game)
@@ -22,15 +23,22 @@ class Player(LivingEntity):
         self.attack_key = attack_key
 
         self.time_since_last_attack = Player.attack_cooldown + 1
+        self.time_since_last_regeneration = 0
 
     def tick(self):
         super().tick()
 
         self.time_since_last_attack += self.game.dt
+        self.time_since_last_regeneration += self.game.dt
 
         keys = pygame.key.get_pressed()
         if keys[self.attack_key]:
             self.attack()
+
+        if self.time_since_last_regeneration >= Player.regeneration_rate:
+            if self.health < self.max_health:
+                self.health = min(self.health + 1, self.max_health)
+                self.time_since_last_regeneration = 0
 
         if keys[pygame.K_LALT]:
             self.no_clip = not self.no_clip
@@ -51,7 +59,11 @@ class Player(LivingEntity):
         if keys[pygame.K_d if self.movement_type == movement_keys["WASD"] else pygame.K_RIGHT]:
             distance_travelled.x += 1
 
-        self.move_without_collision(distance_travelled)
+        if distance_travelled.magnitude() == 0:
+            return
+
+        self.velocity += distance_travelled.normalize() * 250 * self.game.dt
+        self.velocity = self.velocity.normalize() * min(self.velocity.magnitude(), 25)
 
     def attack(self):
         if self.time_since_last_attack < Player.attack_cooldown:
