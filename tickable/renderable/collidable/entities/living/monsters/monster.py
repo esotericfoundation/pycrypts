@@ -1,5 +1,7 @@
 import random
 
+from pygame import Vector2
+
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.collidable.entities.living.players.player import get_players
 
