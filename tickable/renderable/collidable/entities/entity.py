@@ -39,9 +39,9 @@ class Entity(Collidable):
 
     def move(self):
         self.move_without_collision(self.velocity)
-        self.velocity *= 0.9
+        self.velocity *= 0.1
 
-        if self.velocity.magnitude() < 0.1:
+        if self.velocity.magnitude() < 0.0001298732948798234:
             self.velocity = Vector2(0, 0)
 
         pass
