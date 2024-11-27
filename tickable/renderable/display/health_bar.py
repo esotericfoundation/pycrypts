@@ -32,3 +32,7 @@ class HealthBar(Renderable):
         pygame.draw.rect(self.game.screen, (200, 50, 50), (self.top_left.x, self.top_left.y, self.width * (self.entity.health / self.entity.max_health), self.height))
 
         self.text.render()
+
+    def unload(self):
+        self.text.unload()
+        super().unload()
