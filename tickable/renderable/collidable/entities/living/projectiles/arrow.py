@@ -41,7 +41,6 @@ class Arrow(Fireball):
             self.unload()
 
             if isinstance(entity, LivingEntity):
-                print("arrow hit")
                 entity.damage(10)
                 return False
             return True

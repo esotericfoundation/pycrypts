@@ -48,10 +48,6 @@ class EntranceZone(Room):
         self.walls.extend([border_left, border_right_1, border_right_2, border_top, border_bottom, wall_1, wall_2, wall_3, wall_4, wall_5])
         self.doors.append(entrance_door)
 
-    def unload(self):
-        super().unload()
-        print("Unloading entrance zone")
-
     def spawn_monsters(self):
         skeleton_1 = Skeleton((525, 400), 64, self.game)
         skeleton_2 = Skeleton((425, 400), 64, self.game)
