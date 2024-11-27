@@ -25,3 +25,13 @@ class Text(Renderable):
         img = self.font.render(self.text, True, self.color)
         self.game.screen.blit(img, self.location)
         pass
+
+    def clear(self):
+        img = self.font.render(self.text, True, self.color)
+        rect = img.get_rect(topleft=self.location)
+        pygame.draw.rect(self.game.screen, (0, 0, 0), rect)
+        pass
+
+    def unload(self):
+        self.clear()
+        super().unload()
