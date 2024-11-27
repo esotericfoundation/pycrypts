@@ -1,6 +1,7 @@
 from rooms.entrance_zone import EntranceZone
 from rooms.room import Room
 from tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+from tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
 from tickable.renderable.collidable.walls.wall import Wall
 from tickable.renderable.collidable.walls.door import Door
 
@@ -29,7 +30,7 @@ class SurfaceZone(Room):
         super().__init__([border_left, border_right_1, border_right_2, border_top_1, border_top_2, border_bottom, wall_1, wall_2], [entrance_door, exit_door], spawn_1, spawn_2, game)
 
     def spawn_monsters(self):
-        skeleton_1 = Skeleton(self.game.bottom_left + (160, -200), 64, self.game)
+        skeleton_1 = Zombie(self.game.bottom_left + (160, -200), 64, self.game)
         skeleton_2 = Skeleton(self.game.bottom_left + (300, -200), 64, self.game)
 
         self.monsters.append(skeleton_1)
