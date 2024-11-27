@@ -26,7 +26,7 @@ class Monster(LivingEntity):
         if player_count == 0:
             return
 
-        player = players[random.randint(0, player_count - 1)]
+        player = list(sorted(players, key=lambda p: self.position.distance_squared_to(p.position)))[0]
         self.attack_entity(player)
         pass
 
