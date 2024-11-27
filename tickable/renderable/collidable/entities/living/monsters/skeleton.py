@@ -1,7 +1,7 @@
 import pygame
 
 from tickable.renderable.collidable.entities.entity import Entity
-from tickable.renderable.collidable.entities.fireball import Fireball
+from tickable.renderable.collidable.entities.living.projectiles.fireball import Fireball
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
 
