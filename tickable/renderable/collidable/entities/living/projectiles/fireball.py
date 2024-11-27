@@ -13,7 +13,7 @@ class Fireball(Entity):
 
     def move(self):
         distance = self.target - self.position
-        if distance.magnitude_squared() < 0.05:
+        if distance.magnitude_squared() < 16:
             self.unload()
             return
         self.move_without_collision(distance, self.speed)
