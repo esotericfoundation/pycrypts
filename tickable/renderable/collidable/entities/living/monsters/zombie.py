@@ -3,13 +3,15 @@ import random
 import pygame
 from pygame import Vector2
 
+from tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
+from tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
-from tickable.renderable.collidable.entities.living.players.player import get_players
 
 
 class Zombie(Monster):
-        wander_cooldown = 1.0
+        wander_cooldown = 2.0
         wander_duration = 1.5
+        randomness = 0.35
 
         def __init__(self, position: tuple[int, int], size: int, game: "Game"):
             super().__init__(position, "zombie", size, 80, game)
@@ -19,28 +21,11 @@ class Zombie(Monster):
             self.idle_time = 0
             self.wandering = False
 
-        def ai_tick(self):
-            players = list(sorted(list(filter(lambda p: self.sees_other(p), get_players())), key=lambda p: self.position.distance_squared_to(p.position)))
-
-            if len(players) > 0:
-                player = players[0]
-                self.move_towards(player, 0.65)
-                self.wandering = False
-            else:
-                if self.wandering:
-                    self.move_without_collision(self.wander_direction, 0.35)
-                    self.wander_time += self.game.dt
-
-                    if self.wander_time >= Zombie.wander_duration:
-                        self.wandering = False
-                        self.wander_time = 0
-                else:
-                    self.idle_time += self.game.dt
-
-                    if self.idle_time >= Zombie.wander_cooldown:
-                        self.wander_direction = Vector2(random.uniform(-1, 1), random.uniform(-1, 1))
-                        self.wandering = True
-                        self.idle_time = 0
+        def register_goals(self):
+            self.goals.append(RandomWanderGoal(
+                self, 1, self.game, 0.35, Zombie.wander_duration, Zombie.wander_cooldown, Zombie.randomness))
+            self.goals.append(WalkToTargetGoal(
+                self, 0, self.game, 0.65))
 
         def attack_entity(self, entity: "LivingEntity"):
             if self.position.distance_squared_to(entity.position) < 10000:
