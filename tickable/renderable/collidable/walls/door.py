@@ -2,6 +2,7 @@ import pygame
 from pygame import Rect, Vector2
 
 from tickable.renderable.collidable.collidable import Collidable
+from tickable.renderable.collidable.entities.living.living_entity import get_living_entities
 from tickable.renderable.collidable.entities.living.players.player import get_players
 from tickable.renderable.collidable.walls.wall import Wall
 
@@ -21,8 +22,14 @@ class Door(Wall):
         width = self.bottom_right.x - self.top_left.x
         height = self.bottom_right.y - self.top_left.y
 
-        pygame.draw.rect(self.game.screen, (140, 65, 5), Rect(self.top_left, (width, height)))
-        pass
+        in_door = list(filter(lambda entity: self.is_in_door(entity), get_living_entities()))
+
+        if len(in_door) > 0:
+            transparent_surface = pygame.Surface((width, height), pygame.SRCALPHA)
+            transparent_surface.fill((140, 65, 5, 224))
+            self.game.screen.blit(transparent_surface, self.top_left)
+        else:
+            pygame.draw.rect(self.game.screen, (140, 65, 5), Rect(self.top_left, (width, height)))
 
     def on_players_enter(self):
         if self.destination is not None:
