@@ -49,6 +49,10 @@ class Entity(Collidable):
                     self.position -= distance_travelled
                     break
 
+    def move_towards(self, entity: "Entity", speed_factor: float = 1):
+        distance = entity.position - self.position
+        self.move_without_collision(distance, speed_factor)
+
     def is_colliding(self, entity: Collidable) -> bool:
         if self.no_clip:
             return False
