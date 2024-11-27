@@ -18,7 +18,10 @@ class LivingEntity(Entity):
 
         if self.health <= 0:
             self.health = 0
-            self.unload()
+            self.die()
+
+    def die(self):
+        self.unload()
 
     def attack(self):
         pass
