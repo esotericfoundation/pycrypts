@@ -15,7 +15,6 @@ class Sword(Entity):
     def __init__(self, target, user, position, game):
         super().__init__(position, "sword", 64, game)
 
-        self.baseImage = self.image
         self.target = target
         self.user = user
         self.time_left = 0.5
@@ -37,9 +36,9 @@ class Sword(Entity):
         offset.y = math.copysign(1, y) * (self.user.size / 4)
 
         if offset.x < 0:
-            self.image = pygame.transform.flip(self.baseImage, True, False)
+            self.image = pygame.transform.flip(self.base_image, True, False)
         else:
-            self.image = self.baseImage
+            self.image = self.base_image
 
         self.position = self.user.position + offset
 
@@ -53,7 +52,8 @@ class Sword(Entity):
                 return
 
             if isinstance(self.target, LivingEntity):
-                self.target.damage(10)
+                self.target.damage(12)
+                self.target.velocity = (self.target.position - self.user.position).normalize() * 8
                 self.used = True
                 self.time_left = 0.2
 
