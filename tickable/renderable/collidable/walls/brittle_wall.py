@@ -1,3 +1,5 @@
+import pygame
+
 from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
 from tickable.renderable.collidable.walls.wall import Wall
@@ -12,9 +14,11 @@ class BrittleWall(Wall):
         self.broken = False
 
     def tick(self):
-        self.broken = self.is_broken()
         if self.broken:
             return
+
+        if self.is_broken():
+            self.set_broken()
 
         return super().tick()
 
@@ -26,3 +30,12 @@ class BrittleWall(Wall):
 
     def is_broken(self):
         return all(map(lambda monster: not monster.is_alive(), self.monsters_to_defeat))
+
+    def set_broken(self):
+        self.broken = True
+
+        sound = pygame.mixer.Sound('assets/sounds/explosion.mp3')
+        sound.set_volume(0.125)
+        pygame.mixer.Sound.play(sound)
+
+
