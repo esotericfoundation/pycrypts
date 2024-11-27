@@ -29,6 +29,7 @@ class EntranceZone(Room):
         border_left = Wall(self.game.top_left, self.game.bottom_left + (40, 0), self.game)
         border_right_1 = Wall(self.game.top_right + (-40, 0), self.game.top_right + (0, 240), self.game)
         border_right_2 = Wall(self.game.top_right + (-40, 480), self.game.bottom_right, self.game)
+        border_right_3 = Wall(border_right_1.bottom_right, border_right_2.top_left + (80, 0), self.game)
         border_top = Wall(self.game.top_left, self.game.top_right + (0, 40), self.game)
         border_bottom = Wall(self.game.bottom_left + (0, -40), self.game.bottom_right, self.game)
 
@@ -42,10 +43,10 @@ class EntranceZone(Room):
             self.game.top_right + (-40, 240),
             self.game.top_right + (0, 480),
             self.game.surface_zone,
-            (Vector2(150, 350), Vector2(250, 350)),
+            (Vector2(150, 150), Vector2(250, 150)),
             self.game)
 
-        self.walls.extend([border_left, border_right_1, border_right_2, border_top, border_bottom, wall_1, wall_2, wall_3, wall_4, wall_5])
+        self.walls.extend([border_left, border_right_1, border_right_2, border_right_3, border_top, border_bottom, wall_1, wall_2, wall_3, wall_4, wall_5])
         self.doors.append(entrance_door)
 
     def spawn_monsters(self):
