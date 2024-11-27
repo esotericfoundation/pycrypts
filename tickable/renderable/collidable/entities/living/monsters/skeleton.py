@@ -23,8 +23,6 @@ class Skeleton(Monster):
     def damage(self, damage):
         super().damage(damage)
 
-        print("Skeleton taking damage!")
-
         sound = pygame.mixer.Sound('assets/sounds/skeleton_damage.mp3')
         sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)

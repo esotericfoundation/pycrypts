@@ -3,7 +3,6 @@ import random
 import pygame
 from pygame import Vector2
 
-from tickable.renderable.collidable.entities.entity import Entity
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
 from tickable.renderable.collidable.entities.living.players.player import get_players
 
@@ -49,8 +48,6 @@ class Zombie(Monster):
 
         def damage(self, damage):
             super().damage(damage)
-
-            print("Zombie taking damage!")
 
             sound = pygame.mixer.Sound('assets/sounds/zombie_damage.mp3')
             sound.set_volume(0.125)

@@ -69,19 +69,13 @@ class Player(LivingEntity):
             if Vector2(closest_entity.position).distance_squared_to(self.position) > entity.position.distance_squared_to(self.position):
                 closest_entity = entity
 
-
-        # print type of closest entity
-        print(type(closest_entity).__name__)
-
         self.attack_entity(closest_entity)
 
     def sword_attack(self, entity: LivingEntity):
-        print("I will strike you down with my sword!")
         Sword(entity, self, self.get_center(), self.game)
         pass
 
     def bow_attack(self, entity: LivingEntity):
-        print("Watch out! Bow fire incoming!")
         Arrow(entity.get_center(), self.get_center(), 32, self.game)
         pass
 
