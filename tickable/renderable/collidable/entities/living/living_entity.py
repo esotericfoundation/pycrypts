@@ -17,6 +17,7 @@ class LivingEntity(Entity):
         self.health -= damage
 
         if self.health <= 0:
+            self.health = 0
             self.unload()
 
     def attack(self):
