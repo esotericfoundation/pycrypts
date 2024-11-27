@@ -33,7 +33,6 @@ class Skeleton(Monster):
 
     def damage(self, damage):
         super().damage(damage)
-        print("health left: " + str(self.health))
 
         if not self.is_alive():
             return

@@ -30,7 +30,6 @@ class Zombie(Monster):
         def attack_entity(self, entity: "LivingEntity"):
             if self.position.distance_squared_to(entity.position) < 10000:
                 entity.damage(20)
-                print("Zombie attacked a " + str(type(entity)))
                 entity.velocity += (entity.position - self.position).normalize() * 8
 
         def damage(self, damage):
