@@ -4,9 +4,9 @@ from tickable.renderable.collidable.walls.wall import Wall
 
 
 class Room:
-    def __init__(self, walls: list[Wall], doors: list[Door], spawn_1: tuple[int, int], spawn_2: [int, int], game: "Game", entity_scale=1.0):
-        self.walls = walls
-        self.doors = doors
+    def __init__(self, spawn_1: tuple[int, int], spawn_2: [int, int], game: "Game", entity_scale = 1.0):
+        self.walls = []
+        self.doors = []
         self.monsters = []
         self.spawn_1 = spawn_1
         self.spawn_2 = spawn_2
@@ -15,7 +15,12 @@ class Room:
         self.other_entities = []
         pass
 
+    def create(self):
+        pass
+
     def load(self):
+        self.create()
+
         for wall in self.walls:
             wall.load()
 

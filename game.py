@@ -4,6 +4,7 @@ import pygame
 from pygame import Vector2
 
 from enums.movement_keys import movement_keys
+from rooms.entrance_zone import EntranceZone
 from rooms.surface_zone import SurfaceZone
 from tickable.renderable.collidable.entities.living.players.player import Player
 from tickable.renderable.collidable.walls.wall import Wall
@@ -41,6 +42,8 @@ class Game:
         self.center = Vector2(self.width / 2, self.height / 2)
 
         self.current_room = None
+        self.entrance_zone = EntranceZone(self)
+        self.surface_zone = SurfaceZone(self)
 
     def init(self):
         rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT, self)
@@ -49,8 +52,8 @@ class Game:
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
 
-        surface_zone = SurfaceZone(self)
-        surface_zone.load()
+        # surface_zone = SurfaceZone(self)
+        self.surface_zone.load()
 
     def tick(self):
         present = time.time()
