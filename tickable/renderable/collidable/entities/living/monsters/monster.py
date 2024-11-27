@@ -13,11 +13,16 @@ class Monster(LivingEntity):
 
     def tick(self):
         super().tick()
+        self.ai_tick()
+
         self.attack_timer += self.game.dt
 
         if self.attack_timer >= self.attack_interval:
             self.attack_timer = 0
             self.attack()
+
+    def ai_tick(self):
+        pass
 
     def attack(self):
         players = list(filter(lambda p: self.sees_other(p), get_players()))
