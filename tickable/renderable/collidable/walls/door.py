@@ -1,5 +1,5 @@
 import pygame
-from pygame import Rect
+from pygame import Rect, Vector2
 
 from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.living.players.player import get_players
@@ -7,11 +7,15 @@ from tickable.renderable.collidable.walls.wall import Wall
 
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", game: "Game"):
+    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "Game"):
+        self.destination = destination
+        self.__spawns = spawns
+        self.game = game
+
         super().__init__(top_left, bottom_right, game)
 
-        self.destination = destination
-        self.game = game
+    def get_spawns(self):
+        return self.__spawns
 
     def render(self):
         width = self.bottom_right.x - self.top_left.x
@@ -22,6 +26,18 @@ class Door(Wall):
 
     def on_players_enter(self):
         if self.destination is not None:
+            players = get_players()
+            i = 0
+
+            for player in players:
+                i += 1
+                if i == 1:
+                    player.position = Vector2(self.get_spawns()[0])
+                else:
+                    player.position = Vector2(self.get_spawns()[1])
+
+                player.set_scale(self.destination.entity_scale)
+
             self.game.current_room.unload()
             self.destination.load()
 
@@ -32,7 +48,7 @@ class Door(Wall):
 
         players = get_players()
 
-        if players.__sizeof__() == 0:
+        if len(players) == 0:
             return
 
         for player in players:
