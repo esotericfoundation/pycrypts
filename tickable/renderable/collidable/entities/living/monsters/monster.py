@@ -1,7 +1,3 @@
-import random
-
-from pygame import Vector2
-
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.collidable.entities.living.players.player import get_players
 
@@ -12,6 +8,13 @@ class Monster(LivingEntity):
         super().__init__(position, "monsters/" + monster, size, health, game)
         self.attack_timer = 0
         self.game = game
+        self.goals = []
+        self.last_ticked_goal = None
+
+        self.register_goals()
+
+    def register_goals(self):
+        pass
 
     def tick(self):
         super().tick()
@@ -24,7 +27,19 @@ class Monster(LivingEntity):
             self.attack()
 
     def ai_tick(self):
-        pass
+        usable_goals = list(filter(lambda g: g.can_use(), self.goals))
+        if len(usable_goals) == 0:
+            return
+
+        highest_priority = list(sorted(usable_goals, key=lambda g: g.priority))[0]
+
+        if highest_priority != self.last_ticked_goal:
+            if self.last_ticked_goal is not None:
+                self.last_ticked_goal.end()
+            highest_priority.start()
+
+        highest_priority.tick()
+        self.last_ticked_goal = highest_priority
 
     def attack(self):
         players = list(filter(lambda p: self.sees_other(p), get_players()))
