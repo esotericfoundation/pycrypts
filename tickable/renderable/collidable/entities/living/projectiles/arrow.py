@@ -14,8 +14,12 @@ class Arrow(Fireball):
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)
         self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)
+        self.hit = False
 
     def is_colliding(self, entity: Collidable) -> bool:
+        if self.hit:
+            return False
+
         if isinstance(entity, Entity) and entity.no_clip:
             return False
 
@@ -33,9 +37,11 @@ class Arrow(Fireball):
                 entity.unload()
                 return False
 
+            self.hit = True
             self.unload()
 
             if isinstance(entity, LivingEntity):
+                print("arrow hit")
                 entity.damage(10)
                 return False
             return True
