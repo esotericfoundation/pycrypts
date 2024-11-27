@@ -12,7 +12,7 @@ def get_players():
     return list(filter(lambda entity: isinstance(entity, Player), get_living_entities()))
 
 class Player(LivingEntity):
-    attack_cooldown = 0.5
+    attack_cooldown = 0.75
     attack_range = 250
 
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
