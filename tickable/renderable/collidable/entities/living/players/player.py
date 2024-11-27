@@ -13,7 +13,7 @@ def get_players():
 
 class Player(LivingEntity):
     attack_cooldown = 0.75
-    attack_range = 250
+    attack_range = 175
 
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
         super().__init__(position, "players/" + character, size, 100, game)
@@ -36,6 +36,8 @@ class Player(LivingEntity):
             self.no_clip = not self.no_clip
 
     def move(self):
+        super().move()
+
         keys = pygame.key.get_pressed()
 
         distance_travelled = pygame.Vector2()
@@ -93,6 +95,12 @@ class Player(LivingEntity):
         sound = pygame.mixer.Sound('assets/sounds/damage.mp3')
         sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)
+
+    def die(self):
+        super().die()
+
+        if len(get_players()) == 0:
+            self.game.end()
 
     def is_colliding(self, entity: Collidable) -> bool:
         if isinstance(entity, Arrow):
