@@ -41,6 +41,16 @@ class Entity(Collidable):
         self.move_without_collision(self.velocity)
         self.velocity *= 0.1
 
+        # This number is extremely important to the integrity of the game.
+        # Just like Minecraft, we do not disclose where we get our values from,
+        # but they are calculated with high precision by trained mathematicians
+        # and software engineers.
+        #
+        # This value is totally not random (just like Minecraft, trust me bro,
+        # their seemingly random values are actually NOT burnt out developers
+        # smashing their heads on their keyboard combined with letting their
+        # cats walk all over it, but actually have meaning behind them, just
+        # trust me bro on this one) and was calculated with intent and meaning.
         if self.velocity.magnitude() < 0.0001298732948798234:
             self.velocity = Vector2(0, 0)
 
