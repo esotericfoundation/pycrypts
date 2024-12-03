@@ -21,7 +21,8 @@ class Room:
         self.created = True
 
     def load(self):
-        self.create()
+        if not self.created:
+            self.create()
         self.game.current_room = self
 
         for wall in self.walls:

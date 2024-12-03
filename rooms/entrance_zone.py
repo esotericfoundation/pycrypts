@@ -18,9 +18,6 @@ class EntranceZone(Room):
         super().__init__(spawn_1, spawn_2, game, EntranceZone.entity_scale)
 
     def create(self):
-        if self.created:
-            return
-
         super().create()
 
         self.spawn_monsters()
