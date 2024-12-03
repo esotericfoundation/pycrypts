@@ -2,6 +2,7 @@ from pygame import Vector2
 
 from rooms.room import Room
 from tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+from tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
 from tickable.renderable.collidable.walls.brittle_wall import BrittleWall
 from tickable.renderable.collidable.walls.door import Door
 from tickable.renderable.collidable.walls.wall import Wall
@@ -17,6 +18,7 @@ class EntranceZone(Room):
         super().__init__(spawn_1, spawn_2, game, EntranceZone.entity_scale)
 
         self.skeletons = []
+        self.zombies = []
 
     def create(self):
         if self.created:
@@ -60,9 +62,17 @@ class EntranceZone(Room):
         skeleton_8 = Skeleton((425, 200), 64, self.game)
         skeleton_9 = Skeleton((325, 200), 64, self.game)
 
+        zombie_1 = Zombie((900, 400), 64, self.game)
+        zombie_2 = Zombie((1000, 400), 64, self.game)
+
         self.skeletons.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
+        self.zombies.extend([zombie_1, zombie_2])
+
         self.monsters.extend(self.skeletons)
+        self.monsters.extend(self.zombies)
 
         for skeleton in self.skeletons:
             skeleton.unload()
 
+        for zombie in self.zombies:
+            zombie.unload()
