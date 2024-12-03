@@ -1,5 +1,3 @@
-from turtledemo.rosette import mn_eck
-
 from pygame import Vector2
 
 from rooms.room import Room
@@ -38,7 +36,7 @@ class EntranceZone(Room):
         wall_2 = Wall((1050, 200), (1100, 500), self.game)
         wall_3 = Wall((850, 25), (900, 325), self.game)
         wall_4 = Wall((650, 200), (700, 500), self.game)
-        wall_5 = BrittleWall([200, 40], [250, 550], list(self.skeletons), self.game)
+        wall_5 = BrittleWall([200, 40], [250, 550], list(self.monsters), self.game)
 
         entrance_door = Door(
             self.game.top_right + (-40, 240),
