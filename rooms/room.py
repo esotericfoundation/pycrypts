@@ -6,13 +6,14 @@ from tickable.renderable.collidable.walls.wall import Wall
 
 
 class Room:
-    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "Game", entity_scale = 1.0):
+    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "Game", entity_scale = 1.0, movement_factor = 1.0):
         self.walls = []
         self.doors = []
         self.monsters = []
         self.spawn_1 = spawn_1
         self.spawn_2 = spawn_2
         self.entity_scale = entity_scale
+        self.movement_factor = movement_factor
         self.game = game
         self.other_entities = []
         self.created = False

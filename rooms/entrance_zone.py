@@ -10,12 +10,13 @@ from tickable.renderable.collidable.walls.wall import Wall
 
 class EntranceZone(Room):
     entity_scale = 0.5
+    movement_factor = 0.65
 
     def __init__(self, game: "Game"):
         spawn_1 = Vector2(game.top_right + (-100, 240))
         spawn_2 = Vector2(game.bottom_right + (-100, -320))
 
-        super().__init__(spawn_1, spawn_2, game, EntranceZone.entity_scale)
+        super().__init__(spawn_1, spawn_2, game, EntranceZone.entity_scale, EntranceZone.movement_factor)
 
     def create(self):
         super().create()
