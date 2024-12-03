@@ -63,6 +63,10 @@ class Player(LivingEntity):
             return
 
         self.velocity += distance_travelled.normalize() * 250 * self.game.dt
+
+        if self.velocity.magnitude() == 0:
+            return
+
         self.velocity = self.velocity.normalize() * min(self.velocity.magnitude(), 25)
 
     def attack(self):
