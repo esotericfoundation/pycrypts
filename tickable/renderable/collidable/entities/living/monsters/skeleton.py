@@ -23,7 +23,7 @@ class Skeleton(Monster):
             self, 0, self.game, 0.7, 200))
 
     def attack_entity(self, entity: LivingEntity):
-        Fireball(entity.get_center(), (self.position.x, self.position.y), 32, self.game)
+        Fireball(entity.get_center(), (self.position.x, self.position.y), 32, self.game, 1.2)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Fireball):
