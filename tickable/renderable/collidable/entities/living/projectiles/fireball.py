@@ -1,3 +1,5 @@
+import random
+
 from pygame import Vector2
 
 from tickable.renderable.collidable.entities.entity import Entity
@@ -10,6 +12,7 @@ class Fireball(Entity):
         super().__init__(position, character, size, game)
         self.target = Vector2(target)
         self.speed = speed
+        self.strong = random.randint(0, 1) == 0
 
     def move(self):
         distance = self.target - self.position

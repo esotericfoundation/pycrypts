@@ -34,7 +34,8 @@ class Arrow(Fireball):
 
         if is_colliding:
             if isinstance(entity, Fireball):
-                entity.unload()
+                if not entity.strong:
+                    entity.unload()
                 return False
 
             self.hit = True
