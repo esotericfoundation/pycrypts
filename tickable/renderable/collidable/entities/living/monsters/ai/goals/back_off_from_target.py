@@ -15,6 +15,6 @@ class BackOffFromTargetGoal(WalkToTargetGoal):
 
     def get_nearby_targets_and_cache(self):
         targets = super().get_nearby_targets_and_cache()
-        nearby = list(filter(lambda p: self.owner.position.distance_squared_to(p.position) < self.distance_threshold * self.distance_threshold, targets))
+        nearby = list(filter(lambda p: self.owner.position.distance_squared_to(p.position) < self.distance_threshold * self.distance_threshold * self.game.current_room.entity_scale * self.game.current_room.entity_scale, targets))
 
         return nearby
