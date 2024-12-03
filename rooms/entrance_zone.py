@@ -1,3 +1,5 @@
+from turtledemo.rosette import mn_eck
+
 from pygame import Vector2
 
 from rooms.room import Room
@@ -16,9 +18,6 @@ class EntranceZone(Room):
         spawn_2 = Vector2(game.bottom_right + (-100, -320))
 
         super().__init__(spawn_1, spawn_2, game, EntranceZone.entity_scale)
-
-        self.skeletons = []
-        self.zombies = []
 
     def create(self):
         if self.created:
@@ -65,14 +64,8 @@ class EntranceZone(Room):
         zombie_1 = Zombie((900, 400), 64, self.game)
         zombie_2 = Zombie((1000, 400), 64, self.game)
 
-        self.skeletons.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
-        self.zombies.extend([zombie_1, zombie_2])
+        self.monsters.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
+        self.monsters.extend([zombie_1, zombie_2])
 
-        self.monsters.extend(self.skeletons)
-        self.monsters.extend(self.zombies)
-
-        for skeleton in self.skeletons:
-            skeleton.unload()
-
-        for zombie in self.zombies:
-            zombie.unload()
+        for monster in self.monsters:
+            monster.unload()
