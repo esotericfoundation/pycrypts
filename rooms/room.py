@@ -40,6 +40,10 @@ class Room:
             monster.load()
             monster.set_scale(self.entity_scale)
 
+        for other_entity in self.other_entities:
+            other_entity.load()
+            other_entity.set_scale(self.entity_scale)
+
     def unload(self):
         for wall in self.walls:
             wall.unload()

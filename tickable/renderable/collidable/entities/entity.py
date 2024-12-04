@@ -71,7 +71,10 @@ class Entity(Collidable):
                 self.position.y -= distance_travelled.y
 
     def move_towards(self, entity: "Entity", speed_factor: float = 1):
-        distance = entity.position - self.position
+        self.move_towards_location(entity.position, speed_factor)
+
+    def move_towards_location(self, location: Vector2, speed_factor: float = 1):
+        distance = location - self.position
         self.move_without_collision(distance, speed_factor)
 
     def move_away_from(self, entity: "Entity", speed_factor: float = 1):
