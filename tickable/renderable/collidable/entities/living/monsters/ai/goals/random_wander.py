@@ -22,9 +22,10 @@ class RandomWanderGoal(Goal):
     def start(self):
         self.start_wandering()
 
-    def tick(self):
+    def tick(self, move = True):
         if self.wandering:
-            self.owner.move_without_collision(self.wander_direction, 0.35)
+            if move:
+                self.owner.move_without_collision(self.wander_direction, self.speed)
             self.wander_time += self.game.dt
 
             if self.wander_time >= self.wander_duration + random.uniform(-self.randomness, self.randomness):

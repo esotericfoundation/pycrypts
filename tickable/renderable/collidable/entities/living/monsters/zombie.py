@@ -4,7 +4,7 @@ import pygame
 from pygame import Vector2
 
 from tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
-from tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
+from tickable.renderable.collidable.entities.living.monsters.ai.goals.strafe_to_target import StrafeToTargetGoal
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
 
 
@@ -24,7 +24,7 @@ class Zombie(Monster):
         def register_goals(self):
             self.goals.append(RandomWanderGoal(
                 self, 1, self.game, 0.35, Zombie.wander_duration, Zombie.wander_cooldown, Zombie.randomness))
-            self.goals.append(WalkToTargetGoal(
+            self.goals.append(StrafeToTargetGoal(
                 self, 0, self.game, 0.65))
 
         def attack_entity(self, entity: "LivingEntity"):
