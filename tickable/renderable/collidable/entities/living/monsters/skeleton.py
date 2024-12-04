@@ -3,6 +3,7 @@ import pygame
 from tickable.renderable.collidable.entities.entity import Entity
 from tickable.renderable.collidable.entities.living.monsters.ai.goals.back_off_from_target import BackOffFromTargetGoal
 from tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
+from tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
 from tickable.renderable.collidable.entities.living.projectiles.fireball import Fireball
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
@@ -18,7 +19,9 @@ class Skeleton(Monster):
 
     def register_goals(self):
         self.goals.append(RandomWanderGoal(
-            self, 1, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))
+            self, 2, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))
+        self.goals.append(WalkToTargetGoal(
+            self, 1, self.game, 0.6))
         self.goals.append(BackOffFromTargetGoal(
             self, 0, self.game, 0.7, 200))
 
