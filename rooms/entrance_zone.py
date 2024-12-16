@@ -72,3 +72,6 @@ class EntranceZone(Room):
 
         for monster in self.monsters:
             monster.unload()
+
+        for other_entity in self.other_entities:
+            other_entity.unload()
