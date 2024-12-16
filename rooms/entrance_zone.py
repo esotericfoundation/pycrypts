@@ -64,7 +64,7 @@ class EntranceZone(Room):
         zombie_1 = Zombie((900, 400), 64, self.game)
         zombie_2 = Zombie((1000, 400), 64, self.game)
 
-        saw_trap = SawTrap(Vector2(325, 475 + 32), Vector2(325, self.game.height - 120), 64, self.game)
+        saw_trap = SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game)
 
         self.monsters.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
         self.monsters.extend([zombie_1, zombie_2])
