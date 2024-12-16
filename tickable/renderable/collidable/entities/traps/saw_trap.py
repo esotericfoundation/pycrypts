@@ -30,6 +30,7 @@ class SawTrap(Entity):
         else:
             self.move_towards_location(self.start, 1)
             if self.position.distance_squared_to(self.start) < 0.1:
+                print("Reached start")
                 self.moving_to_end = True
 
     def is_colliding(self, entity: Collidable) -> bool:
