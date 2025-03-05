@@ -51,8 +51,6 @@ class Door(Wall):
     def tick(self):
         super().tick()
 
-        all_players_ready = True
-
         players = get_players()
 
         if len(players) == 0:
@@ -60,10 +58,9 @@ class Door(Wall):
 
         for player in players:
             if not self.is_in_door(player):
-                all_players_ready = False
+                return
 
-        if all_players_ready:
-            self.on_players_enter()
+        self.on_players_enter()
 
     def is_colliding(self, other: Collidable) -> bool:
         return False
