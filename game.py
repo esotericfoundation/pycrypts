@@ -22,7 +22,7 @@ def load_icon(window_name: str, icon_name: str):
 class Game:
     def __init__(self):
         self.screen: Surface = pygame.display.set_mode((1280, 720))
-        load_icon("Dungeon Crawler", "big-skeleton-face")
+        load_icon("PyCrypt", "big-skeleton-face")
 
         self.debug = True
 
