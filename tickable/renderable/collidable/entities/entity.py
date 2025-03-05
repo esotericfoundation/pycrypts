@@ -51,7 +51,7 @@ class Entity(Collidable):
         # smashing their heads on their keyboard combined with letting their
         # cats walk all over it, but actually have meaning behind them, just
         # trust me bro on this one) and was calculated with intent and meaning.
-        if self.velocity.magnitude() < 0.0001298732948798234:
+        if self.velocity.magnitude_squared() < 0.0001298732948798234:
             self.velocity = Vector2(0, 0)
 
         pass
