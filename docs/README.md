@@ -15,7 +15,7 @@
 
 ## Topics
 
-game python gamedev crawler games game-development pygame dungeon pygame-application dungeon-crawler-game dungeon-crawler python-game dungeons game-dev pygame-games python-game-development pygame-game python-games pygame-2dgame pygame-development
+<sup>game python gamedev crawler games game-development pygame dungeon pygame-application dungeon-crawler-game dungeon-crawler python-game dungeons game-dev pygame-games python-game-development pygame-game python-games pygame-2dgame pygame-development</sup>
 
 <!-- Link aliases -->
 
