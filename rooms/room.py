@@ -35,7 +35,7 @@ class Room:
         for monster in self.monsters:
             if monster.health <= 0:
                 self.monsters.remove(monster)
-                break
+                continue
 
             monster.load()
             monster.set_scale(self.entity_scale)
