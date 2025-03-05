@@ -1,3 +1,4 @@
+from typing import TYPE_CHECKING
 from pygame import Vector2
 
 from rooms.room import Room
@@ -7,6 +8,9 @@ from tickable.renderable.collidable.entities.traps.saw_trap import SawTrap
 from tickable.renderable.collidable.walls.brittle_wall import BrittleWall
 from tickable.renderable.collidable.walls.door import Door
 from tickable.renderable.collidable.walls.wall import Wall
+
+if TYPE_CHECKING:
+    from game import Game
 
 
 class EntranceZone(Room):
