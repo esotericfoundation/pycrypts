@@ -11,7 +11,7 @@
 
 ## License
 
-[PyCrypt][root] &copy; 2024-2025 [Esoteric Foundation][author-homepage] is licensed under the [AGPL 3.0][license] only.
+[PyCrypt][root] &copy; 2024-2025 [Esoteric Foundation][author-homepage], licensed under the [AGPL 3.0][license] only.
 
 ## Topics
 
