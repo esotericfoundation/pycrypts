@@ -1,5 +1,10 @@
+from typing import TYPE_CHECKING
+
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.collidable.entities.living.players.player import get_players
+
+if TYPE_CHECKING:
+    from game import Game
 
 class Monster(LivingEntity):
     attack_interval = 1.0

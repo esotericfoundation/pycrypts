@@ -5,6 +5,10 @@ from tickable.renderable.collidable.entities.living.living_entity import LivingE
 from tickable.renderable.display.text import Text
 from tickable.renderable.renderable import Renderable
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from game import Game
+
 
 class HealthBar(Renderable):
 

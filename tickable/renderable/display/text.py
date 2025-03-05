@@ -3,6 +3,9 @@ from pygame import Vector2
 
 from tickable.renderable.renderable import Renderable
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from game import Game
 
 class Text(Renderable):
     def __init__(self, text, location, color, game: "Game", size = 20):

@@ -2,14 +2,18 @@ import math
 
 import pygame
 
+from typing import TYPE_CHECKING
 from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.entity import Entity
 from tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
+if TYPE_CHECKING:
+    from game import Game
+
 
 class Arrow(Fireball):
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game):
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game"):
         super().__init__(target, position, size, game, 2, "arrow")
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)

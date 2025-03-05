@@ -5,6 +5,10 @@ from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.entity import Entity
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from game import Game
 
 class SawTrap(Entity):
     def __init__(self, start: Vector2, end: Vector2, size: int, game: "Game"):

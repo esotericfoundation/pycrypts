@@ -4,6 +4,10 @@ from pygame import Vector2
 
 from tickable.renderable.collidable.entities.entity import Entity
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from game import Game
 
 
 class Fireball(Entity):

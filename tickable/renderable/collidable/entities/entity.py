@@ -2,6 +2,10 @@ import pygame
 from pygame import Vector2
 
 from tickable.renderable.collidable.collidable import Collidable, get_collidables
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from game import Game
 
 
 def get_entities():

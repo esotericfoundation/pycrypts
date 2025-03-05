@@ -6,6 +6,10 @@ from tickable.renderable.collidable.entities.living.living_entity import get_liv
 from tickable.renderable.collidable.entities.living.players.player import get_players
 from tickable.renderable.collidable.walls.wall import Wall
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from game import Game
+    from rooms.room import Room
 
 class Door(Wall):
     def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "Game"):

@@ -5,6 +5,10 @@ from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.entity import Entity
 from tickable.tickable import Tickable
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from game import Game
 
 class Wall(Collidable):
     points: list[  # list of

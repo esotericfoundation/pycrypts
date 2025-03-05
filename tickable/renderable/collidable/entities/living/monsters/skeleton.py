@@ -1,5 +1,6 @@
 import pygame
 
+from typing import TYPE_CHECKING
 from tickable.renderable.collidable.entities.entity import Entity
 from tickable.renderable.collidable.entities.living.monsters.ai.goals.back_off_from_target import BackOffFromTargetGoal
 from tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
@@ -8,6 +9,9 @@ from tickable.renderable.collidable.entities.projectiles.fireball import Firebal
 from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
 
+
+if TYPE_CHECKING:
+    from game import Game
 
 class Skeleton(Monster):
     wander_duration = 1.5

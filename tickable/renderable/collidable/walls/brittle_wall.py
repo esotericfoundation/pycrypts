@@ -4,6 +4,10 @@ from tickable.renderable.collidable.collidable import Collidable
 from tickable.renderable.collidable.entities.living.monsters.monster import Monster
 from tickable.renderable.collidable.walls.wall import Wall
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from game import Game
 
 class BrittleWall(Wall):
 
