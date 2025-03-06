@@ -52,9 +52,11 @@ class Game:
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
 
+        print("Instantiating rooms")
         self.current_room = self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
 
+        print("Loading starting zone")
         self.surface_zone.load()
 
         players = get_players()
