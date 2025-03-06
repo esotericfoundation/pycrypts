@@ -26,9 +26,13 @@ class Door(Wall):
         width = self.bottom_right.x - self.top_left.x
         height = self.bottom_right.y - self.top_left.y
 
-        in_door = list(filter(lambda entity: self.is_in_door(entity), get_living_entities()))
+        in_door = False
+        for living in get_living_entities():
+            if self.is_in_door(living):
+                in_door = True
+                break
 
-        if len(in_door) > 0:
+        if in_door:
             transparent_surface = pygame.Surface((width, height), pygame.SRCALPHA)
             transparent_surface.fill((140, 65, 5, 224))
             self.game.screen.blit(transparent_surface, self.top_left)
