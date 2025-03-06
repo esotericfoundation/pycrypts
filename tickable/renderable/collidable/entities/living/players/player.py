@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from game import Game
 
 
-def get_players():
+def get_players() -> list["Player"]:
     return list(filter(lambda entity: isinstance(entity, Player), get_living_entities()))
 
 class Player(LivingEntity):
