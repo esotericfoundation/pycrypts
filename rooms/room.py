@@ -22,6 +22,7 @@ class Room:
         self.created = False
 
     def create(self):
+        print("Creating room")
         self.created = True
 
     def load(self):
