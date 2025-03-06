@@ -2,7 +2,7 @@
 
 [![Project status: unfinished][status]][root]
 
-> A simple game using Python for our CS class.
+A PyGame adventure featuring a sprawling underground dungeon filled with enemies and loot.
 
 ## Information
 
