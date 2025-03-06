@@ -1,6 +1,6 @@
 # Credit
 
-- [Twemoji][twemoji] &copy; 2019 [Twitter, Inc][twemoji-author] and [other contributors][twemoji-contributors], licensed under [CC BY-SA 4.0][twemoji-license].
+- [Twemoji][twemoji] &copy; 2019 [Twitter, Inc][twemoji-author] and [other contributors][twemoji-contributors], licensed under [CC BY 4.0][twemoji-license].
 
 <!-- Link aliases -->
 
