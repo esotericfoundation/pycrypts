@@ -49,6 +49,7 @@ class Room:
             other_entity.set_scale(self.entity_scale)
 
     def unload(self):
+        print("Unloading room")
         for wall in self.walls:
             wall.unload()
 
