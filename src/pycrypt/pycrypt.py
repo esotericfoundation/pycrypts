@@ -40,9 +40,9 @@ class PyCrypt:
         self.over = False
 
     def load_icon(self):
-        self.pygame.display.set_caption(self.__class__.__name__)
+        self.pygame.display.set_caption(type(self).__name__)
 
-        icon = self.pygame.image.load(f'assets/images/icons/{self.__class__.__name__.lower()}.png')
+        icon = self.pygame.image.load(f'assets/images/icons/{type(self).__name__.lower()}.png')
         self.pygame.display.set_icon(icon)
 
     def init(self):
