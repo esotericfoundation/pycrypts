@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pycrypt"
+description = "A PyGame adventure featuring a sprawling underground dungeon filled with enemies and loot."
+readme = "README.md"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+authors = [
+    { name="Esoteric Enderman", email="esotericenderman@gmail.com" },
+    { name="rolyPolyVole", email="yezhanting@gmail.com" }
+]
+
+version = "0.0.1"
+requires-python = ">=3.13"
+
+license = "AGPL-3.0-only"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/esotericfoundation/pycrypt"
+Issues = "https://github.com/esotericfoundation/pycrypt/issues"
