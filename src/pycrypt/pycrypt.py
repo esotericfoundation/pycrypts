@@ -16,9 +16,7 @@ class PyCrypt:
     def __init__(self, pygame: game):
         self.pygame : game = pygame
 
-        self.screen: Surface = pygame.display.set_mode((1280, 720))
-        self.load_icon("PyCrypt", "big-skeleton-face")
-
+        self.screen : Surface | None = None
         self.debug = True
 
         self.clicked_positions: [Vector2, Vector2] = [None, None]
@@ -26,13 +24,13 @@ class PyCrypt:
         self.past = time.time()
         self.dt = 0
 
-        self.height = self.screen.get_height()
-        self.width = self.screen.get_width()
-        self.bottom_left = Vector2(0, self.height)
-        self.bottom_right = Vector2(self.width, self.height)
-        self.top_left = Vector2(0, 0)
-        self.top_right = Vector2(self.width, 0)
-        self.center = Vector2(self.width / 2, self.height / 2)
+        self.height = None
+        self.width = None
+        self.bottom_left = None
+        self.bottom_right = None
+        self.top_left = None
+        self.top_right = None
+        self.center = None
 
         self.current_room = None
         self.entrance_zone = None
@@ -48,6 +46,17 @@ class PyCrypt:
 
     def init(self):
         self.pygame.init()
+
+        self.screen = self.pygame.display.set_mode((1280, 720))
+        self.load_icon("PyCrypt", "big-skeleton-face")
+
+        self.height = self.screen.get_height()
+        self.width = self.screen.get_width()
+        self.bottom_left = Vector2(0, self.height)
+        self.bottom_right = Vector2(self.width, self.height)
+        self.top_left = Vector2(0, 0)
+        self.top_right = Vector2(self.width, 0)
+        self.center = Vector2(self.width / 2, self.height / 2)
 
         rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], self.pygame.K_LSHIFT, self)
         player = Player((0, 0), "pro", 64, movement_keys["ARROW"], self.pygame.K_RSHIFT, self)
