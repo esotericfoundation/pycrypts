@@ -6,6 +6,7 @@ from pygame import Vector2, Surface
 from enums.movement_keys import movement_keys
 from rooms.entrance_zone import EntranceZone
 from rooms.surface_zone import SurfaceZone
+from rooms.room import Room
 from tickable.renderable.collidable.entities.living.players.player import Player, get_players
 from tickable.renderable.collidable.walls.wall import Wall
 from tickable.renderable.display.health_bar import HealthBar
@@ -32,9 +33,9 @@ class PyCrypt:
         self.top_right = None
         self.center = None
 
-        self.current_room = None
-        self.entrance_zone = None
-        self.surface_zone = None
+        self.current_room : Room | None = None
+        self.entrance_zone : Room | None = None
+        self.surface_zone : Room | None = None
 
         self.over = False
 
