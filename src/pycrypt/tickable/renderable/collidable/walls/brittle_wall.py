@@ -1,8 +1,8 @@
 import pygame
 
-from tickable.renderable.collidable.collidable import Collidable
-from tickable.renderable.collidable.entities.living.monsters.monster import Monster
-from tickable.renderable.collidable.walls.wall import Wall
+from pycrypt.tickable.renderable.collidable.collidable import Collidable
+from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
+from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 from typing import TYPE_CHECKING
 

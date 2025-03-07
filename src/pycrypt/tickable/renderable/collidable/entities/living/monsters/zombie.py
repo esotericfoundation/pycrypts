@@ -4,9 +4,9 @@ import pygame
 from pygame import Vector2
 from typing import TYPE_CHECKING
 
-from tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
-from tickable.renderable.collidable.entities.living.monsters.ai.goals.strafe_to_target import StrafeToTargetGoal
-from tickable.renderable.collidable.entities.living.monsters.monster import Monster
+from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
+from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.strafe_to_target import StrafeToTargetGoal
+from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
 
 if TYPE_CHECKING:
     from game import Game

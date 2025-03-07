@@ -1,7 +1,7 @@
 import pygame
 from pygame import Vector2
 
-from tickable.renderable.renderable import Renderable
+from pycrypt.tickable.renderable.renderable import Renderable
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:

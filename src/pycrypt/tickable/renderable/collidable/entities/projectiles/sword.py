@@ -3,11 +3,11 @@ import math
 import pygame
 from pygame import Vector2
 
-from tickable.renderable.collidable.collidable import Collidable
-from tickable.renderable.collidable.entities.projectiles.arrow import Arrow
-from tickable.renderable.collidable.entities.entity import Entity
-from tickable.renderable.collidable.entities.projectiles.fireball import Fireball
-from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from pycrypt.tickable.renderable.collidable.collidable import Collidable
+from pycrypt.tickable.renderable.collidable.entities.projectiles.arrow import Arrow
+from pycrypt.tickable.renderable.collidable.entities.entity import Entity
+from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
+from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:

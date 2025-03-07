@@ -1,9 +1,9 @@
 from pygame import Vector2
 from typing import TYPE_CHECKING
 
-from tickable.renderable.collidable.entities.living.players.player import get_players
-from tickable.renderable.collidable.walls.door import Door
-from tickable.renderable.collidable.walls.wall import Wall
+from pycrypt.tickable.renderable.collidable.entities.living.players.player import get_players
+from pycrypt.tickable.renderable.collidable.walls.door import Door
+from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
     from game import Game

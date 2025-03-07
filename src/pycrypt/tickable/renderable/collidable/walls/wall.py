@@ -1,9 +1,9 @@
 import pygame
 from pygame import Vector2, Rect
 
-from tickable.renderable.collidable.collidable import Collidable
-from tickable.renderable.collidable.entities.entity import Entity
-from tickable.tickable import Tickable
+from pycrypt.tickable.renderable.collidable.collidable import Collidable
+from pycrypt.tickable.renderable.collidable.entities.entity import Entity
+from pycrypt.tickable.tickable import Tickable
 
 from typing import TYPE_CHECKING
 

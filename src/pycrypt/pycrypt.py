@@ -4,14 +4,14 @@ import os
 import pygame as game
 from pygame import Vector2, Surface
 
-from enums.movement_keys import movement_keys
-from rooms.entrance_zone import EntranceZone
-from rooms.surface_zone import SurfaceZone
-from rooms.room import Room
-from tickable.renderable.collidable.entities.living.players.player import Player, get_players
-from tickable.renderable.collidable.walls.wall import Wall
-from tickable.renderable.display.health_bar import HealthBar
-from tickable.tickable import Tickable
+from pycrypt.enums.movement_keys import movement_keys
+from pycrypt.rooms.entrance_zone import EntranceZone
+from pycrypt.rooms.surface_zone import SurfaceZone
+from pycrypt.rooms.room import Room
+from pycrypt.tickable.renderable.collidable.entities.living.players.player import Player, get_players
+from pycrypt.tickable.renderable.collidable.walls.wall import Wall
+from pycrypt.tickable.renderable.display.health_bar import HealthBar
+from pycrypt.tickable.tickable import Tickable
 
 
 class PyCrypt:

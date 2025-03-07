@@ -1,10 +1,10 @@
 import pygame
 from pygame import Rect, Vector2
 
-from tickable.renderable.collidable.collidable import Collidable
-from tickable.renderable.collidable.entities.living.living_entity import get_living_entities
-from tickable.renderable.collidable.entities.living.players.player import get_players
-from tickable.renderable.collidable.walls.wall import Wall
+from pycrypt.tickable.renderable.collidable.collidable import Collidable
+from pycrypt.tickable.renderable.collidable.entities.living.living_entity import get_living_entities
+from pycrypt.tickable.renderable.collidable.entities.living.players.player import get_players
+from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:

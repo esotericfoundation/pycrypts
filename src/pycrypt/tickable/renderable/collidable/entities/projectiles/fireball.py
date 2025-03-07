@@ -2,8 +2,8 @@ import random
 
 from pygame import Vector2
 
-from tickable.renderable.collidable.entities.entity import Entity
-from tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from pycrypt.tickable.renderable.collidable.entities.entity import Entity
+from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -30,7 +30,7 @@ class Fireball(Entity):
         if isinstance(entity, Entity) and entity.no_clip:
             return False
 
-        from tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+        from pycrypt.tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 

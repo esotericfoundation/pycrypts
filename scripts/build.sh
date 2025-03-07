@@ -7,4 +7,4 @@ python3 -m pip install --upgrade build
 
 python3 -m build
 
-pyinstaller -y ./src/pycrypt/pycrypt.py
+pyinstaller -y --add-data "./src/pycrypt/assets/:./assets/" ./src/pycrypt/pycrypt.py
