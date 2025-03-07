@@ -1,4 +1,5 @@
 import time
+import os
 
 import pygame as game
 from pygame import Vector2, Surface
@@ -46,6 +47,8 @@ class PyCrypt:
         self.pygame.display.set_icon(icon)
 
     def init(self):
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
         self.pygame.init()
 
         self.screen = self.pygame.display.set_mode((1280, 720))
