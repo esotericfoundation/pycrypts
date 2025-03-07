@@ -20,7 +20,7 @@ A PyGame adventure featuring a sprawling underground dungeon filled with enemies
 <!-- Link aliases -->
 
 [root]: /
-[status]: ../assets/images/badges/status.svg
+[status]: assets/images/badges/status.svg
 
 <!-- Websites -->
 
