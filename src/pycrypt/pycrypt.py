@@ -19,7 +19,7 @@ def load_icon(window_name: str, icon_name: str):
     pygame.display.set_icon(icon)
 
 
-class Game:
+class PyCrypt:
     def __init__(self):
         self.screen: Surface = pygame.display.set_mode((1280, 720))
         load_icon("PyCrypt", "big-skeleton-face")
@@ -144,7 +144,7 @@ class Game:
 if __name__ == '__main__':
     pygame.init()
 
-    game = Game()
+    game = PyCrypt()
     game.init()
 
     while game.tick():
