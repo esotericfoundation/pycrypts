@@ -39,17 +39,17 @@ class PyCrypt:
 
         self.over = False
 
-    def load_icon(self, window_name: str, icon_name: str):
-        self.pygame.display.set_caption(window_name)
+    def load_icon(self):
+        self.pygame.display.set_caption(self.__class__.__name__)
 
-        icon = self.pygame.image.load(f'assets/{icon_name}.png')
+        icon = self.pygame.image.load(f'assets/images/icons/{self.__class__.__name__.lower()}.png')
         self.pygame.display.set_icon(icon)
 
     def init(self):
         self.pygame.init()
 
         self.screen = self.pygame.display.set_mode((1280, 720))
-        self.load_icon("PyCrypt", "big-skeleton-face")
+        self.load_icon()
 
         self.height = self.screen.get_height()
         self.width = self.screen.get_width()
