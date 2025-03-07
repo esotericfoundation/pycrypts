@@ -1,6 +1,6 @@
 import time
 
-import pygame
+import pygame as game
 from pygame import Vector2, Surface
 
 from enums.movement_keys import movement_keys
@@ -12,17 +12,12 @@ from tickable.renderable.display.health_bar import HealthBar
 from tickable.tickable import Tickable
 
 
-def load_icon(window_name: str, icon_name: str):
-    pygame.display.set_caption(window_name)
-
-    icon = pygame.image.load(f'assets/{icon_name}.png')
-    pygame.display.set_icon(icon)
-
-
 class PyCrypt:
-    def __init__(self):
+    def __init__(self, pygame: game):
+        self.pygame : game = pygame
+
         self.screen: Surface = pygame.display.set_mode((1280, 720))
-        load_icon("PyCrypt", "big-skeleton-face")
+        self.load_icon("PyCrypt", "big-skeleton-face")
 
         self.debug = True
 
@@ -45,9 +40,17 @@ class PyCrypt:
 
         self.over = False
 
+    def load_icon(self, window_name: str, icon_name: str):
+        self.pygame.display.set_caption(window_name)
+
+        icon = self.pygame.image.load(f'assets/{icon_name}.png')
+        self.pygame.display.set_icon(icon)
+
     def init(self):
-        rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], pygame.K_LSHIFT, self)
-        player = Player((0, 0), "pro", 64, movement_keys["ARROW"], pygame.K_RSHIFT, self)
+        self.pygame.init()
+
+        rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], self.pygame.K_LSHIFT, self)
+        player = Player((0, 0), "pro", 64, movement_keys["ARROW"], self.pygame.K_RSHIFT, self)
 
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
@@ -76,26 +79,26 @@ class PyCrypt:
             self.dt = present - self.past
             self.past = present
 
-        keys = pygame.key.get_pressed()
+        keys = self.pygame.key.get_pressed()
 
-        if keys[pygame.K_ESCAPE]:
+        if keys[self.pygame.K_ESCAPE]:
             return False
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in self.pygame.event.get():
+            if event.type == self.pygame.QUIT:
                 return False
 
         self.screen.fill((0, 0, 0))
 
         if self.over:
-            font_1 = pygame.font.Font(None, 150)
+            font_1 = self.pygame.font.Font(None, 150)
 
             text_1 = font_1.render("Game Over!", True, (255, 0, 0))
             text_1_rect = text_1.get_rect(center=self.center)
 
             self.screen.blit(text_1, text_1_rect)
 
-            font_2 = pygame.font.Font(None, 50)
+            font_2 = self.pygame.font.Font(None, 50)
 
             text_2 = font_2.render("Press ESC to exit", True, (200, 0, 0))
             text_2_rect = text_2.get_rect(center=(self.center.x, self.center.y + 100))
@@ -106,11 +109,11 @@ class PyCrypt:
             for tickable in Tickable.tickables:
                 tickable.tick()
 
-        pygame.display.flip()
+        self.pygame.display.flip()
         return True
 
     def handle_debug_mouse_click(self):
-        pos = pygame.mouse.get_pos()
+        pos = self.pygame.mouse.get_pos()
         print(f'POSITION SELECTED: ({pos[0]}, {pos[1]})')
 
         print(f'skeleton = Skeleton(({pos[0]}, {pos[1]}), 32)')
@@ -141,13 +144,14 @@ class PyCrypt:
         for tickable in Tickable.tickables:
             tickable.unload()
 
+    def quit(self):
+        self.pygame.quit()
+
 if __name__ == '__main__':
-    pygame.init()
+    pycrypt = PyCrypt(game)
+    pycrypt.init()
 
-    game = PyCrypt()
-    game.init()
-
-    while game.tick():
+    while pycrypt.tick():
         pass
 
-    pygame.quit()
+    pycrypt.quit()
