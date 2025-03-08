@@ -3,8 +3,6 @@
 
 cd "$(dirname "$0")/.." || exit
 
-python3 -m pip install --upgrade build
-
 python3 -m build
 
 pyinstaller -y --add-data "./pycrypt/assets/:./assets/" ./pycrypt/game.py
