@@ -4,7 +4,8 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 from pycrypt.tickable.renderable.collidable.entities.living.players.player import get_players
 
 if TYPE_CHECKING:
-    from pycrypt import PyCrypt
+    from pycrypt.game import PyCrypt
+
 
 class Monster(LivingEntity):
     attack_interval = 1.0
