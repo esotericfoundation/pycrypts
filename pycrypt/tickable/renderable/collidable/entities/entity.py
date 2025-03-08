@@ -93,7 +93,7 @@ class Entity(Collidable):
         if isinstance(entity, Entity):
             return self.position.distance_to(entity.position) < (self.size / 2 + entity.size / 2)
 
-        from tickable.renderable.collidable.walls.wall import Wall
+        from pycrypt.tickable.renderable.collidable.walls.wall import Wall
         if isinstance(entity, Wall):
             return entity.is_colliding(self)
         return False

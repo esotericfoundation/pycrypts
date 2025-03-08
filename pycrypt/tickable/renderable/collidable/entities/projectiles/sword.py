@@ -64,7 +64,7 @@ class Sword(Entity):
 
     def is_colliding(self, entity: Collidable) -> bool:
         if super().is_colliding(entity):
-            from tickable.renderable.collidable.entities.living.players.player import Player
+            from pycrypt.tickable.renderable.collidable.entities.living.players.player import Player
             if isinstance(entity, Player):
                 return False
 
