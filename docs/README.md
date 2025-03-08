@@ -11,7 +11,9 @@ A PyGame adventure featuring a sprawling underground dungeon filled with enemies
 
 ## License
 
-[PyCrypt][root] &copy; 2024-2025 [Esoteric Foundation][author-homepage], licensed under the [AGPL 3.0][license] only.
+&copy; 2024-2025 [Esoteric Foundation][author-homepage]
+
+[PyCrypt][root] is licensed under the [AGPL 3.0][license] only.
 
 ## Topics
 
