@@ -1,5 +1,6 @@
-from pycrypt.tickable.renderable.collidable.entities.entity import Entity, get_entities
 from typing import TYPE_CHECKING
+
+from pycrypt.tickable.renderable.collidable.entities.entity import Entity, get_entities
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

@@ -1,8 +1,9 @@
+from typing import TYPE_CHECKING
+
 import pygame
 from pygame import Vector2
 
 from pycrypt.tickable.renderable.collidable.collidable import Collidable, get_collidables
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

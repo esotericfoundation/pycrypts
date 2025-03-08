@@ -1,14 +1,15 @@
+from typing import TYPE_CHECKING
+
 import pygame
 
-from typing import TYPE_CHECKING
 from pycrypt.tickable.renderable.collidable.entities.entity import Entity
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.back_off_from_target import BackOffFromTargetGoal
+from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.back_off_from_target import \
+    BackOffFromTargetGoal
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
-from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
-from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
-
+from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

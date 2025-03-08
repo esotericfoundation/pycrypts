@@ -1,15 +1,15 @@
 import math
+from typing import TYPE_CHECKING
 
 import pygame
 from pygame import Vector2
 
 from pycrypt.tickable.renderable.collidable.collidable import Collidable
-from pycrypt.tickable.renderable.collidable.entities.projectiles.arrow import Arrow
 from pycrypt.tickable.renderable.collidable.entities.entity import Entity
-from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from pycrypt.tickable.renderable.collidable.entities.projectiles.arrow import Arrow
+from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 
-from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
     from pycrypt.tickable.renderable.collidable.entities.living.players.player import Player

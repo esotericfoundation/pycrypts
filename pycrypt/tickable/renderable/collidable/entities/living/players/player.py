@@ -1,11 +1,12 @@
+from typing import TYPE_CHECKING
+
 import pygame
 from pygame import Vector2
-from typing import TYPE_CHECKING
 
 from pycrypt.enums.movement_keys import movement_keys
 from pycrypt.tickable.renderable.collidable.collidable import Collidable
-from pycrypt.tickable.renderable.collidable.entities.projectiles.arrow import Arrow
 from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity, get_living_entities
+from pycrypt.tickable.renderable.collidable.entities.projectiles.arrow import Arrow
 from pycrypt.tickable.renderable.collidable.entities.projectiles.sword import Sword
 
 if TYPE_CHECKING:

@@ -1,4 +1,5 @@
 from typing import TYPE_CHECKING
+
 from pygame import Vector2
 
 from pycrypt.rooms.room import Room

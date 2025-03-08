@@ -1,6 +1,6 @@
 import pygame
 
-from pycrypt.game import PyCrypt
+from .game import PyCrypt
 
 pycrypt = PyCrypt(pygame)
 pycrypt.init()

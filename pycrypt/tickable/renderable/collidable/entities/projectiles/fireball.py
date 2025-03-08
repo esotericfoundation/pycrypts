@@ -1,10 +1,10 @@
 import random
+from typing import TYPE_CHECKING
 
 from pygame import Vector2
 
 from pycrypt.tickable.renderable.collidable.entities.entity import Entity
 from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

@@ -1,12 +1,12 @@
 import math
+from typing import TYPE_CHECKING
 
 import pygame
 
-from typing import TYPE_CHECKING
 from pycrypt.tickable.renderable.collidable.collidable import Collidable
 from pycrypt.tickable.renderable.collidable.entities.entity import Entity
-from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

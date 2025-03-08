@@ -1,10 +1,10 @@
+from typing import TYPE_CHECKING
+
 import pygame
 
 from pycrypt.tickable.renderable.collidable.collidable import Collidable
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
 from pycrypt.tickable.renderable.collidable.walls.wall import Wall
-
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

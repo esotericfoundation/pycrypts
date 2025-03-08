@@ -4,6 +4,7 @@ from pygame import Vector2
 
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goal import Goal
 
+
 class RandomWanderGoal(Goal):
     def __init__(self, owner, priority, game, speed = 1, wander_duration = 1, wander_cooldown = 1, randomness = 0.35):
         super().__init__(owner, priority, game)

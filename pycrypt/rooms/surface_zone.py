@@ -1,11 +1,8 @@
-from pycrypt.rooms.entrance_zone import EntranceZone
 from typing import TYPE_CHECKING
 
 from pycrypt.rooms.room import Room
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
-from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 from pycrypt.tickable.renderable.collidable.walls.door import Door
+from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt

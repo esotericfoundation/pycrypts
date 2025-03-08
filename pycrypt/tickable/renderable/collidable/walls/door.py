@@ -1,3 +1,5 @@
+from typing import TYPE_CHECKING
+
 import pygame
 from pygame import Rect, Vector2
 
@@ -6,7 +8,6 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 from pycrypt.tickable.renderable.collidable.entities.living.players.player import get_players
 from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
-from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
     from pycrypt.rooms.room import Room
