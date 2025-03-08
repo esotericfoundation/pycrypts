@@ -8,11 +8,11 @@ from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from game import Game
-    from rooms.room import Room
+    from pycrypt.game import PyCrypt
+    from pycrypt.rooms.room import Room
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "Game"):
+    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "PyCrypt"):
         self.destination = destination
         self.__spawns = spawns
         self.game = game

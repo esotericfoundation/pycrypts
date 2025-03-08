@@ -7,11 +7,11 @@ from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 class BrittleWall(Wall):
 
-    def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "Game"):
+    def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "PyCrypt"):
         super().__init__(top_left, bottom_right, game)
 
         self.monsters_to_defeat = monsters_to_defeat

@@ -9,11 +9,11 @@ from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import
 from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 
 class Arrow(Fireball):
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game"):
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypt"):
         super().__init__(target, position, size, game, 2, "arrow")
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)

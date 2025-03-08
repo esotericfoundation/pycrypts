@@ -6,10 +6,10 @@ from pycrypt.tickable.renderable.collidable.walls.door import Door
 from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 class Room:
-    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "Game", entity_scale = 1.0, movement_factor = 1.0):
+    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "PyCrypt", entity_scale = 1.0, movement_factor = 1.0):
         self.walls = []
         self.doors = []
         self.monsters = []

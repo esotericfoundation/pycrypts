@@ -1,4 +1,3 @@
-import pygame
 from pygame import Vector2
 
 from pycrypt.tickable.renderable.collidable.collidable import Collidable
@@ -8,10 +7,10 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 class SawTrap(Entity):
-    def __init__(self, start: Vector2, end: Vector2, size: int, game: "Game"):
+    def __init__(self, start: Vector2, end: Vector2, size: int, game: "PyCrypt"):
         super().__init__(start, "saw_trap", size, game)
         self.start = start
         self.end = end

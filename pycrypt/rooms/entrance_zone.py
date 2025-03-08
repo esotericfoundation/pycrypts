@@ -10,14 +10,14 @@ from pycrypt.tickable.renderable.collidable.walls.door import Door
 from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 
 class EntranceZone(Room):
     entity_scale = 0.5
     movement_factor = 0.65
 
-    def __init__(self, game: "Game"):
+    def __init__(self, game: "PyCrypt"):
         spawn_1 = Vector2(game.top_right + (-100, 240))
         spawn_2 = Vector2(game.bottom_right + (-100, -320))
 

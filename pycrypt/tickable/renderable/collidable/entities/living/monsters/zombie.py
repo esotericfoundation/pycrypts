@@ -1,5 +1,3 @@
-import random
-
 import pygame
 from pygame import Vector2
 from typing import TYPE_CHECKING
@@ -9,7 +7,8 @@ from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.st
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
+    from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 
 
 class Zombie(Monster):
@@ -17,7 +16,7 @@ class Zombie(Monster):
         wander_duration = 1.5
         randomness = 0.35
 
-        def __init__(self, position: tuple[int, int], size: int, game: "Game"):
+        def __init__(self, position: tuple[int, int], size: int, game: "PyCrypt"):
             super().__init__(position, "zombie", size, 80, game)
 
             self.wander_direction = Vector2(0, 0)

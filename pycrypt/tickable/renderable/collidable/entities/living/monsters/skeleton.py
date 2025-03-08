@@ -11,14 +11,14 @@ from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster imp
 
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 class Skeleton(Monster):
     wander_duration = 1.5
     wander_cooldown = 1.0
     randomness = 0.35
 
-    def __init__(self, position: tuple[int, int], size: int, game: "Game"):
+    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypt"):
         super().__init__(position, "skeleton", size, 50, game)
 
     def register_goals(self):

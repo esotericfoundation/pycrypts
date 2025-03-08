@@ -5,7 +5,7 @@ from pycrypt.tickable.renderable.collidable.collidable import Collidable, get_co
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 
 def get_entities():
@@ -13,7 +13,7 @@ def get_entities():
 
 
 class Entity(Collidable):
-    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "Game"):
+    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "PyCrypt"):
         super().__init__()
 
         self.position = Vector2(position)

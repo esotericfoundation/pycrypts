@@ -8,10 +8,10 @@ from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 from pycrypt.tickable.renderable.collidable.walls.door import Door
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 class SurfaceZone(Room):
-    def __init__(self, game: "Game"):
+    def __init__(self, game: "PyCrypt"):
         spawn_1 = (game.top_right + (-200, 240))
         spawn_2 = (game.bottom_right + (-200, -320))
 

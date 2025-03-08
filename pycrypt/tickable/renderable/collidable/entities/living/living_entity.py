@@ -2,7 +2,7 @@ from pycrypt.tickable.renderable.collidable.entities.entity import Entity, get_e
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 def get_living_entities():
     return list(filter(lambda entity: isinstance(entity, LivingEntity), get_entities()))
@@ -10,7 +10,7 @@ def get_living_entities():
 
 class LivingEntity(Entity):
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, health: int, game: "Game"):
+    def __init__(self, position: tuple[int, int], character: str, size: int, health: int, game: "PyCrypt"):
         super().__init__(position, "living/" + character, size, game)
 
         self.health = health

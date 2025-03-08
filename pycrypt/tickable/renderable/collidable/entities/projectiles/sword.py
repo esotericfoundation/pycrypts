@@ -11,13 +11,13 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from game import Game
-    from tickable.renderable.collidable.entities.living.players.player import Player
+    from pycrypt.game import PyCrypt
+    from pycrypt.tickable.renderable.collidable.entities.living.players.player import Player
 
 
 class Sword(Entity):
 
-    def __init__(self, target, user: "Player", position: tuple[int, int] | Vector2, game: "Game"):
+    def __init__(self, target, user: "Player", position: tuple[int, int] | Vector2, game: "PyCrypt"):
         super().__init__(position, "sword", 64, game)
 
         self.target = target

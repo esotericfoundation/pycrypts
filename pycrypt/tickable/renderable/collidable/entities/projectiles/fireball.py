@@ -7,12 +7,12 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 
 class Fireball(Entity):
 
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "Game", speed = 1, character = "fireball"):
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypt", speed = 1, character = "fireball"):
         super().__init__(position, character, size, game)
         self.target = Vector2(target)
         self.speed = speed

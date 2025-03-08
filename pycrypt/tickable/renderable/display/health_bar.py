@@ -7,12 +7,12 @@ from pycrypt.tickable.renderable.renderable import Renderable
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 
 class HealthBar(Renderable):
 
-    def __init__(self, entity: LivingEntity, top_left: (int, int) or Vector2, width: int, height: int, game: "Game"):
+    def __init__(self, entity: LivingEntity, top_left: (int, int) or Vector2, width: int, height: int, game: "PyCrypt"):
         super().__init__()
         self.entity = entity
 

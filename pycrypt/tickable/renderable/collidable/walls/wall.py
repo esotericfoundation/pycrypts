@@ -8,7 +8,7 @@ from pycrypt.tickable.tickable import Tickable
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 class Wall(Collidable):
     points: list[  # list of
@@ -18,7 +18,7 @@ class Wall(Collidable):
         ]
     ] = []
 
-    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "Game"):
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypt"):
         super().__init__()
         self.unload()  # Not all walls should be ticked every frame.
         self.top_left = Vector2(top_left)
