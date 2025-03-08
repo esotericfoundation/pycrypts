@@ -82,6 +82,8 @@ class Room:
         for other_entity in self.other_entities:
             other_entity.unload()
 
+        print("Done unloading room")
+
         # self.other_entities.clear()
 
     def spawn_monsters(self):
