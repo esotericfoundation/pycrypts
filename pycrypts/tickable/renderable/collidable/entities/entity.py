@@ -22,7 +22,11 @@ class Entity(Collidable):
 
         self.game = game
 
-        self.image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
+        try:
+            self.image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
+        except FileNotFoundError:
+            self.image = pygame.image.load("./assets/images/entities/" + character + ".svg").convert_alpha()
+
         self.base_image = self.image
 
         self.absolute_size = size
