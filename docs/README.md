@@ -1,4 +1,4 @@
-# PyCrypt
+# PyCrypts
 
 [![Project status: unfinished][status]][root]
 
@@ -13,7 +13,7 @@ A PyGame adventure featuring a sprawling underground dungeon filled with enemies
 
 &copy; 2024-2025 [Esoteric Foundation][author-homepage]
 
-[PyCrypt][root] is licensed under the [AGPL 3.0][license] only.
+[PyCrypts][root] is licensed under the [AGPL 3.0][license] only.
 
 ## Topics
 

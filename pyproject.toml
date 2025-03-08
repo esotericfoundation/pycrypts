@@ -2,7 +2,7 @@
 requires = ["build", "pyinstaller"]
 
 [project]
-name = "pycrypt"
+name = "pycrypts"
 description = "A PyGame adventure featuring a sprawling underground dungeon filled with enemies and loot."
 readme = "docs/README.md"
 
@@ -22,5 +22,5 @@ requires-python = ">=3.13"
 license = { file = "LICENSE" }
 
 [project.urls]
-Homepage = "https://github.com/esotericfoundation/pycrypt"
-Issues = "https://github.com/esotericfoundation/pycrypt/issues"
+Homepage = "https://github.com/esotericfoundation/pycrypts"
+Issues = "https://github.com/esotericfoundation/pycrypts/issues"
