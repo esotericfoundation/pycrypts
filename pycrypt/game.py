@@ -159,12 +159,3 @@ class PyCrypt:
 
     def quit(self):
         self.pygame.quit()
-
-if __name__ == '__main__':
-    pycrypt = PyCrypt(game)
-    pycrypt.init()
-
-    while pycrypt.tick():
-        pass
-
-    pycrypt.quit()
