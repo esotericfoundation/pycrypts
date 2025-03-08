@@ -5,6 +5,6 @@ cd "$(dirname "$0")/.." || exit
 
 python3 -m build
 
-pyinstaller -y --onefile --add-data "./pycrypt/assets/:./assets/" ./pycrypt/game.py
+pyinstaller -y --onefile --add-data "./pycrypt/assets:pycrypt/assets" ./pycrypt/__main__.py
 
 cd - || exit
