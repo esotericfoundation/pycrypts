@@ -3,7 +3,7 @@ import random
 
 from pygame import Vector2
 
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
+from .walk_to_target import WalkToTargetGoal
 
 
 def adjust_vector_by_angle(v: Vector2, angle: float) -> Vector2:

@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING
 
-from pycrypt.rooms.room import Room
-from pycrypt.tickable.renderable.collidable.walls.door import Door
-from pycrypt.tickable.renderable.collidable.walls.wall import Wall
+from .room import Room
+from ..tickable.renderable.collidable.walls.door import Door
+from ..tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from ..game import PyCrypt
 
 
 class SurfaceZone(Room):

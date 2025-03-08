@@ -3,13 +3,13 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.strafe_to_target import StrafeToTargetGoal
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
+from .ai.goals.random_wander import RandomWanderGoal
+from .ai.goals.strafe_to_target import StrafeToTargetGoal
+from .monster import Monster
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
-    from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+    from .......game import PyCrypt
+    from ..living_entity import LivingEntity
 
 
 class Zombie(Monster):

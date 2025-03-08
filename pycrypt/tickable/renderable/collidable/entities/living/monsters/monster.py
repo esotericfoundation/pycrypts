@@ -1,10 +1,10 @@
 from typing import TYPE_CHECKING
 
-from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
-from pycrypt.tickable.renderable.collidable.entities.living.players.player import get_players
+from ..living_entity import LivingEntity
+from ..players.player import get_players
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from .......game import PyCrypt
 
 
 class Monster(LivingEntity):

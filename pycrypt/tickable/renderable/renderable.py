@@ -1,4 +1,4 @@
-from pycrypt.tickable.tickable import Tickable
+from ..tickable import Tickable
 
 
 class Renderable(Tickable):

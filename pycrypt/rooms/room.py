@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from pygame import Vector2
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from ..game import PyCrypt
 
 
 class Room:

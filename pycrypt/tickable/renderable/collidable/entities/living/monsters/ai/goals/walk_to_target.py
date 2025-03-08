@@ -1,5 +1,5 @@
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goal import Goal
-from pycrypt.tickable.renderable.collidable.entities.living.players.player import get_players
+from ..goal import Goal
+from ....players.player import get_players
 
 
 class WalkToTargetGoal(Goal):

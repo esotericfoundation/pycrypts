@@ -1,5 +1,5 @@
-from pycrypt.tickable.renderable.renderable import Renderable
-from pycrypt.tickable.tickable import Tickable
+from ..renderable import Renderable
+from ...tickable import Tickable
 
 
 def get_collidables():

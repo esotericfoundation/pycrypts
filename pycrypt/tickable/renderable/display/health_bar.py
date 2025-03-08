@@ -3,12 +3,12 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
-from pycrypt.tickable.renderable.display.text import Text
-from pycrypt.tickable.renderable.renderable import Renderable
+from ..collidable.entities.living.living_entity import LivingEntity
+from .text import Text
+from ..renderable import Renderable
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from ....game import PyCrypt
 
 
 class HealthBar(Renderable):

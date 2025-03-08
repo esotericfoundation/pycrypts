@@ -2,16 +2,16 @@ from typing import TYPE_CHECKING
 
 from pygame import Vector2
 
-from pycrypt.rooms.room import Room
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
-from pycrypt.tickable.renderable.collidable.entities.traps.saw_trap import SawTrap
-from pycrypt.tickable.renderable.collidable.walls.brittle_wall import BrittleWall
-from pycrypt.tickable.renderable.collidable.walls.door import Door
-from pycrypt.tickable.renderable.collidable.walls.wall import Wall
+from .room import Room
+from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
+from ..tickable.renderable.collidable.entities.traps.saw_trap import SawTrap
+from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
+from ..tickable.renderable.collidable.walls.door import Door
+from ..tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from ..game import PyCrypt
 
 
 class EntranceZone(Room):

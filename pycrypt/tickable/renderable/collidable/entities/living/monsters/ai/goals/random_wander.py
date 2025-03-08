@@ -2,7 +2,7 @@ import random
 
 from pygame import Vector2
 
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goal import Goal
+from ..goal import Goal
 
 
 class RandomWanderGoal(Goal):

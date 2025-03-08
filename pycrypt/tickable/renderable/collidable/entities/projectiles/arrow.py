@@ -3,13 +3,13 @@ from typing import TYPE_CHECKING
 
 import pygame
 
-from pycrypt.tickable.renderable.collidable.collidable import Collidable
-from pycrypt.tickable.renderable.collidable.entities.entity import Entity
-from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
-from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import Fireball
+from ...collidable import Collidable
+from ..entity import Entity
+from ..living.living_entity import LivingEntity
+from .fireball import Fireball
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from ......game import PyCrypt
 
 
 class Arrow(Fireball):

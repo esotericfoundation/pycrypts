@@ -3,14 +3,14 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from pycrypt.enums.movement_keys import movement_keys
-from pycrypt.tickable.renderable.collidable.collidable import Collidable
-from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity, get_living_entities
-from pycrypt.tickable.renderable.collidable.entities.projectiles.arrow import Arrow
-from pycrypt.tickable.renderable.collidable.entities.projectiles.sword import Sword
+from .......enums.movement_keys import movement_keys
+from ....collidable import Collidable
+from ..living_entity import LivingEntity, get_living_entities
+from ...projectiles.arrow import Arrow
+from ...projectiles.sword import Sword
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from .......game import PyCrypt
 
 
 def get_players() -> list["Player"]:

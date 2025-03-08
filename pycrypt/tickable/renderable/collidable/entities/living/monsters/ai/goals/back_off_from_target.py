@@ -1,4 +1,4 @@
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
+from .walk_to_target import WalkToTargetGoal
 
 
 class BackOffFromTargetGoal(WalkToTargetGoal):

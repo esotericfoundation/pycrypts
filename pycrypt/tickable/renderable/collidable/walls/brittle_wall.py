@@ -2,12 +2,12 @@ from typing import TYPE_CHECKING
 
 import pygame
 
-from pycrypt.tickable.renderable.collidable.collidable import Collidable
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
-from pycrypt.tickable.renderable.collidable.walls.wall import Wall
+from ..collidable import Collidable
+from ..entities.living.monsters.monster import Monster
+from .wall import Wall
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from .....game import PyCrypt
 
 
 class BrittleWall(Wall):

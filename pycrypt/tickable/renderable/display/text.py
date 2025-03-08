@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from pycrypt.tickable.renderable.renderable import Renderable
+from ..renderable import Renderable
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from ....game import PyCrypt
 
 
 class Text(Renderable):

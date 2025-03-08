@@ -3,12 +3,12 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2, Rect
 
-from pycrypt.tickable.renderable.collidable.collidable import Collidable
-from pycrypt.tickable.renderable.collidable.entities.entity import Entity
-from pycrypt.tickable.tickable import Tickable
+from ..collidable import Collidable
+from ..entities.entity import Entity
+from ....tickable import Tickable
 
 if TYPE_CHECKING:
-    from pycrypt.game import PyCrypt
+    from .....game import PyCrypt
 
 
 class Wall(Collidable):
