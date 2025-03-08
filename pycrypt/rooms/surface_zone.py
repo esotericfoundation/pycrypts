@@ -7,6 +7,7 @@ from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class SurfaceZone(Room):
     def __init__(self, game: "PyCrypt"):
         spawn_1 = (game.top_right + (-200, 240))
@@ -60,4 +61,3 @@ class SurfaceZone(Room):
         #
         # self.monsters.append(skeleton_1)
         # self.monsters.append(skeleton_2)
-

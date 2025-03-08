@@ -1,5 +1,4 @@
 class Tickable:
-
     tickables: list["Tickable"] = []
 
     def __init__(self):

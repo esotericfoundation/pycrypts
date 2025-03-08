@@ -9,6 +9,7 @@ from pycrypt.tickable.renderable.collidable.walls.wall import Wall
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class BrittleWall(Wall):
 
     def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "PyCrypt"):
@@ -41,5 +42,3 @@ class BrittleWall(Wall):
         sound = pygame.mixer.Sound('assets/sounds/explosion.mp3')
         sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)
-
-

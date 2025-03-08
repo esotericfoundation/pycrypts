@@ -10,6 +10,7 @@ from pycrypt.tickable.tickable import Tickable
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class Wall(Collidable):
     points: list[  # list of
         tuple[  # pair of
@@ -68,4 +69,3 @@ class Wall(Collidable):
 
     def to_string(self):
         return f'wall = Wall({self.top_left}, {self.bottom_right})'
-

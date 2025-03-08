@@ -6,7 +6,7 @@ from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goal imp
 
 
 class RandomWanderGoal(Goal):
-    def __init__(self, owner, priority, game, speed = 1, wander_duration = 1, wander_cooldown = 1, randomness = 0.35):
+    def __init__(self, owner, priority, game, speed=1, wander_duration=1, wander_cooldown=1, randomness=0.35):
         super().__init__(owner, priority, game)
 
         self.speed = speed
@@ -23,7 +23,7 @@ class RandomWanderGoal(Goal):
     def start(self):
         self.start_wandering()
 
-    def tick(self, move = True):
+    def tick(self, move=True):
         if self.wandering:
             if move:
                 self.owner.move_without_collision(self.wander_direction, self.speed)

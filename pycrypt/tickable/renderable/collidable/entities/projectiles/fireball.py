@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class Fireball(Entity):
 
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypt", speed = 1, character = "fireball"):
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypt", speed=1, character="fireball"):
         super().__init__(position, character, size, game)
         self.target = Vector2(target)
         self.speed = speed

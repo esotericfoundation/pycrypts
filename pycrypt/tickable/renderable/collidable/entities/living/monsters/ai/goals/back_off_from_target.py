@@ -2,7 +2,7 @@ from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.wa
 
 
 class BackOffFromTargetGoal(WalkToTargetGoal):
-    def __init__(self, owner, priority, game, speed = 1, distance_threshold = 100):
+    def __init__(self, owner, priority, game, speed=1, distance_threshold=100):
         super().__init__(owner, priority, game, speed)
 
         self.distance_threshold = distance_threshold

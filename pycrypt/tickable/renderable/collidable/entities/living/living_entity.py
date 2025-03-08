@@ -5,6 +5,7 @@ from pycrypt.tickable.renderable.collidable.entities.entity import Entity, get_e
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 def get_living_entities():
     return list(filter(lambda entity: isinstance(entity, LivingEntity), get_entities()))
 

@@ -12,6 +12,7 @@ def adjust_vector_by_angle(v: Vector2, angle: float) -> Vector2:
     sin_angle = math.sin(radians)
     return Vector2(v.x * cos_angle - v.y * sin_angle, v.x * sin_angle + v.y * cos_angle)
 
+
 class StrafeToTargetGoal(WalkToTargetGoal):
     def __init__(self, owner, priority, game, speed=1):
         super().__init__(owner, priority, game, speed)

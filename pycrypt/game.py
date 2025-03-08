@@ -16,9 +16,9 @@ from pycrypt.tickable.tickable import Tickable
 
 class PyCrypt:
     def __init__(self, game: pygame):
-        self.pygame : pygame = game
+        self.pygame: pygame = game
 
-        self.screen : Surface | None = None
+        self.screen: Surface | None = None
         self.debug = True
 
         self.clicked_positions: [Vector2, Vector2] = [None, None]
@@ -34,9 +34,9 @@ class PyCrypt:
         self.top_right = None
         self.center = None
 
-        self.current_room : Room | None = None
-        self.entrance_zone : Room | None = None
-        self.surface_zone : Room | None = None
+        self.current_room: Room | None = None
+        self.entrance_zone: Room | None = None
+        self.surface_zone: Room | None = None
 
         self.over = False
 

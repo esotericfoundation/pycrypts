@@ -8,8 +8,9 @@ from pycrypt.tickable.renderable.renderable import Renderable
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class Text(Renderable):
-    def __init__(self, text, location, color, game: "PyCrypt", size = 20):
+    def __init__(self, text, location, color, game: "PyCrypt", size=20):
         super().__init__()
 
         self.text = text

@@ -14,6 +14,7 @@ from pycrypt.tickable.renderable.collidable.entities.projectiles.fireball import
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class Skeleton(Monster):
     wander_duration = 1.5
     wander_cooldown = 1.0

@@ -16,4 +16,3 @@ class Collidable(Renderable):
 
     def is_colliding(self, collidable: "Collidable") -> bool:
         pass
-

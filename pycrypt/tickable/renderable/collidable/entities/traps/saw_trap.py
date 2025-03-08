@@ -9,6 +9,7 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class SawTrap(Entity):
     def __init__(self, start: Vector2, end: Vector2, size: int, game: "PyCrypt"):
         super().__init__(start, "saw_trap", size, game)

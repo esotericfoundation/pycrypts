@@ -5,8 +5,9 @@ from pygame import Vector2
 if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
 
+
 class Room:
-    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "PyCrypt", entity_scale = 1.0, movement_factor = 1.0):
+    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "PyCrypt", entity_scale=1.0, movement_factor=1.0):
         self.walls = []
         self.doors = []
         self.monsters = []

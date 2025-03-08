@@ -3,7 +3,7 @@ from pycrypt.tickable.renderable.collidable.entities.living.players.player impor
 
 
 class WalkToTargetGoal(Goal):
-    def __init__(self, owner, priority, game, speed = 1):
+    def __init__(self, owner, priority, game, speed=1):
         super().__init__(owner, priority, game)
 
         self.speed = speed

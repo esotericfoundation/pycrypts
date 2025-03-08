@@ -12,6 +12,7 @@ if TYPE_CHECKING:
     from pycrypt.game import PyCrypt
     from pycrypt.rooms.room import Room
 
+
 class Door(Wall):
     def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "PyCrypt"):
         self.destination = destination
