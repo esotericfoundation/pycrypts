@@ -26,15 +26,24 @@ class Room:
         self.created = True
 
     def load(self):
+        print("Loading room")
+
         if not self.created:
             self.create()
+
         self.game.current_room = self
+
+        print(f"Loading {len(self.walls)} walls")
 
         for wall in self.walls:
             wall.load()
 
+        print(f"Loading {len(self.doors)} doors")
+
         for door in self.doors:
             door.load()
+
+        print(f"Loading {len(self.monsters)} monsters")
 
         for monster in self.monsters:
             if monster.health <= 0:
@@ -43,6 +52,8 @@ class Room:
 
             monster.load()
             monster.set_scale(self.entity_scale)
+
+        print(f"Loading {len(self.other_entities)} other entities")
 
         for other_entity in self.other_entities:
             other_entity.load()
