@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Rect, Vector2
 
+from .wall import Wall
 from ..collidable import Collidable
 from ..entities.living.living_entity import get_living_entities
 from ..entities.living.players.player import get_players
-from .wall import Wall
 
 if TYPE_CHECKING:
     from .....game import PyCrypt

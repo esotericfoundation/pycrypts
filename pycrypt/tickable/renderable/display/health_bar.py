@@ -3,8 +3,8 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from ..collidable.entities.living.living_entity import LivingEntity
 from .text import Text
+from ..collidable.entities.living.living_entity import LivingEntity
 from ..renderable import Renderable
 
 if TYPE_CHECKING:

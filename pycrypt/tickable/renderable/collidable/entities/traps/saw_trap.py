@@ -2,8 +2,8 @@ from typing import TYPE_CHECKING
 
 from pygame import Vector2
 
-from ..living.living_entity import LivingEntity
 from ..entity import Entity
+from ..living.living_entity import LivingEntity
 from ...collidable import Collidable
 
 if TYPE_CHECKING:

@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 
 import pygame
 
-from ...collidable import Collidable
+from .fireball import Fireball
 from ..entity import Entity
 from ..living.living_entity import LivingEntity
-from .fireball import Fireball
+from ...collidable import Collidable
 
 if TYPE_CHECKING:
     from ......game import PyCrypt

@@ -4,11 +4,11 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from ...collidable import Collidable
-from ..entity import Entity
-from ..living.living_entity import LivingEntity
 from .arrow import Arrow
 from .fireball import Fireball
+from ..entity import Entity
+from ..living.living_entity import LivingEntity
+from ...collidable import Collidable
 
 if TYPE_CHECKING:
     from ......game import PyCrypt

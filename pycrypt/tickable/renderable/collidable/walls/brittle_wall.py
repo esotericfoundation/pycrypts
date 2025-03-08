@@ -2,9 +2,9 @@ from typing import TYPE_CHECKING
 
 import pygame
 
+from .wall import Wall
 from ..collidable import Collidable
 from ..entities.living.monsters.monster import Monster
-from .wall import Wall
 
 if TYPE_CHECKING:
     from .....game import PyCrypt

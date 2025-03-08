@@ -3,11 +3,11 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from .......enums.movement_keys import movement_keys
-from ....collidable import Collidable
 from ..living_entity import LivingEntity, get_living_entities
 from ...projectiles.arrow import Arrow
 from ...projectiles.sword import Sword
+from ....collidable import Collidable
+from .......enums.movement_keys import movement_keys
 
 if TYPE_CHECKING:
     from .......game import PyCrypt
