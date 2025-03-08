@@ -4,8 +4,7 @@ import pygame
 
 from pycrypt.tickable.renderable.collidable.entities.entity import Entity
 from pycrypt.tickable.renderable.collidable.entities.living.living_entity import LivingEntity
-from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.back_off_from_target import \
-    BackOffFromTargetGoal
+from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.back_off_from_target import BackOffFromTargetGoal
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.random_wander import RandomWanderGoal
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.ai.goals.walk_to_target import WalkToTargetGoal
 from pycrypt.tickable.renderable.collidable.entities.living.monsters.monster import Monster
@@ -24,12 +23,9 @@ class Skeleton(Monster):
         super().__init__(position, "skeleton", size, 50, game)
 
     def register_goals(self):
-        self.goals.append(RandomWanderGoal(
-            self, 2, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))
-        self.goals.append(WalkToTargetGoal(
-            self, 1, self.game, 0.6))
-        self.goals.append(BackOffFromTargetGoal(
-            self, 0, self.game, 0.7, 200))
+        self.goals.append(RandomWanderGoal(self, 2, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))
+        self.goals.append(WalkToTargetGoal(self, 1, self.game, 0.6))
+        self.goals.append(BackOffFromTargetGoal(self, 0, self.game, 0.7, 200))
 
     def attack_entity(self, entity: LivingEntity):
         Fireball(entity.get_center(), (self.position.x, self.position.y), 32, self.game, 1.2)
