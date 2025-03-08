@@ -24,7 +24,6 @@ class Fireball(Entity):
             self.unload()
             return
         self.move_without_collision(distance, self.speed)
-        self.game.current_room.other_entities.append(self)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Entity) and entity.no_clip:
