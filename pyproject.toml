@@ -1,6 +1,5 @@
 [build-system]
-requires = ["hatchling", "pyinstaller"]
-build-backend = "hatchling.build"
+requires = ["pyinstaller"]
 
 [project]
 name = "pycrypt"
