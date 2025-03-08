@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Production" type="CompoundRunConfigurationType">
-    <toRun name="Executable" type="ShConfigurationType" />
-    <toRun name="Run" type="ShConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>
