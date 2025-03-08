@@ -1,6 +1,8 @@
 from typing import TYPE_CHECKING
 
 from .room import Room
+from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
 from ..tickable.renderable.collidable.walls.door import Door
 from ..tickable.renderable.collidable.walls.wall import Wall
 
@@ -52,12 +54,11 @@ class SurfaceZone(Room):
         self.doors.extend([entrance_door, exit_door])
 
     def spawn_monsters(self):
-        pass
-        # skeleton_1 = Skeleton(self.game.bottom_left + (160, -200), 64, self.game)
-        # skeleton_2 = Zombie(self.game.bottom_left + (300, -200), 64, self.game)
-        #
-        # skeleton_1.unload()
-        # skeleton_2.unload()
-        #
-        # self.monsters.append(skeleton_1)
-        # self.monsters.append(skeleton_2)
+        skeleton_1 = Skeleton(self.game.bottom_left + (160, -200), 64, self.game)
+        skeleton_2 = Zombie(self.game.bottom_left + (300, -200), 64, self.game)
+
+        skeleton_1.unload()
+        skeleton_2.unload()
+
+        self.monsters.append(skeleton_1)
+        self.monsters.append(skeleton_2)
