@@ -1,8 +1,8 @@
-import pygame as game
+import pygame
 
 from pycrypt.game import PyCrypt
 
-pycrypt = PyCrypt(game)
+pycrypt = PyCrypt(pygame)
 pycrypt.init()
 
 while pycrypt.tick():

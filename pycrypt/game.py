@@ -1,7 +1,7 @@
 import time
 import os
 
-import pygame as game
+import pygame
 from pygame import Vector2, Surface
 
 from pycrypt.enums.movement_keys import movement_keys
@@ -15,8 +15,8 @@ from pycrypt.tickable.tickable import Tickable
 
 
 class PyCrypt:
-    def __init__(self, pygame: game):
-        self.pygame : game = pygame
+    def __init__(self, game: pygame):
+        self.pygame : pygame = game
 
         self.screen : Surface | None = None
         self.debug = True
