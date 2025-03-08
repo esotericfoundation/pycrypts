@@ -50,14 +50,23 @@ class Room:
 
     def unload(self):
         print("Unloading room")
+
+        print(f"Number of walls: {len(self.walls)}")
+
         for wall in self.walls:
             wall.unload()
+
+        print(f"Number of doors: {len(self.doors)}")
 
         for door in self.doors:
             door.unload()
 
+        print(f"Number of monsters: {len(self.monsters)}")
+
         for monster in self.monsters:
             monster.unload()
+
+        print(f"Number of other entities: {len(self.other_entities)}")
 
         for other_entity in self.other_entities:
             other_entity.unload()
