@@ -9,7 +9,7 @@ from pycrypt.tickable.renderable.collidable.entities.living.living_entity import
 from pycrypt.tickable.renderable.collidable.entities.projectiles.sword import Sword
 
 if TYPE_CHECKING:
-    from game import Game
+    from pycrypt.game import PyCrypt
 
 
 def get_players() -> list["Player"]:
@@ -20,7 +20,7 @@ class Player(LivingEntity):
     attack_range = 175
     regeneration_rate = 0.5
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "Game"):
+    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "PyCrypt"):
         super().__init__(position, "players/" + character, size, 100, game)
 
         self.movement_type = movement_type
