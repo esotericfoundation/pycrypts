@@ -25,16 +25,15 @@ class PyCrypts:
         if arguments is None:
             arguments = []
 
-        parser = argparse.ArgumentParser()
-
-        parser.add_argument("-d", "--debug", action="store_true", help="Enable debug logging")
-
         if arguments and arguments[0].endswith("__main__.py"):
             arguments = arguments[1:]
 
-        parsed = parser.parse_args(arguments)
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-l", "--log-level", type=str, choices=[level for level in logging._nameToLevel.keys()], default="INFO", help="Set logging level")
 
-        log.basicConfig(level=logging.DEBUG if parsed.debug else logging.INFO)
+        parsed = parser.parse_args(arguments)
+        log_level = getattr(logging, parsed.log_level, logging.INFO)
+        log.basicConfig(level=log_level)
 
         self.logger = logging.getLogger(type(self).__name__)
 
