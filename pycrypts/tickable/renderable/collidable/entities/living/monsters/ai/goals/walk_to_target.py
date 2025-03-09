@@ -18,7 +18,7 @@ class WalkToTargetGoal(Goal):
         pass
 
     def tick(self):
-        if self.owner.velocity.magnitude() > 0:
+        if self.owner.velocity.magnitude_squared() > 0:
             return
 
         self.owner.move_towards(self.cached_target, self.speed)
