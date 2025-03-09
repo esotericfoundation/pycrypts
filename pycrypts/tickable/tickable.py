@@ -22,4 +22,4 @@ class Tickable:
             self.game.logger.debug(f"Successfully unloaded tickable {type(self).__name__}")
             self.game.tickables.remove(self)
         else:
-            self.game.logger.debug(f"Failed to unload tickable {type(self).__name__}")
+            self.game.logger.warning(f"Failed to unload tickable {type(self).__name__}")
