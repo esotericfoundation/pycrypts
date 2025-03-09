@@ -7,7 +7,7 @@ from ..living_entity import LivingEntity
 from ...projectiles.arrow import Arrow
 from ...projectiles.sword import Sword
 from ....collidable import Collidable
-from .......enums.movement_keys import movement_keys
+from .......enums.movement_keys import InputType
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
@@ -19,7 +19,7 @@ class Player(LivingEntity):
     attack_range = 175
     regeneration_rate = 0.5
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "PyCrypts", room: "Room"):
+    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: InputType, attack_key: int, game: "PyCrypts", room: "Room"):
         super().__init__(position, "players/" + character, size, 100, game, room)
 
         self.movement_type = movement_type
@@ -53,13 +53,13 @@ class Player(LivingEntity):
 
         distance_travelled = pygame.Vector2()
 
-        if keys[pygame.K_w if self.movement_type == movement_keys["WASD"] else pygame.K_UP]:
+        if keys[pygame.K_w if self.movement_type == "WASD" else pygame.K_UP]:
             distance_travelled.y -= 1
-        if keys[pygame.K_s if self.movement_type == movement_keys["WASD"] else pygame.K_DOWN]:
+        if keys[pygame.K_s if self.movement_type == "WASD" else pygame.K_DOWN]:
             distance_travelled.y += 1
-        if keys[pygame.K_a if self.movement_type == movement_keys["WASD"] else pygame.K_LEFT]:
+        if keys[pygame.K_a if self.movement_type == "WASD" else pygame.K_LEFT]:
             distance_travelled.x -= 1
-        if keys[pygame.K_d if self.movement_type == movement_keys["WASD"] else pygame.K_RIGHT]:
+        if keys[pygame.K_d if self.movement_type == "WASD" else pygame.K_RIGHT]:
             distance_travelled.x += 1
 
         if distance_travelled.magnitude_squared() == 0:

@@ -1,4 +1,3 @@
-movement_keys = {
-    "ARROW": 1,
-    "WASD": 2
-}
+from typing import Union
+
+type InputType = Union["Arrow", "WASD"]

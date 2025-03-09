@@ -6,7 +6,6 @@ import logging
 import pygame
 from pygame import Vector2, Surface
 
-from .enums.movement_keys import movement_keys
 from .rooms.entrance_zone import EntranceZone
 from .rooms.room import Room
 from .rooms.surface_zone import SurfaceZone
@@ -89,8 +88,8 @@ class PyCrypts:
 
         self.surface_zone.load()
 
-        rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], self.pygame.K_LSHIFT, self, self.current_room)
-        player = Player((0, 0), "pro", 64, movement_keys["ARROW"], self.pygame.K_RSHIFT, self, self.current_room)
+        rizzler = Player((0, 0), "rizzler", 64, "WASD", self.pygame.K_LSHIFT, self, self.current_room)
+        player = Player((0, 0), "pro", 64, "ARROW", self.pygame.K_RSHIFT, self, self.current_room)
 
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
