@@ -20,10 +20,10 @@ class SurfaceZone(Room):
     def create(self):
         super().create()
 
-        print("Spawning surface zone monsters")
+        self.game.logger.info("Spawning surface zone monsters")
         self.spawn_monsters()
 
-        print("Creating surface zone walls")
+        self.game.logger.info("Creating surface zone walls")
         Wall(self.game.top_left, self.game.bottom_left + (80, 0), self.game, self)
         border_right_1 = Wall(self.game.top_right + (-80, 0), self.game.top_right + (0, 240), self.game, self)
         border_right_2 = Wall(self.game.top_right + (-80, 480), self.game.bottom_right, self.game, self)
@@ -33,11 +33,11 @@ class SurfaceZone(Room):
         Wall(border_top_1.bottom_right + (0, -160), border_top_2.top_left, self.game, self)
         Wall(self.game.bottom_left + (0, -80), self.game.bottom_right, self.game, self)
 
-        print("Creating surface zone middle walls")
+        self.game.logger.info("Creating surface zone middle walls")
         Wall(self.game.top_left + (480, 0), self.game.top_left + (560, 160), self.game, self)
         Wall(self.game.top_left + (480, 320), self.game.bottom_left + (560, 0), self.game, self)
 
-        print("Creating entrance door to crypt")
+        self.game.logger.info("Creating entrance door to crypt")
         Door(
             self.game.top_right + (-80, 240),
             self.game.top_right + (0, 480),

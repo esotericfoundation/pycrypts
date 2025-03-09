@@ -1,5 +1,6 @@
 import os
 import time
+import logging
 
 import pygame
 from pygame import Vector2, Surface
@@ -19,7 +20,11 @@ from .tickable.tickable import Tickable
 
 
 class PyCrypts:
-    def __init__(self, game: pygame):
+    def __init__(self, game: pygame, log: logging):
+        log.basicConfig(level=logging.DEBUG)
+
+        self.logger = logging.getLogger(type(self).__name__)
+
         self.pygame: pygame = game
 
         self.screen: Surface | None = None
@@ -71,7 +76,7 @@ class PyCrypts:
         self.top_right = Vector2(self.width, 0)
         self.center = Vector2(self.width / 2, self.height / 2)
 
-        print("Instantiating rooms")
+        self.logger.info("Instantiating rooms")
         self.current_room = self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
 
@@ -81,7 +86,7 @@ class PyCrypts:
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
 
-        print("Loading starting zone")
+        self.logger.info("Loading starting zone")
         self.surface_zone.load()
 
         players = self.get_players()
@@ -140,9 +145,9 @@ class PyCrypts:
 
     def handle_debug_mouse_click(self):
         pos = self.pygame.mouse.get_pos()
-        print(f'POSITION SELECTED: ({pos[0]}, {pos[1]})')
+        self.logger.info(f'POSITION SELECTED: ({pos[0]}, {pos[1]})')
 
-        print(f'skeleton = Skeleton(({pos[0]}, {pos[1]}), 32)')
+        self.logger.info(f'skeleton = Skeleton(({pos[0]}, {pos[1]}), 32)')
 
         debug_pos_1 = self.clicked_positions[0]
         debug_pos_2 = self.clicked_positions[1]
@@ -155,11 +160,11 @@ class PyCrypts:
             self.clicked_positions[1] = pos
             debug_pos_2 = pos
 
-        print(debug_pos_1)
-        print(debug_pos_2)
+        self.logger.info(debug_pos_1)
+        self.logger.info(debug_pos_2)
 
         wall = Wall(debug_pos_1, debug_pos_2, self)
-        print(wall.to_string())
+        self.logger.info(wall.to_string())
 
         self.clicked_positions = [None, None]
 
