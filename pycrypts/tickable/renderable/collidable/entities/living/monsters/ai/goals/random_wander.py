@@ -17,7 +17,7 @@ class RandomWanderGoal(Goal):
         self.wander_time = 0
         self.idle_time = 0
 
-        self.wander_direction = None
+        self.wander_direction: Vector2 | None = None
         self.wandering = False
 
     def start(self):
