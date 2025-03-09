@@ -1,6 +1,5 @@
 from typing import TYPE_CHECKING
 
-import pygame
 from pygame import Vector2
 
 from ..collidable import Collidable
@@ -19,9 +18,9 @@ class Entity(Collidable):
         self.game = game
 
         try:
-            self.image = pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
+            self.image = self.game.pygame.image.load("./assets/images/entities/" + character + ".png").convert_alpha()
         except FileNotFoundError:
-            self.image = pygame.image.load("./assets/images/entities/" + character + ".svg").convert_alpha()
+            self.image = self.game.pygame.image.load("./assets/images/entities/" + character + ".svg").convert_alpha()
 
         self.base_image = self.image
 
@@ -101,7 +100,7 @@ class Entity(Collidable):
 
     def set_scale(self, scale: float):
         self.size = self.absolute_size * scale
-        self.image = pygame.transform.scale(self.base_image, (self.size, self.size))
+        self.image = self.game.pygame.transform.scale(self.base_image, (self.size, self.size))
 
     def get_radius(self):
         return self.size / 2.0
