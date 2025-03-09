@@ -48,6 +48,3 @@ class Room:
 
     def get_players(self):
         return list(filter(lambda collidable: isinstance(collidable, Player), self.get_living_entities()))
-
-    def spawn_monsters(self):
-        pass

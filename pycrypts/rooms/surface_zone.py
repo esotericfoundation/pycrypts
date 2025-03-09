@@ -21,7 +21,9 @@ class SurfaceZone(Room):
         super().create()
 
         self.game.logger.info("Spawning surface zone monsters")
-        self.spawn_monsters()
+
+        Skeleton(self.game.bottom_left + (160, -200), 64, self.game, self)
+        Zombie(self.game.bottom_left + (300, -200), 64, self.game, self)
 
         self.game.logger.info("Creating surface zone walls")
         Wall(self.game.top_left, self.game.bottom_left + (80, 0), self.game, self)
@@ -49,7 +51,3 @@ class SurfaceZone(Room):
             self.game.entrance_zone,
             (self.game.entrance_zone.spawn_1, self.game.entrance_zone.spawn_2),
             self.game, self)
-
-    def spawn_monsters(self):
-        Skeleton(self.game.bottom_left + (160, -200), 64, self.game, self)
-        Zombie(self.game.bottom_left + (300, -200), 64, self.game, self)

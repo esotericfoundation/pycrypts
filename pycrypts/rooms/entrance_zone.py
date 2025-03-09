@@ -29,7 +29,22 @@ class EntranceZone(Room):
     def create(self):
         super().create()
 
-        self.spawn_monsters()
+        skeleton_1 = Skeleton((525, 375), 64, self.game, self)
+        skeleton_2 = Skeleton((450, 375), 64, self.game, self)
+        skeleton_3 = Skeleton((375, 375), 64, self.game, self)
+        skeleton_4 = Skeleton((525, 275), 64, self.game, self)
+        skeleton_5 = Skeleton((450, 275), 64, self.game, self)
+        skeleton_6 = Skeleton((375, 275), 64, self.game, self)
+        skeleton_7 = Skeleton((525, 175), 64, self.game, self)
+        skeleton_8 = Skeleton((450, 175), 64, self.game, self)
+        skeleton_9 = Skeleton((375, 175), 64, self.game, self)
+
+        self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
+
+        Zombie((900, 400), 64, self.game, self)
+        Zombie((1000, 400), 64, self.game, self)
+
+        SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game, self)
 
         Wall(self.game.top_left, self.game.bottom_left + (50, 0), self.game, self)
         border_right_1 = Wall(self.game.top_right + (-50, 0), self.game.top_right + (0, 240), self.game, self)
@@ -53,21 +68,3 @@ class EntranceZone(Room):
             self.game.surface_zone,
             (Vector2(150, 150), Vector2(250, 150)),
             self.game, self)
-
-    def spawn_monsters(self):
-        skeleton_1 = Skeleton((525, 375), 64, self.game, self)
-        skeleton_2 = Skeleton((450, 375), 64, self.game, self)
-        skeleton_3 = Skeleton((375, 375), 64, self.game, self)
-        skeleton_4 = Skeleton((525, 275), 64, self.game, self)
-        skeleton_5 = Skeleton((450, 275), 64, self.game, self)
-        skeleton_6 = Skeleton((375, 275), 64, self.game, self)
-        skeleton_7 = Skeleton((525, 175), 64, self.game, self)
-        skeleton_8 = Skeleton((450, 175), 64, self.game, self)
-        skeleton_9 = Skeleton((375, 175), 64, self.game, self)
-
-        self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
-
-        Zombie((900, 400), 64, self.game, self)
-        Zombie((1000, 400), 64, self.game, self)
-
-        SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game, self)
