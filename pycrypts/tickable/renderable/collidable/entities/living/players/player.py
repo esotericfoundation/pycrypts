@@ -76,7 +76,7 @@ class Player(LivingEntity):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
-        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e) and e.sees_other(self), self.room.get_living_entities()))
+        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e), self.room.get_living_entities()))
 
         if len(attackable_entities) == 0:
             return
