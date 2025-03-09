@@ -1,3 +1,4 @@
+import argparse
 import os
 import time
 import logging
@@ -20,8 +21,17 @@ from .tickable.tickable import Tickable
 
 
 class PyCrypts:
-    def __init__(self, game: pygame, log: logging):
-        log.basicConfig(level=logging.DEBUG)
+    def __init__(self, game: pygame, log: logging, arguments: list[str]):
+        parser = argparse.ArgumentParser()
+
+        parser.add_argument("-d", "--debug", action="store_true", help="Enable debug logging")
+
+        if arguments and arguments[0].endswith("__main__.py"):
+            arguments = arguments[1:]
+
+        parsed = parser.parse_args(arguments)
+
+        log.basicConfig(level=logging.DEBUG if parsed.debug else logging.INFO)
 
         self.logger = logging.getLogger(type(self).__name__)
 
