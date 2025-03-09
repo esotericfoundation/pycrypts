@@ -23,7 +23,7 @@ class Room:
         self.created = False
 
     def create(self):
-        self.game.logger.info(f"Creating room {type(self).__name__}")
+        self.game.logger.info(f"Creating room {type(self).__name__} for the first time")
         self.created = True
 
     def load(self):
