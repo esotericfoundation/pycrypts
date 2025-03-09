@@ -25,7 +25,7 @@ class BrittleWall(Wall):
         return super().tick()
 
     def is_broken(self):
-        return all(map(lambda monster: not monster.is_alive(), self.monsters_to_defeat))
+        return all(map(lambda monster: not monster in self.game.tickables, self.monsters_to_defeat))
 
     def set_broken(self):
         self.broken = True

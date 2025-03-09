@@ -38,9 +38,6 @@ class Zombie(Monster):
     def damage(self, damage):
         super().damage(damage)
 
-        if not self.is_alive():
-            return
-
         sound = pygame.mixer.Sound('assets/sounds/zombie_damage.mp3')
         sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)

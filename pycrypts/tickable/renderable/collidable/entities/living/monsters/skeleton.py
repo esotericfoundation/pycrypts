@@ -40,9 +40,6 @@ class Skeleton(Monster):
     def damage(self, damage):
         super().damage(damage)
 
-        if not self.is_alive():
-            return
-
         sound = self.game.get_sound("assets/sounds/skeleton_damage")
         pygame.mixer.Sound.play(sound)
 

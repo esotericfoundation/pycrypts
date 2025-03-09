@@ -22,4 +22,4 @@ class Goal:
         pass
 
     def can_use(self) -> bool:
-        return self.owner.is_alive()
+        return True
