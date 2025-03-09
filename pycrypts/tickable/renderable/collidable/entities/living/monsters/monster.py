@@ -5,6 +5,7 @@ from ..living_entity import LivingEntity
 if TYPE_CHECKING:
     from .......game import PyCrypts
     from .......rooms.room import Room
+    from .ai.goal import Goal
 
 
 class Monster(LivingEntity):
@@ -14,7 +15,7 @@ class Monster(LivingEntity):
         super().__init__(position, "monsters/" + monster, size, health, game, room)
         self.attack_timer = 0
         self.game = game
-        self.goals = []
+        self.goals: list["Goal"] = []
         self.last_ticked_goal = None
 
         self.register_goals()
@@ -33,16 +34,17 @@ class Monster(LivingEntity):
             self.attack()
 
     def ai_tick(self):
-        usable_goals = list(filter(lambda g: g.can_use(), self.goals))
+        usable_goals : list["Goal"] = list(filter(lambda g: g.can_use(), self.goals))
         if len(usable_goals) == 0:
             return
 
         highest_priority = list(sorted(usable_goals, key=lambda g: g.priority))[0]
 
-        if highest_priority != self.last_ticked_goal:
-            if self.last_ticked_goal is not None:
+        if self.last_ticked_goal is not None:
+            if highest_priority != self.last_ticked_goal:
                 self.last_ticked_goal.end()
-            highest_priority.start()
+
+        highest_priority.start()
 
         highest_priority.tick()
         self.last_ticked_goal = highest_priority
