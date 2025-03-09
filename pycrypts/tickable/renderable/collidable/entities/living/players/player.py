@@ -62,12 +62,12 @@ class Player(LivingEntity):
         if keys[pygame.K_d if self.movement_type == movement_keys["WASD"] else pygame.K_RIGHT]:
             distance_travelled.x += 1
 
-        if distance_travelled.magnitude() == 0:
+        if distance_travelled.magnitude_squared() == 0:
             return
 
         self.velocity += distance_travelled.normalize() * 250 * self.game.dt
 
-        if self.velocity.magnitude() == 0:
+        if self.velocity.magnitude_squared() == 0:
             return
 
         self.velocity = self.velocity.normalize() * min(self.velocity.magnitude(), 25)
