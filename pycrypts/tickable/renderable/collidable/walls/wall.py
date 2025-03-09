@@ -57,8 +57,7 @@ class Wall(Collidable):
                     return True
         return False
 
-    def contains_point(self, point: tuple[int, int] | Vector2) -> bool:
-        point = Vector2(point)
+    def contains_point(self, point: Vector2) -> bool:
         return self.top_left.x <= point.x <= self.bottom_right.x and self.top_left.y <= point.y <= self.bottom_right.y
 
     def to_string(self):
