@@ -21,7 +21,10 @@ from .tickable.tickable import Tickable
 
 
 class PyCrypts:
-    def __init__(self, game: pygame, log: logging, arguments: list[str]):
+    def __init__(self, game: pygame, log: logging, arguments: list[str] = None):
+        if arguments is None:
+            arguments = []
+
         parser = argparse.ArgumentParser()
 
         parser.add_argument("-d", "--debug", action="store_true", help="Enable debug logging")
