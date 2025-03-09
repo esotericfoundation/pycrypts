@@ -9,6 +9,7 @@ from ....tickable import Tickable
 
 if TYPE_CHECKING:
     from .....game import PyCrypts
+    from .....rooms.room import Room
 
 
 class Wall(Collidable):
@@ -19,9 +20,8 @@ class Wall(Collidable):
         ]
     ] = []
 
-    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts"):
-        super().__init__(game)
-        self.unload()  # Not all walls should be ticked every frame.
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts", room: "Room"):
+        super().__init__(game, room)
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)
         self.game = game

@@ -8,12 +8,13 @@ from ..living.living_entity import LivingEntity
 
 if TYPE_CHECKING:
     from ......game import PyCrypts
+    from ......rooms.room import Room
 
 
 class Fireball(Entity):
 
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypts", speed=1, character="fireball"):
-        super().__init__(position, character, size, game)
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypts", room: "Room", speed=1, character="fireball"):
+        super().__init__(position, character, size, game, room)
         self.target = Vector2(target)
         self.speed = speed
         self.strong = random.randint(0, 1) == 0

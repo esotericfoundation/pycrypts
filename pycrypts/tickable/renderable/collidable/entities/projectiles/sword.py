@@ -13,12 +13,13 @@ from ...collidable import Collidable
 if TYPE_CHECKING:
     from ......game import PyCrypts
     from ..living.players.player import Player
+    from ......rooms.room import Room
 
 
 class Sword(Entity):
 
-    def __init__(self, target, user: "Player", position: tuple[int, int] | Vector2, game: "PyCrypts"):
-        super().__init__(position, "sword", 64, game)
+    def __init__(self, target, user: "Player", position: tuple[int, int] | Vector2, game: "PyCrypts", room: "Room"):
+        super().__init__(position, "sword", 64, game, room)
 
         self.target = target
         self.user = user

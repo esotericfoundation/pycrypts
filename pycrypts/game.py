@@ -68,15 +68,15 @@ class PyCrypts:
         self.top_right = Vector2(self.width, 0)
         self.center = Vector2(self.width / 2, self.height / 2)
 
-        rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], self.pygame.K_LSHIFT, self)
-        player = Player((0, 0), "pro", 64, movement_keys["ARROW"], self.pygame.K_RSHIFT, self)
-
-        HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
-        HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
-
         print("Instantiating rooms")
         self.current_room = self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
+
+        rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], self.pygame.K_LSHIFT, self, self.current_room)
+        player = Player((0, 0), "pro", 64, movement_keys["ARROW"], self.pygame.K_RSHIFT, self, self.current_room)
+
+        HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
+        HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
 
         print("Loading starting zone")
         self.surface_zone.load()
@@ -126,6 +126,10 @@ class PyCrypts:
 
         if not self.over:
             for tickable in self.tickables:
+                if isinstance(tickable, Collidable):
+                    if tickable.room != self.current_room:
+                        continue
+
                 tickable.tick()
 
         self.pygame.display.flip()
@@ -171,12 +175,12 @@ class PyCrypts:
     def get_players(self):
         return list(filter(lambda tickable: isinstance(tickable, Player), self.get_living_entities()))
 
+    def get_walls(self):
+        return list(filter(lambda tickable: isinstance(tickable, Wall), self.get_collidables()))
+
     def end(self):
         self.over = True
-        self.current_room.unload()
-
-        for tickable in Tickable.tickables:
-            tickable.unload()
+        self.current_room = None
 
     def quit(self):
         self.pygame.quit()

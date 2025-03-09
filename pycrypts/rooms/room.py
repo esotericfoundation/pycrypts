@@ -2,21 +2,22 @@ from typing import TYPE_CHECKING
 
 from pygame import Vector2
 
+from ..tickable.renderable.collidable.collidable import Collidable
+from ..tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from ..tickable.renderable.collidable.entities.living.players.player import Player
+from ..tickable.renderable.collidable.walls.wall import Wall
+
 if TYPE_CHECKING:
     from ..game import PyCrypts
 
 
 class Room:
     def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "PyCrypts", entity_scale=1.0, movement_factor=1.0):
-        self.walls = []
-        self.doors = []
-        self.monsters = []
         self.spawn_1 = spawn_1
         self.spawn_2 = spawn_2
         self.entity_scale = entity_scale
         self.movement_factor = movement_factor
         self.game = game
-        self.other_entities = []
         self.created = False
 
     def create(self):
@@ -31,58 +32,20 @@ class Room:
 
         self.game.current_room = self
 
-        print(f"Loading {len(self.walls)} walls")
+    def get_collidables(self):
+        return list(filter(lambda collidable: collidable.room == self, self.game.get_collidables()))
 
-        for wall in self.walls:
-            wall.load()
+    def get_walls(self):
+        return list(filter(lambda collidable: isinstance(collidable, Wall), self.get_collidables()))
 
-        print(f"Loading {len(self.doors)} doors")
+    def get_entities(self):
+        return list(filter(lambda collidable: isinstance(collidable, Collidable), self.get_collidables()))
 
-        for door in self.doors:
-            door.load()
+    def get_living_entities(self):
+        return list(filter(lambda collidable: isinstance(collidable, LivingEntity), self.get_entities()))
 
-        print(f"Loading {len(self.monsters)} monsters")
-
-        for monster in self.monsters:
-            if monster.health <= 0:
-                self.monsters.remove(monster)
-                continue
-
-            monster.load()
-            monster.set_scale(self.entity_scale)
-
-        print(f"Loading {len(self.other_entities)} other entities")
-
-        for other_entity in self.other_entities:
-            other_entity.load()
-            other_entity.set_scale(self.entity_scale)
-
-    def unload(self):
-        print("Unloading room")
-
-        print(f"Number of walls: {len(self.walls)}")
-
-        for wall in self.walls:
-            wall.unload()
-
-        print(f"Number of doors: {len(self.doors)}")
-
-        for door in self.doors:
-            door.unload()
-
-        print(f"Number of monsters: {len(self.monsters)}")
-
-        for monster in self.monsters:
-            monster.unload()
-
-        print(f"Number of other entities: {len(self.other_entities)}")
-
-        for other_entity in self.other_entities:
-            other_entity.unload()
-
-        print("Done unloading room")
-
-        # self.other_entities.clear()
+    def get_players(self):
+        return list(filter(lambda collidable: isinstance(collidable, Player), self.get_living_entities()))
 
     def spawn_monsters(self):
         pass

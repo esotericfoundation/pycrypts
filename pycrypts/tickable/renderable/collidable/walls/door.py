@@ -12,12 +12,12 @@ if TYPE_CHECKING:
 
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "PyCrypts"):
+    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "PyCrypts", room: "Room"):
         self.destination = destination
         self.__spawns = spawns
         self.game = game
 
-        super().__init__(top_left, bottom_right, game)
+        super().__init__(top_left, bottom_right, game, room)
 
     def get_spawns(self):
         return self.__spawns
@@ -27,7 +27,7 @@ class Door(Wall):
         height = self.bottom_right.y - self.top_left.y
 
         in_door = False
-        for living in self.game.get_living_entities():
+        for living in self.room.get_living_entities():
             if self.is_in_door(living):
                 in_door = True
                 break
@@ -41,7 +41,7 @@ class Door(Wall):
 
     def on_players_enter(self):
         if self.destination is not None:
-            players = self.game.get_players()
+            players = self.room.get_players()
             i = 0
 
             for player in players:
@@ -53,7 +53,8 @@ class Door(Wall):
 
                 player.set_scale(self.destination.entity_scale)
 
-            self.game.current_room.unload()
+                player.room = self.destination
+
             self.destination.load()
 
     def tick(self):

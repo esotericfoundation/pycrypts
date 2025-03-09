@@ -11,6 +11,7 @@ from .......enums.movement_keys import movement_keys
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
+    from .......rooms.room import Room
 
 
 class Player(LivingEntity):
@@ -18,8 +19,8 @@ class Player(LivingEntity):
     attack_range = 175
     regeneration_rate = 0.5
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "PyCrypts"):
-        super().__init__(position, "players/" + character, size, 100, game)
+    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: int, attack_key: int, game: "PyCrypts", room: "Room"):
+        super().__init__(position, "players/" + character, size, 100, game, room)
 
         self.movement_type = movement_type
         self.attack_key = attack_key
@@ -75,7 +76,7 @@ class Player(LivingEntity):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
-        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e) and e.sees_other(self), self.game.get_living_entities()))
+        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e) and e.sees_other(self), self.room.get_living_entities()))
 
         if len(attackable_entities) == 0:
             return
@@ -92,11 +93,11 @@ class Player(LivingEntity):
         self.attack_entity(closest_entity)
 
     def sword_attack(self, entity: LivingEntity):
-        Sword(entity, self, self.get_center(), self.game)
+        Sword(entity, self, self.get_center(), self.game, self.room)
         pass
 
     def bow_attack(self, entity: LivingEntity):
-        Arrow(entity.get_center(), self.get_center(), 32, self.game)
+        Arrow(entity.get_center(), self.get_center(), 32, self.game, self.room)
         pass
 
     def attack_entity(self, entity: LivingEntity):

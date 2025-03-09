@@ -12,6 +12,7 @@ from ...projectiles.fireball import Fireball
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
+    from .......rooms.room import Room
 
 
 class Skeleton(Monster):
@@ -19,8 +20,8 @@ class Skeleton(Monster):
     wander_cooldown = 1.0
     randomness = 0.35
 
-    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts"):
-        super().__init__(position, "skeleton", size, 50, game)
+    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
+        super().__init__(position, "skeleton", size, 50, game, room)
 
     def register_goals(self):
         self.goals.append(RandomWanderGoal(self, 2, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))
@@ -28,7 +29,7 @@ class Skeleton(Monster):
         self.goals.append(BackOffFromTargetGoal(self, 0, self.game, 0.7, 200))
 
     def attack_entity(self, entity: LivingEntity):
-        Fireball(entity.get_center(), (self.position.x, self.position.y), 32, self.game, 1.2)
+        Fireball(entity.get_center(), (self.position.x, self.position.y), 32, self.game, self.room, 1.2)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Fireball):

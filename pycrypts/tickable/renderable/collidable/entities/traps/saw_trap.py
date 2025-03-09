@@ -8,11 +8,12 @@ from ...collidable import Collidable
 
 if TYPE_CHECKING:
     from ......game import PyCrypts
+    from ......rooms.room import Room
 
 
 class SawTrap(Entity):
-    def __init__(self, start: Vector2, end: Vector2, size: int, game: "PyCrypts"):
-        super().__init__(start, "saw_trap", size, game)
+    def __init__(self, start: Vector2, end: Vector2, size: int, game: "PyCrypts", room: "Room"):
+        super().__init__(start, "saw_trap", size, game, room)
         self.start = start
         self.end = end
         self.moving_to_end = True

@@ -6,11 +6,12 @@ from ..collidable import Collidable
 
 if TYPE_CHECKING:
     from .....game import PyCrypts
+    from .....rooms.room import Room
 
 
 class Entity(Collidable):
-    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "PyCrypts"):
-        super().__init__(game)
+    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "PyCrypts", room: "Room"):
+        super().__init__(game, room)
 
         self.position = Vector2(position)
         self.velocity = Vector2(0, 0)
@@ -29,8 +30,7 @@ class Entity(Collidable):
 
         self.no_clip = False
 
-        if game.current_room is not None:
-            self.set_scale(game.current_room.entity_scale)
+        self.set_scale(room.entity_scale)
 
         self.base_image = self.image
 
@@ -65,12 +65,12 @@ class Entity(Collidable):
             distance_travelled = distance_travelled.normalize() * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
 
             self.position.x += distance_travelled.x
-            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.game.get_collidables() if collidable != self)
+            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.room.get_collidables() if collidable != self)
             if collision_x:
                 self.position.x -= distance_travelled.x
 
             self.position.y += distance_travelled.y
-            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.game.get_collidables() if collidable != self)
+            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.room.get_collidables() if collidable != self)
             if collision_y:
                 self.position.y -= distance_travelled.y
 
@@ -132,7 +132,7 @@ class Entity(Collidable):
 
         current_position = self.get_actual_center() + direction
         while (current_position - self.get_actual_center()).magnitude() < distance.magnitude():
-            for wall in self.game.current_room.walls:
+            for wall in self.room.get_walls():
                 if wall.contains_point(current_position):
                     return False
 

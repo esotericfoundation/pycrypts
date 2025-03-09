@@ -10,11 +10,12 @@ from ...collidable import Collidable
 
 if TYPE_CHECKING:
     from ......game import PyCrypts
+    from ......rooms.room import Room
 
 
 class Arrow(Fireball):
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypts"):
-        super().__init__(target, position, size, game, 2, "arrow")
+    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
+        super().__init__(target, position, size, game, room, 2, "arrow")
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)
         self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)

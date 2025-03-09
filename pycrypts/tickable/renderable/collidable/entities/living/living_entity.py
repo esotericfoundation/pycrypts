@@ -4,13 +4,14 @@ from ..entity import Entity
 
 if TYPE_CHECKING:
     from ......game import PyCrypts
+    from ......rooms.room import Room
 
 
 
 class LivingEntity(Entity):
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, health: int, game: "PyCrypts"):
-        super().__init__(position, "living/" + character, size, game)
+    def __init__(self, position: tuple[int, int], character: str, size: int, health: int, game: "PyCrypts", room: "Room"):
+        super().__init__(position, "living/" + character, size, game, room)
 
         self.health = health
         self.max_health = health

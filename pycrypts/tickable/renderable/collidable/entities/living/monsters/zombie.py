@@ -10,6 +10,7 @@ from .monster import Monster
 if TYPE_CHECKING:
     from .......game import PyCrypts
     from ..living_entity import LivingEntity
+    from .......rooms.room import Room
 
 
 class Zombie(Monster):
@@ -17,8 +18,8 @@ class Zombie(Monster):
     wander_duration = 1.5
     randomness = 0.35
 
-    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts"):
-        super().__init__(position, "zombie", size, 80, game)
+    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
+        super().__init__(position, "zombie", size, 80, game, room)
 
         self.wander_direction = Vector2(0, 0)
         self.wander_time = 0

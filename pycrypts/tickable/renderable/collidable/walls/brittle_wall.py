@@ -7,12 +7,13 @@ from ..entities.living.monsters.monster import Monster
 
 if TYPE_CHECKING:
     from .....game import PyCrypts
+    from .....rooms.room import Room
 
 
 class BrittleWall(Wall):
 
-    def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "PyCrypts"):
-        super().__init__(top_left, bottom_right, game)
+    def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "PyCrypts", room: "Room"):
+        super().__init__(top_left, bottom_right, game, room)
 
         self.monsters_to_defeat = monsters_to_defeat
         self.broken = False

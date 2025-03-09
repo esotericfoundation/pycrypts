@@ -4,13 +4,14 @@ from ..living_entity import LivingEntity
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
+    from .......rooms.room import Room
 
 
 class Monster(LivingEntity):
     attack_interval = 1.0
 
-    def __init__(self, position: tuple[int, int], monster: str, size: int, health: int, game: "PyCrypts"):
-        super().__init__(position, "monsters/" + monster, size, health, game)
+    def __init__(self, position: tuple[int, int], monster: str, size: int, health: int, game: "PyCrypts", room: "Room"):
+        super().__init__(position, "monsters/" + monster, size, health, game, room)
         self.attack_timer = 0
         self.game = game
         self.goals = []
@@ -47,7 +48,7 @@ class Monster(LivingEntity):
         self.last_ticked_goal = highest_priority
 
     def attack(self):
-        players = list(filter(lambda p: self.sees_other(p), self.game.get_players()))
+        players = list(filter(lambda p: self.sees_other(p), self.room.get_players()))
         player_count = len(players)
 
         if player_count == 0:
