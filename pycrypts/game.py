@@ -41,7 +41,6 @@ class PyCrypts:
         self.pygame: pygame = game
 
         self.screen: Surface | None = None
-        self.debug = True
 
         self.clicked_positions: [Vector2, Vector2] = [None, None]
 
