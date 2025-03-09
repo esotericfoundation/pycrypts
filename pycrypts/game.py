@@ -42,8 +42,6 @@ class PyCrypts:
 
         self.screen: Surface | None = None
 
-        self.clicked_positions: [Vector2, Vector2] = [None, None]
-
         self.past = time.time()
         self.dt = 0
 
@@ -154,31 +152,6 @@ class PyCrypts:
 
         self.pygame.display.flip()
         return True
-
-    def handle_debug_mouse_click(self):
-        pos = self.pygame.mouse.get_pos()
-        self.logger.info(f'POSITION SELECTED: ({pos[0]}, {pos[1]})')
-
-        self.logger.info(f'skeleton = Skeleton(({pos[0]}, {pos[1]}), 32)')
-
-        debug_pos_1 = self.clicked_positions[0]
-        debug_pos_2 = self.clicked_positions[1]
-
-        if debug_pos_1 is None:
-            self.clicked_positions[0] = Vector2(pos)
-            return
-
-        if debug_pos_2 is None:
-            self.clicked_positions[1] = pos
-            debug_pos_2 = pos
-
-        self.logger.info(debug_pos_1)
-        self.logger.info(debug_pos_2)
-
-        wall = Wall(debug_pos_1, debug_pos_2, self)
-        self.logger.info(wall.to_string())
-
-        self.clicked_positions = [None, None]
 
     def get_asset(self, key: str) -> Surface:
         asset = self.assets.get(key)
