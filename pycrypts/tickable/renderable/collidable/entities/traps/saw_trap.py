@@ -30,12 +30,12 @@ class SawTrap(Entity):
         if self.moving_to_end:
             self.move_towards_location(self.end, 2)
             if self.position.distance_squared_to(self.end) < 25:
-                self.game.logger.info("Reached end")
+                self.game.logger.debug("Saw trap reached end")
                 self.moving_to_end = False
         else:
             self.move_towards_location(self.start, 2)
             if self.position.distance_squared_to(self.start) < 25:
-                self.game.logger.info("Reached start")
+                self.game.logger.debug("Saw trap reached start")
                 self.moving_to_end = True
 
     def is_colliding(self, entity: Collidable) -> bool:
