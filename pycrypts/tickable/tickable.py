@@ -16,9 +16,9 @@ class Tickable:
         self.game.tickables.append(self)
 
     def unload(self):
-        self.game.logger.info(f"Unloading tickable {self}")
+        self.game.logger.debug(f"Unloading tickable {self}")
         if self in self.game.tickables:
-            self.game.logger.info(f"Successfully unloaded tickable {self}")
+            self.game.logger.debug(f"Successfully unloaded tickable {self}")
             self.game.tickables.remove(self)
         else:
-            self.game.logger.info(f"Failed to unload tickable {self}")
+            self.game.logger.debug(f"Failed to unload tickable {self}")
