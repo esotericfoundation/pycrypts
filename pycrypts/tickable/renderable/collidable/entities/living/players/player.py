@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from ..living_entity import LivingEntity, get_living_entities
+from ..living_entity import LivingEntity
 from ...projectiles.arrow import Arrow
 from ...projectiles.sword import Sword
 from ....collidable import Collidable
@@ -11,10 +11,6 @@ from .......enums.movement_keys import movement_keys
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
-
-
-def get_players() -> list["Player"]:
-    return list(filter(lambda entity: isinstance(entity, Player), get_living_entities()))
 
 
 class Player(LivingEntity):
@@ -79,7 +75,7 @@ class Player(LivingEntity):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
-        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e) and e.sees_other(self), get_living_entities()))
+        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e) and e.sees_other(self), self.game.get_living_entities()))
 
         if len(attackable_entities) == 0:
             return
@@ -122,7 +118,7 @@ class Player(LivingEntity):
     def die(self):
         super().die()
 
-        if len(get_players()) == 0:
+        if len(self.game.get_living_entities()) == 0:
             self.game.end()
 
     def is_colliding(self, entity: Collidable) -> bool:

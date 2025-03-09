@@ -5,8 +5,6 @@ from pygame import Rect, Vector2
 
 from .wall import Wall
 from ..collidable import Collidable
-from ..entities.living.living_entity import get_living_entities
-from ..entities.living.players.player import get_players
 
 if TYPE_CHECKING:
     from .....game import PyCrypts
@@ -29,7 +27,7 @@ class Door(Wall):
         height = self.bottom_right.y - self.top_left.y
 
         in_door = False
-        for living in get_living_entities():
+        for living in self.game.get_living_entities():
             if self.is_in_door(living):
                 in_door = True
                 break
@@ -43,7 +41,7 @@ class Door(Wall):
 
     def on_players_enter(self):
         if self.destination is not None:
-            players = get_players()
+            players = self.game.get_players()
             i = 0
 
             for player in players:
@@ -61,7 +59,7 @@ class Door(Wall):
     def tick(self):
         super().tick()
 
-        players = get_players()
+        players = self.game.get_players()
 
         if len(players) == 0:
             return

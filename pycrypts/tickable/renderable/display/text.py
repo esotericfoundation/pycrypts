@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class Text(Renderable):
     def __init__(self, text, location, color, game: "PyCrypts", size=20):
-        super().__init__()
+        super().__init__(game)
 
         self.text = text
         self.color = color

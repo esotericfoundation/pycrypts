@@ -20,7 +20,7 @@ class Wall(Collidable):
     ] = []
 
     def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts"):
-        super().__init__()
+        super().__init__(game)
         self.unload()  # Not all walls should be ticked every frame.
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)
@@ -37,12 +37,6 @@ class Wall(Collidable):
 
     def tick(self):
         self.render()
-
-    def load(self):
-        Tickable.tickables.append(self)
-
-    def unload(self):
-        Tickable.tickables.remove(self)
 
     def render(self):
         width = self.bottom_right.x - self.top_left.x

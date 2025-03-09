@@ -3,19 +3,15 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from ..collidable import Collidable, get_collidables
+from ..collidable import Collidable
 
 if TYPE_CHECKING:
     from .....game import PyCrypts
 
 
-def get_entities():
-    return list(filter(lambda collidable: isinstance(collidable, Entity), get_collidables()))
-
-
 class Entity(Collidable):
     def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "PyCrypts"):
-        super().__init__()
+        super().__init__(game)
 
         self.position = Vector2(position)
         self.velocity = Vector2(0, 0)
@@ -70,12 +66,12 @@ class Entity(Collidable):
             distance_travelled = distance_travelled.normalize() * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
 
             self.position.x += distance_travelled.x
-            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in get_collidables() if collidable != self)
+            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.game.get_collidables() if collidable != self)
             if collision_x:
                 self.position.x -= distance_travelled.x
 
             self.position.y += distance_travelled.y
-            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in get_collidables() if collidable != self)
+            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.game.get_collidables() if collidable != self)
             if collision_y:
                 self.position.y -= distance_travelled.y
 

@@ -1,9 +1,13 @@
+from typing import TYPE_CHECKING
+
 from ..goal import Goal
-from ....players.player import get_players
+
+if TYPE_CHECKING:
+    from .........game import PyCrypts
 
 
 class WalkToTargetGoal(Goal):
-    def __init__(self, owner, priority, game, speed=1):
+    def __init__(self, owner, priority, game: "PyCrypts", speed=1):
         super().__init__(owner, priority, game)
 
         self.speed = speed
@@ -26,7 +30,7 @@ class WalkToTargetGoal(Goal):
         return super().can_use() and len(self.get_nearby_targets_and_cache()) > 0
 
     def get_nearby_targets_and_cache(self):
-        targets = list(sorted(list(filter(lambda p: self.owner.sees_other(p), get_players())), key=lambda p: self.owner.position.distance_squared_to(p.position)))
+        targets = list(sorted(list(filter(lambda p: self.owner.sees_other(p), self.game.get_players())), key=lambda p: self.owner.position.distance_squared_to(p.position)))
 
         if len(targets) > 0:
             self.cached_target = targets[0]

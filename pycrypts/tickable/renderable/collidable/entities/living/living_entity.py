@@ -1,13 +1,10 @@
 from typing import TYPE_CHECKING
 
-from ..entity import Entity, get_entities
+from ..entity import Entity
 
 if TYPE_CHECKING:
     from ......game import PyCrypts
 
-
-def get_living_entities():
-    return list(filter(lambda entity: isinstance(entity, LivingEntity), get_entities()))
 
 
 class LivingEntity(Entity):

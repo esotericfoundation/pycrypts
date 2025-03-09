@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 class HealthBar(Renderable):
 
     def __init__(self, entity: LivingEntity, top_left: (int, int) or Vector2, width: int, height: int, game: "PyCrypts"):
-        super().__init__()
+        super().__init__(game)
         self.entity = entity
 
         self.top_left = top_left

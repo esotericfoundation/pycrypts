@@ -1,5 +1,11 @@
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ........game import PyCrypts
+
+
 class Goal:
-    def __init__(self, owner, priority, game):
+    def __init__(self, owner, priority, game: "PyCrypts"):
         self.owner = owner
         self.priority = priority
         self.game = game

@@ -1,19 +1,24 @@
-class Tickable:
-    tickables: list["Tickable"] = []
+from typing import TYPE_CHECKING
 
-    def __init__(self):
+if TYPE_CHECKING:
+    from ..game import PyCrypts
+
+
+class Tickable:
+    def __init__(self, game: "PyCrypts"):
+        self.game = game
         self.load()
 
     def tick(self):
         pass
 
     def load(self):
-        Tickable.tickables.append(self)
+        self.game.tickables.append(self)
 
     def unload(self):
         print(f"Unloading tickable {self}")
-        if self in Tickable.tickables:
+        if self in self.game.tickables:
             print(f"Successfully unloaded tickable {self}")
-            Tickable.tickables.remove(self)
+            self.game.tickables.remove(self)
         else:
             print(f"Failed to unload tickable {self}")

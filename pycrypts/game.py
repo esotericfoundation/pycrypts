@@ -8,9 +8,13 @@ from .enums.movement_keys import movement_keys
 from .rooms.entrance_zone import EntranceZone
 from .rooms.room import Room
 from .rooms.surface_zone import SurfaceZone
-from .tickable.renderable.collidable.entities.living.players.player import Player, get_players
+from .tickable.renderable.collidable.collidable import Collidable
+from .tickable.renderable.collidable.entities.entity import Entity
+from .tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from .tickable.renderable.collidable.entities.living.players.player import Player
 from .tickable.renderable.collidable.walls.wall import Wall
 from .tickable.renderable.display.health_bar import HealthBar
+from .tickable.renderable.renderable import Renderable
 from .tickable.tickable import Tickable
 
 
@@ -39,6 +43,8 @@ class PyCrypts:
         self.surface_zone: Room | None = None
 
         self.over = False
+
+        self.tickables: list[Tickable] = []
 
     def load_icon(self):
         self.pygame.display.set_caption(type(self).__name__)
@@ -75,7 +81,7 @@ class PyCrypts:
         print("Loading starting zone")
         self.surface_zone.load()
 
-        players = get_players()
+        players = self.get_players()
         i = 0
 
         for player in players:
@@ -119,7 +125,7 @@ class PyCrypts:
             self.screen.blit(text_2, text_2_rect)
 
         if not self.over:
-            for tickable in Tickable.tickables:
+            for tickable in self.tickables:
                 tickable.tick()
 
         self.pygame.display.flip()
@@ -149,6 +155,21 @@ class PyCrypts:
         print(wall.to_string())
 
         self.clicked_positions = [None, None]
+
+    def get_renderables(self):
+        return list(filter(lambda tickable: isinstance(tickable, Renderable), self.tickables))
+
+    def get_collidables(self):
+        return list(filter(lambda tickable: isinstance(tickable, Collidable), self.get_renderables()))
+
+    def get_entities(self):
+        return list(filter(lambda tickable: isinstance(tickable, Entity), self.get_collidables()))
+
+    def get_living_entities(self):
+        return list(filter(lambda tickable: isinstance(tickable, LivingEntity), self.get_entities()))
+
+    def get_players(self):
+        return list(filter(lambda tickable: isinstance(tickable, Player), self.get_living_entities()))
 
     def end(self):
         self.over = True

@@ -1,7 +1,6 @@
 from typing import TYPE_CHECKING
 
 from ..living_entity import LivingEntity
-from ..players.player import get_players
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
@@ -48,7 +47,7 @@ class Monster(LivingEntity):
         self.last_ticked_goal = highest_priority
 
     def attack(self):
-        players = list(filter(lambda p: self.sees_other(p), get_players()))
+        players = list(filter(lambda p: self.sees_other(p), self.game.get_players()))
         player_count = len(players)
 
         if player_count == 0:
