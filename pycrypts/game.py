@@ -198,6 +198,7 @@ class PyCrypts:
         return list(filter(lambda tickable: isinstance(tickable, Wall), self.get_collidables()))
 
     def end(self):
+        self.logger.info("Game over!")
         self.over = True
         self.current_room = None
 
