@@ -86,16 +86,16 @@ class PyCrypts:
         self.top_right = Vector2(self.width, 0)
         self.center = Vector2(self.width / 2, self.height / 2)
 
-        self.current_room = self.surface_zone = SurfaceZone(self)
+        self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
+
+        self.surface_zone.load()
 
         rizzler = Player((0, 0), "rizzler", 64, movement_keys["WASD"], self.pygame.K_LSHIFT, self, self.current_room)
         player = Player((0, 0), "pro", 64, movement_keys["ARROW"], self.pygame.K_RSHIFT, self, self.current_room)
 
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
-
-        self.surface_zone.load()
 
         players = self.get_players()
         i = 0
