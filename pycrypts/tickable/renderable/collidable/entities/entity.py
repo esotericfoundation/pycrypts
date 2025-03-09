@@ -124,12 +124,14 @@ class Entity(Collidable):
         return [self.get_top_left(), self.get_bottom_right(), self.get_top_right(), self.get_bottom_left()]
 
     def sees_other(self, other: "Entity") -> bool:
+        walls = self.room.get_walls()
+
         distance = other.get_actual_center() - self.get_actual_center()
         direction = distance.normalize()
 
         current_position = self.get_actual_center() + direction
         while (current_position - self.get_actual_center()).magnitude_squared() < distance.magnitude_squared():
-            for wall in self.room.get_walls():
+            for wall in walls:
                 if wall.contains_point(current_position):
                     return False
 
