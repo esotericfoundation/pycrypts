@@ -86,7 +86,6 @@ class PyCrypts:
         self.top_right = Vector2(self.width, 0)
         self.center = Vector2(self.width / 2, self.height / 2)
 
-        self.logger.info("Instantiating rooms")
         self.current_room = self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
 
@@ -96,7 +95,6 @@ class PyCrypts:
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
 
-        self.logger.info("Loading starting zone")
         self.surface_zone.load()
 
         players = self.get_players()
