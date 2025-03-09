@@ -173,6 +173,8 @@ class PyCrypts:
         except FileNotFoundError:
             asset = self.pygame.image.load(key + ".svg").convert_alpha()
 
+        self.assets[key] = asset
+
         return asset
 
     def get_renderables(self):
