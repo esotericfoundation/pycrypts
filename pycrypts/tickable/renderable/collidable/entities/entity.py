@@ -124,7 +124,7 @@ class Entity(Collidable):
 
     def sees_other(self, other: "Entity") -> bool:
         walls = self.room.get_walls()
-        center = self.get_center()
+        center = self.get_actual_center()
 
         distance = other.get_actual_center() - center
         direction = distance.normalize() * 10
