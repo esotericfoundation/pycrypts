@@ -3,7 +3,6 @@ from typing import TYPE_CHECKING
 import pygame
 
 from .wall import Wall
-from ..collidable import Collidable
 from ..entities.living.monsters.monster import Monster
 
 if TYPE_CHECKING:
@@ -19,19 +18,10 @@ class BrittleWall(Wall):
         self.broken = False
 
     def tick(self):
-        if self.broken:
-            return
-
         if self.is_broken():
             self.set_broken()
 
         return super().tick()
-
-    def is_colliding(self, other: Collidable) -> bool:
-        if self.broken:
-            return False
-
-        return super().is_colliding(other)
 
     def is_broken(self):
         return all(map(lambda monster: not monster.is_alive(), self.monsters_to_defeat))
@@ -42,3 +32,5 @@ class BrittleWall(Wall):
         sound = pygame.mixer.Sound('assets/sounds/explosion.mp3')
         sound.set_volume(0.125)
         pygame.mixer.Sound.play(sound)
+
+        self.unload()
