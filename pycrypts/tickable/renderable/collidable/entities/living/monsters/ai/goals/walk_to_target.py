@@ -1,13 +1,14 @@
 from typing import TYPE_CHECKING
 
 from ..goal import Goal
+from ...monster import Monster
 
 if TYPE_CHECKING:
     from .........game import PyCrypts
 
 
 class WalkToTargetGoal(Goal):
-    def __init__(self, owner, priority, game: "PyCrypts", speed=1):
+    def __init__(self, owner: Monster, priority: int, game: "PyCrypts", speed=1):
         super().__init__(owner, priority, game)
 
         self.speed = speed
