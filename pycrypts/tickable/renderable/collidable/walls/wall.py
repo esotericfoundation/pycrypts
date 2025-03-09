@@ -53,7 +53,7 @@ class Wall(Collidable):
             points = other.get_points()
 
             for point in points:
-                if self.contains_point(point + (other.get_radius(), other.get_radius())):
+                if self.contains_point(point):
                     return True
         return False
 
