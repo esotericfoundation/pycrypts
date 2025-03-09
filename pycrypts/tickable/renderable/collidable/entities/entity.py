@@ -58,20 +58,22 @@ class Entity(Collidable):
         pass
 
     def move_without_collision(self, distance_travelled: Vector2, speed_factor: float = 1):
-        if distance_travelled.magnitude_squared() != 0:
-            collidables = self.room.get_collidables()
+        if distance_travelled.magnitude_squared() == 0:
+            return
 
-            distance_travelled = distance_travelled.normalize() * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
+        collidables = self.room.get_collidables()
 
-            self.position.x += distance_travelled.x
-            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
-            if collision_x:
-                self.position.x -= distance_travelled.x
+        distance_travelled = distance_travelled.normalize() * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
 
-            self.position.y += distance_travelled.y
-            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
-            if collision_y:
-                self.position.y -= distance_travelled.y
+        self.position.x += distance_travelled.x
+        collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
+        if collision_x:
+            self.position.x -= distance_travelled.x
+
+        self.position.y += distance_travelled.y
+        collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
+        if collision_y:
+            self.position.y -= distance_travelled.y
 
     def move_towards(self, entity: "Entity", speed_factor: float = 1):
         self.move_towards_location(entity.position, speed_factor)
