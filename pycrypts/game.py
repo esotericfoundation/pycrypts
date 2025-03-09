@@ -64,19 +64,17 @@ class PyCrypts:
         self.top_right = None
         self.center = None
 
-    def load_icon(self):
-        self.pygame.display.set_caption(type(self).__name__)
-
-        icon = self.pygame.image.load(f'assets/images/icons/{type(self).__name__.lower()}.png')
-        self.pygame.display.set_icon(icon)
-
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
         self.pygame.init()
 
         self.screen = self.pygame.display.set_mode((1280, 720))
-        self.load_icon()
+
+        self.pygame.display.set_caption(type(self).__name__)
+
+        icon = self.pygame.image.load(f'assets/images/icons/{type(self).__name__.lower()}.png')
+        self.pygame.display.set_icon(icon)
 
         self.height = self.screen.get_height()
         self.width = self.screen.get_width()
