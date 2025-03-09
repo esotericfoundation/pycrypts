@@ -29,7 +29,7 @@ class Arrow(Fireball):
         if isinstance(entity, Entity) and entity.no_clip:
             return False
 
-        from pycrypts.tickable.renderable.collidable.entities.living.players.player import Player
+        from ..living.players.player import Player
         if isinstance(entity, Player):
             return False
 
