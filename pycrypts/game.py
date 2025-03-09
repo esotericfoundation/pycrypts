@@ -47,6 +47,7 @@ class PyCrypts:
         self.tickables: list[Tickable] = []
 
         self.assets: dict[str, Surface] = {}
+        self.sounds: dict[str, pygame.mixer.Sound] = {}
 
     def load_icon(self):
         self.pygame.display.set_caption(type(self).__name__)
@@ -176,6 +177,19 @@ class PyCrypts:
         self.assets[key] = asset
 
         return asset
+
+    def get_sound(self, key: str) -> pygame.mixer.Sound:
+        sound = self.sounds.get(key)
+
+        if sound is not None:
+            return sound
+
+        sound = pygame.mixer.Sound(key + ".mp3")
+        sound.set_volume(0.125)
+
+        self.sounds[key] = sound
+
+        return sound
 
     def get_renderables(self):
         return list(filter(lambda tickable: isinstance(tickable, Renderable), self.tickables))

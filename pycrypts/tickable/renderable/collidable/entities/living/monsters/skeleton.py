@@ -43,13 +43,11 @@ class Skeleton(Monster):
         if not self.is_alive():
             return
 
-        sound = pygame.mixer.Sound('assets/sounds/skeleton_damage.mp3')
-        sound.set_volume(0.125)
+        sound = self.game.get_sound("assets/sounds/skeleton_damage")
         pygame.mixer.Sound.play(sound)
 
     def die(self):
         super().die()
 
-        sound = pygame.mixer.Sound('assets/sounds/skeleton_death.mp3')
-        sound.set_volume(0.125)
+        sound = self.game.get_sound("assets/sounds/skeleton_death")
         pygame.mixer.Sound.play(sound)
