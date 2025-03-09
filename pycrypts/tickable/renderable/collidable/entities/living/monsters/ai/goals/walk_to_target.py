@@ -30,7 +30,9 @@ class WalkToTargetGoal(Goal):
         return super().can_use() and len(self.get_nearby_targets_and_cache()) > 0
 
     def get_nearby_targets_and_cache(self):
-        targets = list(sorted(list(filter(lambda p: self.owner.sees_other(p), self.owner.room.get_players())), key=lambda p: self.owner.position.distance_squared_to(p.position)))
+        players = filter(lambda p: self.owner.sees_other(p), self.owner.room.get_players())
+
+        targets = sorted(players, key=lambda p: self.owner.position.distance_squared_to(p.position))
 
         if len(targets) > 0:
             self.cached_target = targets[0]
