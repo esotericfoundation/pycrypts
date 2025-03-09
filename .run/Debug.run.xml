@@ -13,8 +13,8 @@
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-    <option name="SCRIPT_NAME" value="pycrypts" />
-    <option name="PARAMETERS" value="--log-level DEBUG" />
+    <option name="SCRIPT_NAME" value="cProfile" />
+    <option name="PARAMETERS" value="./pycrypts/__main__.py --log-level DEBUG" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="true" />
