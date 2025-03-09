@@ -21,11 +21,11 @@ class Room:
         self.created = False
 
     def create(self):
-        self.game.logger.info(f"Creating room {self}")
+        self.game.logger.info(f"Creating room {type(self).__name__}")
         self.created = True
 
     def load(self):
-        self.game.logger.info("Loading room")
+        self.game.logger.info(f"Loading room {type(self).__name__}")
 
         if not self.created:
             self.create()
