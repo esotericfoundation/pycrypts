@@ -2,6 +2,7 @@ import math
 from typing import TYPE_CHECKING
 
 import pygame
+from pygame import Vector2
 
 from .fireball import Fireball
 from ..entity import Entity
@@ -14,7 +15,7 @@ if TYPE_CHECKING:
 
 
 class Arrow(Fireball):
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
+    def __init__(self, target: Vector2, position: Vector2, size: int, game: "PyCrypts", room: "Room"):
         super().__init__(target, position, size, game, room, 2, "arrow")
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)

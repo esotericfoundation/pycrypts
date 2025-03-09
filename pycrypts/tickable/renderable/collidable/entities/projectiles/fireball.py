@@ -13,18 +13,15 @@ if TYPE_CHECKING:
 
 class Fireball(Entity):
 
-    def __init__(self, target: tuple[int, int], position: tuple[int, int], size: int, game: "PyCrypts", room: "Room", speed=1, character="fireball"):
+    def __init__(self, target: Vector2, position: Vector2, size: int, game: "PyCrypts", room: "Room", speed=1, character="fireball"):
         super().__init__(position, character, size, game, room)
         self.target = Vector2(target)
+        self.direction = target - position
         self.speed = speed
         self.strong = random.randint(0, 1) == 0
 
     def move(self):
-        distance = self.target - self.position
-        if distance.magnitude_squared() < 16:
-            self.unload()
-            return
-        self.move_without_collision(distance, self.speed)
+        self.move_without_collision(self.direction, self.speed)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Entity) and entity.no_clip:
