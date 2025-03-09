@@ -13,6 +13,7 @@ class Tickable:
         pass
 
     def load(self):
+        self.game.logger.debug(f"Loading tickable {type(self).__name__}")
         self.game.tickables.append(self)
 
     def unload(self):
