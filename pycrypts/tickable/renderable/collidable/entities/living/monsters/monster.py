@@ -40,11 +40,10 @@ class Monster(LivingEntity):
 
         highest_priority = list(sorted(usable_goals, key=lambda g: g.priority))[0]
 
-        if self.last_ticked_goal is not None:
-            if highest_priority != self.last_ticked_goal:
+        if highest_priority != self.last_ticked_goal:
+            if self.last_ticked_goal is not None:
                 self.last_ticked_goal.end()
-
-        highest_priority.start()
+            highest_priority.start()
 
         highest_priority.tick()
         self.last_ticked_goal = highest_priority
