@@ -164,7 +164,7 @@ class PyCrypts:
         self.clicked_positions = [None, None]
 
     def get_asset(self, key: str) -> Surface:
-        asset = self.assets[key]
+        asset = self.assets.get(key)
 
         if asset is not None:
             return asset
