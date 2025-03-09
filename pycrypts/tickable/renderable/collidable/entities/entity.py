@@ -59,15 +59,17 @@ class Entity(Collidable):
 
     def move_without_collision(self, distance_travelled: Vector2, speed_factor: float = 1):
         if distance_travelled.magnitude_squared() != 0:
+            collidables = self.room.get_collidables()
+
             distance_travelled = distance_travelled.normalize() * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
 
             self.position.x += distance_travelled.x
-            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.room.get_collidables() if collidable != self)
+            collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
             if collision_x:
                 self.position.x -= distance_travelled.x
 
             self.position.y += distance_travelled.y
-            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in self.room.get_collidables() if collidable != self)
+            collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
             if collision_y:
                 self.position.y -= distance_travelled.y
 
