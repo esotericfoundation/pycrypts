@@ -46,6 +46,8 @@ class PyCrypts:
 
         self.tickables: list[Tickable] = []
 
+        self.assets: dict[str, Surface] = {}
+
     def load_icon(self):
         self.pygame.display.set_caption(type(self).__name__)
 
@@ -159,6 +161,19 @@ class PyCrypts:
         print(wall.to_string())
 
         self.clicked_positions = [None, None]
+
+    def get_asset(self, key: str) -> Surface:
+        asset = self.assets.get(key)
+
+        if asset is not None:
+            return asset
+
+        try:
+            asset = self.pygame.image.load(key + ".png").convert_alpha()
+        except FileNotFoundError:
+            asset = self.pygame.image.load(key + ".svg").convert_alpha()
+
+        return asset
 
     def get_renderables(self):
         return list(filter(lambda tickable: isinstance(tickable, Renderable), self.tickables))
