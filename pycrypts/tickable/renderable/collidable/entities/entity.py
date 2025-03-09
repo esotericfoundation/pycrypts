@@ -1,3 +1,4 @@
+from math import sqrt
 from typing import TYPE_CHECKING
 
 from pygame import Vector2
@@ -58,20 +59,24 @@ class Entity(Collidable):
         pass
 
     def move_without_collision(self, distance_travelled: Vector2, speed_factor: float = 1):
-        if distance_travelled.magnitude_squared() == 0:
+        magnitude_squared = distance_travelled.magnitude_squared()
+
+        if magnitude_squared == 0:
             return
 
         collidables = self.room.get_collidables()
 
-        distance_travelled = distance_travelled.normalize() * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
+        distance_travelled = (distance_travelled / sqrt(magnitude_squared)) * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
+
+        filtered = list(filter(lambda c: c != self, collidables))
 
         self.position.x += distance_travelled.x
-        collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
+        collision_x = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in filtered)
         if collision_x:
             self.position.x -= distance_travelled.x
 
         self.position.y += distance_travelled.y
-        collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in collidables if collidable != self)
+        collision_y = any(self.is_colliding(collidable) or collidable.is_colliding(self) for collidable in filtered)
         if collision_y:
             self.position.y -= distance_travelled.y
 
