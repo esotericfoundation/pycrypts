@@ -128,7 +128,7 @@ class Entity(Collidable):
         direction = distance.normalize()
 
         current_position = self.get_actual_center() + direction
-        while (current_position - self.get_actual_center()).magnitude() < distance.magnitude():
+        while (current_position - self.get_actual_center()).magnitude_squared() < distance.magnitude_squared():
             for wall in self.room.get_walls():
                 if wall.contains_point(current_position):
                     return False
