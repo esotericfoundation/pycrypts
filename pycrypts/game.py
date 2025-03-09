@@ -45,13 +45,7 @@ class PyCrypts:
         self.past = time.time()
         self.dt = 0
 
-        self.height = None
-        self.width = None
-        self.bottom_left = None
-        self.bottom_right = None
-        self.top_left = None
-        self.top_right = None
-        self.center = None
+        self.tickables: list[Tickable] = []
 
         self.current_room: Room | None = None
         self.entrance_zone: Room | None = None
@@ -59,10 +53,16 @@ class PyCrypts:
 
         self.over = False
 
-        self.tickables: list[Tickable] = []
-
         self.assets: dict[str, Surface] = {}
         self.sounds: dict[str, pygame.mixer.Sound] = {}
+
+        self.height = None
+        self.width = None
+        self.bottom_left = None
+        self.bottom_right = None
+        self.top_left = None
+        self.top_right = None
+        self.center = None
 
     def load_icon(self):
         self.pygame.display.set_caption(type(self).__name__)
