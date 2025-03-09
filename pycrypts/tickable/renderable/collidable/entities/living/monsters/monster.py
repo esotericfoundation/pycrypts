@@ -56,7 +56,6 @@ class Monster(LivingEntity):
 
         player = list(sorted(players, key=lambda p: self.position.distance_squared_to(p.position)))[0]
         self.attack_entity(player)
-        pass
 
     def attack_entity(self, entity: LivingEntity):
         pass
