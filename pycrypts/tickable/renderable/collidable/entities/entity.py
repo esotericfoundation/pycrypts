@@ -128,7 +128,7 @@ class Entity(Collidable):
         center = self.get_center()
 
         distance = other.get_actual_center() - center
-        direction = distance.normalize()
+        direction = distance.normalize() * 10
 
         current_position = center + direction
         while (current_position - center).magnitude_squared() < distance.magnitude_squared():
