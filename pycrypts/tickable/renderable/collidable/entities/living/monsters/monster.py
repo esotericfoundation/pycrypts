@@ -55,7 +55,7 @@ class Monster(LivingEntity):
         if player_count == 0:
             return
 
-        player = list(sorted(players, key=lambda p: self.position.distance_squared_to(p.position)))[0]
+        player = min(players, key=lambda p: self.position.distance_squared_to(p.position))
         self.attack_entity(player)
 
     def attack_entity(self, entity: LivingEntity):

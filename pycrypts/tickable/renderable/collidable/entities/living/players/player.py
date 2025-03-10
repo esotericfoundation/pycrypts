@@ -84,19 +84,12 @@ class Player(LivingEntity):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
-        attackable_entities = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e), self.room.get_living_entities()))
+        attackable_entities: list[LivingEntity] = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e), self.room.get_living_entities()))
 
         if len(attackable_entities) == 0:
             return
 
-        closest_entity = None
-        for entity in attackable_entities:
-            if closest_entity is None:
-                closest_entity = entity
-                continue
-
-            if Vector2(closest_entity.position).distance_squared_to(self.position) > entity.position.distance_squared_to(self.position):
-                closest_entity = entity
+        closest_entity = min(attackable_entities, key=lambda e: e.position.distance_squared_to(self.position))
 
         self.attack_entity(closest_entity)
 
