@@ -134,8 +134,8 @@ class Entity(Collidable):
 
         return True
 
-    def line_intersects(a1: Vector2, a2: Vector2, b1: Vector2, b2: Vector2) -> bool:
+    def line_intersects(self, a1: Vector2, a2: Vector2, b1: Vector2, b2: Vector2) -> bool:
         return self.ccw(a1, b1, b2) != self.ccw(a2, b1, b2) and self.ccw(a1, a2, b1) != self.ccw(a1, a2, b2)
 
-    def ccw(p1, p2, p3):
+    def ccw(self, p1, p2, p3):
         return (p3.y - p1.y) * (p2.x - p1.x) > (p2.y - p1.y) * (p3.x - p1.x)
