@@ -4,7 +4,6 @@ from pygame import Vector2
 
 from ..tickable.renderable.collidable.collidable import Collidable
 from ..tickable.renderable.collidable.entities.living.living_entity import LivingEntity
-from ..tickable.renderable.collidable.entities.living.players.player import Player
 from ..tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
@@ -34,14 +33,11 @@ class Room:
         if not self.created:
             self.create()
 
-    def get_collidables(self):
+    def get_collidables(self) -> list[Collidable]:
         return list(filter(lambda collidable: collidable.room == self, self.game.get_collidables()))
 
-    def get_walls(self):
+    def get_walls(self) -> list[Wall]:
         return list(filter(lambda collidable: isinstance(collidable, Wall), self.get_collidables()))
 
-    def get_entities(self):
-        return list(filter(lambda collidable: isinstance(collidable, Collidable), self.get_collidables()))
-
-    def get_living_entities(self):
-        return list(filter(lambda collidable: isinstance(collidable, LivingEntity), self.get_entities()))
+    def get_living_entities(self) -> list[LivingEntity]:
+        return list(filter(lambda collidable: isinstance(collidable, LivingEntity), self.get_collidables()))
