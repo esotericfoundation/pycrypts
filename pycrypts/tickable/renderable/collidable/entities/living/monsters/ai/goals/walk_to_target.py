@@ -2,6 +2,7 @@ from typing import TYPE_CHECKING
 
 from ..goal import Goal
 from ...monster import Monster
+from ....players.player import Player
 
 if TYPE_CHECKING:
     from .........game import PyCrypts
@@ -12,7 +13,7 @@ class WalkToTargetGoal(Goal):
         super().__init__(owner, priority, game)
 
         self.speed = speed
-        self.cached_target = None
+        self.cached_target: Player | None = None
 
     def start(self):
         pass
@@ -28,14 +29,13 @@ class WalkToTargetGoal(Goal):
         pass
 
     def can_use(self) -> bool:
-        return super().can_use() and len(self.get_nearby_targets_and_cache()) > 0
+        return super().can_use() and self.get_nearby_targets_and_cache() is not None
 
-    def get_nearby_targets_and_cache(self):
-        players = filter(lambda p: self.owner.sees_other(p), self.game.players)
+    def get_nearby_targets_and_cache(self) -> Player | None:
+        players = list(filter(lambda p: self.owner.sees_other(p), self.game.players))
 
-        targets = sorted(players, key=lambda p: self.owner.position.distance_squared_to(p.position))
+        if len(players) == 0:
+            return None
 
-        if len(targets) > 0:
-            self.cached_target = targets[0]
-
-        return targets
+        self.cached_target = min(players, key=lambda p: self.owner.position.distance_squared_to(p.position))
+        return self.cached_target

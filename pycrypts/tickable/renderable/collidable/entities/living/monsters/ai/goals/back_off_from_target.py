@@ -1,12 +1,22 @@
+from typing import TYPE_CHECKING
+
+from pycrypts.tickable.renderable.collidable.entities.living.players.player import Player
 from .walk_to_target import WalkToTargetGoal
+from ...monster import Monster
+
+if TYPE_CHECKING:
+    from .........game import PyCrypts
 
 
 class BackOffFromTargetGoal(WalkToTargetGoal):
-    def __init__(self, owner, priority, game, speed=1, distance_threshold=100):
+    def __init__(self, owner: "Monster", priority: int, game: "PyCrypts", speed=1, distance_threshold=100):
         super().__init__(owner, priority, game, speed)
 
         self.distance_threshold = distance_threshold
         self.is_backing_off = False
+
+        self.threshold_squared = self.distance_threshold * self.distance_threshold
+        self.entity_scale_squared = self.game.current_room.entity_scale * self.game.current_room.entity_scale
 
     def start(self):
         super().start()
@@ -19,20 +29,17 @@ class BackOffFromTargetGoal(WalkToTargetGoal):
         super().end()
         self.is_backing_off = False
 
-    def can_use(self) -> bool:
-        return super().can_use() and len(self.get_nearby_targets_and_cache()) > 0
+    def get_nearby_targets_and_cache(self) -> Player | None:
+        super().get_nearby_targets_and_cache()
 
-    def get_nearby_targets_and_cache(self):
-        targets = super().get_nearby_targets_and_cache()
+        if self.cached_target is None:
+            return None
 
-        threshold_squared = self.distance_threshold * self.distance_threshold
-        entity_scale_squared = self.game.current_room.entity_scale * self.game.current_room.entity_scale
-        multiplier = 1
+        multiplier_squared = 3.24 if self.is_backing_off else 1
 
-        if self.is_backing_off:
-            multiplier = 1.8
+        is_close_enough = self.owner.position.distance_squared_to(self.cached_target.position) < self.threshold_squared * self.entity_scale_squared * multiplier_squared
 
-        multiplier_squared = multiplier * multiplier
+        if not is_close_enough:
+            return None
 
-        nearby = list(filter(lambda p: self.owner.position.distance_squared_to(p.position) < threshold_squared * entity_scale_squared * multiplier_squared, targets))
-        return nearby
+        return self.cached_target

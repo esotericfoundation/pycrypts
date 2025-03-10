@@ -29,10 +29,10 @@ class Room:
     def load(self):
         self.game.logger.info(f"Loading room {type(self).__name__}")
 
+        self.game.current_room = self
+
         if not self.created:
             self.create()
-
-        self.game.current_room = self
 
     def get_collidables(self):
         return list(filter(lambda collidable: collidable.room == self, self.game.get_collidables()))
