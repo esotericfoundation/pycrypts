@@ -123,18 +123,19 @@ class Entity(Collidable):
         return [self.get_top_left(), self.get_bottom_right(), self.get_top_right(), self.get_bottom_left()]
 
     def sees_other(self, other: "Entity") -> bool:
-        walls = self.room.get_walls()
         center = self.get_actual_center()
+        other_center = other.get_actual_center()
 
-        distance = other.get_actual_center() - center
-        direction = distance.normalize() * 10
-
-        current_position = center + direction
-        while (current_position - center).magnitude_squared() < distance.magnitude_squared():
-            for wall in walls:
-                if wall.contains_point(current_position):
+        for wall in self.room.get_walls():
+            wall_edges = wall.get_lines()  # Assume this returns [(p1, p2), (p2, p3), (p3, p4), (p4, p1)]
+            for edge in wall_edges:
+                if self.line_intersects(center, other_center, edge[0], edge[1]):
                     return False
 
-            current_position += direction
-
         return True
+
+    def line_intersects(a1: Vector2, a2: Vector2, b1: Vector2, b2: Vector2) -> bool:
+        return self.ccw(a1, b1, b2) != self.ccw(a2, b1, b2) and self.ccw(a1, a2, b1) != self.ccw(a1, a2, b2)
+
+    def ccw(p1, p2, p3):
+        return (p3.y - p1.y) * (p2.x - p1.x) > (p2.y - p1.y) * (p3.x - p1.x)
