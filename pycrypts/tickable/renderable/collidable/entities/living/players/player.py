@@ -28,6 +28,14 @@ class Player(LivingEntity):
         self.time_since_last_attack = Player.attack_cooldown + 1
         self.time_since_last_regeneration = 0
 
+    def load(self):
+        super().load()
+        self.game.players.append(self)
+
+    def unload(self):
+        super().unload()
+        self.game.players.remove(self)
+
     def tick(self):
         super().tick()
 

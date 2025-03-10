@@ -41,7 +41,7 @@ class Door(Wall):
 
     def on_players_enter(self):
         if self.destination is not None:
-            players = self.room.get_players()
+            players = self.game.players
             i = 0
 
             for player in players:

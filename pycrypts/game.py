@@ -44,6 +44,7 @@ class PyCrypts:
         self.dt = 0
 
         self.tickables: list[Tickable] = []
+        self.players: list[Player] = []
 
         self.current_room: Room | None = None
         self.entrance_zone: Room | None = None

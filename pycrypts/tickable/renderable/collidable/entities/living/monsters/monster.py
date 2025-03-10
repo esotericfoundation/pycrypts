@@ -49,7 +49,7 @@ class Monster(LivingEntity):
         self.last_ticked_goal = highest_priority
 
     def attack(self):
-        players = list(filter(lambda p: self.sees_other(p), self.room.get_players()))
+        players = list(filter(lambda p: self.sees_other(p), self.game.players))
         player_count = len(players)
 
         if player_count == 0:

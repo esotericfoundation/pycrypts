@@ -45,6 +45,3 @@ class Room:
 
     def get_living_entities(self):
         return list(filter(lambda collidable: isinstance(collidable, LivingEntity), self.get_entities()))
-
-    def get_players(self):
-        return list(filter(lambda collidable: isinstance(collidable, Player), self.get_living_entities()))
