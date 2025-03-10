@@ -111,13 +111,13 @@ class Entity(Collidable):
         return self.position
 
     def get_bottom_right(self):
-        return self.position + Vector2(self.size, self.size)
+        return self.position + (self.size, self.size)
 
     def get_top_right(self):
-        return self.position + Vector2(self.size, 0)
+        return self.position + (self.size, 0)
 
     def get_bottom_left(self):
-        return self.position + Vector2(0, self.size)
+        return self.position + (0, self.size)
 
     def get_points(self):
         return [self.get_top_left(), self.get_bottom_right(), self.get_top_right(), self.get_bottom_left()]
