@@ -24,7 +24,7 @@ class PyCrypts:
         if arguments is None:
             arguments = []
 
-        if arguments and arguments[0].endswith("__main__.py"):
+        if arguments and (arguments[0].endswith("__main__.py") or arguments[0].endswith(type(self).__name__.lower())):
             arguments = arguments[1:]
 
         parser = argparse.ArgumentParser()
