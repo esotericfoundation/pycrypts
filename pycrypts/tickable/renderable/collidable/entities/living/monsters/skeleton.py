@@ -40,11 +40,11 @@ class Skeleton(Monster):
     def damage(self, damage):
         super().damage(damage)
 
-        sound = self.game.get_sound("assets/sounds/skeleton_damage")
+        sound = self.game.get_sound("skeleton_damage")
         pygame.mixer.Sound.play(sound)
 
     def die(self):
         super().die()
 
-        sound = self.game.get_sound("assets/sounds/skeleton_death")
+        sound = self.game.get_sound("skeleton_death")
         pygame.mixer.Sound.play(sound)

@@ -170,7 +170,7 @@ class PyCrypts:
         if sound is not None:
             return sound
 
-        sound = pygame.mixer.Sound(key + ".mp3")
+        sound = pygame.mixer.Sound("assets/sounds/" + key + ".mp3")
         sound.set_volume(0.125)
 
         self.sounds[key] = sound

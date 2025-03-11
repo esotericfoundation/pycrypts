@@ -30,7 +30,7 @@ class BrittleWall(Wall):
     def set_broken(self):
         self.broken = True
 
-        sound = self.game.get_sound('assets/sounds/explosion')
+        sound = self.game.get_sound('explosion')
         pygame.mixer.Sound.play(sound)
 
         self.unload()

@@ -38,11 +38,11 @@ class Zombie(Monster):
     def damage(self, damage):
         super().damage(damage)
 
-        sound = self.game.get_sound('assets/sounds/zombie_damage')
+        sound = self.game.get_sound('zombie_damage')
         pygame.mixer.Sound.play(sound)
 
     def die(self):
         super().die()
 
-        sound = self.game.get_sound('assets/sounds/zombie_death')
+        sound = self.game.get_sound('zombie_death')
         pygame.mixer.Sound.play(sound)
