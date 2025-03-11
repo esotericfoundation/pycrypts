@@ -42,7 +42,7 @@ class Sword(Entity):
         offset.y = math.copysign(1, y) * (self.user.size / 4)
 
         if offset.x < 0:
-            self.image = pygame.transform.flip(self.base_image, True, False)
+            self.image = self.game.pygame.transform.flip(self.base_image, True, False)
         else:
             self.image = self.base_image
 
