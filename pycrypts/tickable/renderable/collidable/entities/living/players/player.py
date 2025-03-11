@@ -112,8 +112,7 @@ class Player(LivingEntity):
     def damage(self, damage: int):
         super().damage(damage)
 
-        sound = pygame.mixer.Sound('assets/sounds/damage.mp3')
-        sound.set_volume(0.125)
+        sound = self.game.get_sound("damage")
         pygame.mixer.Sound.play(sound)
 
     def die(self):
