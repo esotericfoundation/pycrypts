@@ -2,7 +2,7 @@
 
 ## [Twemoji][twemoji]
 
-&copy; 2019 [Twitter, Inc.][twemoji-author], [other contributors][twemoji-contributors]
+&copy; 2019 [Twitter, Inc.][twemoji-author], [contributors][twemoji-contributors]
 
 Licensed under [CC BY 4.0][twemoji-license].
 
