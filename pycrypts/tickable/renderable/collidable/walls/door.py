@@ -60,7 +60,7 @@ class Door(Wall):
     def tick(self):
         super().tick()
 
-        players = self.game.get_players()
+        players = self.game.players
 
         if len(players) == 0:
             return

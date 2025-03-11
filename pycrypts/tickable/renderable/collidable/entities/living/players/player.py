@@ -118,7 +118,7 @@ class Player(LivingEntity):
     def die(self):
         super().die()
 
-        if len(self.game.get_players()) == 0:
+        if len(self.game.players) == 0:
             self.game.end()
 
     def is_colliding(self, entity: Collidable) -> bool:

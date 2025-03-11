@@ -95,10 +95,9 @@ class PyCrypts:
         HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
         HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
 
-        players = self.get_players()
         i = 0
 
-        for player in players:
+        for player in self.players:
             i += 1
             if i == 1:
                 player.position = self.current_room.spawn_1
@@ -188,9 +187,6 @@ class PyCrypts:
 
     def get_living_entities(self):
         return list(filter(lambda tickable: isinstance(tickable, LivingEntity), self.get_entities()))
-
-    def get_players(self):
-        return list(filter(lambda tickable: isinstance(tickable, Player), self.get_living_entities()))
 
     def get_walls(self):
         return list(filter(lambda tickable: isinstance(tickable, Wall), self.get_collidables()))
