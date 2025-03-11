@@ -51,7 +51,6 @@ class Wall(Collidable):
         height = self.bottom_right.y - self.top_left.y
 
         self.game.pygame.draw.rect(self.game.screen, (65, 65, 65), Rect(self.top_left, (width, height)))
-        pass
 
     def is_colliding(self, other: Collidable) -> bool:
         if isinstance(other, Entity):
