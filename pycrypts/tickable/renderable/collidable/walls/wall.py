@@ -20,11 +20,12 @@ class Wall(Collidable):
         ]
     ] = []
 
-    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts", room: "Room"):
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts", room: "Room", color: tuple[int, int, int] = (65, 65, 65)):
         super().__init__(game, room)
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)
         self.game = game
+        self.color = color
 
     def get_center(self):
         return (self.top_left + self.bottom_right) / 2.0
@@ -50,7 +51,7 @@ class Wall(Collidable):
         width = self.bottom_right.x - self.top_left.x
         height = self.bottom_right.y - self.top_left.y
 
-        self.game.pygame.draw.rect(self.game.screen, (65, 65, 65), Rect(self.top_left, (width, height)))
+        self.game.pygame.draw.rect(self.game.screen, self.color, Rect(self.top_left, (width, height)))
 
     def is_colliding(self, other: Collidable) -> bool:
         if isinstance(other, Entity):
