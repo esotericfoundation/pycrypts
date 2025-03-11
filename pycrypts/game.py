@@ -66,7 +66,7 @@ class PyCrypts:
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-        self.logger.info("Initialising PyGame")
+        self.logger.info(f"Initialising {self.pygame.__name__} v{self.pygame.ver}")
         self.pygame.init()
 
         self.logger.info("Creating screen")
