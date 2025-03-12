@@ -42,6 +42,6 @@ class SawTrap(Entity):
         is_colliding = super().is_colliding(entity)
 
         if is_colliding and isinstance(entity, LivingEntity):
-            entity.damage(1)
+            entity.damage(self.game.dt * 500)
 
         return is_colliding
