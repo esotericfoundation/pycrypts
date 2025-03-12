@@ -81,7 +81,7 @@ class Entity(Collidable):
         self.move_without_collision(distance, speed_factor)
 
     def is_colliding(self, entity: Collidable) -> bool:
-        if self.no_clip or entity.no_clip:
+        if self.no_clip or entity.no_clip and not (self.very_clip or entity.very_clip):
             return False
 
         if isinstance(entity, Entity):

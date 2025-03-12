@@ -25,6 +25,7 @@ class Sword(Entity):
         self.user = user
         self.time_left = 0.5
         self.used = False
+        self.very_clip = True
 
     def tick(self):
         super().tick()
