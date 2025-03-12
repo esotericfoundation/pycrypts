@@ -34,4 +34,4 @@ class Specter(Monster):
             entity.velocity += (entity.position - self.position).normalize() * 80
 
     def sees_other(self, other: "Entity") -> bool:
-        return other.position.distance_squared_to(self.position) < 300 * 300
+        return other.position.distance_squared_to(self.position) < 500 * 500
