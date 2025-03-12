@@ -4,6 +4,7 @@ from pygame import Vector2
 
 from .room import Room
 from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+from ..tickable.renderable.collidable.entities.living.monsters.specter import Specter
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
 from ..tickable.renderable.collidable.entities.traps.saw_trap import SawTrap
 from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
@@ -43,6 +44,8 @@ class EntranceZone(Room):
 
         Zombie((900, 400), 64, self.game, self)
         Zombie((1000, 400), 64, self.game, self)
+
+        Specter((200, 600), 64, self.game, self)
 
         SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game, self)
 
