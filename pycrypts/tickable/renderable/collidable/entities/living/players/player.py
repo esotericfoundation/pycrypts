@@ -7,7 +7,6 @@ from ..living_entity import LivingEntity
 from ...projectiles.arrow import Arrow
 from ...projectiles.sword import Sword
 from ....collidable import Collidable
-from .......enums.movement_keys import InputType
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
@@ -19,7 +18,7 @@ class Player(LivingEntity):
     attack_range = 175
     regeneration_rate = 0.5
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: InputType, attack_key: int, game: "PyCrypts", room: "Room"):
+    def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: str, attack_key: int, game: "PyCrypts", room: "Room"):
         super().__init__(position, "players/" + character, size, 100, game, room)
 
         self.movement_type = movement_type
