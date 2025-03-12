@@ -21,6 +21,8 @@ class SawTrap(Entity):
         self.rotation = 0
         self.rotation_speed = 0.1
 
+        self.very_clip = True
+
     def tick(self):
         super().tick()
 
