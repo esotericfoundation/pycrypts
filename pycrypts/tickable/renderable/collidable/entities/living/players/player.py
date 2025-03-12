@@ -33,7 +33,8 @@ class Player(LivingEntity):
 
     def unload(self):
         super().unload()
-        self.game.players.remove(self)
+        if self in self.game.players:
+            self.game.players.remove(self)
 
     def tick(self):
         super().tick()
