@@ -1,9 +1,12 @@
 import math
 import random
+from typing import TypeVar
 
 from pygame import Vector2
 
 from .walk_to_target import WalkToTargetGoal
+
+T = TypeVar('T')
 
 
 def adjust_vector_by_angle(v: Vector2, angle: float) -> Vector2:
@@ -13,9 +16,9 @@ def adjust_vector_by_angle(v: Vector2, angle: float) -> Vector2:
     return Vector2(v.x * cos_angle - v.y * sin_angle, v.x * sin_angle + v.y * cos_angle)
 
 
-class StrafeToTargetGoal(WalkToTargetGoal):
-    def __init__(self, owner, priority, game, speed=1):
-        super().__init__(owner, priority, game, speed)
+class StrafeToTargetGoal(WalkToTargetGoal[T]):
+    def __init__(self, owner, priority, game, target_type: type[T], target_list: list, speed=1):
+        super().__init__(owner, priority, game, target_type, target_list, speed)
         self.strafe_timer = 0
         self.strafe_direction = 60
 

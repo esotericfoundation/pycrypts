@@ -1,16 +1,20 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, TypeVar
 
-from pycrypts.tickable.renderable.collidable.entities.living.players.player import Player
 from .walk_to_target import WalkToTargetGoal
 from ...monster import Monster
+from .....entity import Entity
+
+T = TypeVar('T')
 
 if TYPE_CHECKING:
     from .........game import PyCrypts
 
 
-class BackOffFromTargetGoal(WalkToTargetGoal):
-    def __init__(self, owner: "Monster", priority: int, game: "PyCrypts", speed=1, distance_threshold=100):
-        super().__init__(owner, priority, game, speed)
+class BackOffFromTargetGoal(WalkToTargetGoal[T]):
+    def __init__(self, owner: "Monster", priority: int, game: "PyCrypts", target_type: type[T], target_list: list, speed=1, distance_threshold=100):
+        super().__init__(owner, priority, game, target_type, target_list, speed)
+
+        self.target_type = target_type
 
         self.distance_threshold = distance_threshold
         self.is_backing_off = False
@@ -29,7 +33,7 @@ class BackOffFromTargetGoal(WalkToTargetGoal):
         super().end()
         self.is_backing_off = False
 
-    def get_nearby_targets_and_cache(self) -> Player | None:
+    def get_nearby_targets_and_cache(self) -> Entity | None:
         super().get_nearby_targets_and_cache()
 
         if self.cached_target is None:

@@ -1,17 +1,21 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, TypeVar, Generic
 
 from ..goal import Goal
 from ...monster import Monster
 from ....players.player import Player
 
+T = TypeVar('T')
+
 if TYPE_CHECKING:
     from .........game import PyCrypts
 
 
-class WalkToTargetGoal(Goal):
-    def __init__(self, owner: Monster, priority: int, game: "PyCrypts", speed=1):
+class WalkToTargetGoal(Goal, Generic[T]):
+    def __init__(self, owner: Monster, priority: int, game: "PyCrypts", target_type: type[T], target_list: list, speed=1):
         super().__init__(owner, priority, game)
 
+        self.target_type = target_type
+        self.target_list = target_list
         self.speed = speed
         self.cached_target: Player | None = None
 
@@ -31,8 +35,8 @@ class WalkToTargetGoal(Goal):
     def can_use(self) -> bool:
         return super().can_use() and self.get_nearby_targets_and_cache() is not None
 
-    def get_nearby_targets_and_cache(self) -> Player | None:
-        players = list(filter(lambda p: self.owner.sees_other(p), self.game.players))
+    def get_nearby_targets_and_cache(self) -> T | None:
+        players = list(filter(lambda p: isinstance(p, self.target_type) and self.owner.sees_other(p), self.target_list))
 
         if len(players) == 0:
             return None
