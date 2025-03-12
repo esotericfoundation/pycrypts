@@ -46,12 +46,12 @@ class EntranceZone(Room):
 
         SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game, self)
 
-        Wall(self.game.top_left, self.game.bottom_left + (50, 0), self.game, self)
-        border_right_1 = Wall(self.game.top_right + (-50, 0), self.game.top_right + (0, 240), self.game, self)
-        border_right_2 = Wall(self.game.top_right + (-50, 480), self.game.bottom_right, self.game, self)
-        Wall(border_right_1.bottom_right, border_right_2.top_left + (100, 0), self.game, self)
-        Wall(self.game.top_left, self.game.top_right + (0, 50), self.game, self)
-        Wall(self.game.bottom_left + (0, -50), self.game.bottom_right, self.game, self)
+        Wall(self.game.top_left, self.game.bottom_left + (50, 0), self.game, self, True)
+        border_right_1 = Wall(self.game.top_right + (-50, 0), self.game.top_right + (0, 240), self.game, self, True)
+        border_right_2 = Wall(self.game.top_right + (-50, 480), self.game.bottom_right, self.game, self, True)
+        Wall(border_right_1.bottom_right, border_right_2.top_left + (100, 0), self.game, self, True)
+        Wall(self.game.top_left, self.game.top_right + (0, 50), self.game, self, True)
+        Wall(self.game.bottom_left + (0, -50), self.game.bottom_right, self.game, self, True)
 
         Wall((650, 500), (1250, 550), self.game, self)
         Wall((1050, 200), (1100, 500), self.game, self)
