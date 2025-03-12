@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class Arrow(Fireball):
     def __init__(self, target: Vector2, position: Vector2, size: int, game: "PyCrypts", room: "Room"):
-        super().__init__(target, position, size, game, room, 2, "arrow")
+        super().__init__(target, position, size, game, room, 2.6, "arrow")
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)
         self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)
