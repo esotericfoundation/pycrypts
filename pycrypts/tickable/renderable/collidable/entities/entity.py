@@ -26,8 +26,6 @@ class Entity(Collidable):
         self.absolute_size = size
         self.size = size
 
-        self.no_clip = False
-
         self.set_scale(room.entity_scale)
 
         self.base_image = self.image
@@ -83,7 +81,7 @@ class Entity(Collidable):
         self.move_without_collision(distance, speed_factor)
 
     def is_colliding(self, entity: Collidable) -> bool:
-        if self.no_clip:
+        if self.no_clip or entity.no_clip:
             return False
 
         if isinstance(entity, Entity):

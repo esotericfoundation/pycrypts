@@ -12,6 +12,7 @@ class Collidable(Renderable):
     def __init__(self, game: "PyCrypts", room: "Room"):
         super().__init__(game)
         self.room = room
+        self.no_clip = False
 
     def is_inside_hitbox(self, location: tuple[int, int]) -> bool:
         pass
