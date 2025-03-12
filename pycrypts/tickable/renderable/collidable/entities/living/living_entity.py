@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class LivingEntity(Entity):
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, health: int, game: "PyCrypts", room: "Room"):
+    def __init__(self, position: tuple[int, int], character: str, size: int, health: float, game: "PyCrypts", room: "Room"):
         super().__init__(position, "living/" + character, size, game, room)
 
         self.health = health
