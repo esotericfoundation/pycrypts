@@ -6,7 +6,6 @@ A PyGame adventure featuring a sprawling underground dungeon filled with enemies
 
 ## Information
 
-- [To-Do][to-do]
 - [Credit][credit]
 
 ## License
