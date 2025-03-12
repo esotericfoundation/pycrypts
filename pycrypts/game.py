@@ -92,8 +92,8 @@ class PyCrypts:
         rizzler = Player((0, 0), "rizzler", 64, "WASD", self.pygame.K_LSHIFT, self, self.current_room)
         player = Player((0, 0), "pro", 64, "ARROW", self.pygame.K_RSHIFT, self, self.current_room)
 
-        HealthBar(rizzler, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
-        HealthBar(player, (100, self.screen.get_height() - 140), 300, 40, self)
+        HealthBar(player, (self.screen.get_width() - 100 - 300, self.screen.get_height() - 140), 300, 40, self)
+        HealthBar(rizzler, (100, self.screen.get_height() - 140), 300, 40, self)
 
         i = 0
 
