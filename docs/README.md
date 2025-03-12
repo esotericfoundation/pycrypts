@@ -11,6 +11,7 @@ A [pygame][pygame] adventure featuring a sprawling underground dungeon filled wi
 ## License
 
 &copy; 2024-2025 [Esoteric Foundation][author-homepage]
+&copy; 2025 [contributors][contributors]
 
 [PyCrypts][root] is licensed under the [AGPL 3.0][license] only.
 
@@ -26,6 +27,8 @@ A [pygame][pygame] adventure featuring a sprawling underground dungeon filled wi
 <!-- Websites -->
 
 [author-homepage]: https://esoteric.foundation
+[contributors]: https://github.com/esotericfoundation/pycrypts/graphs/contributors
+
 [pygame]: https://www.pygame.org
 
 <!-- Files -->
