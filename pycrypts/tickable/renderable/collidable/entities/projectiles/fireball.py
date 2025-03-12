@@ -27,7 +27,7 @@ class Fireball(Entity):
         if isinstance(entity, Entity) and entity.no_clip:
             return False
 
-        from pycrypts.tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
+        from ..living.monsters.skeleton import Skeleton
         if isinstance(entity, Skeleton) or isinstance(entity, Fireball):
             return False
 
