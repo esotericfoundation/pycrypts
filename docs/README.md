@@ -2,7 +2,7 @@
 
 [![Project status: unfinished][status]][root]
 
-A PyGame adventure featuring a sprawling underground dungeon filled with enemies and loot.
+A pygame adventure featuring a sprawling underground dungeon filled with enemies and loot.
 
 ## Information
 

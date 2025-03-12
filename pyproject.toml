@@ -3,7 +3,7 @@ requires = ["build", "pyinstaller"]
 
 [project]
 name = "pycrypts"
-description = "A PyGame adventure featuring a sprawling underground dungeon filled with enemies and loot."
+description = "A pygame adventure featuring a sprawling underground dungeon filled with enemies and loot."
 readme = "docs/README.md"
 
 classifiers = [
