@@ -2,7 +2,7 @@
 
 [![Project status: unfinished][status]][root]
 
-A pygame adventure featuring a sprawling underground dungeon filled with enemies and loot.
+A [pygame][pygame] adventure featuring a sprawling underground dungeon filled with enemies and loot.
 
 ## Information
 
@@ -26,6 +26,7 @@ A pygame adventure featuring a sprawling underground dungeon filled with enemies
 <!-- Websites -->
 
 [author-homepage]: https://esoteric.foundation
+[pygame]: https://www.pygame.org
 
 <!-- Files -->
 
