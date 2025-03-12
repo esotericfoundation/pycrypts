@@ -29,6 +29,5 @@ A PyGame adventure featuring a sprawling underground dungeon filled with enemies
 
 <!-- Files -->
 
-[to-do]: ./TODO.md
 [credit]: ./CREDIT.md
 [license]: ../LICENSE
