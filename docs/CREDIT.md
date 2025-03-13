@@ -1,6 +1,6 @@
 # Credit
 
-## [pygame][pygame]
+## [Pygame][pygame]
 
 Licensed under the [LGPL 2.1][pygame-license].
 
