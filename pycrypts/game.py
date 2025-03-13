@@ -105,6 +105,9 @@ class PyCrypts:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.entity_scale)
 
+    def is_debug(self):
+        return self.logger.level <= logging.DEBUG
+
     def tick(self):
         if not self.over:
             present = time.time()
