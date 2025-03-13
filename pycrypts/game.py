@@ -54,6 +54,7 @@ class PyCrypts:
 
         self.assets: dict[str, Surface] = {}
         self.sounds: dict[str, pygame.mixer.Sound] = {}
+        self.fonts: dict[tuple[str | None, int], pygame.font.Font] = {}
 
         self.height = None
         self.width = None
@@ -126,14 +127,14 @@ class PyCrypts:
         self.screen.fill((0, 0, 0))
 
         if self.over:
-            font_1 = self.pygame.font.Font(None, 150)
+            font_1 = self.get_font((None, 150))
 
             text_1 = font_1.render("Game Over!", True, (255, 0, 0))
             text_1_rect = text_1.get_rect(center=self.center)
 
             self.screen.blit(text_1, text_1_rect)
 
-            font_2 = self.pygame.font.Font(None, 50)
+            font_2 = self.get_font((None, 50))
 
             text_2 = font_2.render("Press ESC to exit", True, (200, 0, 0))
             text_2_rect = text_2.get_rect(center=(self.center.x, self.center.y + 100))
@@ -178,6 +179,17 @@ class PyCrypts:
         self.sounds[key] = sound
 
         return sound
+
+    def get_font(self, key: tuple[str | None, int]) -> pygame.font.Font:
+        font = self.fonts.get(key)
+
+        if font is not None:
+            return font
+
+        font = pygame.font.SysFont(key[0], key[1])
+        self.fonts[key] = font
+
+        return font
 
     def get_renderables(self):
         return list(filter(lambda tickable: isinstance(tickable, Renderable), self.tickables))

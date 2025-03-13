@@ -18,7 +18,7 @@ class Text(Renderable):
 
         self.location = Vector2(location)
 
-        self.font = pygame.font.SysFont('Arial', size)
+        self.font = self.game.get_font(('Arial', size))
 
         self.game = game
 
