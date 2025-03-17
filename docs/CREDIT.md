@@ -15,6 +15,11 @@
 <sup>By [Reddit pygame][foggy-author], [iminurnamez][foggy-creator]</sup>\
 <sup>Dedicated to the [public domain][foggy-license]</sup>
 
+## [Foggy][foggy-fork] (Challenge Solution)
+
+<sup>By [Paddy Polson][foggy-fork-author]</sup>\
+<sup>Dedicated to the [public domain][foggy-fork-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -31,3 +36,7 @@
 [foggy-author]: https://github.com/reddit-pygame
 [foggy-creator]: https://github.com/iminurnamez
 [foggy-license]: https://github.com/reddit-pygame/Foggy/blob/e9868e9fcaebd665d25c2d8a32f676d3cc363f0e/attribution.txt#L26
+
+[foggy-fork]: https://github.com/paddypolson/Foggy
+[foggy-fork-author]: https://github.com/paddypolson
+[foggy-fork-license]: https://github.com/paddypolson/Foggy/blob/10b27bff350db929b2f6850ad1edb9a2dab0e2fa/attribution.txt#L26
