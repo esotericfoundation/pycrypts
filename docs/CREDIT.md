@@ -2,6 +2,7 @@
 
 ## [Pygame][pygame]
 
+<sup>By [pygame][pygame-author]</sup>
 <sup>Licensed under the [LGPL 2.1][pygame-license].</sup>
 
 ## [Twemoji][twemoji]
@@ -12,6 +13,7 @@
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
+[pygame-author]: https://github.com/pygame/
 [pygame-license]: https://github.com/pygame/pygame/blob/79807da84c9bacf8df5a177763e14c924e3b15e2/docs/LGPL.txt
 
 [twemoji]: https://github.com/twitter/twemoji/tree/master
