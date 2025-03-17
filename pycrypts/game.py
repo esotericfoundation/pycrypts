@@ -1,4 +1,5 @@
 import argparse
+import math
 import os
 import time
 import logging
@@ -113,13 +114,33 @@ class PyCrypts:
 
     def render_fog(self):
         self.fog.fill((0, 0, 0, 255))
-        m = 255 / float(200)
 
         for player in self.players:
-            for i in range(200, 1, -1):
-                self.pygame.draw.circle(self.fog, (0, 0, 0, i*m), player.get_int_pos(), i)
+            self.render_vision(self.fog, player.get_int_pos(), 400)
 
         self.screen.blit(self.fog, (0, 0))
+
+    def render_vision(self, surface: Surface, center: (int, int), radius: int):
+        for angle in range(0, 360):
+            for distance in range(0, radius):
+                x = math.cos(angle) * distance
+                y = math.sin(angle) * distance
+
+                new_x = center[0] + int(x)
+                new_y = center[1] + int(y)
+
+                if new_x >= surface.get_width() or new_x < 0 or new_y >= surface.get_height() or new_y < 0:
+                    continue
+
+                point = (new_x, new_y)
+
+                color = surface.get_at(point)
+
+                new_alpha = int(distance / radius * 255)
+
+                color.a = min(new_alpha, color.a)
+
+                surface.set_at(point, color)
 
     def is_debug(self):
         return self.logger.level <= logging.DEBUG
