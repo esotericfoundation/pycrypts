@@ -66,7 +66,7 @@ class PyCrypts:
         self.top_right = None
         self.center = None
 
-        self.vision_radius = 400
+        self.vision_radius = 300
 
         self.fog: Surface | None = None
 
