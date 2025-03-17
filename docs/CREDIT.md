@@ -10,6 +10,11 @@
 <sup>&copy; 2019 [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>Licensed under [CC BY 4.0][twemoji-license].</sup>
 
+## [Foggy][foggy]
+
+<sup>By [Reddit pygame][foggy-author]</sup>\
+<sup>Dedicated to the [public domain][foggy-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -21,3 +26,7 @@
 [twemoji-author]: https://github.com/twitter
 [twemoji-contributors]: https://github.com/twitter/twemoji/graphs/contributors
 [twemoji-license]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/LICENSE-GRAPHICS
+
+[foggy]: https://github.com/reddit-pygame/Foggy
+[foggy-author]: https://github.com/reddit-pygame
+[foggy-license]: https://github.com/reddit-pygame/Foggy/blob/e9868e9fcaebd665d25c2d8a32f676d3cc363f0e/attribution.txt#L26
