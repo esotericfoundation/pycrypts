@@ -20,7 +20,7 @@ class SurfaceZone(Room):
     def create(self):
         super().create()
 
-        Skeleton(self.game.bottom_left + (160, -200), 64, self.game, self)
+        Zombie(self.game.bottom_left + (160, -200), 64, self.game, self)
         Zombie(self.game.bottom_left + (300, -200), 64, self.game, self)
 
         Wall(self.game.top_left, self.game.bottom_left + (80, 0), self.game, self, True)
