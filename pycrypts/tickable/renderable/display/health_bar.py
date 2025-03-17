@@ -41,6 +41,6 @@ class HealthBar(Renderable):
         self.text.render()
 
     def unload(self):
-        self.text.unload()
         super().unload()
+        self.text.unload()
         self.game.gui.remove(self)
