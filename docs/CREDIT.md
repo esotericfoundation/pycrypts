@@ -2,13 +2,12 @@
 
 ## [Pygame][pygame]
 
-Licensed under the [LGPL 2.1][pygame-license].
+<sup>Licensed under the [LGPL 2.1][pygame-license].</sup>
 
 ## [Twemoji][twemoji]
 
-&copy; 2019 [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]
-
-Licensed under [CC BY 4.0][twemoji-license].
+<sup>&copy; 2019 [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
+<sup>Licensed under [CC BY 4.0][twemoji-license].</sup>
 
 <!-- Link aliases -->
 
