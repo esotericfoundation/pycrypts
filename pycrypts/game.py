@@ -66,7 +66,11 @@ class PyCrypts:
         self.top_right = None
         self.center = None
 
+        self.vision_radius = 400
+
         self.fog: Surface | None = None
+
+        self.vision_texture = self.create_vision_texture(self.vision_radius)
 
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -112,35 +116,27 @@ class PyCrypts:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.entity_scale)
 
+    def create_vision_texture(self, radius):
+        """Create a pre-rendered vision gradient circle."""
+        surface = pygame.Surface((radius * 2, radius * 2), pygame.SRCALPHA)
+
+        pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))
+
+        for r in range(radius, 0, -1):
+            alpha = int((r / radius) * 255)
+            pygame.draw.circle(surface, (0, 0, 0, alpha), (radius, radius), r)
+        return surface
+
     def render_fog(self):
-        self.fog.fill((0, 0, 0, 255))
+        """Render fog of war with optimized vision circles."""
+        self.fog.fill((0, 0, 0, 255))  # Reset fog
 
         for player in self.players:
-            self.render_vision(self.fog, player.get_int_pos(), 400)
+            pos = player.get_int_pos()
+            x, y = pos[0] - self.vision_radius, pos[1] - self.vision_radius
+            self.fog.blit(self.vision_texture, (x, y), special_flags=pygame.BLEND_RGBA_MIN)
 
         self.screen.blit(self.fog, (0, 0))
-
-    def render_vision(self, surface: Surface, center: (int, int), radius: int):
-        for angle in range(0, 360):
-            for distance in range(0, radius):
-                x = math.cos(angle) * distance
-                y = math.sin(angle) * distance
-
-                new_x = center[0] + int(x)
-                new_y = center[1] + int(y)
-
-                if new_x >= surface.get_width() or new_x < 0 or new_y >= surface.get_height() or new_y < 0:
-                    continue
-
-                point = (new_x, new_y)
-
-                color = surface.get_at(point)
-
-                new_alpha = int(distance / radius * 255)
-
-                color.a = min(new_alpha, color.a)
-
-                surface.set_at(point, color)
 
     def is_debug(self):
         return self.logger.level <= logging.DEBUG
