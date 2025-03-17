@@ -3,12 +3,12 @@
 ## [Pygame][pygame]
 
 <sup>By [pygame][pygame-author], [pygame contributors][pygame-contributors]</sup>\
-<sup>Licensed under the [LGPL 2.1][pygame-license].</sup>
+<sup>Licensed under the [LGPL 2.1][pygame-license]</sup>
 
 ## [Twemoji][twemoji]
 
 <sup>&copy; 2019 [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
-<sup>Licensed under [CC BY 4.0][twemoji-license].</sup>
+<sup>Licensed under [CC BY 4.0][twemoji-license]</sup>
 
 ## [Foggy][foggy]
 
