@@ -180,10 +180,11 @@ class PyCrypts:
                         continue
 
                 tickable.tick()
-            for gui in self.gui:
-                gui.render()
 
             self.render_fog()
+
+            for gui in self.gui:
+                gui.render()
 
         self.pygame.display.flip()
         return True
