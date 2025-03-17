@@ -33,6 +33,8 @@ class Room:
         if not self.created:
             self.create()
 
+        self.game.vision_texture = self.game.create_vision_texture(int(self.game.vision_radius), self.entity_scale)
+
     def get_collidables(self) -> list[Collidable]:
         return list(filter(lambda collidable: collidable.room == self, self.game.get_collidables()))
 

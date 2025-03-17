@@ -70,7 +70,7 @@ class PyCrypts:
 
         self.fog: Surface | None = None
 
-        self.vision_texture = self.create_vision_texture(self.vision_radius)
+        self.vision_texture = self.create_vision_texture(self.vision_radius, 1)
 
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -116,14 +116,14 @@ class PyCrypts:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.entity_scale)
 
-    def create_vision_texture(self, radius):
+    def create_vision_texture(self, radius, scale):
         """Create a pre-rendered vision gradient circle."""
         surface = pygame.Surface((radius * 2, radius * 2), pygame.SRCALPHA)
 
         pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))
 
-        for r in range(radius, 0, -1):
-            alpha = int((r / radius) * 255)
+        for r in range(int(radius * scale), 0, -1):
+            alpha = int((r / (radius * scale)) * 255)
             pygame.draw.circle(surface, (0, 0, 0, alpha), (radius, radius), r)
         return surface
 
