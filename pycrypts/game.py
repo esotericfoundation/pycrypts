@@ -65,6 +65,8 @@ class PyCrypts:
         self.top_right = None
         self.center = None
 
+        self.fog: Surface | None = None
+
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -85,6 +87,8 @@ class PyCrypts:
         self.top_left = Vector2(0, 0)
         self.top_right = Vector2(self.width, 0)
         self.center = Vector2(self.width / 2, self.height / 2)
+
+        self.fog = self.pygame.Surface((self.width, self.height), self.pygame.SRCALPHA)
 
         self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
@@ -107,6 +111,16 @@ class PyCrypts:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.entity_scale)
 
+    def render_fog(self):
+        self.fog.fill((0, 0, 0, 255))
+        m = 255 / float(200)
+
+        for player in self.players:
+            for i in range(200, 1, -1):
+                self.pygame.draw.circle(self.fog, (0, 0, 0, i*m), player.get_int_pos(), i)
+
+        self.screen.blit(self.fog, (0, 0))
+
     def is_debug(self):
         return self.logger.level <= logging.DEBUG
 
@@ -125,7 +139,7 @@ class PyCrypts:
             if event.type == self.pygame.QUIT:
                 return False
 
-        self.screen.fill((0, 0, 0))
+        self.screen.fill((45, 45, 45))
 
         if self.over:
             font_1 = self.get_font((None, 150))
@@ -151,6 +165,8 @@ class PyCrypts:
                 tickable.tick()
             for gui in self.gui:
                 gui.render()
+
+            self.render_fog()
 
         self.pygame.display.flip()
         return True
