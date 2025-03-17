@@ -12,7 +12,7 @@
 
 ## [Foggy][foggy]
 
-<sup>By [Reddit pygame][foggy-author]</sup>\
+<sup>By [Reddit pygame][foggy-author], [iminurnamez][foggy-creator]</sup>\
 <sup>Dedicated to the [public domain][foggy-license]</sup>
 
 <!-- Link aliases -->
@@ -29,4 +29,5 @@
 
 [foggy]: https://github.com/reddit-pygame/Foggy
 [foggy-author]: https://github.com/reddit-pygame
+[foggy-creator]: https://github.com/iminurnamez
 [foggy-license]: https://github.com/reddit-pygame/Foggy/blob/e9868e9fcaebd665d25c2d8a32f676d3cc363f0e/attribution.txt#L26
