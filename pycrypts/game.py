@@ -44,6 +44,7 @@ class PyCrypts:
         self.dt = 0
 
         self.tickables: list[Tickable] = []
+        self.gui: list[Renderable] = []
         self.players: list[Player] = []
 
         self.current_room: Room | None = None
@@ -148,6 +149,8 @@ class PyCrypts:
                         continue
 
                 tickable.tick()
+            for gui in self.gui:
+                gui.render()
 
         self.pygame.display.flip()
         return True

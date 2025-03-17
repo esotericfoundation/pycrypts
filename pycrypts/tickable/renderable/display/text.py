@@ -22,10 +22,6 @@ class Text(Renderable):
 
         self.game = game
 
-    def tick(self):
-        self.render()
-        pass
-
     def render(self):
         img = self.font.render(self.text, True, self.color)
         self.game.screen.blit(img, self.location)

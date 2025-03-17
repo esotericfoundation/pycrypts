@@ -28,8 +28,9 @@ class HealthBar(Renderable):
 
         self.text = Text(str(math.ceil(entity.health)), (self.top_left.x + 5, self.top_left.y), (160, 0, 0), game, 35)
 
-    def tick(self):
-        self.render()
+    def load(self):
+        super().load()
+        self.game.gui.append(self)
 
     def render(self):
         self.text.text = str(math.ceil(self.entity.health))
@@ -42,3 +43,4 @@ class HealthBar(Renderable):
     def unload(self):
         self.text.unload()
         super().unload()
+        self.game.gui.remove(self)
