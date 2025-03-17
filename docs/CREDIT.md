@@ -2,7 +2,7 @@
 
 ## [Pygame][pygame]
 
-<sup>By [pygame][pygame-author]</sup>
+<sup>By [pygame][pygame-author]</sup>\
 <sup>Licensed under the [LGPL 2.1][pygame-license].</sup>
 
 ## [Twemoji][twemoji]
