@@ -7,7 +7,7 @@
 
 ## [Twemoji][twemoji]
 
-<sup>&copy; 2019 [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
+<sup>[&copy; 2019][twemoji-copyright] [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>Licensed under [CC BY 4.0][twemoji-license]</sup>
 
 ## [Foggy][foggy]
@@ -28,6 +28,7 @@
 [pygame-license]: https://github.com/pygame/pygame/blob/79807da84c9bacf8df5a177763e14c924e3b15e2/docs/LGPL.txt
 
 [twemoji]: https://github.com/twitter/twemoji/tree/master
+[twemoji-copyright]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/README.md?plain=1#L262
 [twemoji-author]: https://github.com/twitter
 [twemoji-contributors]: https://github.com/twitter/twemoji/graphs/contributors
 [twemoji-license]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/LICENSE-GRAPHICS
