@@ -14,6 +14,8 @@ from .tickable.renderable.collidable.collidable import Collidable
 from .tickable.renderable.collidable.entities.entity import Entity
 from .tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from .tickable.renderable.collidable.entities.living.players.player import Player
+from .tickable.renderable.collidable.entities.projectiles.arrow import Arrow
+from .tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 from .tickable.renderable.collidable.walls.wall import Wall
 from .tickable.renderable.display.health_bar import HealthBar
 from .tickable.renderable.renderable import Renderable
@@ -71,6 +73,7 @@ class PyCrypts:
         self.fog: Surface | None = None
 
         self.vision_texture = self.create_vision_texture(self.vision_radius, 1)
+        self.small_vision_texture = self.create_vision_texture(self.vision_radius // 4, 1)
 
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -134,6 +137,15 @@ class PyCrypts:
             position = player.get_int_position()
             x, y = position[0] - self.vision_radius, position[1] - self.vision_radius
             self.fog.blit(self.vision_texture, (x, y), special_flags=self.pygame.BLEND_RGBA_MIN)
+
+        for tickable in self.tickables:
+            if not isinstance(tickable, Fireball) or isinstance(tickable, Arrow):
+                continue
+
+            position = tickable.get_int_position()
+            x, y = position[0] - self.vision_radius // 4, position[1] - self.vision_radius // 4
+
+            self.fog.blit(self.small_vision_texture, (x, y), special_flags=self.pygame.BLEND_RGBA_MIN)
 
         self.screen.blit(self.fog, (0, 0))
 
