@@ -19,7 +19,7 @@ class Arrow(Fireball):
         super().__init__(target, position, size, game, room, 2.6, "arrow")
 
         angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)
-        self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)
+        self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 135)
         self.hit = False
 
     def is_colliding(self, entity: Collidable) -> bool:
