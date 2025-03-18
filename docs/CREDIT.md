@@ -25,7 +25,7 @@
 [pygame]: https://www.pygame.org/
 [pygame-author]: https://github.com/pygame/
 [pygame-contributors]: https://github.com/pygame/pygame/graphs/contributors
-[pygame-license]: https://github.com/pygame/pygame/blob/79807da84c9bacf8df5a177763e14c924e3b15e2/docs/LGPL.txt
+[pygame-license]: https://github.com/pygame/pygame/blob/2.6.1/docs/LGPL.txt
 
 [twemoji]: https://github.com/twitter/twemoji/tree/master
 [twemoji-copyright]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/README.md?plain=1#L262
