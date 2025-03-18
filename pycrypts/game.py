@@ -117,7 +117,6 @@ class PyCrypts:
             player.set_scale(self.current_room.entity_scale)
 
     def create_vision_texture(self, radius, scale):
-        """Create a pre-rendered vision gradient circle."""
         surface = pygame.Surface((radius * 2, radius * 2), pygame.SRCALPHA)
 
         pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))
@@ -128,8 +127,7 @@ class PyCrypts:
         return surface
 
     def render_fog(self):
-        """Render fog of war with optimized vision circles."""
-        self.fog.fill((0, 0, 0, 255))  # Reset fog
+        self.fog.fill((0, 0, 0, 255))
 
         for player in self.players:
             pos = player.get_int_pos()
