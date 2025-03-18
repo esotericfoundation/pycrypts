@@ -13,12 +13,12 @@
 ## [Foggy][foggy]
 
 <sup>By [Reddit pygame][foggy-author], [iminurnamez][foggy-creator]</sup>\
-<sup>Dedicated to the [public domain][foggy-license]</sup>
+<sup>[Dedicated to the public domain][foggy-license]</sup>
 
 ## [Foggy][foggy-fork] (Solution)
 
 <sup>By [Paddy Polson][foggy-fork-author]</sup>\
-<sup>Dedicated to the [public domain][foggy-fork-license]</sup>
+<sup>[Dedicated to the public domain][foggy-fork-license]</sup>
 
 <!-- Link aliases -->
 
