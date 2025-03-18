@@ -1,5 +1,4 @@
 import argparse
-import math
 import os
 import time
 import logging
@@ -14,8 +13,6 @@ from .tickable.renderable.collidable.collidable import Collidable
 from .tickable.renderable.collidable.entities.entity import Entity
 from .tickable.renderable.collidable.entities.living.living_entity import LivingEntity
 from .tickable.renderable.collidable.entities.living.players.player import Player
-from .tickable.renderable.collidable.entities.projectiles.arrow import Arrow
-from .tickable.renderable.collidable.entities.projectiles.fireball import Fireball
 from .tickable.renderable.collidable.walls.wall import Wall
 from .tickable.renderable.display.health_bar import HealthBar
 from .tickable.renderable.renderable import Renderable
@@ -130,25 +127,6 @@ class PyCrypts:
 
         return surface
 
-    def render_fog(self):
-        self.fog.fill((0, 0, 0, 255))
-
-        for player in self.players:
-            position = player.get_int_position()
-            x, y = position[0] - self.vision_radius, position[1] - self.vision_radius
-            self.fog.blit(self.vision_texture, (x, y), special_flags=self.pygame.BLEND_RGBA_MIN)
-
-        for tickable in self.tickables:
-            if not isinstance(tickable, Fireball) or isinstance(tickable, Arrow):
-                continue
-
-            position = tickable.get_int_position()
-            x, y = position[0] - self.vision_radius // 4, position[1] - self.vision_radius // 4
-
-            self.fog.blit(self.small_vision_texture, (x, y), special_flags=self.pygame.BLEND_RGBA_MIN)
-
-        self.screen.blit(self.fog, (0, 0))
-
     def is_debug(self):
         return self.logger.level <= logging.DEBUG
 
@@ -185,6 +163,8 @@ class PyCrypts:
             self.screen.blit(text_2, text_2_rect)
 
         if not self.over:
+            self.fog.fill((0, 0, 0, 255))
+
             for tickable in self.tickables:
                 if isinstance(tickable, Collidable):
                     if tickable.room != self.current_room:
@@ -192,7 +172,7 @@ class PyCrypts:
 
                 tickable.tick()
 
-            self.render_fog()
+            self.screen.blit(self.fog, (0, 0))
 
             for gui in self.gui:
                 gui.render()

@@ -54,6 +54,12 @@ class Player(LivingEntity):
         if keys[pygame.K_LALT]:
             self.no_clip = not self.no_clip
 
+    def render(self):
+        super().render()
+        position = self.get_int_position()
+        x, y = position[0] - self.game.vision_radius, position[1] - self.game.vision_radius
+        self.game.fog.blit(self.game.vision_texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
+
     def move(self):
         super().move()
 

@@ -23,6 +23,18 @@ class Fireball(Entity):
     def move(self):
         self.move_without_collision(self.direction, self.speed)
 
+    def render(self):
+        super().render()
+
+        from .arrow import Arrow
+        if isinstance(self, Arrow):
+            return
+
+        position = self.get_int_position()
+        x, y = position[0] - self.game.vision_radius // 4, position[1] - self.game.vision_radius // 4
+
+        self.game.fog.blit(self.game.small_vision_texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
+
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Entity) and entity.no_clip:
             return False
