@@ -117,22 +117,23 @@ class PyCrypts:
             player.set_scale(self.current_room.entity_scale)
 
     def create_vision_texture(self, radius, scale):
-        surface = pygame.Surface((radius * 2, radius * 2), pygame.SRCALPHA)
+        surface = self.pygame.Surface((radius * 2, radius * 2), self.pygame.SRCALPHA)
 
-        pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))
+        self.pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))
 
-        for r in range(int(radius * scale), 0, -1):
-            alpha = int((r / (radius * scale)) * 255)
-            pygame.draw.circle(surface, (0, 0, 0, alpha), (radius, radius), r)
+        for distance in range(int(radius * scale), 0, -1):
+            alpha = int((distance / (radius * scale)) * 255)
+            self.pygame.draw.circle(surface, (0, 0, 0, alpha), (radius, radius), distance)
+
         return surface
 
     def render_fog(self):
         self.fog.fill((0, 0, 0, 255))
 
         for player in self.players:
-            pos = player.get_int_pos()
-            x, y = pos[0] - self.vision_radius, pos[1] - self.vision_radius
-            self.fog.blit(self.vision_texture, (x, y), special_flags=pygame.BLEND_RGBA_MIN)
+            position = player.get_int_position()
+            x, y = position[0] - self.vision_radius, position[1] - self.vision_radius
+            self.fog.blit(self.vision_texture, (x, y), special_flags=self.pygame.BLEND_RGBA_MIN)
 
         self.screen.blit(self.fog, (0, 0))
 

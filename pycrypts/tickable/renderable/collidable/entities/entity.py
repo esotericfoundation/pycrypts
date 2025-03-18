@@ -105,7 +105,7 @@ class Entity(Collidable):
     def get_actual_center(self):
         return self.position + (self.get_radius(), self.get_radius())
 
-    def get_int_pos(self):
+    def get_int_position(self):
         center = self.get_actual_center()
 
         return int(center[0]), int(center[1])
