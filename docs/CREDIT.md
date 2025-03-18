@@ -3,7 +3,7 @@
 ## [Pygame][pygame]
 
 <sup>By [pygame][pygame-author], [pygame contributors][pygame-contributors]</sup>\
-<sup>Licensed under the [LGPL 2.1][pygame-license]</sup>
+<sup>[Licensed][pygame-license-statement] under the [LGPL 2.1][pygame-license]</sup>
 
 ## [Twemoji][twemoji]
 
@@ -25,6 +25,7 @@
 [pygame]: https://www.pygame.org/
 [pygame-author]: https://github.com/pygame/
 [pygame-contributors]: https://github.com/pygame/pygame/graphs/contributors
+[pygame-license-statement]: https://github.com/pygame/pygame/blob/2.6.1/README.rst?plain=1#L230
 [pygame-license]: https://github.com/pygame/pygame/blob/2.6.1/docs/LGPL.txt
 
 [twemoji]: https://github.com/twitter/twemoji/tree/master
