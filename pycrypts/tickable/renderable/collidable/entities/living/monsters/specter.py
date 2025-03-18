@@ -27,6 +27,13 @@ class Specter(Monster):
         self.wandering = False
         self.no_clip = True
 
+    def render(self):
+        super().render()
+        position = self.get_int_position()
+        x, y = position[0] - self.game.vision_radius // 4, position[1] - self.game.vision_radius // 4
+
+        self.game.fog.blit(self.game.small_vision_texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
+
     def register_goals(self):
         self.goals.append(RandomWanderGoal(self, 2, self.game, 0.35, 2.0, 1.5, 0.35))
         self.goals.append(WalkToTargetGoal(self, 1, self.game, Player, self.game.players, 0.65))
