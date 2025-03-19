@@ -28,6 +28,8 @@ class Entity(Collidable):
 
         self.set_scale(room.scale)
 
+        self.base_image = self.image
+
     def render(self):
         self.game.screen.blit(self.image, self.position)
 
