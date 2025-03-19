@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 
 class EntranceZone(Room):
-    entity_scale = 0.5
+    scale = 0.5
     movement_factor = 0.65
 
     def __init__(self, game: "PyCrypts"):
@@ -25,7 +25,7 @@ class EntranceZone(Room):
 
         self.monsters_to_defeat = []
 
-        super().__init__(spawn_1, spawn_2, game, EntranceZone.entity_scale, EntranceZone.movement_factor)
+        super().__init__(spawn_1, spawn_2, game, EntranceZone.scale, EntranceZone.movement_factor)
 
     def create(self):
         super().create()

@@ -46,7 +46,7 @@ class Specter(Monster):
         self.goals.append(BackOffFromTargetGoal(self, 0, self.game, SawTrap, self.game.tickables, 0.7, 100))
 
     def attack_entity(self, entity: "LivingEntity"):
-        if self.position.distance_squared_to(entity.position) < (10000 * self.game.current_room.entity_scale * self.game.current_room.entity_scale):
+        if self.position.distance_squared_to(entity.position) < (10000 * self.game.current_room.scale * self.game.current_room.scale):
             entity.damage(15)
             entity.velocity += (entity.position - self.position).normalize() * 80
 

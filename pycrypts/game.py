@@ -110,7 +110,7 @@ class PyCrypts:
                 player.position = self.current_room.spawn_1
             else:
                 player.position = self.current_room.spawn_2
-            player.set_scale(self.current_room.entity_scale)
+            player.set_scale(self.current_room.scale)
 
     def create_vision_texture(self, radius: int) -> Surface:
         surface = self.pygame.Surface((radius * 2, radius * 2), self.pygame.SRCALPHA)

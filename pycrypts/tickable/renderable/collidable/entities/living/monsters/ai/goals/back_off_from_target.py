@@ -20,7 +20,7 @@ class BackOffFromTargetGoal(WalkToTargetGoal[T]):
         self.is_backing_off = False
 
         self.threshold_squared = self.distance_threshold * self.distance_threshold
-        self.entity_scale_squared = self.game.current_room.entity_scale * self.game.current_room.entity_scale
+        self.entity_scale_squared = self.game.current_room.scale * self.game.current_room.scale
 
     def start(self):
         super().start()

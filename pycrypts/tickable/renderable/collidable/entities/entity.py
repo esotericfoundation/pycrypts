@@ -26,7 +26,7 @@ class Entity(Collidable):
         self.absolute_size = size
         self.size = size
 
-        self.set_scale(room.entity_scale)
+        self.set_scale(room.scale)
 
         self.base_image = self.image
 
@@ -34,7 +34,7 @@ class Entity(Collidable):
         self.game.screen.blit(self.image, self.position)
 
     def render_light(self, radius: int):
-        radius = int(radius * self.room.entity_scale)
+        radius = int(radius * self.room.scale)
 
         position = self.get_int_position()
         x, y = position[0] - radius, position[1] - radius
@@ -48,8 +48,8 @@ class Entity(Collidable):
         self.render()
 
     def move(self):
-        self.move_without_collision(self.velocity)
-        self.velocity *= 0.1
+        self.move_without_collision(self.velocity * self.game.dt)
+        self.velocity *= (0.9 ** (1 / self.game.current_room.scale))
 
         if self.velocity.magnitude_squared() < 0.1:
             self.velocity = Vector2(0, 0)
@@ -62,7 +62,7 @@ class Entity(Collidable):
 
         collidables = self.room.get_collidables()
 
-        distance_travelled = (distance_travelled / sqrt(magnitude_squared)) * 250 * self.game.current_room.movement_factor * speed_factor * self.game.dt
+        distance_travelled = (distance_travelled / sqrt(magnitude_squared)) * 250 * self.room.scale * speed_factor * self.game.dt
 
         filtered = list(filter(lambda c: c != self, collidables))
 

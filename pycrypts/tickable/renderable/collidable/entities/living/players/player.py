@@ -65,21 +65,24 @@ class Player(LivingEntity):
 
         keys = pygame.key.get_pressed()
 
-        distance_travelled = pygame.Vector2()
+        direction = pygame.Vector2()
 
         if keys[pygame.K_w if self.movement_type == "WASD" else pygame.K_UP]:
-            distance_travelled.y -= 1
+            direction.y -= 1
         if keys[pygame.K_s if self.movement_type == "WASD" else pygame.K_DOWN]:
-            distance_travelled.y += 1
+            direction.y += 1
         if keys[pygame.K_a if self.movement_type == "WASD" else pygame.K_LEFT]:
-            distance_travelled.x -= 1
+            direction.x -= 1
         if keys[pygame.K_d if self.movement_type == "WASD" else pygame.K_RIGHT]:
-            distance_travelled.x += 1
+            direction.x += 1
 
-        if distance_travelled.magnitude_squared() == 0:
+        if direction.magnitude_squared() == 0:
             return
 
-        self.velocity += distance_travelled.normalize() * 250 * self.game.dt
+        self.velocity += direction.normalize() * 250 * self.game.dt
+
+        self.velocity *= 0.5
+        self.velocity *= self.room.scale
 
         if self.velocity.magnitude_squared() == 0:
             return
@@ -106,7 +109,7 @@ class Player(LivingEntity):
         Arrow(entity.get_center(), self.get_center(), 32, self.game, self.room)
 
     def attack_entity(self, entity: LivingEntity):
-        if entity.position.distance_squared_to(self.position) < (Player.attack_range * Player.attack_range) * self.game.current_room.entity_scale * self.game.current_room.entity_scale:
+        if entity.position.distance_squared_to(self.position) < (Player.attack_range * Player.attack_range) * self.game.current_room.scale * self.game.current_room.scale:
             self.sword_attack(entity)
         else:
             self.bow_attack(entity)

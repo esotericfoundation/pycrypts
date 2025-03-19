@@ -51,7 +51,7 @@ class Door(Wall):
                 else:
                     player.position = Vector2(self.get_spawns()[1])
 
-                player.set_scale(self.destination.entity_scale)
+                player.set_scale(self.destination.scale)
 
                 player.room = self.destination
 
