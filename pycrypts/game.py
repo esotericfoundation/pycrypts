@@ -56,6 +56,7 @@ class PyCrypts:
         self.assets: dict[str, Surface] = {}
         self.sounds: dict[str, pygame.mixer.Sound] = {}
         self.fonts: dict[tuple[str | None, int], pygame.font.Font] = {}
+        self.vision_textures: dict[int, pygame.Surface] = {}
 
         self.height = None
         self.width = None
@@ -65,12 +66,7 @@ class PyCrypts:
         self.top_right = None
         self.center = None
 
-        self.vision_radius = 300
-
         self.fog: Surface | None = None
-
-        self.vision_texture = self.create_vision_texture(self.vision_radius, 1)
-        self.small_vision_texture = self.create_vision_texture(self.vision_radius // 4, 1)
 
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -116,13 +112,13 @@ class PyCrypts:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.entity_scale)
 
-    def create_vision_texture(self, radius: int, scale: float) -> Surface:
+    def create_vision_texture(self, radius: int) -> Surface:
         surface = self.pygame.Surface((radius * 2, radius * 2), self.pygame.SRCALPHA)
 
         self.pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))
 
-        for distance in range(int(radius * scale), 0, -1):
-            alpha = int((distance / (radius * scale)) * 255)
+        for distance in range(radius, 0, -1):
+            alpha = int((distance / radius) * 255)
             self.pygame.draw.circle(surface, (0, 0, 0, alpha), (radius, radius), distance)
 
         return surface
@@ -218,6 +214,17 @@ class PyCrypts:
         self.fonts[key] = font
 
         return font
+
+    def get_vision_texture(self, key: int) -> Surface:
+        texture = self.vision_textures.get(key)
+        if texture is not None:
+            return texture
+
+        texture = self.create_vision_texture(key)
+
+        self.vision_textures[key] = texture
+
+        return texture
 
     def get_renderables(self):
         return list(filter(lambda tickable: isinstance(tickable, Renderable), self.tickables))

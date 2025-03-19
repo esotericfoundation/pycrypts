@@ -27,6 +27,8 @@ class Player(LivingEntity):
         self.time_since_last_attack = Player.attack_cooldown + 1
         self.time_since_last_regeneration = 0
 
+        self.light_radius = 400
+
     def load(self):
         super().load()
         self.game.players.append(self)
@@ -56,7 +58,7 @@ class Player(LivingEntity):
 
     def render(self):
         super().render()
-        self.render_light(self.game.vision_radius, self.game.vision_texture)
+        self.render_light(self.light_radius)
 
     def move(self):
         super().move()

@@ -33,9 +33,13 @@ class Entity(Collidable):
     def render(self):
         self.game.screen.blit(self.image, self.position)
 
-    def render_light(self, radius: int, texture: Surface):
+    def render_light(self, radius: int):
+        radius = int(radius * self.room.entity_scale)
+
         position = self.get_int_position()
         x, y = position[0] - radius, position[1] - radius
+
+        texture = self.game.get_vision_texture(radius)
 
         self.game.fog.blit(texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
 
