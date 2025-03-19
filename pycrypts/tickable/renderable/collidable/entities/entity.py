@@ -21,8 +21,6 @@ class Entity(Collidable):
 
         self.image = self.game.get_asset("./assets/images/entities/" + character)
 
-        self.base_image = self.image
-
         self.absolute_size = size
         self.size = size
 
