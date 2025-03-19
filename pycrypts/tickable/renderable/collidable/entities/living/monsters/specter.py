@@ -1,3 +1,4 @@
+import math
 from typing import TYPE_CHECKING
 
 from pygame import Vector2
@@ -26,10 +27,18 @@ class Specter(Monster):
         self.idle_time = 0
         self.wandering = False
         self.no_clip = True
+        self.light_counter = 0
+        self.light_radius = 100
 
     def render(self):
         super().render()
-        self.render_light(self.game.vision_radius // 4, self.game.small_vision_texture)
+        self.light_counter += 1
+
+        factor = math.sin(self.light_counter * 0.01)
+        if factor < 0:
+            return
+
+        self.render_light(int(self.light_radius * factor))
 
     def register_goals(self):
         self.goals.append(RandomWanderGoal(self, 2, self.game, 0.35, 2.0, 1.5, 0.35))
