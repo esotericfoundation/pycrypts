@@ -40,6 +40,9 @@ class PyCrypts:
 
         self.screen: Surface | None = None
 
+        self.resolution: tuple[int, int] = (1280, 720)
+        self.fullscreen = False
+
         self.past = time.time()
         self.dt = 0
 
@@ -74,8 +77,15 @@ class PyCrypts:
         self.logger.info(f"Initialising {self.pygame.__name__} v{self.pygame.ver}")
         self.pygame.init()
 
+        screen_resolution = self.pygame.display.Info()
+
+        user_width = screen_resolution.current_w
+        user_height = screen_resolution.current_h
+
+        self.logger.info(f"Screen resolution: {user_width}x{user_height}")
+
         self.logger.info("Creating screen")
-        self.screen = self.pygame.display.set_mode((1280, 720))
+        self.screen = self.create_screen(self.fullscreen)
 
         self.pygame.display.set_caption(type(self).__name__)
 
@@ -111,6 +121,9 @@ class PyCrypts:
             else:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.scale)
+
+    def create_screen(self, fullscreen: bool = True):
+        return self.pygame.display.set_mode(self.resolution, (self.pygame.FULLSCREEN if fullscreen else 0) | self.pygame.SCALED)
 
     def create_vision_texture(self, radius: int) -> Surface:
         surface = self.pygame.Surface((radius * 2, radius * 2), self.pygame.SRCALPHA)
@@ -172,6 +185,10 @@ class PyCrypts:
 
             for gui in self.gui:
                 gui.render()
+
+        if keys[self.pygame.K_f]:
+            self.fullscreen = not self.fullscreen
+            self.screen = self.create_screen(self.fullscreen)
 
         self.pygame.display.flip()
         return True
