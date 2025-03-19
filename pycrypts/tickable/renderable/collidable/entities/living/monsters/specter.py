@@ -29,10 +29,7 @@ class Specter(Monster):
 
     def render(self):
         super().render()
-        position = self.get_int_position()
-        x, y = position[0] - self.game.vision_radius // 4, position[1] - self.game.vision_radius // 4
-
-        self.game.fog.blit(self.game.small_vision_texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
+        self.render_light(self.game.vision_radius // 4, self.game.small_vision_texturea)
 
     def register_goals(self):
         self.goals.append(RandomWanderGoal(self, 2, self.game, 0.35, 2.0, 1.5, 0.35))

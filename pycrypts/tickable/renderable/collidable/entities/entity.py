@@ -1,7 +1,7 @@
 from math import sqrt
 from typing import TYPE_CHECKING
 
-from pygame import Vector2
+from pygame import Vector2, Surface
 
 from ..collidable import Collidable
 
@@ -32,6 +32,12 @@ class Entity(Collidable):
 
     def render(self):
         self.game.screen.blit(self.image, self.position)
+
+    def render_light(self, radius: int, texture: Surface):
+        position = self.get_int_position()
+        x, y = position[0] - radius, position[1] - radius
+
+        self.game.fog.blit(texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
 
     def tick(self):
         self.move()

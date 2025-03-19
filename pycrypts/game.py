@@ -116,7 +116,7 @@ class PyCrypts:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.entity_scale)
 
-    def create_vision_texture(self, radius, scale):
+    def create_vision_texture(self, radius: int, scale: float) -> Surface:
         surface = self.pygame.Surface((radius * 2, radius * 2), self.pygame.SRCALPHA)
 
         self.pygame.draw.rect(surface, (0, 0, 0, 255), (0, 0, 2 * radius, 2 * radius))

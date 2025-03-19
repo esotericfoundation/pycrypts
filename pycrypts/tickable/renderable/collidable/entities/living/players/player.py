@@ -56,9 +56,7 @@ class Player(LivingEntity):
 
     def render(self):
         super().render()
-        position = self.get_int_position()
-        x, y = position[0] - self.game.vision_radius, position[1] - self.game.vision_radius
-        self.game.fog.blit(self.game.vision_texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
+        self.render_light(self.game.vision_radius, self.game.vision_texture)
 
     def move(self):
         super().move()
