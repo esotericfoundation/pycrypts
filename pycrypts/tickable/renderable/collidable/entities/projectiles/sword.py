@@ -54,10 +54,6 @@ class Sword(Entity):
                 self.target.unload()
                 return
 
-            if isinstance(self.target, Arrow):
-                self.target.unload()
-                return
-
             if isinstance(self.target, LivingEntity):
                 self.target.damage(20)
                 self.target.velocity = (self.target.position - self.user.position).normalize() * 40
