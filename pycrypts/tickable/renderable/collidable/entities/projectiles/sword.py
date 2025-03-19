@@ -56,7 +56,7 @@ class Sword(Entity):
 
             if isinstance(self.target, LivingEntity):
                 self.target.damage(20)
-                self.target.velocity = (self.target.position - self.user.position).normalize() * 20
+                self.target.velocity = (self.target.position - self.user.position).normalize() * 20 * self.user.room.scale
                 self.used = True
                 self.time_left = 0.2
 

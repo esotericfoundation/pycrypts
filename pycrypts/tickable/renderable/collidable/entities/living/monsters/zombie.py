@@ -37,7 +37,7 @@ class Zombie(Monster):
     def attack_entity(self, entity: "LivingEntity"):
         if self.position.distance_squared_to(entity.position) < (10000 * self.game.current_room.scale * self.game.current_room.scale):
             entity.damage(20)
-            entity.velocity += (entity.position - self.position).normalize() * 40
+            entity.velocity += (entity.position - self.position).normalize() * 40 * self.room.scale
 
     def damage(self, damage):
         super().damage(damage)
