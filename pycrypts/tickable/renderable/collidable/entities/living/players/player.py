@@ -29,6 +29,9 @@ class Player(LivingEntity):
 
         self.light_radius = 400
 
+        self.base_candle_image = self.game.get_asset("assets/images/entities/lantern")
+        self.candle_image = self.base_candle_image
+
     def load(self):
         super().load()
         self.game.players.append(self)
@@ -56,9 +59,19 @@ class Player(LivingEntity):
         if keys[pygame.K_LALT]:
             self.no_clip = not self.no_clip
 
+    def set_scale(self, scale: float):
+        super().set_scale(scale)
+
+        try:
+            self.candle_image = self.game.pygame.transform.scale(self.base_candle_image, (32 * scale, 32 * scale))
+        except AttributeError:
+            pass
+
     def render(self):
         super().render()
         self.render_light(self.light_radius)
+
+        self.game.screen.blit(self.candle_image, self.position + Vector2(50, 20) * self.room.scale)
 
     def move(self):
         super().move()
