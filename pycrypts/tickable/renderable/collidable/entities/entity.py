@@ -54,8 +54,6 @@ class Entity(Collidable):
         if self.velocity.magnitude_squared() < 0.1:
             self.velocity = Vector2(0, 0)
 
-        pass
-
     def move_without_collision(self, distance_travelled: Vector2, speed_factor: float = 1):
         magnitude_squared = distance_travelled.magnitude_squared()
 
