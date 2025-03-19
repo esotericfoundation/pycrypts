@@ -101,11 +101,9 @@ class Player(LivingEntity):
 
     def sword_attack(self, entity: LivingEntity):
         Sword(entity, self, self.get_center(), self.game, self.room)
-        pass
 
     def bow_attack(self, entity: LivingEntity):
         Arrow(entity.get_center(), self.get_center(), 32, self.game, self.room)
-        pass
 
     def attack_entity(self, entity: LivingEntity):
         if entity.position.distance_squared_to(self.position) < (Player.attack_range * Player.attack_range) * self.game.current_room.entity_scale * self.game.current_room.entity_scale:
