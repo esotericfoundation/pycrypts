@@ -211,6 +211,24 @@ class PyCrypts:
         self.logger.debug(f"Asset size: {asset.get_size()}")
         self.logger.debug(f"Asset alpha: {asset.get_alpha()}")
 
+        self.logger.debug(f"Absolute offset: {asset.get_abs_offset()}")
+        self.logger.debug(f"Absolute parent: {asset.get_abs_parent()}")
+        self.logger.debug(f"Bitsize: {asset.get_bitsize()}")
+        self.logger.debug(f"Blendmode: {asset.get_blendmode()}")
+        self.logger.debug(f"Buffer: {asset.get_buffer()}")
+        self.logger.debug(f"Bytesize: {asset.get_bytesize()}")
+        self.logger.debug(f"Clip: {asset.get_clip()}")
+        self.logger.debug(f"Colorkey: {asset.get_colorkey()}")
+        self.logger.debug(f"Flags: {asset.get_flags()}")
+
+        self.logger.debug(f"Locked: {asset.get_locked()}")
+        self.logger.debug(f"Locks: {asset.get_locks()}")
+        self.logger.debug(f"Losses: {asset.get_losses()}")
+        self.logger.debug(f"Masks: {asset.get_masks()}")
+        self.logger.debug(f"Offset: {asset.get_offset()}")
+        self.logger.debug(f"Parent: {asset.get_parent()}")
+        self.logger.debug(f"Pitch: {asset.get_pitch()}")
+
         self.assets[key] = asset
 
         return asset
