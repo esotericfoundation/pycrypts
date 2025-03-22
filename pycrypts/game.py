@@ -206,6 +206,11 @@ class PyCrypts:
         except FileNotFoundError:
             asset = self.pygame.image.load(key + ".svg").convert_alpha()
 
+        self.logger.debug(f"Asset height: {asset.get_height()}")
+        self.logger.debug(f"Asset width: {asset.get_width()}")
+        self.logger.debug(f"Asset size: {asset.get_size()}")
+        self.logger.debug(f"Asset alpha: {asset.get_alpha()}")
+
         self.assets[key] = asset
 
         return asset
