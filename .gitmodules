@@ -1,3 +1,6 @@
 [submodule "assets/twemoji"]
 	path = assets/twemoji
-	url = git@github.com:esotericfoundation/twemoji.git
+	url = git@github.com:twitter/twemoji.git
+[submodule "assets/fluentui-emoji"]
+	path = assets/fluentui-emoji
+	url = git@github.com:esotericfoundation/fluentui-emoji.git
