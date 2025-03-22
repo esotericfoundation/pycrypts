@@ -199,6 +199,8 @@ class PyCrypts:
         if asset is not None:
             return asset
 
+        self.logger.debug(f"Retrieving asset {key} for the first time")
+
         try:
             asset = self.pygame.image.load(key + ".png").convert_alpha()
         except FileNotFoundError:
@@ -214,6 +216,8 @@ class PyCrypts:
         if sound is not None:
             return sound
 
+        self.logger.debug(f"Retrieving sound {key} for the first time")
+
         sound = pygame.mixer.Sound("assets/sounds/" + key + ".mp3")
         sound.set_volume(0.125)
 
@@ -226,6 +230,8 @@ class PyCrypts:
 
         if font is not None:
             return font
+
+        self.logger.debug(f"Retrieving font {key} for the first time")
 
         font = pygame.font.SysFont(key[0], key[1])
         self.fonts[key] = font
