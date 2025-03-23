@@ -44,7 +44,7 @@
 [fluent-emoji]: https://github.com/esotericfoundation/fluentui-emoji/tree/11cd274b2f705419ded6d133f94b04bbada1fa02
 [fluent-emoji-copyright]: https://github.com/esotericfoundation/fluentui-emoji/blob/11cd274b2f705419ded6d133f94b04bbada1fa02/LICENSE#L3
 [fluent-emoji-author]: https://github.com/microsoft
-[fluent-emoji-contributors]: https://github.com/microsoft/fluentui-emoji/graphs/contributors
+[fluent-emoji-contributors]: https://github.com/esotericfoundation/fluentui-emoji/graphs/contributors
 [fluent-emoji-fork-author]: https://esoteric.foundation
 [fluent-emoji-license-statement]: https://github.com/esotericfoundation/fluentui-emoji/tree/11cd274b2f705419ded6d133f94b04bbada1fa02?tab=License-1-ov-file
 [fluent-emoji-license]: https://github.com/esotericfoundation/fluentui-emoji/blob/11cd274b2f705419ded6d133f94b04bbada1fa02/LICENSE
