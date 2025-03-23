@@ -13,7 +13,7 @@
 ## [Fluent Emoji][fluent-emoji]
 
 <sup>[&copy;][fluent-emoji-copyright] [Microsoft Corporation][fluent-emoji-author]</sup>\
-<sup>[Licensed][fluent-emoji-license-statement] under the [MIT License][fluent-emoji-license]</sup>
+<sup>[Licensed][fluent-emoji-license-statement] under the [MIT License][fluent-emoji-license] (also available [locally][mit-license])</sup>
 
 ## [Foggy][foggy]
 
@@ -54,3 +54,7 @@
 [foggy-fork]: https://github.com/paddypolson/Foggy/tree/10b27bff350db929b2f6850ad1edb9a2dab0e2fa
 [foggy-fork-author]: https://github.com/paddypolson
 [foggy-fork-license]: https://github.com/paddypolson/Foggy/blob/10b27bff350db929b2f6850ad1edb9a2dab0e2fa/attribution.txt#L26
+
+<!-- Local generic licenses -->
+
+[mit-license]: ./assets/text/licenses/LICENSE-MIT
