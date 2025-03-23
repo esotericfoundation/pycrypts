@@ -10,7 +10,7 @@
 <sup>[&copy; 2019][twemoji-copyright] [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>[Licensed][twemoji-license-statement] under [CC BY 4.0][twemoji-license]</sup>
 
-## [Fluent Emoji][fluent-emoji]
+## [Fluent Emoji][fluent-emoji] (Fork)
 
 <sup>[&copy;][fluent-emoji-copyright] [Microsoft Corporation][fluent-emoji-author]</sup>\
 <sup>By the [Microsoft Corporation][fluent-emoji-author], [Fluent Emoji contributors][fluent-emoji-contributors], the [Esoteric Foundation][fluent-emoji-fork-author]</sup>\
