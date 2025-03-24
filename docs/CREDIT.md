@@ -2,23 +2,23 @@
 
 ## [Pygame][pygame]
 
-<sup>By [pygame][pygame-author], [pygame contributors][pygame-contributors]</sup>\
+<sup>By [pygame][pygame-author] and [pygame contributors][pygame-contributors]</sup>\
 <sup>[Licensed][pygame-license-statement] under the [LGPL 2.1][pygame-license]</sup>
 
 ## [Twemoji][twemoji]
 
-<sup>[&copy; 2019][twemoji-copyright] [Twitter, Inc.][twemoji-author], [Twemoji contributors][twemoji-contributors]</sup>\
+<sup>[&copy; 2019][twemoji-copyright] [Twitter, Inc.][twemoji-author] and [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>[Licensed][twemoji-license-statement] under [CC BY 4.0][twemoji-license]</sup>
 
 ## [Fluent Emoji][fluent-emoji] (Fork)
 
 <sup>[&copy;][fluent-emoji-copyright] [Microsoft Corporation][fluent-emoji-author]</sup>\
-<sup>By the [Microsoft Corporation][fluent-emoji-author], [Fluent Emoji contributors][fluent-emoji-contributors], the [Esoteric Foundation][fluent-emoji-fork-author]</sup>\
+<sup>By the [Microsoft Corporation][fluent-emoji-author], [Fluent Emoji contributors][fluent-emoji-contributors] and the [Esoteric Foundation][fluent-emoji-fork-author]</sup>\
 <sup>[Licensed][fluent-emoji-license-statement] under the [MIT License][fluent-emoji-license] (also available [locally][mit-license])</sup>
 
 ## [Foggy][foggy]
 
-<sup>By [Reddit pygame][foggy-author], [iminurnamez][foggy-creator]</sup>\
+<sup>By [Reddit pygame][foggy-author] and [iminurnamez][foggy-creator]</sup>\
 <sup>[Dedicated to the public domain][foggy-license]</sup>
 
 ## [Foggy][foggy-fork] (Solution)
