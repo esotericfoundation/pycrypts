@@ -152,6 +152,13 @@ class PyCrypts:
             if event.type == pygame.QUIT:
                 return False
 
+            if event.type == pygame.MOUSEBUTTONUP:
+                position = pygame.mouse.get_pos()
+
+                for wall in self.current_room.get_walls():
+                    if wall.contains_point(position):
+                        self.logger.debug(f"Clicked on {wall.__class__.__name__} at ({position})")
+
         self.screen.fill((45, 45, 45))
 
         if self.over:
