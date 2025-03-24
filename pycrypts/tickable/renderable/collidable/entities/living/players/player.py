@@ -63,7 +63,7 @@ class Player(LivingEntity):
         super().set_scale(scale)
 
         try:
-            self.candle_image = self.game.pygame.transform.scale(self.base_candle_image, (32 * scale, 32 * scale))
+            self.candle_image = pygame.transform.scale(self.base_candle_image, (32 * scale, 32 * scale))
         except AttributeError:
             pass
 

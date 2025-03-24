@@ -1,6 +1,7 @@
 from math import sqrt
 from typing import TYPE_CHECKING
 
+import pygame
 from pygame import Vector2, Surface
 
 from ..collidable import Collidable
@@ -41,7 +42,7 @@ class Entity(Collidable):
 
         texture = self.game.get_vision_texture(radius)
 
-        self.game.fog.blit(texture, (x, y), special_flags=self.game.pygame.BLEND_RGBA_MIN)
+        self.game.fog.blit(texture, (x, y), special_flags=pygame.BLEND_RGBA_MIN)
 
     def tick(self):
         self.move()
@@ -102,7 +103,7 @@ class Entity(Collidable):
 
     def set_scale(self, scale: float):
         self.size = self.absolute_size * scale
-        self.image = self.game.pygame.transform.scale(self.base_image, (self.size, self.size))
+        self.image = pygame.transform.scale(self.base_image, (self.size, self.size))
 
     def get_radius(self):
         return self.size / 2.0
