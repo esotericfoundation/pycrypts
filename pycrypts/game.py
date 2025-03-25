@@ -49,8 +49,8 @@ class PyCrypts:
         self.players: list[Player] = []
 
         self.current_room: Room | None = None
-        self.entrance_zone: Room | None = None
-        self.surface_zone: Room | None = None
+        self.entrance_zone: EntranceZone | None = None
+        self.surface_zone: SurfaceZone | None = None
 
         self.over = False
 
