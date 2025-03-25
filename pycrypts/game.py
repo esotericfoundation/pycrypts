@@ -20,7 +20,7 @@ from .tickable.tickable import Tickable
 
 
 class PyCrypts:
-    def __init__(self, log: logging, arguments: list[str] = None):
+    def __init__(self, arguments: list[str] = None):
         if arguments is None:
             arguments = []
 
@@ -32,7 +32,7 @@ class PyCrypts:
 
         parsed = parser.parse_args(arguments)
         log_level = getattr(logging, parsed.log_level, logging.INFO)
-        log.basicConfig(level=log_level)
+        logging.basicConfig(level=log_level)
 
         self.logger = logging.getLogger(type(self).__name__)
 

@@ -1,9 +1,8 @@
-import logging
 import sys
 
 from pycrypts.game import PyCrypts
 
-pycrypt = PyCrypts(logging, sys.argv)
+pycrypt = PyCrypts(sys.argv)
 pycrypt.init()
 
 while pycrypt.tick():
