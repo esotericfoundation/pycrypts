@@ -37,12 +37,18 @@ class Wall(Collidable):
     def get_height(self):
         return self.bottom_right.y - self.top_left.y
 
+    def get_top_right(self):
+        return Vector2(self.bottom_right.x, self.top_left.y)
+
+    def get_bottom_left(self):
+        return Vector2(self.top_left.x, self.bottom_right.y)
+
     def get_lines(self):
         return [
-            (self.top_left, Vector2(self.bottom_right.x, self.top_left.y)),
-            (self.top_left, Vector2(self.top_left.x, self.bottom_right.y)),
-            (Vector2(self.bottom_right.x, self.top_left.y), self.bottom_right),
-            (Vector2(self.top_left.x, self.bottom_right.y), self.bottom_right)
+            (self.top_left, self.get_top_right()),
+            (self.top_left, self.get_bottom_left()),
+            (self.get_top_right(), self.bottom_right),
+            (self.get_bottom_left(), self.bottom_right)
         ]
 
     def tick(self):
