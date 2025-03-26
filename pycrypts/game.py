@@ -190,7 +190,11 @@ class PyCrypts:
                     if tickable.room != self.current_room:
                         continue
 
-                tickable.tick()
+                try:
+                    tickable.tick()
+                except Exception as exception:
+                    self.logger.error(f"Fatal error encountered when ticking tickable {tickable}!")
+                    raise exception
 
             self.screen.blit(self.fog, (0, 0))
 
