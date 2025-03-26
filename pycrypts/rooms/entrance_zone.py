@@ -62,11 +62,25 @@ class EntranceZone(Room):
 
         corridor_wall = Wall((650, 500), (border_right_1.top_left.x, 550), self.game, self)
 
+        entrance_from_surface = Door(
+            self.game.top_right + (-50, 240),
+            self.game.top_right + (0, 480),
+            self.game.surface_zone,
+            (Vector2(150, 150), Vector2(250, 150)),
+            self.game, self)
+
         bozo_boss_barrack_barricade = Door(
             corridor_wall.bottom_right,
             bottom_wall.get_top_right(),
             self.game.bozo_boss_barrack,
             [(500, 500), (500, 600)],
+            self.game,
+            self
+        )
+
+        border_right_3 = Wall(
+            entrance_from_surface.get_bottom_left(),
+            bozo_boss_barrack_barricade.get_top_right(),
             self.game,
             self
         )
@@ -78,10 +92,3 @@ class EntranceZone(Room):
         Wall(wall_5.bottom_right + (-50, 50), wall_4.bottom_right + (0, -25), self.game, self)
         Wall(wall_5.top_left + (0, -75), wall_5.bottom_right + (0, -250), self.game, self)
         Wall(wall_5.top_left + (0, 250), wall_5.bottom_right + (0, 50), self.game, self)
-
-        Door(
-            self.game.top_right + (-50, 240),
-            self.game.top_right + (0, 480),
-            self.game.surface_zone,
-            (Vector2(150, 150), Vector2(250, 150)),
-            self.game, self)
