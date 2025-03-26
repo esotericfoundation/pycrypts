@@ -6,6 +6,7 @@ import logging
 import pygame
 from pygame import Vector2, Surface
 
+from .rooms.bozo_boss_barrack import BozoBossBarrack
 from .rooms.entrance_zone import EntranceZone
 from .rooms.room import Room
 from .rooms.surface_zone import SurfaceZone
@@ -51,6 +52,7 @@ class PyCrypts:
         self.current_room: Room | None = None
         self.entrance_zone: EntranceZone | None = None
         self.surface_zone: SurfaceZone | None = None
+        self.bozo_boss_barrack: BozoBossBarrack | None = None
 
         self.over = False
 
@@ -101,6 +103,7 @@ class PyCrypts:
 
         self.surface_zone = SurfaceZone(self)
         self.entrance_zone = EntranceZone(self)
+        self.bozo_boss_barrack = BozoBossBarrack(self)
 
         self.surface_zone.load()
 
@@ -159,7 +162,7 @@ class PyCrypts:
 
                 for wall in self.current_room.get_walls():
                     if wall.contains_point(position):
-                        self.logger.debug(f"Clicked on {wall.__class__.__name__} at {position}")
+                        self.logger.debug(f"Clicked on {wall.__class__.__name__} at {position} defined by: {wall}")
                         break
 
         self.screen.fill((45, 45, 45))
