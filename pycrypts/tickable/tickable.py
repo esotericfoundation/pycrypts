@@ -23,3 +23,6 @@ class Tickable:
             self.game.tickables.remove(self)
         else:
             self.game.logger.warning(f"Failed to unload tickable {type(self).__name__}")
+
+    def __str__(self):
+        return f"{type(self).__name__}"
