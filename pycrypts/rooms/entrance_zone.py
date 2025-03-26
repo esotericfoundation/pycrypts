@@ -57,9 +57,19 @@ class EntranceZone(Room):
 
         Wall(border_right_1.bottom_right, border_right_2.top_left + (100, 0), self.game, self, True)
         Wall(self.game.top_left, self.game.top_right + (0, 50), self.game, self, True)
-        Wall(self.game.bottom_left + (0, -50), self.game.bottom_right, self.game, self, True)
+
+        bottom_wall = Wall(self.game.bottom_left + (0, -50), self.game.bottom_right, self.game, self, True)
 
         corridor_wall = Wall((650, 500), (border_right_1.top_left.x, 550), self.game, self)
+
+        bozo_boss_barrack_barricade = Door(
+            corridor_wall.bottom_right,
+            bottom_wall.get_top_right(),
+            self.game.bozo_boss_barrack,
+            [(500, 500), (500, 600)],
+            self.game,
+            self
+        )
 
         Wall((1050, 200), (1100, 500), self.game, self)
         Wall((850, 25), (900, 325), self.game, self)
