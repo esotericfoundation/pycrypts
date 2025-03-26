@@ -52,11 +52,15 @@ class EntranceZone(Room):
         Wall(self.game.top_left, self.game.bottom_left + (50, 0), self.game, self, True)
         border_right_1 = Wall(self.game.top_right + (-50, 0), self.game.top_right + (0, 240), self.game, self, True)
         border_right_2 = Wall(self.game.top_right + (-50, 480), self.game.bottom_right, self.game, self, True)
+
+        border_right_2.unload()
+
         Wall(border_right_1.bottom_right, border_right_2.top_left + (100, 0), self.game, self, True)
         Wall(self.game.top_left, self.game.top_right + (0, 50), self.game, self, True)
         Wall(self.game.bottom_left + (0, -50), self.game.bottom_right, self.game, self, True)
 
-        Wall((650, 500), (1250, 550), self.game, self)
+        corridor_wall = Wall((650, 500), (border_right_1.top_left.x, 550), self.game, self)
+
         Wall((1050, 200), (1100, 500), self.game, self)
         Wall((850, 25), (900, 325), self.game, self)
         wall_4 = Wall((650, 200), (700, 500), self.game, self)
