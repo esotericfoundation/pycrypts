@@ -162,7 +162,7 @@ class PyCrypts:
 
                 for wall in self.current_room.get_walls():
                     if wall.contains_point(position):
-                        self.logger.debug(f"Clicked on {wall.__class__.__name__} at {position} defined by: {wall}")
+                        self.logger.debug(f"Clicked on {type(wall).__name__} at {position} defined by: {wall}")
                         break
 
         self.screen.fill((45, 45, 45))
