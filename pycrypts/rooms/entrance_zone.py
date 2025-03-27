@@ -65,14 +65,14 @@ class EntranceZone(Room):
             self.game.top_right + (-50, 240),
             self.game.top_right + (0, 480),
             self.game.surface_zone,
-            (Vector2(150, 150), Vector2(250, 150)),
+            Vector2(250, 150),
             self.game, self)
 
         bozo_boss_barrack_barricade = Door(
             corridor_wall.bottom_right,
             bottom_wall.get_top_right(),
             self.game.bozo_boss_barrack,
-            [(500, 500), (500, 600)],
+            Vector2(500, 600),
             self.game,
             self
         )

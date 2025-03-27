@@ -12,15 +12,12 @@ if TYPE_CHECKING:
 
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawns: (Vector2, Vector2), game: "PyCrypts", room: "Room"):
+    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room"):
         self.destination = destination
-        self.__spawns = spawns
+        self.spawn = spawn
         self.game = game
 
         super().__init__(top_left, bottom_right, game, room)
-
-    def get_spawns(self):
-        return self.__spawns
 
     def render(self):
         width = self.bottom_right.x - self.top_left.x
@@ -40,22 +37,19 @@ class Door(Wall):
             pygame.draw.rect(self.game.screen, (140, 65, 5), Rect(self.top_left, (width, height)))
 
     def on_players_enter(self):
-        if self.destination is not None:
-            players = self.game.players
-            i = 0
+        if self.destination is None:
+            return
 
-            for player in players:
-                i += 1
-                if i == 1:
-                    player.position = Vector2(self.get_spawns()[0])
-                else:
-                    player.position = Vector2(self.get_spawns()[1])
+        players = self.game.players
 
-                player.set_scale(self.destination.scale)
+        for player in players:
+            self.game.logger.info(f"Sending {type(player).__name__} to {self.destination} at {self.spawn}")
 
-                player.room = self.destination
+            player.position = Vector2(self.spawn) # Clone the vector.
+            player.set_scale(self.destination.scale)
+            player.room = self.destination
 
-            self.destination.load()
+        self.destination.load()
 
     def tick(self):
         super().tick()
