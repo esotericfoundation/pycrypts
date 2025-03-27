@@ -142,6 +142,9 @@ class Player(LivingEntity):
             self.game.end()
 
     def is_colliding(self, entity: Collidable) -> bool:
+        if isinstance(entity, Player):
+            return False
+
         if isinstance(entity, Arrow):
             return False
 
