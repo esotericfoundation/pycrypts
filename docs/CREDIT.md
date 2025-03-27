@@ -7,7 +7,7 @@
 
 ## [Twemoji][twemoji]
 
-<sup>[&copy; 2019][twemoji-copyright] [Twitter, Inc.][twemoji-author] and [Twemoji contributors][twemoji-contributors]</sup>\
+<sup>[&copy; 2019][twemoji-copyright] [Twitter Incorporated][twemoji-author] and [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>[Licensed][twemoji-license-statement] under [CC BY 4.0][twemoji-license]</sup>
 
 ## [Fluent Emoji][fluent-emoji] (Fork)
