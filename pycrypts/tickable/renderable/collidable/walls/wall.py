@@ -78,4 +78,4 @@ class Wall(Collidable):
         return self.top_left.x <= point.x <= self.bottom_right.x and self.top_left.y <= point.y <= self.bottom_right.y
 
     def __str__(self):
-        return f'wall = Wall({self.top_left}, {self.bottom_right})'
+        return f'{type(self).__name__}({self.top_left}, {self.bottom_right})'

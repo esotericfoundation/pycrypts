@@ -43,7 +43,7 @@ class Door(Wall):
         players = self.game.players
 
         for player in players:
-            self.game.logger.info(f"Sending {type(player).__name__} to {self.destination} at {self.spawn}")
+            self.game.logger.info(f"Sending {player} to {self.destination} at {self.spawn}")
 
             player.position = Vector2(self.spawn) # Clone the vector.
             player.set_scale(self.destination.scale)

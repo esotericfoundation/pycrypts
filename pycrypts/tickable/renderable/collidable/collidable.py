@@ -20,3 +20,6 @@ class Collidable(Renderable):
 
     def is_colliding(self, collidable: "Collidable") -> bool:
         pass
+
+    def __str__(self) -> str:
+        return super().__str__() + f" in room {self.room}"

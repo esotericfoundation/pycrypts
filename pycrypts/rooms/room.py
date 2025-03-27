@@ -40,3 +40,6 @@ class Room:
 
     def get_living_entities(self) -> list[LivingEntity]:
         return list(filter(lambda collidable: isinstance(collidable, LivingEntity), self.get_collidables()))
+
+    def __str__(self):
+        return type(self).__name__
