@@ -71,6 +71,8 @@ class PyCrypts:
 
         self.fog: Surface | None = None
 
+        self.ticks = 0
+
     def init(self):
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -206,6 +208,12 @@ class PyCrypts:
             self.screen = self.create_screen(self.fullscreen)
 
         pygame.display.flip()
+
+        if self.ticks % 1000 == 0:
+            self.logger.debug(f"FPS: {1 / self.dt}")
+
+        self.ticks += 1
+
         return True
 
     def get_asset(self, key: str) -> Surface:
