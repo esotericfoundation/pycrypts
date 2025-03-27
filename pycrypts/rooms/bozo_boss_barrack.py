@@ -14,7 +14,7 @@ class BozoBossBarrack(Room):
         spawn_1 = Vector2(150, game.height / 2 - 150)
         spawn_2 = Vector2(150, game.height / 2 + 150)
 
-        super().__init__(spawn_1, spawn_2, game, 2.0, 2.0)
+        super().__init__(spawn_1, spawn_2, game, 0.5)
 
     def create(self):
         super().create()
