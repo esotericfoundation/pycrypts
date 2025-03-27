@@ -82,7 +82,8 @@ class EntranceZone(Room):
             entrance_from_surface.get_bottom_left(),
             bozo_boss_barrack_barricade.get_top_right(),
             self.game,
-            self
+            self,
+            True
         )
 
         Wall((1050, 200), (1100, 500), self.game, self)
