@@ -71,7 +71,7 @@ class EntranceZone(Room):
             corridor_wall.bottom_right,
             bottom_wall.get_top_right(),
             self.game.bozo_boss_barrack,
-            Vector2(500, 600),
+            self.game.bozo_boss_barrack.spawn,
             self.game,
             self
         )
