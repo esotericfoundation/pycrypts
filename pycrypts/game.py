@@ -121,7 +121,7 @@ class PyCrypts:
         for player in self.players:
             i += 1
             if i == 1:
-                player.position = self.current_room.spawn_1
+                player.position = self.current_room.spawn
             else:
                 player.position = self.current_room.spawn_2
             player.set_scale(self.current_room.scale)

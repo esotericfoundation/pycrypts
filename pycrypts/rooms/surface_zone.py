@@ -43,5 +43,5 @@ class SurfaceZone(Room):
             self.game.top_left + (160, 0),
             self.game.top_left + (400, 80),
             self.game.entrance_zone,
-            self.game.entrance_zone.spawn_1,
+            self.game.entrance_zone.spawn,
             self.game, self)

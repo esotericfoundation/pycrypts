@@ -14,7 +14,7 @@ class Room:
     def __init__(self, spawn: Vector2, game: "PyCrypts", scale=1.0, illuminated=False):
         game.logger.info(f"Instantiating room {type(self).__name__}")
 
-        self.spawn_1 = spawn
+        self.spawn = spawn
         self.scale = scale
         self.game = game
         self.created = False
