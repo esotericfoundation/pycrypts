@@ -13,6 +13,7 @@ from .rooms.surface_zone import SurfaceZone
 from .tickable.renderable.collidable.collidable import Collidable
 from .tickable.renderable.collidable.entities.entity import Entity
 from .tickable.renderable.collidable.entities.living.living_entity import LivingEntity
+from .tickable.renderable.collidable.entities.living.monsters.monster import Monster
 from .tickable.renderable.collidable.entities.living.players.player import Player
 from .tickable.renderable.collidable.walls.wall import Wall
 from .tickable.renderable.display.health_bar import HealthBar
@@ -306,6 +307,9 @@ class PyCrypts:
 
     def get_living_entities(self):
         return list(filter(lambda tickable: isinstance(tickable, LivingEntity), self.get_entities()))
+
+    def get_monsters(self):
+        return list(filter(lambda tickable: isinstance(tickable, Monster), self.get_living_entities()))
 
     def get_walls(self):
         return list(filter(lambda tickable: isinstance(tickable, Wall), self.get_collidables()))

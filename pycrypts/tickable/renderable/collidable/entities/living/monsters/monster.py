@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 from ..living_entity import LivingEntity
+from ..players.player import Player
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
@@ -17,6 +18,7 @@ class Monster(LivingEntity):
         self.game = game
         self.goals: list["Goal"] = []
         self.last_ticked_goal = None
+        self.seen = False
 
         self.register_goals()
 
@@ -25,6 +27,17 @@ class Monster(LivingEntity):
 
     def tick(self):
         super().tick()
+
+        if not self.seen:
+            threshold = Player.render_distance * Player.render_distance
+
+            for player in self.game.players:
+                distance_squared = player.position.distance_squared_to(self.position)
+
+                if distance_squared < threshold:
+                    self.seen = True
+                    break
+
         self.ai_tick()
 
         self.attack_timer += self.game.dt

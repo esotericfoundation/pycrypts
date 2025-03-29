@@ -9,6 +9,7 @@ from ...projectiles.sword import Sword
 from ....collidable import Collidable
 
 if TYPE_CHECKING:
+    from ..monsters.monster import Monster
     from .......game import PyCrypts
     from .......rooms.room import Room
 
@@ -108,12 +109,15 @@ class Player(LivingEntity):
         if self.time_since_last_attack < Player.attack_cooldown:
             return
 
-        attackable_entities: list[LivingEntity] = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e), self.room.get_living_entities()))
+        attackable_entities: list[Monster] = list(filter(lambda e: not isinstance(e, Player) and self.sees_other(e), self.room.get_monsters()))
 
         if len(attackable_entities) == 0:
             return
 
         closest_entity = min(attackable_entities, key=lambda e: e.position.distance_squared_to(self.position))
+
+        if not closest_entity.seen:
+            return
 
         self.attack_entity(closest_entity)
 

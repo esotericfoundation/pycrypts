@@ -35,6 +35,9 @@ class Room:
     def get_collidables(self) -> list[Collidable]:
         return list(filter(lambda collidable: collidable.room == self, self.game.get_collidables()))
 
+    def get_monsters(self):
+        return list(filter(lambda monster: monster.room == self, self.game.get_monsters()))
+
     def get_walls(self) -> list[Wall]:
         return list(filter(lambda collidable: isinstance(collidable, Wall), self.get_collidables()))
 
