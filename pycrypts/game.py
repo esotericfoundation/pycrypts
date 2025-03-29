@@ -117,7 +117,7 @@ class PyCrypts:
         HealthBar(rizzler, (70, self.screen.get_height() - 60), 300, 40, self)
 
         for player in self.players:
-            player.position = self.current_room.spawn
+            player.position = Vector2(self.current_room.spawn)
             player.set_scale(self.current_room.scale)
 
     def create_screen(self, fullscreen: bool = True):
