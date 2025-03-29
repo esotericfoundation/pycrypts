@@ -18,6 +18,8 @@ class Player(LivingEntity):
     attack_range = 175
     regeneration_rate = 0.5
 
+    render_distance = 400
+
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: str, attack_key: int, game: "PyCrypts", room: "Room"):
         super().__init__(position, "players/" + character, size, 100, game, room)
 
@@ -27,7 +29,7 @@ class Player(LivingEntity):
         self.time_since_last_attack = Player.attack_cooldown + 1
         self.time_since_last_regeneration = 0
 
-        self.light_radius = 400
+        self.light_radius = Player.render_distance
 
         self.base_candle_image = self.game.get_asset("assets/images/entities/lantern")
         self.candle_image = self.base_candle_image
