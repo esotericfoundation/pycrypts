@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class Room:
-    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "PyCrypts", scale=1.0):
+    def __init__(self, spawn_1: Vector2, spawn_2: Vector2, game: "PyCrypts", scale=1.0, illuminated=False):
         game.logger.info(f"Instantiating room {type(self).__name__}")
 
         self.spawn_1 = spawn_1
@@ -19,6 +19,7 @@ class Room:
         self.scale = scale
         self.game = game
         self.created = False
+        self.illuminated = illuminated
 
     def create(self):
         self.game.logger.info(f"Creating room {type(self).__name__} for the first time")
