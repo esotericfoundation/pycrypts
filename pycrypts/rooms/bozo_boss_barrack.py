@@ -31,11 +31,11 @@ class BozoBossBarrack(Room):
 
         top_left_corner_block = Wall((40, 40), (80, 80), self.game, self, True)
         next_top_corner = Wall(top_left_corner_block.top_left + (320, 0), top_left_corner_block.bottom_right + (320, 0), self.game, self, True)
-        Wall(top_left_corner_block.top_left + (400, 0), top_left_corner_block.bottom_right + (400, 0), self.game, self, True)
+        Wall(top_left_corner_block.top_left + (440, 0), top_left_corner_block.bottom_right + (440, 0), self.game, self, True)
         Wall(top_left_corner_block.top_left + (1200, 0), top_left_corner_block.bottom_right + (1200, 0), self.game, self, True)
         bottom_left_corner_block = Wall((40, 640), (80, 680), self.game, self, True)
         next_bottom_corner = Wall(bottom_left_corner_block.top_left + (320, 0), bottom_left_corner_block.bottom_right + (320, 0), self.game, self, True)
-        Wall(bottom_left_corner_block.top_left + (400, 0), bottom_left_corner_block.bottom_right + (400, 0), self.game, self, True)
+        Wall(bottom_left_corner_block.top_left + (440, 0), bottom_left_corner_block.bottom_right + (440, 0), self.game, self, True)
         Wall(bottom_left_corner_block.top_left + (1200, 0), bottom_left_corner_block.bottom_right + (1200, 0), self.game, self, True)
 
         stub_1 = Wall(next_top_corner.top_left + (40, 0), next_top_corner.bottom_right + (80, 40), self.game, self, True)
