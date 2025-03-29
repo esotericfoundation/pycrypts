@@ -24,7 +24,7 @@ class Skeleton(Monster):
     randomness = 0.35
 
     def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
-        super().__init__(position, "skeleton", size, 50, game, room)
+        super().__init__(position, "skeleton", size, 50, game, room, game.get_sound("skeleton_damage"), game.get_sound("skeleton_death"))
 
     def register_goals(self):
         self.goals.append(RandomWanderGoal(self, 3, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))
@@ -40,15 +40,3 @@ class Skeleton(Monster):
             return False
 
         return super().is_colliding(entity)
-
-    def damage(self, damage):
-        super().damage(damage)
-
-        sound = self.game.get_sound("skeleton_damage")
-        pygame.mixer.Sound.play(sound)
-
-    def die(self):
-        super().die()
-
-        sound = self.game.get_sound("skeleton_death")
-        pygame.mixer.Sound.play(sound)
