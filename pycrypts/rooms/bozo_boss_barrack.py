@@ -14,10 +14,9 @@ if TYPE_CHECKING:
 
 class BozoBossBarrack(Room):
     def __init__(self, game: "PyCrypts"):
-        spawn_1 = Vector2(150, game.height / 2 - 150)
-        spawn_2 = Vector2(150, game.height / 2 + 150)
+        spawn = Vector2(60, game.height / 2)
 
-        super().__init__(spawn_1, spawn_2, game, 0.5)
+        super().__init__(spawn, game, 0.5)
 
     def create(self):
         super().create()

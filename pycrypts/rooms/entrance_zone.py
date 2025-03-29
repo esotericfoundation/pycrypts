@@ -19,12 +19,11 @@ class EntranceZone(Room):
     scale = 0.5
 
     def __init__(self, game: "PyCrypts"):
-        spawn_1 = Vector2(game.top_right + (-100, 240))
-        spawn_2 = Vector2(game.bottom_right + (-100, -320))
+        spawn = Vector2(game.top_right + (-150, 240))
 
         self.monsters_to_defeat = []
 
-        super().__init__(spawn_1, spawn_2, game, EntranceZone.scale)
+        super().__init__(spawn, game, EntranceZone.scale)
 
     def create(self):
         super().create()

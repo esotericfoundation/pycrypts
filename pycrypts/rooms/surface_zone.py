@@ -12,10 +12,9 @@ if TYPE_CHECKING:
 
 class SurfaceZone(Room):
     def __init__(self, game: "PyCrypts"):
-        spawn_1 = (game.top_right + (-200, 240))
-        spawn_2 = (game.bottom_right + (-200, -320))
+        spawn = (game.top_right + (-200, 240))
 
-        super().__init__(spawn_1, spawn_2, game)
+        super().__init__(spawn, game)
 
     def create(self):
         super().create()
