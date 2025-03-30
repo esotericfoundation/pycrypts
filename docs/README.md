@@ -16,7 +16,7 @@ A [pygame][pygame] adventure featuring a sprawling underground dungeon filled wi
 
 ## Topics
 
-<sup>game python gamedev crawler games game-development pygame dungeon pygame-application dungeon-crawler-game dungeon-crawler python-game dungeons game-dev pygame-games python-game-development pygame-game python-games pygame-2dgame pygame-development</sup>
+<sup>[game](https://github.com/topics/game), [python](https://github.com/topics/python), [gamedev](https://github.com/topics/gamedev), [crawler](https://github.com/topics/crawler), [games](https://github.com/topics/games), [game-development](https://github.com/topics/game-development), [pygame](https://github.com/topics/pygame), [dungeon](https://github.com/topics/dungeon), [pygame-application](https://github.com/topics/pygame-application), [dungeon-crawler-game](https://github.com/topics/dungeon-crawler-game), [dungeon-crawler](https://github.com/topics/dungeon-crawler), [python-game](https://github.com/topics/python-game), [dungeons](https://github.com/topics/dungeons), [game-dev](https://github.com/topics/game-dev), [pygame-games](https://github.com/topics/pygame-games), [python-game-development](https://github.com/topics/python-game-development), [pygame-game](https://github.com/topics/pygame-game), [python-games](https://github.com/topics/python-games), [pygame-2dgame](https://github.com/topics/pygame-2dgame), [pygame-development](https://github.com/topics/pygame-development)</sup>
 
 <!-- Link aliases -->
 
