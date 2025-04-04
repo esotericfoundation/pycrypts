@@ -1,6 +1,8 @@
 #!/bin/bash
 # Sets this project up to be run.
 
+set -e
+
 cd "$(dirname "$0")/.." || exit
 
 git submodule update --init
