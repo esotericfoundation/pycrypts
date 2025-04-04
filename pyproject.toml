@@ -19,7 +19,8 @@ authors = [
 version = "0.0.1"
 requires-python = ">=3.13"
 
-license = { file = "LICENSE" }
+license = "AGPL-3.0-only"
+license-files = [ "LICENSE" ]
 
 [project.urls]
 Homepage = "https://github.com/esotericfoundation/pycrypts"
