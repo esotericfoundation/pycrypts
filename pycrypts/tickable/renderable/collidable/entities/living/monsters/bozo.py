@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+from .ai.goals.blast_bozos_balls import BlastBozosBallsGoal
 from .......rooms.room import Room
 from .monster import Monster
 
@@ -11,3 +12,6 @@ class Bozo(Monster):
 
     def __init__(self, position: tuple[int, int], game: "PyCrypts", room: "Room"):
         super().__init__(position, "bozo", 70, 600, game, room)
+
+    def register_goals(self):
+        self.goals.append(BlastBozosBallsGoal(self, 1, self.game))
