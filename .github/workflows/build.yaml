@@ -23,7 +23,7 @@ jobs:
     - name: Setup project
       run: bash ./scripts/setup.sh
     - name: Use virtual environment
-      run: bash source ./venv/bin/activate
+      run: source ./venv/bin/activate
     - name: Build package
       run: bash ./scripts/module.sh
     - name: Build executable
