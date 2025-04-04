@@ -33,4 +33,10 @@ jobs:
         
         bash ./scripts/module.sh
     - name: Build executable
-      run: bash ./scripts/build.sh
+      run: |
+        source ./venv/bin/activate
+        
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+
+        bash ./scripts/build.sh
