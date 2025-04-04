@@ -15,7 +15,7 @@ class SurfaceZone(Room):
         spawn_1 = (game.top_right + (-200, 240))
         spawn_2 = (game.bottom_right + (-200, -320))
 
-        super().__init__(spawn_1, spawn_2, game)
+        super().__init__(game, spawn_1, spawn_2)
 
     def create(self):
         super().create()

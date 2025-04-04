@@ -24,7 +24,7 @@ class EntranceZone(Room):
 
         self.monsters_to_defeat = []
 
-        super().__init__(spawn_1, spawn_2, game, EntranceZone.scale)
+        super().__init__(game, spawn_1, spawn_2, EntranceZone.scale)
 
     def create(self):
         super().create()
