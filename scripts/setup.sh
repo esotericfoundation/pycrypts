@@ -3,7 +3,7 @@
 
 set -e
 
-cd "$(dirname "$0")/.." || exit
+cd "$(dirname "$0")/.." || exit 1
 
 git submodule update --init
 
@@ -13,4 +13,4 @@ source ./venv/bin/activate
 pip install -r ./requirements.txt
 pip install -r ./requirements-dev.txt
 
-cd - || exit
+cd - || exit 1
