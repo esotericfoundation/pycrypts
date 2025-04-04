@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 from pygame import Vector2
 
 from .room import Room
+from ..tickable.renderable.collidable.entities.living.monsters.bozo import Bozo
 from ..tickable.renderable.collidable.walls.wall import Wall
 
 if TYPE_CHECKING:
@@ -24,3 +25,5 @@ class BozoBossBarrack(Room):
 
         Wall(top_border.get_bottom_left(), bottom_border.top_left + (50, 0), self.game, self, True)
         Wall(top_border.bottom_right + (-50, 0), bottom_border.get_top_right() + (-50, 0), self.game, self, True)
+
+        Bozo(self.game.center, self.game, self)
