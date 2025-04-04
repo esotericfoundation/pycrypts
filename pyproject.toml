@@ -25,3 +25,7 @@ license-files = [ "LICENSE" ]
 [project.urls]
 Homepage = "https://github.com/esotericfoundation/pycrypts"
 Issues = "https://github.com/esotericfoundation/pycrypts/issues"
+
+[tool.setuptools]
+packages = ["pycrypts"]
+package-dir = {"" = "."}
