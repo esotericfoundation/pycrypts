@@ -10,8 +10,8 @@ if TYPE_CHECKING:
 class Collidable(Renderable):
 
     def __init__(self, game: "PyCrypts", room: "Room"):
-        super().__init__(game)
         self.room = room
+        super().__init__(game)
         self.no_clip = False
         self.very_clip = False
 
@@ -22,4 +22,4 @@ class Collidable(Renderable):
         pass
 
     def __str__(self) -> str:
-        return super().__str__() + f" in room {self.room}"
+        return f"{super().__str__()} in room {self.room}"
