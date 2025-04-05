@@ -20,7 +20,7 @@ class WalkToTargetGoal(Goal, Generic[T]):
         self.cached_target: Player | None = None
 
     def start(self):
-        pass
+        super().start()
 
     def tick(self):
         if self.owner.velocity.magnitude_squared() > 0:
@@ -29,6 +29,7 @@ class WalkToTargetGoal(Goal, Generic[T]):
         self.owner.move_towards(self.cached_target, self.speed)
 
     def end(self):
+        super().end()
         self.cached_target = None
 
     def can_use(self) -> bool:

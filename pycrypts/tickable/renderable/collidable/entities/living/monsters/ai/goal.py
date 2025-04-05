@@ -13,13 +13,16 @@ class Goal:
         self.game = game
 
     def start(self):
-        pass
+        self.game.logger.debug(f"Started goal {self}")
 
     def tick(self):
         pass
 
     def end(self):
-        pass
+        self.game.logger.debug(f"Ended goal {self}")
 
     def can_use(self) -> bool:
         return True
+
+    def __str__(self):
+        return f"{type(self).__name__} of monster {self.owner}"

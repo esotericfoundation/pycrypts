@@ -21,6 +21,7 @@ class RandomWanderGoal(Goal):
         self.wandering = False
 
     def start(self):
+        super().start()
         self.start_wandering()
 
     def tick(self, move=True):
@@ -38,6 +39,7 @@ class RandomWanderGoal(Goal):
                 self.start_wandering()
 
     def end(self):
+        super().end()
         self.stop_wandering()
 
     def can_use(self) -> bool:
