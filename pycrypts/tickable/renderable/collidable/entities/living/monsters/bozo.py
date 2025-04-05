@@ -1,6 +1,8 @@
 from typing import TYPE_CHECKING
 
 from .ai.goals.blast_bozos_balls import BlastBozosBallsGoal
+from ...bozos_ball import BozosBall
+from ....collidable import Collidable
 from .......rooms.room import Room
 from .monster import Monster
 
@@ -15,3 +17,9 @@ class Bozo(Monster):
 
     def register_goals(self):
         self.goals.append(BlastBozosBallsGoal(self, 1, self.game))
+
+    def is_colliding(self, entity: Collidable) -> bool:
+        if isinstance(entity, BozosBall):
+            return False
+
+        return super().is_colliding(entity)

@@ -1,8 +1,13 @@
+from typing import TYPE_CHECKING
+
 from pygame import Vector2
 
-from pycrypts.game import PyCrypts
 from pycrypts.rooms.room import Room
 from ..entity import Entity
+from ...collidable import Collidable
+
+if TYPE_CHECKING:
+    from pycrypts.game import PyCrypts
 
 
 class Projectile(Entity):
@@ -12,7 +17,17 @@ class Projectile(Entity):
 
         self.direction = direction
 
-    def tick(self):
-        super().tick()
+    def move(self):
+        self.move_without_collision(self.direction)
 
-        self.position += self.direction * self.game.dt
+    def is_colliding(self, entity: Collidable) -> bool:
+        colliding = super().is_colliding(entity)
+
+        if not colliding:
+            return False
+
+        self.on_hit(entity)
+        return True
+
+    def on_hit(self, collidable: Collidable):
+        self.unload()

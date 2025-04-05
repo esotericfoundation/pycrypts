@@ -5,6 +5,7 @@ import pygame
 from pygame import Vector2
 
 from .fireball import Fireball
+from ..bozos_ball import BozosBall
 from ..entity import Entity
 from ..living.living_entity import LivingEntity
 from ...collidable import Collidable
@@ -34,6 +35,9 @@ class Arrow(Fireball):
             return False
 
         if isinstance(entity, Arrow):
+            return False
+
+        if isinstance(entity, BozosBall):
             return False
 
         is_colliding = Entity.is_colliding(self, entity)
