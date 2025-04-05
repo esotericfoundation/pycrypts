@@ -74,7 +74,8 @@ class EntranceZone(Room):
             self.game.bozo_boss_barrack,
             Vector2(500, 600),
             self.game,
-            self
+            self,
+            [125, 35, 35, 255]
         )
 
         bozo_boss_barrack_barricade_border = Wall(

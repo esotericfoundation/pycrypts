@@ -1,7 +1,7 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Sequence
 
 import pygame
-from pygame import Rect, Vector2
+from pygame import Rect, Vector2, Color
 
 from .wall import Wall
 from ..collidable import Collidable
@@ -12,12 +12,15 @@ if TYPE_CHECKING:
 
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room"):
+    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None):
+        if color is None:
+            color = [140, 65, 5, 255]
+
         self.destination = destination
         self.spawn = spawn
         self.game = game
 
-        super().__init__(top_left, bottom_right, game, room)
+        super().__init__(top_left, bottom_right, game, room, False, color)
 
     def render(self):
         width = self.bottom_right.x - self.top_left.x
@@ -30,11 +33,14 @@ class Door(Wall):
                 break
 
         if in_door:
+            translucent_color = self.color
+            translucent_color[3] = 224
+
             transparent_surface = pygame.Surface((width, height), pygame.SRCALPHA)
-            transparent_surface.fill((140, 65, 5, 224))
+            transparent_surface.fill(translucent_color)
             self.game.screen.blit(transparent_surface, self.top_left)
         else:
-            pygame.draw.rect(self.game.screen, (140, 65, 5), Rect(self.top_left, (width, height)))
+            pygame.draw.rect(self.game.screen, self.color, Rect(self.top_left, (width, height)))
 
     def on_players_enter(self):
         if self.destination is None:
