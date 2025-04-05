@@ -23,8 +23,8 @@ class Skeleton(Monster):
     wander_cooldown = 1.0
     randomness = 0.35
 
-    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
-        super().__init__(position, "skeleton", size, 50, game, room, game.get_sound("skeleton_damage"), game.get_sound("skeleton_death"))
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int):
+        super().__init__(game, room, position, "skeleton", size, 50, game.get_sound("skeleton_damage"), game.get_sound("skeleton_death"))
 
     def register_goals(self):
         self.goals.append(RandomWanderGoal(self, 3, self.game, 0.35, Skeleton.wander_duration, Skeleton.wander_cooldown, Skeleton.randomness))

@@ -19,8 +19,8 @@ if TYPE_CHECKING:
 
 class Specter(Monster):
 
-    def __init__(self, position: tuple[int, int], size: int, game: "PyCrypts", room: "Room"):
-        super().__init__(position, "ghost", size, 80, game, room)
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int):
+        super().__init__(game, room, position, "ghost", size, 80)
 
         self.wander_direction = Vector2(0, 0)
         self.wander_time = 0
