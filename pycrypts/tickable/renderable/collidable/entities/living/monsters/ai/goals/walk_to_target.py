@@ -30,7 +30,6 @@ class WalkToTargetGoal(Goal, Generic[T]):
 
     def end(self):
         self.cached_target = None
-        pass
 
     def can_use(self) -> bool:
         return super().can_use() and self.get_nearby_targets_and_cache() is not None
