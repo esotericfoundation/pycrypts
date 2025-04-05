@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 class Sword(Entity):
 
     def __init__(self, target: "Entity", user: "Player", position: tuple[int, int] | Vector2, game: "PyCrypts", room: "Room"):
-        super().__init__(position, "sword", 64, game, room)
+        super().__init__(game, room, position, "sword", 64)
 
         self.target = target
         self.user = user

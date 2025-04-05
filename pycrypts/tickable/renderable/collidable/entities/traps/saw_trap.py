@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class SawTrap(Entity):
     def __init__(self, start: Vector2, end: Vector2, size: int, game: "PyCrypts", room: "Room"):
-        super().__init__(start, "saw_trap", size, game, room)
+        super().__init__(game, room, start, "saw_trap", size)
         self.start = start
         self.end = end
         self.moving_to_end = True

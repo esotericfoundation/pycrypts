@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 class Fireball(Entity):
 
     def __init__(self, target: Vector2, position: Vector2, size: int, game: "PyCrypts", room: "Room", speed=1, character="fireball"):
-        super().__init__(position, character, size, game, room)
+        super().__init__(game, room, position, character, size)
         self.target = Vector2(target)
         self.direction = target - position
         self.speed = speed

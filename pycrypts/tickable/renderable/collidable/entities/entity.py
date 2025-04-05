@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 
 class Entity(Collidable):
-    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "PyCrypts", room: "Room"):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, character: str, size: int):
         super().__init__(game, room)
 
         self.position = Vector2(position)
