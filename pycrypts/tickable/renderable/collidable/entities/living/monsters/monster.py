@@ -31,7 +31,7 @@ class Monster(LivingEntity):
         super().tick()
 
         if not self.seen:
-            threshold = Player.render_distance * Player.render_distance
+            threshold = Player.render_distance_squared
 
             for player in self.game.players:
                 distance_squared = player.position.distance_squared_to(self.position)

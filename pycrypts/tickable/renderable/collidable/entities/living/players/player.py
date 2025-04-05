@@ -20,6 +20,7 @@ class Player(LivingEntity):
     regeneration_rate = 0.5
 
     render_distance = 400
+    render_distance_squared = render_distance**2
 
     def __init__(self, position: tuple[int, int], character: str, size: int, movement_type: str, attack_key: int, game: "PyCrypts", room: "Room"):
         super().__init__(position, "players/" + character, size, 100, game, room)
