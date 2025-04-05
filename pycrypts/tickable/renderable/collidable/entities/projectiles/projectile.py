@@ -7,7 +7,7 @@ from ..entity import Entity
 
 class Projectile(Entity):
 
-    def __init__(self, position: tuple[int, int] | Vector2, character: str, size: int, game: "PyCrypts", room: "Room", direction: Vector2):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, character: str, size: int, direction: Vector2):
         super().__init__(game, room, position, character, size)
 
         self.direction = direction
