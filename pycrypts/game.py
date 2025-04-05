@@ -206,7 +206,7 @@ class PyCrypts:
         pygame.display.flip()
 
         if self.ticks % 1000 == 0:
-            self.logger.debug(f"FPS: {1 / self.dt}")
+            self.logger.info(f"FPS: {1 / self.dt}")
 
         self.ticks += 1
 
