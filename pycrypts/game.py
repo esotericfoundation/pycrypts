@@ -193,7 +193,7 @@ class PyCrypts:
                     self.logger.error(f"Fatal error encountered when ticking tickable {tickable}!")
                     raise exception
 
-            if not self.current_room.illuminated:
+            if self.current_room is not None and not self.current_room.illuminated:
                 self.screen.blit(self.fog, (0, 0))
 
             for gui in self.gui:
