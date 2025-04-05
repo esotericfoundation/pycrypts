@@ -26,4 +26,4 @@ class BozoBossBarrack(Room):
         Wall(top_border.get_bottom_left(), bottom_border.top_left + (50, 0), self.game, self, True)
         Wall(top_border.bottom_right + (-50, 0), bottom_border.get_top_right() + (-50, 0), self.game, self, True)
 
-        Bozo(self.game.center, self.game, self)
+        Bozo(self.game, self, self.game.center)

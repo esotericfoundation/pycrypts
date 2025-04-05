@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class Bozo(Monster):
 
-    def __init__(self, position: tuple[int, int], game: "PyCrypts", room: "Room"):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int]):
         super().__init__(game, room, position, "bozo", 70, 600)
 
     def register_goals(self):
