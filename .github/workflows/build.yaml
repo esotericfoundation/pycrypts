@@ -11,14 +11,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout project
+      uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+        token: ${{ secrets.PAT }}
     - name: Set up Python 3.13
       uses: actions/setup-python@v3
       with:
         python-version: "3.13"
     - name: Setup project
       run: bash ./scripts/setup.sh
+    - name: Use virtual environment
+      run: source ./venv/bin/activate
     - name: Build package
-      run: bash ./scripts/module.sh
+      run: |
+        source ./venv/bin/activate
+        
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+        
+        bash ./scripts/module.sh
     - name: Build executable
-      run: bash ./scripts/build.sh
+      run: |
+        source ./venv/bin/activate
+        
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+
+        bash ./scripts/build.sh

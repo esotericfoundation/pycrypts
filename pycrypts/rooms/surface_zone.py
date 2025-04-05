@@ -14,13 +14,13 @@ class SurfaceZone(Room):
     def __init__(self, game: "PyCrypts"):
         spawn = (game.top_right + (-200, 240))
 
-        super().__init__(spawn, game)
+        super().__init__(game, spawn)
 
     def create(self):
         super().create()
 
-        Zombie(self.game.bottom_left + (160, -200), 64, self.game, self)
-        Zombie(self.game.bottom_left + (300, -200), 64, self.game, self)
+        Zombie(self.game, self, self.game.bottom_left + (160, -200), 64)
+        Zombie(self.game, self, self.game.bottom_left + (300, -200), 64)
 
         Wall(self.game.top_left, self.game.bottom_left + (80, 0), self.game, self, True)
         border_right_1 = Wall(self.game.top_right + (-80, 0), self.game.top_right + (0, 240), self.game, self, True)

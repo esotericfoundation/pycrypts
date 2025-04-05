@@ -13,8 +13,8 @@ if TYPE_CHECKING:
 
 class LivingEntity(Entity):
 
-    def __init__(self, position: tuple[int, int], character: str, size: int, health: float, game: "PyCrypts", room: "Room", damage_sound: Sound | None = None, death_sound: Sound | None = None):
-        super().__init__(position, "living/" + character, size, game, room)
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], character: str, size: int, health: float, damage_sound: Sound | None = None, death_sound: Sound | None = None):
+        super().__init__(game, room, position, "living/" + character, size)
 
         self.health = health
         self.max_health = health

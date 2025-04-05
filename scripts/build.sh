@@ -1,8 +1,10 @@
 #!/bin/bash
 # Builds this project into an executable.
 
-cd "$(dirname "$0")/.." || exit
+set -e
+
+cd "$(dirname "$0")/.." || exit 1
 
 pyinstaller -y --onefile --add-data "./pycrypts/assets:pycrypts/assets" --name pycrypts ./pycrypts/__main__.py
 
-cd - || exit
+cd - || exit 1

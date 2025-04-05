@@ -10,5 +10,9 @@ class Renderable(Tickable):
     def __init__(self, game: "PyCrypts"):
         super().__init__(game)
 
+    def tick(self):
+        super().tick()
+        self.render()
+
     def render(self):
         pass

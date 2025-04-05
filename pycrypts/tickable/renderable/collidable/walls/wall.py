@@ -1,7 +1,7 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Sequence
 
 import pygame
-from pygame import Vector2, Rect
+from pygame import Vector2, Rect, Color
 
 from ..collidable import Collidable
 from ..entities.entity import Entity
@@ -20,10 +20,12 @@ class Wall(Collidable):
         ]
     ] = []
 
-    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts", room: "Room", border = False, color: tuple[int, int, int] = (65, 65, 65)):
-        super().__init__(game, room)
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], game: "PyCrypts", room: "Room", border = False, color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = (65, 65, 65)):
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)
+
+        super().__init__(game, room)
+
         self.game = game
         self.color = color
         self.very_clip = border
@@ -78,4 +80,4 @@ class Wall(Collidable):
         return self.top_left.x <= point.x <= self.bottom_right.x and self.top_left.y <= point.y <= self.bottom_right.y
 
     def __str__(self):
-        return f'{type(self).__name__}({self.top_left}, {self.bottom_right})'
+        return f'{super().__str__()} defined by ({self.top_left}, {self.bottom_right})'

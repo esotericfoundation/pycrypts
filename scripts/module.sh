@@ -1,8 +1,10 @@
 #!/bin/bash
 # Builds this project into a Python package.
 
-cd "$(dirname "$0")/.." || exit
+set -e
+
+cd "$(dirname "$0")/.." || exit 1
 
 python3 -m build
 
-cd - || exit
+cd - || exit 1

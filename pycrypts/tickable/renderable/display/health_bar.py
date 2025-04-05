@@ -26,7 +26,7 @@ class HealthBar(Renderable):
 
         self.top_left = Vector2(top_left)
 
-        self.text = Text(str(math.ceil(entity.health)), (self.top_left.x + 5, self.top_left.y), (160, 0, 0), game, 35)
+        self.text = Text(game, (self.top_left.x + 5, self.top_left.y), str(math.ceil(entity.health)), (160, 0, 0), 35)
 
     def load(self):
         super().load()

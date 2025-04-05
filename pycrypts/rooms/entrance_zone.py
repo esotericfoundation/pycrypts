@@ -23,27 +23,27 @@ class EntranceZone(Room):
 
         self.monsters_to_defeat = []
 
-        super().__init__(spawn, game, EntranceZone.scale)
+        super().__init__(game, spawn, EntranceZone.scale)
 
     def create(self):
         super().create()
 
-        skeleton_1 = Skeleton((525, 375), 64, self.game, self)
-        skeleton_2 = Skeleton((450, 375), 64, self.game, self)
-        skeleton_3 = Skeleton((375, 375), 64, self.game, self)
-        skeleton_4 = Skeleton((525, 275), 64, self.game, self)
-        skeleton_5 = Skeleton((450, 275), 64, self.game, self)
-        skeleton_6 = Skeleton((375, 275), 64, self.game, self)
-        skeleton_7 = Skeleton((525, 175), 64, self.game, self)
-        skeleton_8 = Skeleton((450, 175), 64, self.game, self)
-        skeleton_9 = Skeleton((375, 175), 64, self.game, self)
+        skeleton_1 = Skeleton(self.game, self, (525, 375), 64)
+        skeleton_2 = Skeleton(self.game, self, (450, 375), 64)
+        skeleton_3 = Skeleton(self.game, self, (375, 375), 64)
+        skeleton_4 = Skeleton(self.game, self, (525, 275), 64)
+        skeleton_5 = Skeleton(self.game, self, (450, 275), 64)
+        skeleton_6 = Skeleton(self.game, self, (375, 275), 64)
+        skeleton_7 = Skeleton(self.game, self, (525, 175), 64)
+        skeleton_8 = Skeleton(self.game, self, (450, 175), 64)
+        skeleton_9 = Skeleton(self.game, self, (375, 175), 64)
 
         self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
 
-        Zombie((900, 400), 64, self.game, self)
-        Zombie((1000, 400), 64, self.game, self)
+        Zombie(self.game, self, (900, 400), 64)
+        Zombie(self.game, self, (1000, 400), 64)
 
-        Specter((200, 600), 64, self.game, self)
+        Specter(self.game, self, (200, 600), 64)
 
         SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game, self)
 
@@ -73,7 +73,16 @@ class EntranceZone(Room):
             self.game.bozo_boss_barrack,
             self.game.bozo_boss_barrack.spawn,
             self.game,
-            self
+            self,
+            [125, 35, 35, 255]
+        )
+
+        bozo_boss_barrack_barricade_border = Wall(
+            bozo_boss_barrack_barricade.get_top_right(),
+            bozo_boss_barrack_barricade.bottom_right + (50, 0),
+            self.game,
+            self,
+            True
         )
 
         border_right_3 = Wall(
