@@ -45,8 +45,8 @@ class Entity(Collidable):
         self.game.fog.blit(texture, (x, y), special_flags=pygame.BLEND_RGBA_MIN)
 
     def tick(self):
+        super().tick()
         self.move()
-        self.render()
 
     def move(self):
         self.move_without_collision(self.velocity * self.game.dt)
