@@ -38,6 +38,7 @@ class Monster(LivingEntity):
 
                 if distance_squared < threshold:
                     self.seen = True
+                    self.game.logger.debug(f"Player {player} saw monster {self} for the first time!")
                     break
 
         self.ai_tick()
