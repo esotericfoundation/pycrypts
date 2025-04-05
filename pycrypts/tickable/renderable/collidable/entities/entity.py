@@ -5,15 +5,17 @@ import pygame
 from pygame import Vector2, Surface
 
 from ..collidable import Collidable
+from ...renderable import Renderable
 
 if TYPE_CHECKING:
     from .....game import PyCrypts
     from .....rooms.room import Room
 
 
-class Entity(Collidable):
+class Entity(Renderable, Collidable):
     def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, character: str, size: int):
-        super().__init__(game, room)
+        Renderable.__init__(self, game)
+        Collidable.__init__(self, room)
 
         self.position = Vector2(position)
         self.velocity = Vector2(0, 0)

@@ -5,6 +5,7 @@ from pygame import Vector2, Rect, Color
 
 from ..collidable import Collidable
 from ..entities.entity import Entity
+from ...renderable import Renderable
 from ....tickable import Tickable
 
 if TYPE_CHECKING:
@@ -12,7 +13,7 @@ if TYPE_CHECKING:
     from .....rooms.room import Room
 
 
-class Wall(Collidable):
+class Wall(Renderable, Collidable):
     points: list[  # list of
         tuple[  # pair of
             tuple[int, int],  # top left 
@@ -24,7 +25,8 @@ class Wall(Collidable):
         self.top_left = Vector2(top_left)
         self.bottom_right = Vector2(bottom_right)
 
-        super().__init__(game, room)
+        Renderable.__init__(self, game)
+        Collidable.__init__(self, room)
 
         self.game = game
         self.color = color

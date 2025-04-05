@@ -1,17 +1,13 @@
 from typing import TYPE_CHECKING
 
-from ..renderable import Renderable
-
 if TYPE_CHECKING:
-    from ....game import PyCrypts
     from ....rooms.room import Room
 
 
-class Collidable(Renderable):
+class Collidable:
 
-    def __init__(self, game: "PyCrypts", room: "Room"):
+    def __init__(self, room: "Room"):
         self.room = room
-        super().__init__(game)
         self.no_clip = False
         self.very_clip = False
 
@@ -22,4 +18,4 @@ class Collidable(Renderable):
         pass
 
     def __str__(self) -> str:
-        return f"{super().__str__()} in room {self.room}"
+        return f"{type(self).__name__} in room {self.room}"
