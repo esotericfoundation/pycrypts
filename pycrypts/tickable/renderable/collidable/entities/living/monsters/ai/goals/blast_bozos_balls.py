@@ -27,4 +27,4 @@ class BlastBozosBallsGoal(Goal):
         direction = Vector2(90, 90)
         direction = direction.rotate(random_angle)
 
-        ball = BozosBall(self.game, self.owner.room, self.owner.position, direction)
+        ball = BozosBall(self.game, self.owner.room, self.owner, self.owner.position, direction)

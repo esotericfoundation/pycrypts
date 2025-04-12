@@ -12,10 +12,28 @@ if TYPE_CHECKING:
 
 class Projectile(Entity):
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, character: str, size: int, direction: Vector2):
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, size: int, direction: Vector2):
         super().__init__(game, room, position, character, size)
 
         self.direction = direction
+        self.shooter = shooter
+
+    def tick(self):
+        super().tick()
+
+        if self.shooter.seen:
+            return
+
+        from ..living.players.player import Player
+        threshold = Player.render_distance_squared * self.room.scale * self.room.scale
+
+        for player in self.game.players:
+            distance_squared = player.position.distance_squared_to(self.position)
+
+            if distance_squared < threshold:
+                self.shooter.seen = True
+                self.game.logger.debug(f"Player {player} saw monster {self.shooter} for the first time!")
+                break
 
     def move(self):
         self.move_without_collision(self.direction)
