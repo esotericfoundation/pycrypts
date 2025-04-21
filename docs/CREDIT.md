@@ -26,6 +26,11 @@
 <sup>By [Paddy Polson][foggy-fork-author]</sup>\
 <sup>[Dedicated to the public domain][foggy-fork-license]</sup>
 
+## [Small Rock Break](https://pixabay.com/sound-effects/small-rock-break-194553/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553)
+
+<sup>By [LordSonny](https://pixabay.com/users/lordsonny-38439655/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553)</sup>\
+<sup>Licensed under the [Pixabay Terms of Service](https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553)</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
