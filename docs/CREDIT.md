@@ -31,6 +31,11 @@
 <sup>By [LordSonny][small-rock-break-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][small-rock-break-license]</sup>
 
+## [Bone Break Sound][bone-break-sound]
+
+<sup>By [FreeSoundsxx][bone-break-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][small-rock-break-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -66,6 +71,10 @@
 [small-rock-break]: https://pixabay.com/sound-effects/small-rock-break-194553/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
 [small-rock-break-author]: https://pixabay.com/users/lordsonny-38439655/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
 [small-rock-break-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
+
+[bone-break-sound]: https://pixabay.com/sound-effects/bone-break-sound-269658/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+[bone-break-sound-author]: https://pixabay.com/users/freesoundsxx-47251115/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+[small-rock-break-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
 
 <!-- Local generic licenses -->
 
