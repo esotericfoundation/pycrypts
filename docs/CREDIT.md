@@ -34,7 +34,7 @@
 ## [Bone Break Sound][bone-break-sound]
 
 <sup>By [FreeSoundsxx][bone-break-sound-author]</sup>\
-<sup>Licensed under the [Pixabay Terms of Service][small-rock-break-license]</sup>
+<sup>Licensed under the [Pixabay Terms of Service][bone-break-sound-license]</sup>
 
 <!-- Link aliases -->
 
@@ -74,7 +74,7 @@
 
 [bone-break-sound]: https://pixabay.com/sound-effects/bone-break-sound-269658/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
 [bone-break-sound-author]: https://pixabay.com/users/freesoundsxx-47251115/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
-[small-rock-break-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+[bone-break-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
 
 <!-- Local generic licenses -->
 
