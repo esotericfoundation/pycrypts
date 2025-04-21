@@ -26,10 +26,10 @@
 <sup>By [Paddy Polson][foggy-fork-author]</sup>\
 <sup>[Dedicated to the public domain][foggy-fork-license]</sup>
 
-## [Small Rock Break](https://pixabay.com/sound-effects/small-rock-break-194553/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553)
+## [Small Rock Break][small-rock-break]
 
-<sup>By [LordSonny](https://pixabay.com/users/lordsonny-38439655/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553)</sup>\
-<sup>Licensed under the [Pixabay Terms of Service](https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553)</sup>
+<sup>By [LordSonny][small-rock-break-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][small-rock-break-license]</sup>
 
 <!-- Link aliases -->
 
@@ -62,6 +62,10 @@
 [foggy-fork]: https://github.com/paddypolson/Foggy/tree/10b27bff350db929b2f6850ad1edb9a2dab0e2fa
 [foggy-fork-author]: https://github.com/paddypolson
 [foggy-fork-license]: https://github.com/paddypolson/Foggy/blob/10b27bff350db929b2f6850ad1edb9a2dab0e2fa/attribution.txt#L26
+
+[small-rock-break]: https://pixabay.com/sound-effects/small-rock-break-194553/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
+[small-rock-break-author]: https://pixabay.com/users/lordsonny-38439655/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
+[small-rock-break-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
 
 <!-- Local generic licenses -->
 
