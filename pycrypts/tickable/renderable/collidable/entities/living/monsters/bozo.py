@@ -23,3 +23,8 @@ class Bozo(Monster):
             return False
 
         return super().is_colliding(entity)
+
+    def die(self):
+        super().die()
+
+        self.game.won = True

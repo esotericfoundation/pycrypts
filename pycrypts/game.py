@@ -56,6 +56,7 @@ class PyCrypts:
         self.bozo_boss_barrack: BozoBossBarrack | None = None
 
         self.over = False
+        self.won = False
 
         self.assets: dict[str, Surface] = {}
         self.sounds: dict[str, pygame.mixer.Sound] = {}
@@ -138,7 +139,7 @@ class PyCrypts:
         return self.logger.level <= logging.DEBUG
 
     def tick(self):
-        if not self.over:
+        if not self.over and not self.won:
             present = time.time()
             self.dt = present - self.past
             self.past = present
@@ -179,7 +180,22 @@ class PyCrypts:
 
             self.screen.blit(text_2, text_2_rect)
 
-        if not self.over:
+        if self.won:
+            font_1 = self.get_font((None, 150))
+
+            text_1 = font_1.render("Victory!", True, (225, 125, 0))
+            text_1_rect = text_1.get_rect(center=self.center)
+
+            self.screen.blit(text_1, text_1_rect)
+
+            font_2 = self.get_font((None, 50))
+
+            text_2 = font_2.render("Press ESC to exit", True, (0, 0, 0))
+            text_2_rect = text_2.get_rect(center=(self.center.x, self.center.y + 100))
+
+            self.screen.blit(text_2, text_2_rect)
+
+        if not self.over and not self.won:
             self.fog.fill((0, 0, 0, 255))
 
             for tickable in self.tickables:
