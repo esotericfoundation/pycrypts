@@ -10,6 +10,11 @@
 <sup>[&copy; 2019][twemoji-copyright] [Twitter Incorporated][twemoji-author] and [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>[Licensed][twemoji-license-statement] under [CC BY 4.0][twemoji-license]</sup>
 
+## [MOREmoji][moremoji]
+
+<sup>By [Tate][moremoji-author]</sup>\
+<sup>Licensed under [CC BY 4.0][cc-by-4.0-license]</sup>
+
 ## [Fluent Emoji][fluent-emoji] (Fork)
 
 <sup>[&copy;][fluent-emoji-copyright] [Microsoft Corporation][fluent-emoji-author]</sup>\
@@ -71,6 +76,9 @@
 [twemoji-license-statement]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/README.md?plain=1#L266
 [twemoji-license]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/LICENSE-GRAPHICS
 
+[moremoji]: https://moremoji.allezsoyez.com/
+[moremoji-author]: https://allezsoyez.com
+
 [fluent-emoji]: https://github.com/esotericfoundation/fluentui-emoji/tree/11cd274b2f705419ded6d133f94b04bbada1fa02
 [fluent-emoji-copyright]: https://github.com/esotericfoundation/fluentui-emoji/blob/11cd274b2f705419ded6d133f94b04bbada1fa02/LICENSE#L3
 [fluent-emoji-author]: https://github.com/microsoft
@@ -112,6 +120,12 @@
 [male-hurt-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
 [male-hurt-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
 
-<!-- Local generic licenses -->
+<!-- Generic licenses -->
+
+<!-- Local -->
 
 [mit-license]: ./assets/text/licenses/LICENSE-MIT
+
+<!-- Remote -->
+
+[cc-by-4.0-license]: https://creativecommons.org/licenses/by/4.0/
