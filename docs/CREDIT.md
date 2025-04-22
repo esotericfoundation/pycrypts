@@ -41,6 +41,11 @@
 <sup>By [nanity05 (Freesound)][zombie-sound-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][zombie-sound-license]</sup>
 
+## [Zombie Sound][zombie-death-sound]
+
+<sup>By [Vilches86][zombie-death-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][zombie-death-sound-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -84,6 +89,10 @@
 [zombie-sound]: https://pixabay.com/sound-effects/zombie-6851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
 [zombie-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
 [zombie-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
+
+[zombie-death-sound]: https://pixabay.com/sound-effects/zombie-15965/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15965
+[zombie-death-sound-author]: https://pixabay.com/users/vilches86-12269887/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15965
+[zombie-death-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15965
 
 <!-- Local generic licenses -->
 
