@@ -36,6 +36,11 @@
 <sup>By [FreeSoundsxx][bone-break-sound-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][bone-break-sound-license]</sup>
 
+## [Falling Bones Sound][falling-bones-sound]
+
+<sup>By [spookymodem (Freesound)][falling-bones-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][falling-bones-sound-license]</sup>
+
 ## [Zombie Sound][zombie-sound]
 
 <sup>By [nanity05 (Freesound)][zombie-sound-author]</sup>\
@@ -85,6 +90,10 @@
 [bone-break-sound]: https://pixabay.com/sound-effects/bone-break-sound-269658/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
 [bone-break-sound-author]: https://pixabay.com/users/freesoundsxx-47251115/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
 [bone-break-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+
+[falling-bones-sound]: https://pixabay.com/sound-effects/falling-bones-87568/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87568
+[falling-bones-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87568
+[falling-bones-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87568
 
 [zombie-sound]: https://pixabay.com/sound-effects/zombie-6851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
 [zombie-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
