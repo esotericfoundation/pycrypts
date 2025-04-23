@@ -28,14 +28,6 @@ pip install -r ./requirements-dev.txt
 
 echo "Installing Inkscape"
 
-sudo add-apt-repository universe || {
-  echo "Failed to get repository"
-}
-
-sudo add-apt-repository ppa:inkscape.dev/stable || {
-  echo "Failed to get repository"
-}
-
 sudo apt-get update
 sudo apt install inkscape
 
