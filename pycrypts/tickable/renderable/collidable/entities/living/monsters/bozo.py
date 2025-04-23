@@ -25,7 +25,10 @@ class Bozo(Monster):
         self.wanderGoal = RandomWanderGoal(self, 1, game, 1.5, 1.5, 0.1, 0.35)
         self.crazyWanderGoal = RandomWanderGoal(self, 1, game, 2.0, 1.5, 0.1, 0.35)
 
-        super().__init__(game, room, position, "bozo", 70, 600)
+        damage_sound = game.get_sound("bozo_damage")
+        damage_sound.set_volume(0.5)
+
+        super().__init__(game, room, position, "bozo", 70, 600, damage_sound)
 
         self.is_calm = True
         self.is_aggressive = False

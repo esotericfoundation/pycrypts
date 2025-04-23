@@ -72,6 +72,11 @@
 <sup>By [myfox14 (Freesound)][game-over-arcade-sound-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][game-over-arcade-sound-license]</sup>
 
+## [Clown Horn (Many Honks)][clown-horn-many-honks]
+
+<sup>By [Gimp_Revival][clown-horn-many-honks-author]</sup>\
+<sup>Licensed under [CC0][clown-horn-many-honks-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -138,6 +143,10 @@
 [game-over-arcade-sound]: https://pixabay.com/sound-effects/game-over-arcade-6435/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
 [game-over-arcade-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
 [game-over-arcade-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
+
+[clown-horn-many-honks]: https://freesound.org/people/Gimp_Revival/sounds/588591/
+[clown-horn-many-honks-author]: https://www.youtube.com/@GimpRevival/videos
+[clown-horn-many-honks-license]: https://creativecommons.org/publicdomain/zero/1.0/
 
 <!-- Generic licenses -->
 
