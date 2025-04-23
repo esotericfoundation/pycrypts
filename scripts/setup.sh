@@ -13,4 +13,9 @@ source ./venv/bin/activate
 pip install -r ./requirements.txt
 pip install -r ./requirements-dev.txt
 
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt-get update
+sudo apt install inkscape
+
 cd - || exit 1
