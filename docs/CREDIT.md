@@ -72,7 +72,7 @@
 <sup>By [myfox14 (Freesound)][game-over-arcade-sound-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][game-over-arcade-sound-license]</sup>
 
-## [Clown Horn (Many Honks)][clown-horn-many-honks]
+## [Clown Horn Sound (Many Honks)][clown-horn-many-honks]
 
 <sup>By [Gimp_Revival][clown-horn-many-honks-author]</sup>\
 <sup>Licensed under [CC0][clown-horn-many-honks-license]</sup>
