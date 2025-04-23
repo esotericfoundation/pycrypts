@@ -8,6 +8,12 @@ A [pygame][pygame] adventure featuring a sprawling underground dungeon filled wi
 
 - [Credit][credit]
 
+## Development
+
+### Dependencies
+
+You can run the [setup.sh][setup] file to install all dependencies needed to run and build this project.
+
 ## License
 
 &copy; 2024-2025 [Esoteric Foundation][author-homepage] and [PyCrypts contributors][contributors]
@@ -36,3 +42,5 @@ Submodules have their own respective licenses.
 
 [credit]: ./CREDIT.md
 [license]: ../LICENSE
+
+[setup]: ../scripts/setup.sh
