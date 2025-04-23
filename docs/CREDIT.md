@@ -10,6 +10,11 @@
 <sup>[&copy; 2019][twemoji-copyright] [Twitter Incorporated][twemoji-author] and [Twemoji contributors][twemoji-contributors]</sup>\
 <sup>[Licensed][twemoji-license-statement] under [CC BY 4.0][twemoji-license]</sup>
 
+## [MOREmoji][moremoji]
+
+<sup>By [Tate][moremoji-author]</sup>\
+<sup>Licensed under [CC BY 4.0][cc-by-4.0-license]</sup>
+
 ## [Fluent Emoji][fluent-emoji] (Fork)
 
 <sup>[&copy;][fluent-emoji-copyright] [Microsoft Corporation][fluent-emoji-author]</sup>\
@@ -26,6 +31,41 @@
 <sup>By [Paddy Polson][foggy-fork-author]</sup>\
 <sup>[Dedicated to the public domain][foggy-fork-license]</sup>
 
+## [Small Rock Break][small-rock-break]
+
+<sup>By [LordSonny][small-rock-break-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][small-rock-break-license]</sup>
+
+## [Bone Break Sound][bone-break-sound]
+
+<sup>By [FreeSoundsxx][bone-break-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][bone-break-sound-license]</sup>
+
+## [Falling Bones Sound][falling-bones-sound]
+
+<sup>By [spookymodem (Freesound)][falling-bones-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][falling-bones-sound-license]</sup>
+
+## [Zombie Sound][zombie-sound]
+
+<sup>By [nanity05 (Freesound)][zombie-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][zombie-sound-license]</sup>
+
+## [Zombie Sound][zombie-death-sound]
+
+<sup>By [Vilches86][zombie-death-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][zombie-death-sound-license]</sup>
+
+## [Male Hurt (7) Sound][male-hurt-sound]
+
+<sup>By [micahlg (Freesound)][male-hurt-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][male-hurt-sound-license]</sup>
+
+## [Game Over Arcade Sound][game-over-arcade-sound]
+
+<sup>By [myfox14 (Freesound)][game-over-arcade-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][game-over-arcade-sound-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -40,6 +80,9 @@
 [twemoji-contributors]: https://github.com/twitter/twemoji/graphs/contributors
 [twemoji-license-statement]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/README.md?plain=1#L266
 [twemoji-license]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/LICENSE-GRAPHICS
+
+[moremoji]: https://moremoji.allezsoyez.com/
+[moremoji-author]: https://allezsoyez.com
 
 [fluent-emoji]: https://github.com/esotericfoundation/fluentui-emoji/tree/11cd274b2f705419ded6d133f94b04bbada1fa02
 [fluent-emoji-copyright]: https://github.com/esotericfoundation/fluentui-emoji/blob/11cd274b2f705419ded6d133f94b04bbada1fa02/LICENSE#L3
@@ -58,6 +101,40 @@
 [foggy-fork-author]: https://github.com/paddypolson
 [foggy-fork-license]: https://github.com/paddypolson/Foggy/blob/10b27bff350db929b2f6850ad1edb9a2dab0e2fa/attribution.txt#L26
 
-<!-- Local generic licenses -->
+[small-rock-break]: https://pixabay.com/sound-effects/small-rock-break-194553/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
+[small-rock-break-author]: https://pixabay.com/users/lordsonny-38439655/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
+[small-rock-break-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
+
+[bone-break-sound]: https://pixabay.com/sound-effects/bone-break-sound-269658/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+[bone-break-sound-author]: https://pixabay.com/users/freesoundsxx-47251115/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+[bone-break-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=269658
+
+[falling-bones-sound]: https://pixabay.com/sound-effects/falling-bones-87568/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87568
+[falling-bones-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87568
+[falling-bones-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87568
+
+[zombie-sound]: https://pixabay.com/sound-effects/zombie-6851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
+[zombie-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
+[zombie-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6851
+
+[zombie-death-sound]: https://pixabay.com/sound-effects/zombie-15965/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15965
+[zombie-death-sound-author]: https://pixabay.com/users/vilches86-12269887/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15965
+[zombie-death-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15965
+
+[male-hurt-sound]: https://pixabay.com/sound-effects/male-hurt7-48124/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
+[male-hurt-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
+[male-hurt-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
+
+[game-over-arcade-sound]: https://pixabay.com/sound-effects/game-over-arcade-6435/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
+[game-over-arcade-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
+[game-over-arcade-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
+
+<!-- Generic licenses -->
+
+<!-- Local -->
 
 [mit-license]: ./assets/text/licenses/LICENSE-MIT
+
+<!-- Remote -->
+
+[cc-by-4.0-license]: https://creativecommons.org/licenses/by/4.0/

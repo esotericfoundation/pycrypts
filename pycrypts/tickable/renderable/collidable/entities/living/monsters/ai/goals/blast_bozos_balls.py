@@ -33,7 +33,7 @@ class BlastBozosBallsGoal(Goal):
         direction = Vector2(90, 90)
         direction = direction.rotate(random_angle)
 
-        ball = BozosBall(self.game, self.owner.room, self.owner.position, direction)
+        BozosBall(self.game, self.owner.room, self.owner, self.owner.position, direction)
 
         now = self.game.get_millis()
         self.last_shot = now

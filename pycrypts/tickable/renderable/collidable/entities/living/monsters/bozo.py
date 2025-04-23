@@ -120,3 +120,8 @@ class Bozo(Monster):
         if self.position.distance_squared_to(entity.position) < (10000 * self.game.current_room.scale * self.game.current_room.scale):
             entity.damage(15)
             entity.velocity += (entity.position - self.position).normalize() * 40 * self.room.scale
+
+    def die(self):
+        super().die()
+
+        self.game.won = True
