@@ -330,5 +330,9 @@ class PyCrypts:
         self.over = True
         self.current_room = None
 
+        game_over_sound = self.get_sound("game_over")
+        game_over_sound.set_volume(0.5)
+        pygame.mixer.Sound.play(game_over_sound)
+
     def quit(self):
         pygame.quit()

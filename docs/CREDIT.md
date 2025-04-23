@@ -61,6 +61,11 @@
 <sup>By [micahlg (Freesound)][male-hurt-sound-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][male-hurt-sound-license]</sup>
 
+## [Game Over Arcade Sound][game-over-arcade-sound]
+
+<sup>By [myfox14 (Freesound)][game-over-arcade-sound-author]</sup>\
+<sup>Licensed under the [Pixabay Terms of Service][game-over-arcade-sound-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -119,6 +124,10 @@
 [male-hurt-sound]: https://pixabay.com/sound-effects/male-hurt7-48124/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
 [male-hurt-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
 [male-hurt-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=48124
+
+[game-over-arcade-sound]: https://pixabay.com/sound-effects/game-over-arcade-6435/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
+[game-over-arcade-sound-author]: https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
+[game-over-arcade-sound-license]: https://pixabay.com/service/terms/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6435
 
 <!-- Generic licenses -->
 
