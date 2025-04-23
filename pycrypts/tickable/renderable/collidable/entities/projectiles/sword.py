@@ -39,7 +39,8 @@ class Sword(Entity):
         y = offset.y
         offset.y = 0
 
-        offset = offset.normalize() * (self.user.size / 2)
+        if offset.length_squared() != 0:
+            offset = offset.normalize() * (self.user.size / 2)
         offset.y = math.copysign(1, y) * (self.user.size / 4)
 
         if offset.x < 0:
