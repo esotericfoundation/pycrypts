@@ -15,6 +15,12 @@
 <sup>By [Tate][moremoji-author]</sup>\
 <sup>Licensed under [CC BY 4.0][cc-by-4.0-license]</sup>
 
+### Changes
+
+- [Updated](https://github.com/esotericfoundation/pycrypts/commit/1921a397afc41106a342057bfb569d71ad9887aa) the [zombie][moremoji-zombie] emoji [Inkscape][inkscape] version.
+- [Added](https://github.com/esotericfoundation/pycrypts/commit/124e421ec67e9f5aac763ea1728e1239dea6dc72) a newline at the end of the file.
+- [Moved](https://github.com/esotericfoundation/pycrypts/commit/b478a2ba77a4454696a1ace5aa244930ef887de1) blood on the [zombie][moremoji-zombie]'s forehead to the front.
+
 ## [Fluent Emoji][fluent-emoji] (Fork)
 
 <sup>[&copy;][fluent-emoji-copyright] [Microsoft Corporation][fluent-emoji-author]</sup>\
@@ -74,6 +80,8 @@
 [pygame-license-statement]: https://github.com/pygame/pygame/blob/2.6.1/README.rst?plain=1#L230
 [pygame-license]: https://github.com/pygame/pygame/blob/2.6.1/docs/LGPL.txt
 
+[inkscape]: https://inkscape.org/
+
 [twemoji]: https://github.com/twitter/twemoji/tree/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43
 [twemoji-copyright]: https://github.com/twitter/twemoji/blob/d94f4cf793e6d5ca592aa00f58a88f6a4229ad43/README.md?plain=1#L262
 [twemoji-author]: https://github.com/twitter
@@ -83,6 +91,8 @@
 
 [moremoji]: https://moremoji.allezsoyez.com/
 [moremoji-author]: https://allezsoyez.com
+
+[moremoji-zombie]: ../pycrypts/assets/images/entities/living/monsters/zombie.svg
 
 [fluent-emoji]: https://github.com/esotericfoundation/fluentui-emoji/tree/11cd274b2f705419ded6d133f94b04bbada1fa02
 [fluent-emoji-copyright]: https://github.com/esotericfoundation/fluentui-emoji/blob/11cd274b2f705419ded6d133f94b04bbada1fa02/LICENSE#L3
