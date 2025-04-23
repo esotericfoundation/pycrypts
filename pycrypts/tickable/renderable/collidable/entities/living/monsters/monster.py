@@ -19,7 +19,7 @@ class Monster(LivingEntity):
         self.attack_timer = 0
         self.game = game
         self.goals: list["Goal"] = []
-        self.last_ticked_goal = None
+        self.last_ticked_goals: list["Goal"] = []
         self.seen = False
 
         self.register_goals()
@@ -54,15 +54,20 @@ class Monster(LivingEntity):
         if len(usable_goals) == 0:
             return
 
-        highest_priority = list(sorted(usable_goals, key=lambda g: g.priority))[0]
+        highest_priority = list(sorted(usable_goals, key=lambda g: g.priority))[0].priority
+        goals_to_tick = list(filter(lambda g: g.priority == highest_priority, usable_goals))
+        goals_to_end = list(filter(lambda g: g not in goals_to_tick, self.last_ticked_goals))
 
-        if highest_priority != self.last_ticked_goal:
-            if self.last_ticked_goal is not None:
-                self.last_ticked_goal.end()
-            highest_priority.start()
+        for goal in goals_to_end:
+            goal.end()
 
-        highest_priority.tick()
-        self.last_ticked_goal = highest_priority
+        for goal in goals_to_tick:
+            if goal not in self.last_ticked_goals:
+                goal.start()
+
+            goal.tick()
+
+        self.last_ticked_goals = goals_to_tick
 
     def attack(self):
         players = list(filter(lambda p: self.sees_other(p), self.game.players))

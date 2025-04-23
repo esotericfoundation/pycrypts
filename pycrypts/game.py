@@ -1,4 +1,5 @@
 import argparse
+import datetime
 import os
 import time
 import logging
@@ -308,6 +309,9 @@ class PyCrypts:
 
     def get_walls(self):
         return list(filter(lambda tickable: isinstance(tickable, Wall), self.get_collidables()))
+
+    def get_millis(self):
+        return round(datetime.datetime.now().timestamp() * 1000)
 
     def end(self):
         self.logger.info("Game over!")
