@@ -77,6 +77,15 @@
 <sup>By [Gimp_Revival][clown-horn-many-honks-author]</sup>\
 <sup>Licensed under [CC0][clown-horn-many-honks-license]</sup>
 
+## [Ghost Moan Sounds (5 Different Ones)][ghost-moans-sound]
+
+<sup>By [NoahBangs][ghost-moans-sound-author]</sup>\
+<sup>Licensed under [CC BY 4.0][cc-by-4.0-license]</sup>
+
+### Changes
+
+- [Trimmed all but one ghost sounds and increased tempo of remaining sound](https://github.com/esotericfoundation/pycrypts/commit/f8b60c15f92bd24f39a638d2960550b2ee22b14d).
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -147,6 +156,9 @@
 [clown-horn-many-honks]: https://freesound.org/people/Gimp_Revival/sounds/588591/
 [clown-horn-many-honks-author]: https://www.youtube.com/@GimpRevival/videos
 [clown-horn-many-honks-license]: https://creativecommons.org/publicdomain/zero/1.0/
+
+[ghost-moans-sound]: https://freesound.org/people/NoahBangs/sounds/587941/
+[ghost-moans-sound-author]: https://freesound.org/people/NoahBangs/
 
 <!-- Generic licenses -->
 
