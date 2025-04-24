@@ -13,8 +13,13 @@ if TYPE_CHECKING:
 
 
 class BozosBall(Projectile):
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2 | tuple[int, int], color: str = "red", size: int = 48):
-        super().__init__(game, room, shooter, position, f"balls/{color}", size, direction)
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2 | tuple[int, int], color: str = "red", size: int = 48, speed = 1):
+        super().__init__(game, room, shooter, position, f"balls/{color}", size, direction, speed)
+
+    def tick(self):
+        super().tick()
+
+        self.speed *= 1.005
 
     def is_colliding(self, entity: Collidable) -> bool:
         from .living.monsters.bozo import Bozo

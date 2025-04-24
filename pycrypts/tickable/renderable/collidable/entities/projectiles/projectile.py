@@ -12,11 +12,12 @@ if TYPE_CHECKING:
 
 class Projectile(Entity):
 
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, size: int, direction: Vector2):
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, size: int, direction: Vector2, speed: float):
         super().__init__(game, room, position, character, size)
 
         self.direction = direction
         self.shooter = shooter
+        self.speed = speed
 
     def tick(self):
         super().tick()
@@ -36,7 +37,7 @@ class Projectile(Entity):
                 break
 
     def move(self):
-        self.move_without_collision(self.direction)
+        self.move_without_collision(self.direction, self.speed)
 
     def is_colliding(self, entity: Collidable) -> bool:
         colliding = super().is_colliding(entity)
