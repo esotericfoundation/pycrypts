@@ -21,11 +21,11 @@ if TYPE_CHECKING:
 class Bozo(Monster):
 
     def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int]):
-        self.backOffGoal = BackOffFromTargetGoal(self, 0, game, Player, game.players, 0.7, 200)
-        self.chaseGoal = WalkToTargetGoal(self, 1, game, Player, game.players, 1.1)
-        self.blastBallsGoal = BlastBozosBallsGoal(self, 1, game)
-        self.wanderGoal = RandomWanderGoal(self, 1, game, 1.5, 1.5, 0.1, 0.35)
-        self.crazyWanderGoal = RandomWanderGoal(self, 1, game, 2.0, 1.5, 0.1, 0.35)
+        self.back_off_goal = BackOffFromTargetGoal(self, 0, game, Player, game.players, 0.7, 200)
+        self.chase_goal = WalkToTargetGoal(self, 1, game, Player, game.players, 1.1)
+        self.blast_balls_goal = BlastBozosBallsGoal(self, 1, game)
+        self.wander_goal = RandomWanderGoal(self, 1, game, 1.5, 1.5, 0.1, 0.35)
+        self.crazy_wander_goal = RandomWanderGoal(self, 1, game, 2.0, 1.5, 0.1, 0.35)
 
         damage_sound = game.get_sound("bozo_damage")
         damage_sound.set_volume(0.5)
@@ -46,10 +46,10 @@ class Bozo(Monster):
         game.logger.debug(self.ball_types)
 
     def register_goals(self):
-        self.goals.append(self.blastBallsGoal)
-        self.goals.append(self.backOffGoal)
-        self.goals.append(self.chaseGoal)
-        self.goals.append(self.wanderGoal)
+        self.goals.append(self.blast_balls_goal)
+        self.goals.append(self.back_off_goal)
+        self.goals.append(self.chase_goal)
+        self.goals.append(self.wander_goal)
 
     def ai_tick(self):
         super().ai_tick()
@@ -101,23 +101,23 @@ class Bozo(Monster):
         self.game.logger.debug("Bozo calm phase has begun")
         self.goals.clear()
 
-        self.goals.append(self.backOffGoal)
-        self.goals.append(self.blastBallsGoal)
-        self.goals.append(self.wanderGoal)
+        self.goals.append(self.back_off_goal)
+        self.goals.append(self.blast_balls_goal)
+        self.goals.append(self.wander_goal)
 
     def on_aggressive(self):
         self.game.logger.debug("Bozo aggressive phase has begun")
         self.goals.clear()
 
-        self.goals.append(self.blastBallsGoal)
-        self.goals.append(self.chaseGoal)
+        self.goals.append(self.blast_balls_goal)
+        self.goals.append(self.chase_goal)
 
     def on_going_crazy(self):
         self.game.logger.debug("Bozo crazy phase has begun")
         self.goals.clear()
 
-        self.goals.append(self.blastBallsGoal)
-        self.goals.append(self.crazyWanderGoal)
+        self.goals.append(self.blast_balls_goal)
+        self.goals.append(self.crazy_wander_goal)
 
     def is_colliding(self, entity: Collidable) -> bool:
         if isinstance(entity, BozosBall):
