@@ -1,3 +1,5 @@
+import os
+
 import random
 from typing import TYPE_CHECKING
 
@@ -38,6 +40,10 @@ class Bozo(Monster):
         self.remaining_aggression = 0
         self.remaining_craziness = 0
 
+        self.ball_types = list(map(lambda f: f.removesuffix(".svg"), os.listdir("./assets/images/entities/balls")))
+
+        game.logger.debug(f"Found {len(self.ball_types)} {type(self).__name__}'s ball types:")
+        game.logger.debug(self.ball_types)
 
     def register_goals(self):
         self.goals.append(self.blastBallsGoal)
