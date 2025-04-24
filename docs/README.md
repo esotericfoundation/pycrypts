@@ -12,7 +12,7 @@ A [pygame][pygame] adventure featuring a sprawling underground dungeon filled wi
 
 ### Dependencies
 
-You can run the [setup.sh][setup] file to install all dependencies needed to run and build this project.
+You can run the [`setup.sh`][setup] file to install all dependencies needed to run and build this project.
 
 ## License
 
