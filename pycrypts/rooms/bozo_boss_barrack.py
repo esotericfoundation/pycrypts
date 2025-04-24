@@ -27,10 +27,12 @@ class BozoBossBarrack(Room):
         bottom_border = Wall(self.game.bottom_left + (0, -40), self.game.bottom_right, self.game, self, True)
         Wall(self.game.top_right + (-40, 0), self.game.bottom_right, self.game, self, True)
 
-        Wall(top_border.get_bottom_left(), bottom_border.top_left + (40, 0), self.game, self, True)
-        Wall(top_border.bottom_right + (-40, 0), bottom_border.get_top_right() + (-50, 0), self.game, self, True)
-
         bozo_boss_barracks_barricade = Door((0, 280), (40, 440), self.game.entrance_zone, Vector2(80, 360), self.game, self)
+
+        Wall(top_border.get_bottom_left(), bozo_boss_barracks_barricade.get_top_right(), self.game, self, True)
+        Wall(bozo_boss_barracks_barricade.get_bottom_left(), bottom_border.top_left + (40, 0), self.game, self, True)
+
+        Wall(top_border.bottom_right + (-40, 0), bottom_border.get_top_right() + (-50, 0), self.game, self, True)
 
         top_left_corner_block = Wall((40, 40), (80, 80), self.game, self, True)
 
