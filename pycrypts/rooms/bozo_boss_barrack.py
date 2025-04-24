@@ -40,8 +40,12 @@ class BozoBossBarrack(Room):
 
         Candle(self.game, self, next_top_corner.bottom_right + (-120, 40))
 
-        Wall(top_left_corner_block.top_left + (440, 0), top_left_corner_block.bottom_right + (440, 0), self.game, self, True)
-        Wall(top_left_corner_block.top_left + (1160, 0), top_left_corner_block.bottom_right + (1160, 0), self.game, self, True)
+        big_top_stub_right = Wall(top_left_corner_block.top_left + (440, 0), top_left_corner_block.bottom_right + (440, 0), self.game, self, True)
+        top_right_corner_block = Wall(top_left_corner_block.top_left + (1160, 0), top_left_corner_block.bottom_right + (1160, 0), self.game, self, True)
+
+        Candle(self.game, self, big_top_stub_right.bottom_right + (40, 40))
+        Candle(self.game, self, top_right_corner_block.get_bottom_left() + (-80, 40))
+
         bottom_left_corner_block = Wall((40, 640), (80, 680), self.game, self, True)
 
         Candle(self.game, self, bottom_left_corner_block.get_top_right() + (40, -80))
@@ -50,8 +54,11 @@ class BozoBossBarrack(Room):
 
         Candle(self.game, self, next_bottom_corner.get_top_right() + (-120, -80))
 
-        Wall(bottom_left_corner_block.top_left + (440, 0), bottom_left_corner_block.bottom_right + (440, 0), self.game, self, True)
-        Wall(bottom_left_corner_block.top_left + (1160, 0), bottom_left_corner_block.bottom_right + (1160, 0), self.game, self, True)
+        big_bottom_stub_right = Wall(bottom_left_corner_block.top_left + (440, 0), bottom_left_corner_block.bottom_right + (440, 0), self.game, self, True)
+        bottom_right_corner_block = Wall(bottom_left_corner_block.top_left + (1160, 0), bottom_left_corner_block.bottom_right + (1160, 0), self.game, self, True)
+
+        Candle(self.game, self, big_bottom_stub_right.get_top_right() + (40, -80))
+        Candle(self.game, self, bottom_right_corner_block.top_left + (-80, -80))
 
         stub_1 = Wall(next_top_corner.top_left + (40, 0), next_top_corner.bottom_right + (80, 40), self.game, self, True)
         stub_2 = Wall(next_bottom_corner.top_left + (40, -40), next_bottom_corner.bottom_right + (80, 0), self.game, self, True)
