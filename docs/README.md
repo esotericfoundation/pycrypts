@@ -7,6 +7,7 @@ A [pygame][pygame] adventure featuring a sprawling underground dungeon filled wi
 ## Information
 
 - [Credit][credit]
+- [To-do][to-do]
 
 ## Development
 
@@ -41,6 +42,7 @@ Submodules have their own respective licenses.
 <!-- Files -->
 
 [credit]: ./CREDIT.md
+[to-do]: ./TODO.md
 [license]: ../LICENSE
 
 [setup]: ../scripts/setup.sh
