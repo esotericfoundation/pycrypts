@@ -28,7 +28,6 @@ pip install -r ./requirements-dev.txt
 
 echo "Installing Inkscape"
 
-sudo apt-get update
 sudo apt install inkscape
 
 cd - || exit 1
