@@ -92,7 +92,7 @@ class Bozo(Monster):
                     self.on_calm()
 
     def on_calm(self):
-        self.game.logger.info("bozo calm")
+        self.game.logger.debug("Bozo calm phase has begun")
         self.goals.clear()
 
         self.goals.append(self.backOffGoal)
@@ -100,14 +100,14 @@ class Bozo(Monster):
         self.goals.append(self.wanderGoal)
 
     def on_aggressive(self):
-        self.game.logger.info("bozo aggressive")
+        self.game.logger.debug("Bozo aggressive phase has begun")
         self.goals.clear()
 
         self.goals.append(self.blastBallsGoal)
         self.goals.append(self.chaseGoal)
 
     def on_going_crazy(self):
-        self.game.logger.info("bozo crazy")
+        self.game.logger.debug("Bozo crazy phase has begun")
         self.goals.clear()
 
         self.goals.append(self.blastBallsGoal)
