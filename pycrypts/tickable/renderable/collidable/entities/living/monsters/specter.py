@@ -23,7 +23,7 @@ class Specter(Monster):
         damage_sound = game.get_sound("specter_damage")
         damage_sound.set_volume(0.5)
 
-        super().__init__(game, room, position, "ghost", size, 80, damage_sound, game.get_sound("specter_deatha"))
+        super().__init__(game, room, position, "ghost", size, 80, damage_sound, game.get_sound("specter_death"))
 
         self.wander_direction = Vector2(0, 0)
         self.wander_time = 0
