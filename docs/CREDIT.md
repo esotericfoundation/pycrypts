@@ -86,6 +86,11 @@
 
 - [Trimmed all but one ghost sounds and increased tempo of remaining sound](https://github.com/esotericfoundation/pycrypts/commit/f8b60c15f92bd24f39a638d2960550b2ee22b14d).
 
+## [Ghostly Shriek Sounds][ghostly-shriek-sounds]
+
+<sup>By [Xfrtrex][ghostly-shriek-sounds-author]</sup>\
+<sup>Licensed under [CC0][ghostly-shriek-sounds-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -159,6 +164,10 @@
 
 [ghost-moans-sound]: https://freesound.org/people/NoahBangs/sounds/587941/
 [ghost-moans-sound-author]: https://freesound.org/people/NoahBangs/
+
+[ghostly-shriek-sounds]: https://freesound.org/people/Xfrtrex/sounds/772770/
+[ghostly-shriek-sounds-author]: https://freesound.org/people/Xfrtrex/
+[ghostly-shriek-sounds-license]: https://creativecommons.org/publicdomain/zero/1.0/
 
 <!-- Generic licenses -->
 
