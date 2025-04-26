@@ -10,22 +10,24 @@ from .ai.goals.walk_to_target import WalkToTargetGoal
 from ..players.player import Player
 from ...bozos_ball import BozosBall
 from ....collidable import Collidable
-from .......rooms.room import Room
 from .monster import Monster
 
 if TYPE_CHECKING:
+    from .......rooms.bozo_boss_barrack import BozoBossBarrack
     from .......game import PyCrypts
     from ..living_entity import LivingEntity
 
 
 class Bozo(Monster):
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int]):
+    def __init__(self, game: "PyCrypts", room: "BozoBossBarrack", position: tuple[int, int]):
         self.back_off_goal = BackOffFromTargetGoal(self, 0, game, Player, game.players, 0.7, 200)
         self.chase_goal = WalkToTargetGoal(self, 1, game, Player, game.players, 1.1)
         self.blast_balls_goal = BlastBozosBallsGoal(self, 1, game)
         self.wander_goal = RandomWanderGoal(self, 1, game, 1.5, 1.5, 0.1, 0.35)
         self.crazy_wander_goal = RandomWanderGoal(self, 1, game, 2.0, 1.5, 0.1, 0.35)
+
+        self.room = room
 
         damage_sound = game.get_sound("bozo_damage")
         damage_sound.set_volume(0.5)
@@ -52,6 +54,9 @@ class Bozo(Monster):
         self.goals.append(self.wander_goal)
 
     def ai_tick(self):
+        if not self.room.brittle_wall.is_broken():
+            return
+
         super().ai_tick()
 
         if self.is_calm:
