@@ -115,8 +115,8 @@ class PyCrypts:
         pro = Player((0, 0), "pro", 64, "ARROW", pygame.K_RSHIFT, self, self.current_room)
         rizzler = Player((0, 0), "rizzler", 64, "WASD", pygame.K_LSHIFT, self, self.current_room)
 
-        HealthBar(pro, (self.screen.get_width() - 70 - 300, self.screen.get_height() - 60), 300, 40, self)
-        HealthBar(rizzler, (70, self.screen.get_height() - 60), 300, 40, self)
+        HealthBar(self, pro, (self.screen.get_width() - 70 - 300, self.screen.get_height() - 60), 300, 40)
+        HealthBar(self, rizzler, (70, self.screen.get_height() - 60), 300, 40)
 
         for player in self.players:
             player.position = Vector2(self.current_room.spawn)

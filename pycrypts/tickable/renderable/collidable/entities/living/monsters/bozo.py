@@ -48,7 +48,7 @@ class Bozo(Monster):
         game.logger.debug(f"Found {len(self.ball_types)} {type(self).__name__}'s ball types:")
         game.logger.debug(self.ball_types)
 
-        BossHealthBar(self, (50, 50), 1230 - 50, 50, self.game)
+        BossHealthBar(self.game, self, (50, 50), 5 + self.size + 5, 5)
 
     def register_goals(self):
         self.goals.append(self.blast_balls_goal)
