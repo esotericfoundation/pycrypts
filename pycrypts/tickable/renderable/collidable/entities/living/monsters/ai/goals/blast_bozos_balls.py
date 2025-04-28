@@ -28,12 +28,13 @@ class BlastBozosBallsGoal(Goal):
         if random.random() > 0.05:
             return
 
-        random_angle = random.randrange(0, 360)
+        for _ in range(3):
+            random_angle = random.randrange(0, 360)
 
-        direction = Vector2(1, 1)
-        direction = direction.rotate(random_angle)
+            direction = Vector2(1, 1)
+            direction = direction.rotate(random_angle)
 
-        BozosBall(self.game, self.owner.room, self.owner, self.owner.position, direction, random.choice(self.owner.ball_types))
+            BozosBall(self.game, self.owner.room, self.owner, self.owner.position, direction, random.choice(self.owner.ball_types))
 
         now = self.game.get_millis()
         self.last_shot = now
