@@ -11,6 +11,7 @@ from ..players.player import Player
 from ...bozos_ball import BozosBall
 from ....collidable import Collidable
 from .monster import Monster
+from .....display.health_bar import HealthBar
 
 if TYPE_CHECKING:
     from .......rooms.bozo_boss_barrack import BozoBossBarrack
@@ -46,6 +47,8 @@ class Bozo(Monster):
 
         game.logger.debug(f"Found {len(self.ball_types)} {type(self).__name__}'s ball types:")
         game.logger.debug(self.ball_types)
+
+        HealthBar(self, (50, 50), 1230 - 50, 50, self.game)
 
     def register_goals(self):
         self.goals.append(self.blast_balls_goal)

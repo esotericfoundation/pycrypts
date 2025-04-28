@@ -5,4 +5,3 @@
 * Make bozo's attacking phase last slightly longer
 * Add phase where bozo goes to the middle
 * Give bozo more health & regen
-* Give bozo a health bar
