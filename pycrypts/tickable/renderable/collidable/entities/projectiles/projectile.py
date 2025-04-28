@@ -22,7 +22,8 @@ class Projectile(Entity):
     def tick(self):
         super().tick()
 
-        if self.shooter.seen:
+        from ..living.monsters.monster import Monster
+        if isinstance(self.shooter, Monster) and self.shooter.seen:
             return
 
         from ..living.players.player import Player
@@ -43,6 +44,9 @@ class Projectile(Entity):
         colliding = super().is_colliding(entity)
 
         if not colliding:
+            return False
+
+        if isinstance(entity, type(self.shooter)):
             return False
 
         self.on_hit(entity)

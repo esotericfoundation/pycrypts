@@ -5,6 +5,7 @@ import pygame
 from pygame import Vector2
 
 from .fireball import Fireball
+from .projectile import Projectile
 from ..bozos_ball import BozosBall
 from ..entity import Entity
 from ..living.living_entity import LivingEntity
@@ -15,45 +16,20 @@ if TYPE_CHECKING:
     from ......rooms.room import Room
 
 
-class Arrow(Fireball):
-    def __init__(self, target: Vector2, position: Vector2, size: int, game: "PyCrypts", room: "Room"):
-        super().__init__(target, position, size, game, room, 2.6, "arrow")
+class Arrow(Projectile):
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, size: int, direction: Vector2, speed: float = 2.6):
+        super().__init__(game, room, shooter, position, "arrow", size, direction, speed)
 
-        angle = math.atan2(self.target.y - self.position.y, self.target.x - self.position.x)
+        angle = math.atan2(self.direction.y, self.direction.x)
         self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)
-        self.hit = False
 
-    def is_colliding(self, entity: Collidable) -> bool:
-        if self.hit:
-            return False
+    def on_hit(self, collidable: Collidable):
+        if isinstance(collidable, Fireball):
+            if not collidable.strong:
+                collidable.unload()
+                return
 
-        if isinstance(entity, Entity) and entity.no_clip:
-            return False
+        if isinstance(collidable, LivingEntity):
+            collidable.damage(10)
 
-        from ..living.players.player import Player
-        if isinstance(entity, Player):
-            return False
-
-        if isinstance(entity, Arrow):
-            return False
-
-        if isinstance(entity, BozosBall):
-            return False
-
-        is_colliding = Entity.is_colliding(self, entity)
-
-        if is_colliding:
-            if isinstance(entity, Fireball):
-                if not entity.strong:
-                    entity.unload()
-                return False
-
-            self.hit = True
-            self.unload()
-
-            if isinstance(entity, LivingEntity):
-                entity.damage(10)
-                return False
-            return True
-
-        return False
+        super().on_hit(collidable)

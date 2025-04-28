@@ -33,7 +33,7 @@ class Skeleton(Monster):
         self.goals.append(BackOffFromTargetGoal(self, 0, self.game, SawTrap, self.game.tickables, 0.7, 100))
 
     def attack_entity(self, entity: LivingEntity):
-        Fireball(entity.get_center(), Vector2(self.position.x, self.position.y), 32, self.game, self.room, 1.44)
+        Fireball(self.game, self.room, self, self.get_center(), 32, entity.position - self.position, 1.44)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Fireball):
