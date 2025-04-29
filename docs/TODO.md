@@ -12,7 +12,6 @@
 * Give bozo more health & regen
 * Give bozo a staff
 * Add helmet
-* Exit door (locked at the beginning) to victory
 * More sounds (maybe music)
 
 ### Considered
