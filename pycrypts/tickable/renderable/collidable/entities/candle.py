@@ -11,11 +11,12 @@ if TYPE_CHECKING:
 
 class Candle(Entity):
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, light_radius: int = 1200):
         super().__init__(game, room, position, "lantern", 64)
 
+        self.light_radius = light_radius
         self.no_clip = True
 
     def tick(self):
         self.render()
-        self.render_light(600)
+        self.render_light(self.light_radius)
