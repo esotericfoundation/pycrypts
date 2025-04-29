@@ -3,7 +3,6 @@ from typing import TYPE_CHECKING
 from .room import Room
 from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
-from ..tickable.renderable.collidable.entities.projectiles.shield import Shield
 from ..tickable.renderable.collidable.walls.door import Door
 from ..tickable.renderable.collidable.walls.wall import Wall
 
@@ -21,8 +20,7 @@ class SurfaceZone(Room):
         super().create()
 
         Zombie(self.game, self, self.game.bottom_left + (160, -200), 64)
-        shield_zombie = Zombie(self.game, self, self.game.bottom_left + (300, -200), 64)
-        Shield(shield_zombie, self.game, self)
+        Zombie(self.game, self, self.game.bottom_left + (300, -200), 64)
 
         Wall(self.game.top_left, self.game.bottom_left + (80, 0), self.game, self, True)
         border_right_1 = Wall(self.game.top_right + (-80, 0), self.game.top_right + (0, 240), self.game, self, True)

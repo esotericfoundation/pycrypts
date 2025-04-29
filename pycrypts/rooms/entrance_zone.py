@@ -6,6 +6,7 @@ from .room import Room
 from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
 from ..tickable.renderable.collidable.entities.living.monsters.specter import Specter
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
+from ..tickable.renderable.collidable.entities.projectiles.shield import Shield
 from ..tickable.renderable.collidable.entities.traps.saw_trap import SawTrap
 from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
 from ..tickable.renderable.collidable.walls.door import Door
@@ -41,7 +42,8 @@ class EntranceZone(Room):
         self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
 
         Zombie(self.game, self, (900, 400), 64)
-        Zombie(self.game, self, (1000, 400), 64)
+        shield_zombie = Zombie(self.game, self, (1000, 400), 64)
+        Shield(shield_zombie, self.game, self)
 
         Specter(self.game, self, (200, 600), 64)
 
