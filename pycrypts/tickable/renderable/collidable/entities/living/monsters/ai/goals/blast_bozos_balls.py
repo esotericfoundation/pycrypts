@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from pygame import Vector2
 
-from .....bozos_ball import BozosBall
+from .....projectiles.bozos_ball import BozosBall
 from ..goal import Goal
 
 if TYPE_CHECKING:

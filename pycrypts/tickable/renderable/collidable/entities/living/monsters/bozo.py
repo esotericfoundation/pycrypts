@@ -8,7 +8,7 @@ from .ai.goals.blast_bozos_balls import BlastBozosBallsGoal
 from .ai.goals.random_wander import RandomWanderGoal
 from .ai.goals.walk_to_target import WalkToTargetGoal
 from ..players.player import Player
-from ...bozos_ball import BozosBall
+from ...projectiles.bozos_ball import BozosBall
 from ....collidable import Collidable
 from .monster import Monster
 from .....display.boss_health_bar import BossHealthBar

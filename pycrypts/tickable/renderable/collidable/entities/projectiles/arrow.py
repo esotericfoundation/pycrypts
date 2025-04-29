@@ -6,7 +6,6 @@ from pygame import Vector2
 
 from .fireball import Fireball
 from .projectile import Projectile
-from ..bozos_ball import BozosBall
 from ..entity import Entity
 from ..living.living_entity import LivingEntity
 from ...collidable import Collidable
