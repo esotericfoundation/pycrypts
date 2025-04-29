@@ -29,7 +29,6 @@ class Player(LivingEntity):
         self.attack_key = attack_key
 
         self.time_since_last_attack = Player.attack_cooldown + 1
-        self.time_since_last_regeneration = 0
 
         self.light_radius = Player.render_distance
 
@@ -49,16 +48,13 @@ class Player(LivingEntity):
         super().tick()
 
         self.time_since_last_attack += self.game.dt
-        self.time_since_last_regeneration += self.game.dt
 
         keys = pygame.key.get_pressed()
         if keys[self.attack_key]:
             self.attack()
 
-        if self.time_since_last_regeneration >= Player.regeneration_rate:
-            if self.health < self.max_health:
-                self.health = min(self.health + 1, self.max_health)
-                self.time_since_last_regeneration = 0
+        self.health += self.regeneration_rate * self.game.dt
+        self.health = min(self.health, self.max_health)
 
         if keys[pygame.K_LALT]:
             self.no_clip = not self.no_clip
