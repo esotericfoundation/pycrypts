@@ -5,6 +5,7 @@ from pygame import Vector2
 from .room import Room
 from ..tickable.renderable.collidable.entities.candle import Candle
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
+from ..tickable.renderable.collidable.entities.projectiles.shield import Shield
 from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
 from ..tickable.renderable.collidable.walls.door import Door
 from ..tickable.renderable.collidable.entities.living.monsters.bozo import Bozo
@@ -84,6 +85,9 @@ class BozoBossBarrack(Room):
 
         guard_1 = Zombie(self.game, self, bozo_boss_barracks_barricade.top_left + (120, -80), 64)
         guard_2 = Zombie(self.game, self, bozo_boss_barracks_barricade.bottom_right + (80, 80), 64)
+
+        Shield(guard_1, self.game, self)
+        Shield(guard_2, self.game, self)
 
         self.brittle_wall = BrittleWall(stub_1.top_left + (0, 80), stub_2.bottom_right + (0, -80), [guard_1, guard_2], self.game, self)
 
