@@ -57,6 +57,7 @@ class Door(Wall):
             player.room = self.destination
 
         self.destination.load()
+        self.room.unload()
 
     def tick(self):
         super().tick()

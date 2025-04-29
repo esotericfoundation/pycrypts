@@ -14,7 +14,6 @@
 * Add helmet
 * Allow bozo to summon mobs
 * Make candle light stronger in bozo's room
-* Remove all projectiles when leaving the room
 * Exit door (locked at the beginning) to victory
 * More sounds (maybe music)
 

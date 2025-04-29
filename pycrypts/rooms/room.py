@@ -32,6 +32,12 @@ class Room:
         if not self.created:
             self.create()
 
+    def unload(self):
+        from ..tickable.renderable.collidable.entities.projectiles.projectile import Projectile
+        for collidable in self.get_collidables():
+            if isinstance(collidable, Projectile):
+                collidable.unload()
+
     def get_collidables(self) -> list[Collidable]:
         return list(filter(lambda collidable: collidable.room == self, self.game.get_collidables()))
 
