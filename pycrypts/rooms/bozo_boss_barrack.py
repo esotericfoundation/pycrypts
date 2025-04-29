@@ -98,4 +98,11 @@ class BozoBossBarrack(Room):
         Shield(guard_1, self.game, self)
         Shield(guard_2, self.game, self)
 
-        self.brittle_wall = BrittleWall(stub_1.top_left + (0, 80), stub_2.bottom_right + (0, -80), [guard_1, guard_2], self.game, self)
+        def on_break():
+            sound = self.game.get_sound("bozo_shrieking_laugh")
+
+            sound.set_volume(0.5)
+
+            sound.play()
+
+        self.brittle_wall = BrittleWall(stub_1.top_left + (0, 80), stub_2.bottom_right + (0, -80), [guard_1, guard_2], self.game, self, on_break)

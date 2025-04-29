@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable
 
 import pygame
 
@@ -12,11 +12,12 @@ if TYPE_CHECKING:
 
 class BrittleWall(Wall):
 
-    def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "PyCrypts", room: "Room"):
+    def __init__(self, top_left: (int, int), bottom_right: (int, int), monsters_to_defeat: list[Monster], game: "PyCrypts", room: "Room", on_break: Callable[[], None] = lambda: None):
         super().__init__(top_left, bottom_right, game, room)
 
         self.monsters_to_defeat = monsters_to_defeat
         self.broken = False
+        self.on_break = on_break
 
     def tick(self):
         if self.is_broken():
@@ -34,3 +35,5 @@ class BrittleWall(Wall):
         pygame.mixer.Sound.play(sound)
 
         self.unload()
+
+        self.on_break()

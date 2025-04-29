@@ -73,6 +73,13 @@ class EntranceZone(Room):
             Vector2(250, 150),
             self.game, self)
 
+        def on_enter():
+            sound = self.game.get_sound("bozo_laugh")
+
+            sound.set_volume(0.5)
+
+            sound.play()
+
         bozo_boss_barrack_barricade = Door(
             corridor_wall.bottom_right,
             bottom_wall.get_top_right(),
@@ -80,7 +87,8 @@ class EntranceZone(Room):
             self.game.bozo_boss_barrack.spawn,
             self.game,
             self,
-            [125, 35, 35, 255]
+            [125, 35, 35, 255],
+            on_enter=on_enter
         )
 
         bozo_boss_barrack_barricade_border = Wall(
