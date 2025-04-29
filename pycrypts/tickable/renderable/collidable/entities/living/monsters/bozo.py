@@ -1,12 +1,15 @@
 import os
 
 import random
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Type, List
 
 from .ai.goals.back_off_from_target import BackOffFromTargetGoal
 from .ai.goals.blast_bozos_balls import BlastBozosBallsGoal
 from .ai.goals.random_wander import RandomWanderGoal
 from .ai.goals.walk_to_target import WalkToTargetGoal
+from .skeleton import Skeleton
+from .specter import Specter
+from .zombie import Zombie
 from ..players.player import Player
 from ...projectiles.bozos_ball import BozosBall
 from ....collidable import Collidable
@@ -21,7 +24,7 @@ if TYPE_CHECKING:
 
 class Bozo(Monster):
 
-    def __init__(self, game: "PyCrypts", room: "BozoBossBarrack", position: tuple[int, int]):
+    def __init__(self, game: "PyCrypts", room: "BozoBossBarrack", position: tuple[int, int], summon_mobs_interval: float = 15):
         self.back_off_goal = BackOffFromTargetGoal(self, 0, game, Player, game.players, 0.7, 200)
         self.chase_goal = WalkToTargetGoal(self, 1, game, Player, game.players, 1.1)
         self.blast_balls_goal = BlastBozosBallsGoal(self, 1, game)
@@ -42,6 +45,9 @@ class Bozo(Monster):
         self.remaining_calmness = 5
         self.remaining_aggression = 0
         self.remaining_craziness = 0
+
+        self.summon_mobs_interval = summon_mobs_interval
+        self.summon_mobs_timer = self.summon_mobs_interval
 
         self.ball_types = list(map(lambda f: f.removesuffix(".svg"), os.listdir("./assets/images/entities/balls")))
 
@@ -66,6 +72,12 @@ class Bozo(Monster):
             return
 
         super().ai_tick()
+
+        self.summon_mobs_timer -= self.game.dt
+        if self.summon_mobs_timer <= 0:
+            self.summon_mobs_timer = self.summon_mobs_interval
+
+            self.summon_mobs()
 
         if self.is_calm:
             self.remaining_calmness -= self.game.dt
@@ -147,3 +159,15 @@ class Bozo(Monster):
         super().die()
 
         self.game.won = True
+
+    def summon_mobs(self):
+        mob_count = random.randint(1, 3)
+
+        mob_types: List[Type[Monster]] = random.choices(
+            [Zombie, Skeleton, Specter],
+            [5, 3, 1],
+            k = mob_count
+        )
+
+        for mob_type in mob_types:
+            self.summon_minion(mob_type, 15, 1.25, self.game, self.room, self.position)
