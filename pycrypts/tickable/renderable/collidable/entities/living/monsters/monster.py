@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 class Monster(LivingEntity):
     attack_interval = 1.0
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int = 32, health: int = 50, damage_sound: Sound | None = None, death_sound: Sound | None = None):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int = 64, health: int = 50, damage_sound: Sound | None = None, death_sound: Sound | None = None):
         super().__init__(game, room, position, "monsters/" + type(self).__name__.lower(), size, health, damage_sound, death_sound)
         self.attack_timer = 0
         self.game = game
