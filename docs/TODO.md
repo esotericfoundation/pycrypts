@@ -7,8 +7,6 @@
 
 ## 1.0.0
 
-* Make bozo's attacking phase last slightly longer
-* Give bozo more health & regen
 * Give bozo a staff
 * Add helmet
 * More sounds (maybe music)
