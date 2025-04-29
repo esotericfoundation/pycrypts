@@ -12,6 +12,7 @@ from .specter import Specter
 from .zombie import Zombie
 from ..players.player import Player
 from ...projectiles.bozos_ball import BozosBall
+from ...shield import Shield
 from ....collidable import Collidable
 from .monster import Monster
 from .....display.boss_health_bar import BossHealthBar
@@ -20,6 +21,7 @@ if TYPE_CHECKING:
     from .......rooms.bozo_boss_barrack import BozoBossBarrack
     from .......game import PyCrypts
     from ..living_entity import LivingEntity
+    from ...entity import Entity
 
 
 class Bozo(Monster):
@@ -171,6 +173,17 @@ class Bozo(Monster):
         super().damage(damage)
 
         self.last_hit = self.game.get_millis()
+
+    def summon_minion(self, entity_type: Type["Entity"], max_attempts: int = 5, distance_scale: float = 1.25, *entity_constructor_arguments):
+        entity = super().summon_minion(entity_type, max_attempts, distance_scale, *entity_constructor_arguments)
+
+        if entity is None:
+            return None
+
+        if random.random() < 0.2 and not entity.no_clip:
+            Shield(entity, self.game, self.room)
+
+        return entity
 
     def summon_mobs(self):
         mob_count = random.randint(1, 2)
