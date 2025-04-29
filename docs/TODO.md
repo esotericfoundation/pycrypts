@@ -12,8 +12,6 @@
 * Give bozo more health & regen
 * Give bozo a staff
 * Add helmet
-* Allow bozo to summon mobs
-* Make candle light stronger in bozo's room
 * Exit door (locked at the beginning) to victory
 * More sounds (maybe music)
 
