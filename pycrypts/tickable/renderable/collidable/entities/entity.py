@@ -171,7 +171,7 @@ class Entity(Collidable):
 
         while entity.is_clipping():
             if attempts == max_attempts:
-                return
+                return None
 
             vector = vector.rotate(random.randint(1, 360))
             entity.position = self.position + vector
@@ -179,7 +179,4 @@ class Entity(Collidable):
             attempts += 1
 
         entity.load()
-
-        if random.random() < 0.2 and not entity.no_clip:
-            from .shield import Shield
-            Shield(entity, self.game, self.room)
+        return entity
