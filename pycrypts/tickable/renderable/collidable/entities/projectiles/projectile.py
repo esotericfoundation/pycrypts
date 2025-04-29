@@ -2,11 +2,11 @@ from typing import TYPE_CHECKING
 
 from pygame import Vector2
 
-from pycrypts.rooms.room import Room
 from ..entity import Entity
 from ...collidable import Collidable
 
 if TYPE_CHECKING:
+    from pycrypts.rooms.room import Room
     from pycrypts.game import PyCrypts
 
 
