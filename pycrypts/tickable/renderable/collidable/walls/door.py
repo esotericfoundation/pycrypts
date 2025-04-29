@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Sequence
+from typing import TYPE_CHECKING, Sequence, Callable
 
 import pygame
 from pygame import Rect, Vector2, Color
@@ -12,13 +12,14 @@ if TYPE_CHECKING:
 
 
 class Door(Wall):
-    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None):
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None, locked: Callable[[], bool] = lambda: False):
         if color is None:
             color = [140, 65, 5, 255]
 
         self.destination = destination
         self.spawn = spawn
         self.game = game
+        self.locked = locked
 
         super().__init__(top_left, bottom_right, game, room, False, color)
 
@@ -72,6 +73,9 @@ class Door(Wall):
         self.on_players_enter()
 
     def is_colliding(self, other: Collidable) -> bool:
+        if self.locked():
+            return self.is_in_door(other)
+
         return False
 
     def is_in_door(self, other: Collidable) -> bool:

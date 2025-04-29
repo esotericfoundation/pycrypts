@@ -26,11 +26,13 @@ class BozoBossBarrack(Room):
     def create(self):
         super().create()
 
+        bozo = Bozo(self.game, self, self.game.center)
+
         top_border = Wall(self.game.top_left, self.game.top_right + (0, 40), self.game, self, True)
         bottom_border = Wall(self.game.bottom_left + (0, -40), self.game.bottom_right, self.game, self, True)
         Wall(self.game.top_right + (-40, 0), self.game.bottom_right, self.game, self, True)
 
-        bozo_boss_barracks_barricade = Door((0, 280), (40, 440), self.game.entrance_zone, Vector2(1150, 580), self.game, self)
+        bozo_boss_barracks_barricade = Door((0, 280), (40, 440), self.game.entrance_zone, Vector2(1150, 580), self.game, self, None, lambda: bozo.health > 0 and self.brittle_wall is not None and self.brittle_wall.is_broken())
 
         Wall(bozo_boss_barracks_barricade.top_left - (40, 0), bozo_boss_barracks_barricade.get_bottom_left(), self.game, self, True)
 
@@ -88,5 +90,3 @@ class BozoBossBarrack(Room):
         Shield(guard_2, self.game, self)
 
         self.brittle_wall = BrittleWall(stub_1.top_left + (0, 80), stub_2.bottom_right + (0, -80), [guard_1, guard_2], self.game, self)
-
-        Bozo(self.game, self, self.game.center)
