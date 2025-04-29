@@ -30,9 +30,20 @@ class BozoBossBarrack(Room):
 
         top_border = Wall(self.game.top_left, self.game.top_right + (0, 40), self.game, self, True)
         bottom_border = Wall(self.game.bottom_left + (0, -40), self.game.bottom_right, self.game, self, True)
-        Wall(self.game.top_right + (-40, 0), self.game.bottom_right, self.game, self, True)
+        # Wall(self.game.top_right + (-40, 0), self.game.bottom_right, self.game, self, True)
 
         bozo_boss_barracks_barricade = Door((0, 280), (40, 440), self.game.entrance_zone, Vector2(1150, 580), self.game, self, None, lambda: bozo.health > 0 and self.brittle_wall is not None and self.brittle_wall.is_broken())
+
+        right_top_border = Wall(self.game.top_right + (-40, 0), (top_border.bottom_right.x, bozo_boss_barracks_barricade.top_left.y), self.game, self, True)
+
+        def on_exit():
+            self.game.won = True
+
+        exit_door = Door(right_top_border.get_bottom_left(), (right_top_border.bottom_right.x, bozo_boss_barracks_barricade.bottom_right.y), None, None, self.game, self, [10, 175, 25, 255], on_enter=on_exit)
+        exit_door_border = Wall(exit_door.get_top_right(), exit_door.bottom_right + (40, 0), self.game, self, True)
+        exit_door_barricade = BrittleWall(exit_door.top_left, exit_door.bottom_right, [bozo], self.game, self)
+
+        right_bottom_border = Wall(exit_door.get_bottom_left(), bottom_border.get_top_right(), self.game, self, True)
 
         Wall(bozo_boss_barracks_barricade.top_left - (40, 0), bozo_boss_barracks_barricade.get_bottom_left(), self.game, self, True)
 

@@ -158,8 +158,6 @@ class Bozo(Monster):
     def die(self):
         super().die()
 
-        self.game.won = True
-
     def summon_mobs(self):
         mob_count = random.randint(1, 3)
 

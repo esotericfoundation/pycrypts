@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 
 class Door(Wall):
-    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None, locked: Callable[[], bool] = lambda: False):
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None, locked: Callable[[], bool] = lambda: False, on_enter: Callable[[], None] = lambda: None):
         if color is None:
             color = [140, 65, 5, 255]
 
@@ -20,6 +20,7 @@ class Door(Wall):
         self.spawn = spawn
         self.game = game
         self.locked = locked
+        self.on_enter = on_enter
 
         super().__init__(top_left, bottom_right, game, room, False, color)
 
@@ -44,6 +45,8 @@ class Door(Wall):
             pygame.draw.rect(self.game.screen, self.color, Rect(self.top_left, (width, height)))
 
     def on_players_enter(self):
+        self.on_enter()
+
         if self.destination is None:
             return
 
