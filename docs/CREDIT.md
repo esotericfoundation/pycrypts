@@ -96,6 +96,16 @@
 <sup>By [Jadester64][shovel-hitting-metal-swing-frame-sound-author]</sup>\
 <sup>Licensed under [CC0][shovel-hitting-metal-swing-frame-sound-license]</sup>
 
+## [Clown Laugh Sound][clown-laugh-sound]
+
+<sup>By [scotcampbell][clown-laugh-sound-author]</sup>\
+<sup>Licensed under [CC0][clown-laugh-sound-license]</sup>
+
+## [Shrieking Laughter Sound][shrieking-laughter-sound]
+
+<sup>By [plasterbrain][shrieking-laughter-sound-author]</sup>\
+<sup>Licensed under [CC0][shrieking-laughter-sound-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -177,6 +187,14 @@
 [shovel-hitting-metal-swing-frame-sound]: https://freesound.org/people/Jadester64/sounds/370738/
 [shovel-hitting-metal-swing-frame-sound-author]: https://freesound.org/people/Jadester64/#packs
 [shovel-hitting-metal-swing-frame-sound-license]: https://creativecommons.org/publicdomain/zero/1.0/
+
+[clown-laugh-sound]: https://freesound.org/people/scotcampbell/sounds/263708/
+[clown-laugh-sound-author]: https://freesound.org/people/scotcampbell/
+[clown-laugh-sound-license]: https://creativecommons.org/publicdomain/zero/1.0/
+
+[shrieking-laughter-sound]: https://freesound.org/people/plasterbrain/sounds/243022/
+[shrieking-laughter-sound-author]: https://freesound.org/people/plasterbrain/
+[shrieking-laughter-sound-license]: https://creativecommons.org/publicdomain/zero/1.0/
 
 <!-- Generic licenses -->
 
