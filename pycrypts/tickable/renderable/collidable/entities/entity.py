@@ -139,6 +139,10 @@ class Entity(Collidable):
         other_center = other.get_actual_center()
 
         for wall in self.room.get_walls():
+            from ..walls.door import Door
+            if isinstance(wall, Door):
+                continue
+
             wall_edges = wall.get_lines()  # Assume this returns [(p1, p2), (p2, p3), (p3, p4), (p4, p1)]
             for edge in wall_edges:
                 if self.line_intersects(center, other_center, edge[0], edge[1]):
