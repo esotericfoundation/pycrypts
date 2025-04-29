@@ -101,6 +101,9 @@ class Entity(Collidable):
             return entity.is_colliding(self)
         return False
 
+    def is_clipping(self):
+        return any(filter(lambda c: self.is_colliding(c) or c.is_colliding(self), self.room.get_collidables()))
+
     def set_scale(self, scale: float):
         self.size = self.absolute_size * scale
         self.image = pygame.transform.scale(self.base_image, (self.size, self.size))
