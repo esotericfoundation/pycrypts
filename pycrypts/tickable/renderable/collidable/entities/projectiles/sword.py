@@ -31,7 +31,7 @@ class Sword(Entity):
         super().tick()
         self.time_left -= self.game.dt
 
-        if self.time_left <= 0:
+        if self.time_left <= 0 or not self.user.is_valid():
             self.unload()
 
         offset = Vector2(self.target.position - self.user.position)

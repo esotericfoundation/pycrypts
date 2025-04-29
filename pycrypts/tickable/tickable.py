@@ -24,5 +24,8 @@ class Tickable:
         else:
             self.game.logger.warning(f"Failed to unload tickable {self}")
 
+    def is_valid(self):
+        return self in self.game.tickables
+
     def __str__(self):
         return f"{type(self).__name__}"
