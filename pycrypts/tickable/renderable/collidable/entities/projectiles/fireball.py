@@ -15,8 +15,8 @@ if TYPE_CHECKING:
 
 class Fireball(Projectile):
 
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, size: int, direction: Vector2, speed: float):
-        super().__init__(game, room, shooter, position, "fireball", size, direction, speed)
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2, speed: float = 1, size: int = 32):
+        super().__init__(game, room, shooter, position, "fireball", direction, speed, size)
         self.strong = random.randint(0, 1) == 0
         self.light_radius = 100
 

@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class Projectile(Entity):
 
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, size: int, direction: Vector2, speed: float):
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, direction: Vector2, speed: float = 1, size: int = 32):
         super().__init__(game, room, position, character, size)
 
         self.direction = direction
