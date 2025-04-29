@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 class Player(LivingEntity):
     attack_cooldown = 0.75
     attack_range = 175
-    regeneration_rate = 1
+    regeneration_rate = 1.5
 
     render_distance = 400
     render_distance_squared = render_distance**2
