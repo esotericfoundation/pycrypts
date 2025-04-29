@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 
 class Door(Wall):
-    def __init__(self, top_left: [int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None):
+    def __init__(self, top_left: tuple[int, int], bottom_right: tuple[int, int], destination: "Room", spawn: Vector2 | None, game: "PyCrypts", room: "Room", color: Color | int | str | tuple[int, int, int] | tuple[int, int, int, int] | Sequence[int] = None):
         if color is None:
             color = [140, 65, 5, 255]
 
