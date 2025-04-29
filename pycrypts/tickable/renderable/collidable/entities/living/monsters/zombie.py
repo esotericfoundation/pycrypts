@@ -21,7 +21,7 @@ class Zombie(Monster):
     wander_duration = 1.5
     randomness = 0.35
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int = 64):
         super().__init__(game, room, position, size, 80, game.get_sound('zombie_damage'), game.get_sound('zombie_death'))
 
         self.wander_direction = Vector2(0, 0)

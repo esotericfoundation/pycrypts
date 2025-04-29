@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 class Specter(Monster):
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int):
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int], size: int = 64):
         damage_sound = game.get_sound("specter_damage")
         damage_sound.set_volume(0.5)
 

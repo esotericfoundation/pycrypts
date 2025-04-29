@@ -29,15 +29,15 @@ class EntranceZone(Room):
     def create(self):
         super().create()
 
-        skeleton_1 = Skeleton(self.game, self, (525, 375), 64)
-        skeleton_2 = Skeleton(self.game, self, (450, 375), 64)
-        skeleton_3 = Skeleton(self.game, self, (375, 375), 64)
-        skeleton_4 = Skeleton(self.game, self, (525, 275), 64)
-        skeleton_5 = Skeleton(self.game, self, (450, 275), 64)
-        skeleton_6 = Skeleton(self.game, self, (375, 275), 64)
-        skeleton_7 = Skeleton(self.game, self, (525, 175), 64)
-        skeleton_8 = Skeleton(self.game, self, (450, 175), 64)
-        skeleton_9 = Skeleton(self.game, self, (375, 175), 64)
+        skeleton_1 = Skeleton(self.game, self, (525, 375))
+        skeleton_2 = Skeleton(self.game, self, (450, 375))
+        skeleton_3 = Skeleton(self.game, self, (375, 375))
+        skeleton_4 = Skeleton(self.game, self, (525, 275))
+        skeleton_5 = Skeleton(self.game, self, (450, 275))
+        skeleton_6 = Skeleton(self.game, self, (375, 275))
+        skeleton_7 = Skeleton(self.game, self, (525, 175))
+        skeleton_8 = Skeleton(self.game, self, (450, 175))
+        skeleton_9 = Skeleton(self.game, self, (375, 175))
 
         Shield(skeleton_3, self.game, self)
         Shield(skeleton_6, self.game, self)
@@ -45,13 +45,13 @@ class EntranceZone(Room):
 
         self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
 
-        Zombie(self.game, self, (900, 400), 64)
-        shield_zombie = Zombie(self.game, self, (1000, 400), 64)
+        Zombie(self.game, self, (900, 400))
+        shield_zombie = Zombie(self.game, self, (1000, 400))
         Shield(shield_zombie, self.game, self)
 
-        Specter(self.game, self, (200, 600), 64)
+        Specter(self.game, self, (200, 600))
 
-        SawTrap(Vector2(325, 450 + 32), Vector2(325, self.game.height - 95), 64, self.game, self)
+        SawTrap(self.game, self, Vector2(325, 450 + 32), Vector2(325, self.game.height - 95))
 
         Wall(self.game.top_left, self.game.bottom_left + (50, 0), self.game, self, True)
         border_right_1 = Wall(self.game.top_right + (-50, 0), self.game.top_right + (0, 240), self.game, self, True)
