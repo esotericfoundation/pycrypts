@@ -11,8 +11,8 @@ if TYPE_CHECKING:
 
 class Candle(Entity):
 
-    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, light_radius: int = 1200):
-        super().__init__(game, room, position, "lantern", 64)
+    def __init__(self, game: "PyCrypts", room: "Room", position: tuple[int, int] | Vector2, light_radius: int = 1200, size: int = 64):
+        super().__init__(game, room, position, "lantern", size)
 
         self.light_radius = light_radius
         self.no_clip = True
