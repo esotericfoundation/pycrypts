@@ -1,5 +1,4 @@
 import argparse
-import datetime
 import os
 import time
 import logging
@@ -20,6 +19,7 @@ from .tickable.renderable.collidable.walls.wall import Wall
 from .tickable.renderable.display.health_bar import HealthBar
 from .tickable.renderable.renderable import Renderable
 from .tickable.tickable import Tickable
+from datetime import datetime
 
 
 class PyCrypts:
@@ -327,7 +327,7 @@ class PyCrypts:
         return list(filter(lambda tickable: isinstance(tickable, Wall), self.get_collidables()))
 
     def get_millis(self):
-        return round(datetime.datetime.now().timestamp() * 1000)
+        return round(datetime.now().timestamp() * 1000)
 
     def end(self):
         self.logger.info("Game over!")
