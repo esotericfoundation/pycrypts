@@ -80,7 +80,7 @@ class BozoBossBarrack(Room):
         Wall(top_right_corner_block.get_bottom_left() + (-280, 80), top_right_corner_block.get_bottom_left() + (-240, 120), self.game, self)
 
         Wall(big_bottom_stub_right.get_top_right() + (240, -120), big_bottom_stub_right.get_top_right() + (280, -80), self.game, self)
-        Wall(bottom_right_corner_block.top_left + (-240, -120), bottom_right_corner_block.top_left + (-280, -80), self.game, self)
+        Wall(bottom_right_corner_block.top_left + (-280, -120), bottom_right_corner_block.top_left + (-240, -80), self.game, self)
 
         guard_1 = Zombie(self.game, self, bozo_boss_barracks_barricade.top_left + (120, -80), 64)
         guard_2 = Zombie(self.game, self, bozo_boss_barracks_barricade.bottom_right + (80, 80), 64)
