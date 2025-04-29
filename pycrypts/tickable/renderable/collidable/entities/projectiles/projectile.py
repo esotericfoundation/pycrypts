@@ -12,12 +12,13 @@ if TYPE_CHECKING:
 
 class Projectile(Entity):
 
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, direction: Vector2, speed: float = 1, size: int = 32):
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, character: str, direction: Vector2, strength: float = 0, speed: float = 1, size: int = 32):
         super().__init__(game, room, position, character, size)
 
         self.direction = direction
         self.shooter = shooter
         self.speed = speed
+        self.strength = strength
 
     def tick(self):
         super().tick()
@@ -48,6 +49,16 @@ class Projectile(Entity):
 
         if isinstance(entity, type(self.shooter)):
             return False
+
+        if isinstance(entity, Projectile):
+            if self.strength > entity.strength:
+                entity.unload()
+                return False
+            elif self.strength < entity.strength:
+                self.unload()
+                return False
+            else:
+                self.game.logger.warning(f"Two projectiles {self} and {entity} collided with the same strength!")
 
         self.on_hit(entity)
         return True

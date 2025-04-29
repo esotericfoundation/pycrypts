@@ -1,3 +1,4 @@
+import random
 from typing import TYPE_CHECKING
 
 import pygame
@@ -33,7 +34,9 @@ class Skeleton(Monster):
         self.goals.append(BackOffFromTargetGoal(self, 0, self.game, SawTrap, self.game.tickables, 0.7, 100))
 
     def attack_entity(self, entity: LivingEntity):
-        Fireball(self.game, self.room, self, self.get_center(), entity.position - self.position, 1.44)
+        strength = random.choice([-1, 1])
+
+        Fireball(self.game, self.room, self, self.get_center(), entity.position - self.position, strength, 1.44)
 
     def is_colliding(self, entity: Entity) -> bool:
         if isinstance(entity, Fireball):

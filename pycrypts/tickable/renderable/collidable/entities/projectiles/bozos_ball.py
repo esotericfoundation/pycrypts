@@ -13,8 +13,8 @@ if TYPE_CHECKING:
 
 
 class BozosBall(Projectile):
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2 | tuple[int, int], color: str = "red", speed = 1, size: int = 48):
-        super().__init__(game, room, shooter, position, f"balls/{color}", direction, speed, size)
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2 | tuple[int, int], color: str = "red", strength: float = 3, speed = 1, size: int = 48):
+        super().__init__(game, room, shooter, position, f"balls/{color}", direction, strength, speed, size)
 
     def tick(self):
         super().tick()

@@ -16,8 +16,8 @@ if TYPE_CHECKING:
 
 
 class Arrow(Projectile):
-    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2, size: int = 32, speed: float = 2.6):
-        super().__init__(game, room, shooter, position, "arrow", direction, speed, size)
+    def __init__(self, game: "PyCrypts", room: "Room", shooter: Entity, position: tuple[int, int] | Vector2, direction: Vector2, strength: float = 0, size: int = 32, speed: float = 2.6):
+        super().__init__(game, room, shooter, position, "arrow", direction, strength, speed, size)
 
         angle = math.atan2(self.direction.y, self.direction.x)
         self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)
