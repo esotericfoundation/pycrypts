@@ -7,7 +7,6 @@
 
 ## 1.0.0
 
-* Position candles better ✓
 * Make bozo's attacking phase last slightly longer
 * Give bozo more health & regen
 * Give bozo a staff
