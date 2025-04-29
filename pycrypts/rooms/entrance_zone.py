@@ -39,6 +39,10 @@ class EntranceZone(Room):
         skeleton_8 = Skeleton(self.game, self, (450, 175), 64)
         skeleton_9 = Skeleton(self.game, self, (375, 175), 64)
 
+        Shield(skeleton_3, self.game, self)
+        Shield(skeleton_6, self.game, self)
+        Shield(skeleton_9, self.game, self)
+
         self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
 
         Zombie(self.game, self, (900, 400), 64)
