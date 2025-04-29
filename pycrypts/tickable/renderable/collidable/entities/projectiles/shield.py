@@ -21,6 +21,7 @@ class Shield(Entity):
 
         self.monster = monster
         self.target = None
+        self.no_clip = True
         self.block_sound = game.get_sound("shield_block")
 
     def tick(self):
@@ -32,14 +33,12 @@ class Shield(Entity):
         self.position = self.monster.position + (20, 20)
 
     def is_colliding(self, entity: Collidable) -> bool:
-        if super().is_colliding(entity):
-            if isinstance(entity, Arrow):
-                entity.unload()
-                pygame.mixer.Sound.play(self.block_sound)
+        if not isinstance(entity, Arrow) and not isinstance(entity, Fireball):
+            return False
 
-            if isinstance(entity, Fireball):
-                entity.unload()
-                pygame.mixer.Sound.play(self.block_sound)
+        if self.position.distance_squared_to(entity.position) < ((self.size / 2 + entity.size / 2) ** 2):
+            entity.unload()
+            pygame.mixer.Sound.play(self.block_sound)
 
         return False
 
