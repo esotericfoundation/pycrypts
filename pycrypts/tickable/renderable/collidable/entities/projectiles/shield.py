@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class Shield(Entity):
     def __init__(self, monster: "Monster", game: "PyCrypts", room: "Room"):
-        super().__init__(game, room, monster.position, "shield", monster.size)
+        super().__init__(game, room, monster.position, "shield", 64)
 
         self.monster = monster
         self.target = None
@@ -30,7 +30,7 @@ class Shield(Entity):
         if not self.monster.is_valid():
             self.unload()
 
-        self.position = self.monster.position + (self.monster.size * 2.0 / 3.0, self.monster.size * 2.0 / 3.0)
+        self.position = self.monster.position + (self.monster.size * 2.0 / 5.0, self.monster.size * 2.0 / 5.0)
 
     def is_colliding(self, entity: Collidable) -> bool:
         if not isinstance(entity, Arrow) and not isinstance(entity, Fireball):
