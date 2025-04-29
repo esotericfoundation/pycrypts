@@ -33,4 +33,4 @@ class BozosBall(Projectile):
 
         from ..living.monsters.bozo import Bozo
         if isinstance(entity, LivingEntity) and not isinstance(entity, Bozo):
-            entity.damage(5)
+            entity.damage(5 * self.speed)
