@@ -91,6 +91,11 @@
 <sup>By [Xfrtrex][ghostly-shriek-sounds-author]</sup>\
 <sup>Licensed under [CC0][ghostly-shriek-sounds-license]</sup>
 
+## [Shovel Hitting Metal Swing Frame Sound][shovel-hitting-metal-swing-frame-sound]
+
+<sup>By [Jadester64][shovel-hitting-metal-swing-frame-sound-author]</sup>\
+<sup>Licensed under [CC0][shovel-hitting-metal-swing-frame-sound-license]</sup>
+
 <!-- Link aliases -->
 
 [pygame]: https://www.pygame.org/
@@ -168,6 +173,10 @@
 [ghostly-shriek-sounds]: https://freesound.org/people/Xfrtrex/sounds/772770/
 [ghostly-shriek-sounds-author]: https://freesound.org/people/Xfrtrex/
 [ghostly-shriek-sounds-license]: https://creativecommons.org/publicdomain/zero/1.0/
+
+[shovel-hitting-metal-swing-frame-sound]: https://freesound.org/people/Jadester64/sounds/370738/
+[shovel-hitting-metal-swing-frame-sound-author]: https://freesound.org/people/Jadester64/#packs
+[shovel-hitting-metal-swing-frame-sound-license]: https://creativecommons.org/publicdomain/zero/1.0/
 
 <!-- Generic licenses -->
 
