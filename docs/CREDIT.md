@@ -5,6 +5,11 @@
 <sup>By [pygame][pygame-author] and [pygame contributors][pygame-contributors]</sup>\
 <sup>[Licensed][pygame-license-statement] under the [LGPL 2.1][pygame-license]</sup>
 
+## [NumPy][numpy]
+
+<sup>[&copy; 2005-2024][numpy-copyright] [NumPy developers][numpy-contributors]</sup>\
+<sup>[Licensed][numpy-license-statement] under a [custom license][numpy-license] (also available [locally][numpy-license-local])</sup>
+
 ## [Twemoji][twemoji]
 
 <sup>[&copy; 2019][twemoji-copyright] [Twitter Incorporated][twemoji-author] and [Twemoji contributors][twemoji-contributors]</sup>\
@@ -103,6 +108,13 @@
 [pygame-contributors]: https://github.com/pygame/pygame/graphs/contributors
 [pygame-license-statement]: https://github.com/pygame/pygame/blob/2.6.1/README.rst?plain=1#L230
 [pygame-license]: https://github.com/pygame/pygame/blob/2.6.1/docs/LGPL.txt
+
+[numpy]: https://numpy.org/
+[numpy-contributors]: https://github.com/numpy/numpy/graphs/contributors
+[numpy-license-statement]: https://github.com/numpy/numpy/tree/v2.2.5?tab=License-1-ov-file
+[numpy-license]: https://github.com/numpy/numpy/blob/v2.2.5/LICENSE.txt
+[numpy-copyright]: https://github.com/numpy/numpy/blob/v2.2.5/LICENSE.txt#L1
+[numpy-license-local]: ./assets/text/licenses/LICENSE-NUMPY
 
 [inkscape]: https://inkscape.org/
 
