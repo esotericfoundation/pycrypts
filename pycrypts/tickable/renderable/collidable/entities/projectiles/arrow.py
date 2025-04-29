@@ -23,11 +23,6 @@ class Arrow(Projectile):
         self.image = pygame.transform.rotate(self.image, -math.degrees(angle) - 45)
 
     def on_hit(self, collidable: Collidable):
-        if isinstance(collidable, Fireball):
-            if not collidable.strong:
-                collidable.unload()
-                return
-
         if isinstance(collidable, LivingEntity):
             collidable.damage(10)
 
