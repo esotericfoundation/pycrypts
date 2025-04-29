@@ -4,16 +4,16 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from .fireball import Fireball
-from .projectile import Projectile
-from ..entity import Entity
-from ..living.living_entity import LivingEntity
-from ...collidable import Collidable
+from .projectiles.fireball import Fireball
+from .projectiles.projectile import Projectile
+from .entity import Entity
+from .living.living_entity import LivingEntity
+from ..collidable import Collidable
 
 if TYPE_CHECKING:
-    from ......game import PyCrypts
-    from ..living.players.player import Player
-    from ......rooms.room import Room
+    from .....game import PyCrypts
+    from .living.players.player import Player
+    from .....rooms.room import Room
 
 
 class Sword(Entity):

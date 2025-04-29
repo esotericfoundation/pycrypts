@@ -1,19 +1,15 @@
-import math
 from typing import TYPE_CHECKING
 
 import pygame
-from pygame import Vector2
 
-from .arrow import Arrow
-from .fireball import Fireball
-from .projectile import Projectile
-from ..entity import Entity
-from ...collidable import Collidable
+from .projectiles.projectile import Projectile
+from .entity import Entity
+from ..collidable import Collidable
 
 if TYPE_CHECKING:
-    from ......game import PyCrypts
-    from ......rooms.room import Room
-    from ..living.monsters.monster import Monster
+    from .....game import PyCrypts
+    from .....rooms.room import Room
+    from .living.monsters.monster import Monster
 
 
 class Shield(Entity):

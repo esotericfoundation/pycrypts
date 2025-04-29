@@ -6,7 +6,7 @@ from .room import Room
 from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
 from ..tickable.renderable.collidable.entities.living.monsters.specter import Specter
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
-from ..tickable.renderable.collidable.entities.projectiles.shield import Shield
+from ..tickable.renderable.collidable.entities.shield import Shield
 from ..tickable.renderable.collidable.entities.traps.saw_trap import SawTrap
 from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
 from ..tickable.renderable.collidable.walls.door import Door

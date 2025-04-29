@@ -5,7 +5,7 @@ from pygame import Vector2
 from .room import Room
 from ..tickable.renderable.collidable.entities.candle import Candle
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
-from ..tickable.renderable.collidable.entities.projectiles.shield import Shield
+from ..tickable.renderable.collidable.entities.shield import Shield
 from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
 from ..tickable.renderable.collidable.walls.door import Door
 from ..tickable.renderable.collidable.entities.living.monsters.bozo import Bozo

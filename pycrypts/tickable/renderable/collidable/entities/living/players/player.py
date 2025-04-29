@@ -5,7 +5,7 @@ from pygame import Vector2
 
 from ..living_entity import LivingEntity
 from ...projectiles.arrow import Arrow
-from ...projectiles.sword import Sword
+from ...sword import Sword
 from ....collidable import Collidable
 
 if TYPE_CHECKING:

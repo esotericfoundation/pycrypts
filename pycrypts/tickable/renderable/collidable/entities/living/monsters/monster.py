@@ -4,8 +4,6 @@ from pygame.mixer import Sound
 
 from ..living_entity import LivingEntity
 from ..players.player import Player
-from ...projectiles.shield import Shield
-from ....collidable import Collidable
 
 if TYPE_CHECKING:
     from .......game import PyCrypts
