@@ -22,7 +22,7 @@ class LivingEntity(Entity):
         self.damage_sound = damage_sound
         self.death_sound = death_sound
 
-    def damage(self, damage: int):
+    def damage(self, damage: float):
         self.health -= damage
 
         if self.health <= 0:
