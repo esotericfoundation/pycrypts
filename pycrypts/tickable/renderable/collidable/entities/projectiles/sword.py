@@ -4,8 +4,8 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Vector2
 
-from .arrow import Arrow
 from .fireball import Fireball
+from .projectile import Projectile
 from ..entity import Entity
 from ..living.living_entity import LivingEntity
 from ...collidable import Collidable
@@ -67,10 +67,7 @@ class Sword(Entity):
             if isinstance(entity, Player):
                 return False
 
-            if isinstance(entity, Arrow):
-                entity.unload()
-
-            if isinstance(entity, Fireball):
+            if isinstance(entity, Projectile):
                 entity.unload()
 
             return True
