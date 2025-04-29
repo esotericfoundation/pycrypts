@@ -63,8 +63,7 @@ class Sword(Entity):
 
     def is_colliding(self, entity: Collidable) -> bool:
         if super().is_colliding(entity):
-            from ..living.players.player import Player
-            if isinstance(entity, Player):
+            if isinstance(entity, type(self.user)):
                 return False
 
             if isinstance(entity, Projectile):
