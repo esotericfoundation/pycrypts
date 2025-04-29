@@ -38,6 +38,8 @@ class Bozo(Monster):
 
         super().__init__(game, room, position, 70, 900, damage_sound)
 
+        self.last_hit = 0
+
         self.is_calm = True
         self.is_aggressive = False
         self.is_going_crazy = False
@@ -66,6 +68,9 @@ class Bozo(Monster):
         super().tick()
 
         self.health_bar.tick()
+
+        self.health += (10 if self.game.get_millis() - self.last_hit > 12 * 1000 else 1) * self.game.dt
+        self.health = min(self.max_health, self.health)
 
     def ai_tick(self):
         if not self.room.brittle_wall.is_broken():
@@ -157,6 +162,11 @@ class Bozo(Monster):
 
     def die(self):
         super().die()
+
+    def damage(self, damage: float):
+        super().damage(damage)
+
+        self.last_hit = self.game.get_millis()
 
     def summon_mobs(self):
         mob_count = random.randint(1, 3)
