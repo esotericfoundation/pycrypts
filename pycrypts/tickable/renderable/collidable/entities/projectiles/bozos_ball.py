@@ -19,7 +19,7 @@ class BozosBall(Projectile):
     def tick(self):
         super().tick()
 
-        self.speed *= 1.005
+        self.speed += 2.5 * self.game.dt
 
     def is_colliding(self, entity: Collidable) -> bool:
         from ..living.monsters.bozo import Bozo
