@@ -48,13 +48,18 @@ class Bozo(Monster):
         game.logger.debug(f"Found {len(self.ball_types)} {type(self).__name__}'s ball types:")
         game.logger.debug(self.ball_types)
 
-        BossHealthBar(self.game, self, (50, 50), 5 + self.size + 5, 5)
+        self.health_bar = BossHealthBar(self.game, self, (50, 50), 5 + self.size + 5, 5)
 
     def register_goals(self):
         self.goals.append(self.blast_balls_goal)
         self.goals.append(self.back_off_goal)
         self.goals.append(self.chase_goal)
         self.goals.append(self.wander_goal)
+
+    def tick(self):
+        super().tick()
+
+        self.health_bar.tick()
 
     def ai_tick(self):
         if not self.room.brittle_wall.is_broken():
