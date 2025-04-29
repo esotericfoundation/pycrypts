@@ -47,18 +47,16 @@ class Projectile(Entity):
         if not colliding:
             return False
 
+        if isinstance(entity, type(self)):
+            return False
+
         if isinstance(entity, type(self.shooter)):
             return False
 
         if isinstance(entity, Projectile):
-            if self.strength > entity.strength:
+            if entity.strength <= self.strength:
                 entity.unload()
                 return False
-            elif self.strength < entity.strength:
-                self.unload()
-                return False
-            else:
-                self.game.logger.warning(f"Two projectiles {self} and {entity} collided with the same strength!")
 
         self.on_hit(entity)
         return True
