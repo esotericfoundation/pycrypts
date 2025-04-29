@@ -1,5 +1,6 @@
 from math import sqrt
-from typing import TYPE_CHECKING
+import random
+from typing import TYPE_CHECKING, Type
 
 import pygame
 from pygame import Vector2, Surface
@@ -158,3 +159,23 @@ class Entity(Collidable):
 
     def ccw(self, p1, p2, p3):
         return (p3.y - p1.y) * (p2.x - p1.x) > (p2.y - p1.y) * (p3.x - p1.x)
+
+    def summon_minion(self, entity_type: Type["Entity"], max_attempts: int = 5, distance_scale: float = 1.25, *entity_constructor_arguments):
+        entity = entity_type(*entity_constructor_arguments)
+
+        entity.unload()
+
+        vector = Vector2(self.size + entity.size, self.size + entity.size) * distance_scale
+
+        attempts = 0
+
+        while entity.is_clipping():
+            if attempts == max_attempts:
+                return
+
+            vector = vector.rotate(random.randint(1, 360))
+            entity.position = self.position + vector
+
+            attempts += 1
+
+        entity.load()
