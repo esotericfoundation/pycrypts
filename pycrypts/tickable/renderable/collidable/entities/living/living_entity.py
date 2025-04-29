@@ -26,6 +26,7 @@ class LivingEntity(Entity):
         self.health -= damage
 
         if self.health <= 0:
+            self.health = 0
             self.die()
         elif self.damage_sound is not None:
             pygame.mixer.Sound.play(self.damage_sound)
