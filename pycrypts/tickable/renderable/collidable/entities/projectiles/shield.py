@@ -21,6 +21,7 @@ class Shield(Entity):
 
         self.monster = monster
         self.target = None
+        self.block_sound = game.get_sound("shield_block")
 
     def tick(self):
         super().tick()
@@ -34,9 +35,11 @@ class Shield(Entity):
         if super().is_colliding(entity):
             if isinstance(entity, Arrow):
                 entity.unload()
+                pygame.mixer.Sound.play(self.block_sound)
 
             if isinstance(entity, Fireball):
                 entity.unload()
+                pygame.mixer.Sound.play(self.block_sound)
 
         return False
 
