@@ -6,6 +6,7 @@ from pygame import Vector2
 
 from .arrow import Arrow
 from .fireball import Fireball
+from .projectile import Projectile
 from ..entity import Entity
 from ...collidable import Collidable
 
@@ -33,7 +34,10 @@ class Shield(Entity):
         self.position = self.monster.position + (self.monster.size * 2.0 / 5.0, self.monster.size * 2.0 / 5.0)
 
     def is_colliding(self, entity: Collidable) -> bool:
-        if not isinstance(entity, Arrow) and not isinstance(entity, Fireball):
+        if not isinstance(entity, Projectile):
+            return False
+
+        if isinstance(entity.shooter, type(self.monster)):
             return False
 
         if self.position.distance_squared_to(entity.position) < ((self.size / 2 + entity.size / 2) ** 2):
