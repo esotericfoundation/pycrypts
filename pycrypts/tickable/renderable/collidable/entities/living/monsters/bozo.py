@@ -41,7 +41,7 @@ class Bozo(Monster):
         damage_sound = game.get_sound("bozo_damage")
         damage_sound.set_volume(0.5)
 
-        super().__init__(game, room, position, 70, 900, damage_sound)
+        super().__init__(game, room, position, 70, 750, damage_sound)
 
         self.last_hit = 0
 
