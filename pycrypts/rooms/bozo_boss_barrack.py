@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+import pygame
 from pygame import Vector2
 
 from .room import Room
@@ -104,5 +105,9 @@ class BozoBossBarrack(Room):
             sound.set_volume(0.5)
 
             sound.play()
+
+            pygame.mixer.music.set_volume(0.5)
+            pygame.mixer.music.load("assets/sounds/bozo_boss_music.mp3")
+            pygame.mixer.music.play(loops=-1, fade_ms=1000)
 
         self.brittle_wall = BrittleWall(stub_1.top_left + (0, 80), stub_2.bottom_right + (0, -80), [guard_1, guard_2], self.game, self, on_break)

@@ -3,6 +3,8 @@ import os
 import random
 from typing import TYPE_CHECKING, Type, List
 
+import pygame
+
 from .ai.goals.back_off_from_target import BackOffFromTargetGoal
 from .ai.goals.blast_bozos_balls import BlastBozosBallsGoal
 from .ai.goals.random_wander import RandomWanderGoal
@@ -168,6 +170,8 @@ class Bozo(Monster):
 
     def die(self):
         super().die()
+
+        pygame.mixer.music.stop()
 
     def damage(self, damage: float):
         super().damage(damage)
