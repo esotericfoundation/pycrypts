@@ -7,11 +7,10 @@
 
 ## 1.0.0
 
-* Give bozo a staff
-* Add helmet
 * More sounds (maybe music)
 
 ### Considered
 
+* Give bozo a staff
 * Randomise some monsters' stats
 * Make it so that you can't use a door if a monster is inside it (would fix trying to kill that monster but then using the door).
