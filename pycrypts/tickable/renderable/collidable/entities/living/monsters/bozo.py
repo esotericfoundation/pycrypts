@@ -173,11 +173,11 @@ class Bozo(Monster):
         self.last_hit = self.game.get_millis()
 
     def summon_mobs(self):
-        mob_count = random.randint(1, 3)
+        mob_count = random.randint(1, 2)
 
         mob_types: List[Type[Monster]] = random.choices(
             [Zombie, Skeleton, Specter],
-            [5, 3, 1],
+            [8, 6, 1],
             k = mob_count
         )
 
