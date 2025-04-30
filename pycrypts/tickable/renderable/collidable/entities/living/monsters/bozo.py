@@ -185,10 +185,10 @@ class Bozo(Monster):
         if entity is None:
             return None
 
-        if random.random() < 0.2 and not entity.no_clip:
+        if random.random() < 0.25 and not entity.no_clip:
             Shield(entity, self.game, self.room)
 
-        if random.random() < 0.2 and not entity.no_clip:
+        if random.random() < 0.25 and not entity.no_clip:
             Helmet(entity, self.game, self.room)
 
         return entity
