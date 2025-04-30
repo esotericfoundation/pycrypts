@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 from pygame import Vector2
 
 from .room import Room
+from ..tickable.renderable.collidable.entities.helmet import Helmet
 from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
 from ..tickable.renderable.collidable.entities.living.monsters.specter import Specter
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
@@ -42,6 +43,7 @@ class EntranceZone(Room):
         Shield(skeleton_3, self.game, self)
         Shield(skeleton_6, self.game, self)
         Shield(skeleton_9, self.game, self)
+        Helmet(skeleton_9, self.game, self)
 
         self.monsters_to_defeat.extend([skeleton_1, skeleton_2, skeleton_3, skeleton_4, skeleton_5, skeleton_6, skeleton_7, skeleton_8, skeleton_9])
 

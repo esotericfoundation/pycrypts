@@ -1,8 +1,10 @@
 from typing import TYPE_CHECKING
 
 from .room import Room
+from ..tickable.renderable.collidable.entities.helmet import Helmet
 from ..tickable.renderable.collidable.entities.living.monsters.skeleton import Skeleton
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
+from ..tickable.renderable.collidable.entities.shield import Shield
 from ..tickable.renderable.collidable.walls.door import Door
 from ..tickable.renderable.collidable.walls.wall import Wall
 

@@ -5,6 +5,7 @@ from pygame import Vector2
 
 from .room import Room
 from ..tickable.renderable.collidable.entities.candle import Candle
+from ..tickable.renderable.collidable.entities.helmet import Helmet
 from ..tickable.renderable.collidable.entities.living.monsters.zombie import Zombie
 from ..tickable.renderable.collidable.entities.shield import Shield
 from ..tickable.renderable.collidable.walls.brittle_wall import BrittleWall
@@ -98,6 +99,8 @@ class BozoBossBarrack(Room):
 
         Shield(guard_1, self.game, self)
         Shield(guard_2, self.game, self)
+        Helmet(guard_1, self.game, self)
+        Helmet(guard_2, self.game, self)
 
         def on_break():
             sound = self.game.get_sound("bozo_shrieking_laugh")

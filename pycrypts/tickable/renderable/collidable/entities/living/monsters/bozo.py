@@ -13,6 +13,7 @@ from .skeleton import Skeleton
 from .specter import Specter
 from .zombie import Zombie
 from ..players.player import Player
+from ...helmet import Helmet
 from ...projectiles.bozos_ball import BozosBall
 from ...shield import Shield
 from ....collidable import Collidable
@@ -186,6 +187,9 @@ class Bozo(Monster):
 
         if random.random() < 0.2 and not entity.no_clip:
             Shield(entity, self.game, self.room)
+
+        if random.random() < 0.2 and not entity.no_clip:
+            Helmet(entity, self.game, self.room)
 
         return entity
 
