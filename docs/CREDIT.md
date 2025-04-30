@@ -27,6 +27,11 @@
 <sup>By the [Microsoft Corporation][fluent-emoji-author], [Fluent Emoji contributors][fluent-emoji-contributors] and the [Esoteric Foundation][fluent-emoji-fork-author]</sup>\
 <sup>[Licensed][fluent-emoji-license-statement] under the [MIT License][fluent-emoji-license] (also available [locally][mit-license])</sup>
 
+## [Hat, Helmet, Layer Sticker (Viking Helmet)][viking-helmet]
+
+<sup>By [Laura Reen][viking-helmet-author]</sup>\
+<sup>Licensed under [CC BY-NC 3.0][viking-helmet-license]</sup>
+
 ## [Foggy][foggy]
 
 <sup>By [Reddit pygame][foggy-author] and [iminurnamez][foggy-creator]</sup>\
@@ -140,6 +145,10 @@
 [fluent-emoji-fork-author]: https://esoteric.foundation
 [fluent-emoji-license-statement]: https://github.com/esotericfoundation/fluentui-emoji/tree/11cd274b2f705419ded6d133f94b04bbada1fa02?tab=License-1-ov-file
 [fluent-emoji-license]: https://github.com/esotericfoundation/fluentui-emoji/blob/11cd274b2f705419ded6d133f94b04bbada1fa02/LICENSE
+
+[viking-helmet]: https://www.iconfinder.com/icons/2875625/hat_helmet_layer_photo_viking_icon
+[viking-helmet-license]: https://creativecommons.org/licenses/by-nc/3.0/
+[viking-helmet-author]: http://laurareen.com/
 
 [foggy]: https://github.com/reddit-pygame/Foggy/tree/e9868e9fcaebd665d25c2d8a32f676d3cc363f0e
 [foggy-author]: https://github.com/reddit-pygame
