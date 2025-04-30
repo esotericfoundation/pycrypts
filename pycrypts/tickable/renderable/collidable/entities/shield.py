@@ -40,6 +40,3 @@ class Shield(Entity):
             pygame.mixer.Sound.play(self.block_sound)
 
         return False
-
-    def is_hitting(self, entity: Collidable) -> bool:
-        return super().is_colliding(entity)
