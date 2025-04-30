@@ -1,6 +1,6 @@
 # PyCrypts
 
-[![Project status: unfinished][status]][root]
+[![Project status: maintained][status]][root]
 
 A [pygame][pygame] adventure featuring a sprawling underground dungeon filled with enemies and loot.
 
