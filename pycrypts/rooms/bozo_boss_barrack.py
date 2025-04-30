@@ -26,7 +26,7 @@ class BozoBossBarrack(Room):
     def create(self):
         super().create()
 
-        bozo = Bozo(self.game, self, self.game.center)
+        bozo = Bozo(self.game, self, self.game.center + (200, 0))
 
         top_border = Wall(self.game.top_left, self.game.top_right + (0, 40), self.game, self, True)
         bottom_border = Wall(self.game.bottom_left + (0, -40), self.game.bottom_right, self.game, self, True)
