@@ -2,10 +2,10 @@ import sys
 
 from pycrypts.game import PyCrypts # Absolute import required for PyInstaller executable
 
-pycrypt = PyCrypts(sys.argv)
-pycrypt.init()
+pycrypts = PyCrypts(sys.argv)
+pycrypts.init()
 
-while pycrypt.tick():
+while pycrypts.tick():
     pass
 
-pycrypt.quit()
+pycrypts.quit()
