@@ -37,6 +37,11 @@
 <sup>By [Paddy Polson][foggy-fork-author]</sup>\
 <sup>[Dedicated to the public domain][foggy-fork-license]</sup>
 
+## [8bit Dungeon Boss][8-bit-dungeon-boss]
+
+<sup>By [Kevin Macleod][8-bit-dungeon-boss-author]</sup>\
+<sup>Licensed under [CC BY 3.0][8-bit-dungeon-boss-license]</sup>
+
 ## [Small Rock Break Sound][small-rock-break]
 
 <sup>By [LordSonny][small-rock-break-author]</sup>\
@@ -144,6 +149,10 @@
 [foggy-fork]: https://github.com/paddypolson/Foggy/tree/10b27bff350db929b2f6850ad1edb9a2dab0e2fa
 [foggy-fork-author]: https://github.com/paddypolson
 [foggy-fork-license]: https://github.com/paddypolson/Foggy/blob/10b27bff350db929b2f6850ad1edb9a2dab0e2fa/attribution.txt#L26
+
+[8-bit-dungeon-boss]: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200067&Search=Search
+[8-bit-dungeon-boss-author]: https://www.kevinmacleod.co.uk/
+[8-bit-dungeon-boss-license]: https://creativecommons.org/licenses/by/3.0/
 
 [small-rock-break]: https://pixabay.com/sound-effects/small-rock-break-194553/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
 [small-rock-break-author]: https://pixabay.com/users/lordsonny-38439655/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=194553
