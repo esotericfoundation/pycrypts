@@ -37,7 +37,7 @@
 <sup>By [Paddy Polson][foggy-fork-author]</sup>\
 <sup>[Dedicated to the public domain][foggy-fork-license]</sup>
 
-## [Small Rock Break][small-rock-break]
+## [Small Rock Break Sound][small-rock-break]
 
 <sup>By [LordSonny][small-rock-break-author]</sup>\
 <sup>Licensed under the [Pixabay Terms of Service][small-rock-break-license]</sup>
