@@ -7,8 +7,6 @@
 
 ## 1.0.0
 
-* More sounds (maybe music)
-
 ### Considered
 
 * Give bozo a staff
