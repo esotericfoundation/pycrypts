@@ -56,7 +56,7 @@ class Bozo(Monster):
         game.logger.debug(f"Found {len(self.ball_types)} {type(self).__name__}'s ball types:")
         game.logger.debug(self.ball_types)
 
-        self.health_bar = BossHealthBar(self.game, self, (50, 50), 5 + self.size + 5, 5)
+        self.health_bar: BossHealthBar | None = None
 
     def register_goals(self):
         self.goals.append(self.blast_balls_goal)
@@ -67,7 +67,8 @@ class Bozo(Monster):
     def tick(self):
         super().tick()
 
-        self.health_bar.tick()
+        if self.health_bar is not None:
+            self.health_bar.tick()
 
         self.health += (10 if self.game.get_millis() - self.last_hit > 12 * 1000 else 1) * self.game.dt
         self.health = min(self.max_health, self.health)
@@ -77,6 +78,9 @@ class Bozo(Monster):
             return
 
         super().ai_tick()
+
+        if self.health_bar is None:
+            self.health_bar = BossHealthBar(self.game, self, (50, 50), 5 + self.size + 5, 5)
 
         self.summon_mobs_timer -= self.game.dt
         if self.summon_mobs_timer <= 0:
